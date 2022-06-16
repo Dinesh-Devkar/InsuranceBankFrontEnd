@@ -34,6 +34,12 @@ import { InsuranceAccountComponent } from './admin/insurance-account/insurance-a
 import { ViewCustomersComponent } from './admin/view-customers/view-customers.component';
 import { ProfileComponent } from './admin/profile/profile.component';
 import { ViewPolicyPaymentComponent } from './admin/view-policy-payment/view-policy-payment.component';
+import { AgentProfileComponent } from './agent/agent-profile/agent-profile.component';
+import { MarketingComponent } from './agent/marketing/marketing.component';
+import { AgentDashboardComponent } from './agent/agent-dashboard/agent-dashboard.component';
+import { AgentViewCustomersComponent } from './agent/agent-view-customers/agent-view-customers.component';
+import { AgentInsuranceAccountComponent } from './agent/agent-insurance-account/agent-insurance-account.component';
+import { AgentPolicyPaymentComponent } from './agent/agent-policy-payment/agent-policy-payment.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -69,6 +75,14 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'viewcustomers',component:ViewCustomersComponent},
                       {path:'adminprofile',component:ProfileComponent},
                       {path:'policypayment',component:ViewPolicyPaymentComponent},
+                      {path:'agentprofile',component:AgentProfileComponent},
+                      {path:'marketing',component:MarketingComponent},
+                      {path:'agentdashboard',component:AgentDashboardComponent},
+                      {path:'agentviewcustomer',component:AgentViewCustomersComponent},
+                      {path:'agentinsuranceaccount',component:AgentInsuranceAccountComponent},
+                      {path:'agentpolicypayment',component:AgentPolicyPaymentComponent},
+                      {path:'agentcommisionclaim',component:AgentPolicyPaymentComponent},
+
 
 ];
 

@@ -22,6 +22,7 @@ import { AddAgentComponent } from './admin/add-agent/add-agent.component';
 import { EmpDashboardComponent } from './employee/emp-dashboard/emp-dashboard.component';
 import {HttpClientModule} from '@angular/common/http'
 import { AdminModule } from './admin/admin.module';
+import { AgentDashboardComponent } from './agent/agent-dashboard/agent-dashboard.component';
 
 
 
@@ -42,7 +43,8 @@ import { AdminModule } from './admin/admin.module';
     AddInsuranceComponent,
     AddCityComponent,
       
-    EmpDashboardComponent
+    EmpDashboardComponent,
+    AgentDashboardComponent,
   ],
   imports: [
     BrowserModule,

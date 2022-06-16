@@ -22,6 +22,7 @@ export class DefaultNavbarComponent implements OnInit {
   checkUser(){
     //this.user='admin';
     //this.user='employee'
+    
     this.auth.RefreshRequired.subscribe((data:any)=>{
       //this.user=data.error
       alert("Inside Navbar")
