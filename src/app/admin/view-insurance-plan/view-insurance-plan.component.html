@@ -1,6 +1,6 @@
 <div class="container ">
     <div style="text-align: center; margin-bottom:20px;">
-        <h1> View Insurance Scheme</h1>
+        <h1> View Insurance Plan</h1>
     </div>
 </div>
 
@@ -23,18 +23,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let insurancePlan of insurancePlansList">
                 
-                <td>Pretection Plan</td>
-                <td>Future Genius Education plan</td>
-                <td>2</td>
-                <td>8</td>
-                <td>30</td>
-                <td>45</td>
-                <td>100000</td>
-                <td>150000</td>
-                <td>8</td>
-                <td>Active</td> 
+                <td>{{insurancePlan.insuranceType}}</td>
+                <td>{{insurancePlan.insuranceScheme}}</td>
+                <td>{{insurancePlan.minimumYears}}</td>
+                <td>{{insurancePlan.maximumYears}}</td>
+                <td>{{insurancePlan.minimumAge}}</td>
+                <td>{{insurancePlan.maximumAge}}</td>
+                <td>{{insurancePlan.minimumInvestAmt}}</td>
+                <td>{{insurancePlan.maximumInvestAmt}}</td>
+                <td>{{insurancePlan.profitRatio}}</td>
+                <td>{{insurancePlan.status}}</td> 
                 <td><a href="" style="color:red">Edit</a>| <a href="" style="color:red">delete</a></td>
             </tr>
 

@@ -30,5 +30,23 @@ export class DataServiceService {
     return this.http.get(`http://localhost:5137/api/InsuranceType/GetAllInsuranceTypes`);
   }
 
+  AddInsuranceScheme(insuranceSheme:any){
+    return this.http.post(`http://localhost:5137/api/InsuranceScheme/AddInsuranceScheme`,insuranceSheme)
+  }
+
+  GetAllInsuranceSchemes(){
+    return this.http.get(`http://localhost:5137/api/InsuranceScheme/GetAllInsuranceSchemes`);
+  }
+
+  AddInsurancePlan(insurancePlan:any){
+    return this.http.post(`http://localhost:5137/api/InsurancePlan/AddInsurancePlan`,insurancePlan)
+  }
+  GetAllInsuranceSchemesByInsuranceType(insuranceType:any){
+    return this.http.get(`http://localhost:5137/api/InsuranceScheme/${insuranceType}/GetInsuranceSchemesByInsuranceType`)
+  }
+  GetAllInsurancePlans(){
+    return this.http.get(`http://localhost:5137/api/InsurancePlan/GetAllInsurancePlans`)
+  }
+
   
 }

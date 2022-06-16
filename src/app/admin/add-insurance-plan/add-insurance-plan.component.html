@@ -1,4 +1,3 @@
-
 <div class="container ">
     <div style="text-align: center; margin-bottom:20px;">
         <h1> Adding Insurance Plan</h1>
@@ -7,102 +6,159 @@
 <div></div>
 <div class="row justify-content-center me-2">
     <div class="col-auto border col-md-6">
-        <table class="table table-striped p-4">
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Insurance Type</th>
-                    <td><select name="Status">
-                        <option value="Old Age">Old Age</option>
-                        <option value="Health">Health</option>
-                    </select></td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Insurance Scheme</th>
-                    <td><input type="text"></td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Policy Term</th>    
-                    <td></td>                  
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Minimum </th>
-                    <td><input type="text"></td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Maximum </th>
-                    <td><input type="text"></td>
-                </tr>
-            </tbody>
+        <form [formGroup]="insurancePlan">
+            <table class="table table-striped p-4">
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Insurance Type</th>
+                        <td><select name="Status" formControlName="insuranceType" (change)="GenerateInsuranceSchemeList($event.target)">
+                                <option value="">Select Insurance Type</option>
+                                <option value="{{insuranceType.insuranceName}}" *ngFor="let insuranceType of insuranceTypesList">{{insuranceType.insuranceName}}</option>
+                            </select>
+                            <span style="color: red;"
+                            *ngIf="InsuranceType && InsuranceType.invalid && InsuranceType.touched">Insurance Type
+                            Required
+                        </span>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Insurance Scheme</th>
+                        <td><select name="Status" formControlName="insuranceScheme">
+                                <option value="">Select Insurance Scheme</option>
+                                <option value="{{insuranceScheme.insuranceSchemeName}}" *ngFor="let insuranceScheme of insuranceSchemesList">{{insuranceScheme.insuranceSchemeName}}</option>
+                            </select>
+                            <span style="color: red;"
+                            *ngIf="InsuranceScheme && InsuranceScheme.invalid && InsuranceScheme.touched">Insurance Scheme
+                            Required
+                        </span>
+                        </td>
+                    </tr>
+                </tbody>
+               
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Insurance Plan Name : </th>
+                        <td><input type="text" formControlName="insurancePlanName">
+                            <span style="color: red;"
+                            *ngIf="InsurancePlan && InsurancePlan.invalid && InsurancePlan.touched">Insurance Plan Is
+                            Required
+                        </span></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Policy Term</th>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Minimum Years : </th>
+                        <td><input type="text" formControlName="minimumYears">
+                            <span style="color: red;"
+                            *ngIf="MinimumYears && MinimumYears.invalid && MinimumYears.touched">Minimum Years
+                            Required
+                        </span></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Maximum Years : </th>
+                        <td><input type="text" formControlName="maximumYears">
+                            <span style="color: red;"
+                            *ngIf="MaximumYears && MaximumYears.invalid && MaximumYears.touched">Maximum Years
+                            Required
+                        </span></td>
+                    </tr>
+                </tbody>
 
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Age</th> 
-                    <td></td>                     
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Minimum </th>
-                    <td><input type="text"></td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Maximum </th>
-                    <td><input type="text"></td>
-                </tr>
-            </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Age</th>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Minimum Age : </th>
+                        <td><input type="text" formControlName="minimumAge">
+                            <span style="color: red;"
+                            *ngIf="MinimumAge && MinimumAge.invalid && MinimumAge.touched">Minimum Age
+                            Required
+                        </span></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Maximum Age : </th>
+                        <td><input type="text" formControlName="maximumAge">
+                            <span style="color: red;"
+                            *ngIf="MaximumAge && MaximumAge.invalid && MaximumAge.touched">Maximum Age
+                            Required
+                        </span></td>
+                    </tr>
+                </tbody>
 
 
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Total Investment Amount</th>
-                    <td></td>                   
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Minimum </th>
-                    <td><input type="text"></td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Maximum </th>
-                    <td><input type="text"></td>
-                </tr>
-            </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Total Investment Amount</th>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Minimum Invest Amount : </th>
+                        <td><input type="text" formControlName="minimumInvestAmt">
+                            <span style="color: red;"
+                            *ngIf="MinimumInvestAmt && MinimumInvestAmt.invalid && MinimumInvestAmt.touched">Minimum Invest Amount
+                            Required
+                        </span></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Maximum Invest Amount : </th>
+                        <td><input type="text" formControlName="maximumInvestAmt">
+                            <span style="color: red;"
+                            *ngIf="MaximumInvestAmt && MaximumInvestAmt.invalid && MaximumInvestAmt.touched">Maximum Invest Amount
+                            Required
+                        </span></td>
+                    </tr>
+                </tbody>
 
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Profit Ratio </th>
-                    <td><input type="text"></td>
-                </tr>
-            </tbody>            
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Status</th>
-                    <td><select name="Status">
-                        <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
-                    </select></td>
-                </tr>
-            </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Profit Ratio : </th>
+                        <td><input type="text" formControlName="profitRatio">
+                            <span style="color: red;"
+                            *ngIf="ProfitRatio && ProfitRatio.invalid && ProfitRatio.touched">Profit Ratio
+                            Required
+                        </span></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Status : </th>
+                        <td><select name="Status" formControlName="status">
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                            <span style="color: red;"
+                            *ngIf="Status && Status.invalid && Status.touched">Status Is
+                            Required
+                        </span></td>
+                    </tr>
+                </tbody>
 
 
-        </table>
-        <button class="btn btn-danger">Submit</button>
+            </table>
+            <button class="btn btn-danger" [disabled]="insurancePlan.invalid" (click)="AddInsurancePlan()">Submit</button>
+        </form>
+        
 
     </div>
 </div>
-
-
-
