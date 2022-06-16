@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
   selector: 'app-add-city',
@@ -7,22 +8,35 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./add-city.component.css']
 })
 export class AddCityComponent implements OnInit {
+  statesList:any
   city=new FormGroup({
     state:new FormControl('',Validators.required),
-    cityname:new FormControl('',Validators.required),
+    cityName:new FormControl('',Validators.required),
     status: new FormControl('',Validators.required)
   })
 
-  constructor() { }
+  constructor(private dataService:DataServiceService) { }
 
+  AddCity(){
+    this.dataService.AddCity(this.city.value).subscribe((data:any)=>{
+      alert(data.message)
+      this.city.reset()
+    },(error:any)=>{
+      alert(error.error.message)
+    })
+  }
   ngOnInit(): void {
+    this.dataService.GetAllStates().subscribe((data:any)=>{
+      this.statesList=data.$values
+      console.log(data)
+    })
   }
 
   get State(){
     return this.city.get('state')
   }
   get CityName(){
-    return this.city.get('cityname')
+    return this.city.get('cityName')
   }
   get Status(){
     return this.city.get('status')

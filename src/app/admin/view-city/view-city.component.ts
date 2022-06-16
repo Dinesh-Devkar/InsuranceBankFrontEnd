@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
   selector: 'app-view-city',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewCityComponent implements OnInit {
 
-  constructor() { }
+  cityList:any
+  constructor(private dataService:DataServiceService) { }
 
   ngOnInit(): void {
+    this.dataService.GetAllCities().subscribe((data:any)=>{
+      this.cityList=data.$values
+      console.log(data)
+    },(error:any)=>{
+      alert(error.error.message)
+    })
   }
 
 }

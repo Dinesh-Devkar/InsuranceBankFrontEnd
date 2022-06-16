@@ -49,7 +49,8 @@ import { AddStateComponent } from './add-state/add-state.component';
     ViewCustomersComponent,
     ViewPolicyPaymentComponent,
     AddStateComponent,
-    AddInsuranceSchemeComponent
+    AddInsuranceSchemeComponent,
+    AddInsurancePlanComponent
   ],
   imports: [
     CommonModule,

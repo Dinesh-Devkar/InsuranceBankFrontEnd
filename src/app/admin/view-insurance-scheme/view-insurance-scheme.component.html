@@ -16,15 +16,14 @@
                 <th scope="col">Action</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let insuranceScheme of insuranceSchemesList">
             <tr>
-                <th scope="row"><img src="assets/ins2.jpg" alt="" width="70" /></th>
-                <td>Pretection Plan</td>
-                <td>Commision for new Payment 15.0% <br>
-                    Commision for installment payment 7.0%</td>
-                <td>Cancer Protection Plan <br> loren Ipsum loren Ipsum loren Ipsum loren Ipsum loren Ipsum
-                </td>
-                <td>Active</td>
+                <th scope="row"><img [src]="insuranceScheme.image" alt="" width="70" /></th>
+                <td>{{insuranceScheme.insuranceSchemeName}}</td>
+                <td class="text-center p-3 font-weight-bold"><b> Commision for new Payment {{insuranceScheme.newRegComission}}% <br><hr>
+                    Commision for installment payment {{insuranceScheme.installmentComission}}% </b></td>
+                <td>{{insuranceScheme.note}}</td>
+                <td>{{insuranceScheme.status}}</td>
                 <td><a href="" style="color:red">Edit</a>| <a href="" style="color:red">delete</a></td>
             </tr>
 

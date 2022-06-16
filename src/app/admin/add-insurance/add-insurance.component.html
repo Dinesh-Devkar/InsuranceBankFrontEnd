@@ -7,12 +7,12 @@
 <div class="row justify-content-center me-2">
 
     <div class="col-auto border">
-        <form [formGroup]="insurance">
+        <form [formGroup]="insuranceType">
             <table class="table table-striped p-4">
                 <tbody>
                     <tr>
                         <th class="border" scope="row">Insurance Type</th>
-                        <td><input type="text" class="form-control" formControlName="insurancetype">
+                        <td><input type="text" class="form-control" formControlName="insuranceName">
                             <span style="color: red;"
                                 *ngIf="InsuranceType && InsuranceType.invalid && InsuranceType.touched">Insurance Type
                                 Required</span>
@@ -23,7 +23,7 @@
                 <tbody>
                     <tr>
                         <th class="border" scope="row">Image</th>
-                        <td><input type="file" accept="image/x-png,image/gif,image/jpeg" formControlName="image">
+                        <td><input type="file" (change)="onChange($event)">
                             <span style="color: red;" *ngIf="Image && Image.invalid && Image.touched">Image
                                 Required</span>
                         </td>
@@ -43,8 +43,9 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="btn btn-danger" [disabled]="insurance.invalid">Submit</button>
+            <button class="btn btn-danger" [disabled]="insuranceType.invalid" (click)="AddInsuranceType()">Submit</button>
         </form>
+        <img [src]="img" width="200px" height="200px" alt="" />
     </div>
 </div>
  

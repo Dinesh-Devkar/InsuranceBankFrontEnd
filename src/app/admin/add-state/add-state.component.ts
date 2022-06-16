@@ -22,7 +22,7 @@ export class AddStateComponent implements OnInit {
       this.state.reset()
     },(error:any)=>{
       alert(error.error.message)
-    })
+    }) 
 
   }
   ngOnInit(): void {
