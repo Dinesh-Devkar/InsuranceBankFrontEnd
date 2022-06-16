@@ -14,9 +14,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">xyz</th>
-            <td>Active</td>                       
+          <tr *ngFor="let insuranceType of insuranceTypesList">
+            <th scope="row">{{insuranceType.insuranceName}}</th>
+            <td>{{insuranceType.status}}</td>                       
             <td ><a href="" style="color:red">Edit</a>| <a href="" style="color:red">delete</a></td>
           </tr>        
           

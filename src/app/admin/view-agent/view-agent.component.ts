@@ -10,11 +10,9 @@ import { CommonModule } from '@angular/common';
 export class ViewAgentComponent implements OnInit {
 
   agentsList:any
-  ab=[1,2,3,4,5]
   constructor(private agentService:AgentServiceService) { }
 
   ngOnInit(): void {
-    this.ab=[40,50,60,40,50]
     this.agentService.GetAllAgents().subscribe((data:any)=>{
       console.log(data)
       console.log(data.$values)
