@@ -1,0 +1,32 @@
+<div class="container ">
+    <div style="text-align: center; margin-bottom:20px;">
+        <h1> View Employee Records</h1>
+    </div>
+</div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Employee Type</th>
+            <th scope="col">Employee Name</th>            
+            <th scope="col">Login Id</th>
+            <th scope="col">Email</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employeesList">
+            <th scope="row">Admin</th>
+            <td>{{employee.name}}</td>      
+            <td>{{employee.loginId}}</td>    
+            <td>{{employee.email}}</td> 
+            <td>{{employee.status}}</td>            
+            <td ><a href="" style="color:red">Edit</a>| <a href="" style="color:red">delete</a></td>
+          </tr>        
+          
+        </tbody>
+      </table>
+</div>
+

@@ -1,0 +1,91 @@
+<div class="container ">
+    <div style="text-align: center; margin-bottom:20px;">
+        <h1> Adding Employee Record</h1>
+    </div>
+</div>
+<div></div>
+<div class="row justify-content-center me-2">
+
+    <div class="col-auto border">
+        <form [formGroup]="employee">
+            <table class="table table-striped p-4">   
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Employee Type</th>
+                        <td><select name="Status" formControlName="userRoll">
+                            <option value="Admin">Admin</option>
+                            <option value="Employee">Employee</option>
+                        </select>
+                         <span style="color: red;" *ngIf="EmployeeType && EmployeeType.invalid && EmployeeType.touched">
+                            EmployeeType Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Employee Name</th>
+                        <td class="">
+                            <input type="text" formControlName="name">
+                            <span style="color: red;" *ngIf="EmployeeName && EmployeeName.invalid && EmployeeName.touched ">
+                                EmployeeName Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Login Id</th>
+                        <td class="">
+                            <input type="text" formControlName="loginid">
+                            <span style="color: red;" *ngIf="LoginId && LoginId.invalid && LoginId.touched ">
+                                LoginId Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Email</th>
+                        <td class="">
+                            <input type="text" formControlName="email">
+                            <span style="color: red;" *ngIf="Email && Email.invalid && Email.touched ">
+                                Email Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Password</th>
+                        <td class="">
+                            <input type="password" formControlName="password">
+                            <span style="color: red;" *ngIf="Password && Password.invalid && Password.touched ">
+                                Password Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Confirm Password</th>
+                        <td class="">
+                            <input type="password" formControlName="confirmPassword">
+                            <span style="color: red;" *ngIf="ConfirmPassword && ConfirmPassword.invalid && ConfirmPassword.touched ">
+                                ConfirmPassword Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Status</th>
+                        <td class="">
+                            <select name="Status" formControlName="userStatus">
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                            <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched "> Status
+                                Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-danger" [disabled]="employee.invalid" (click)="AddUser()">Submit</button>
+        </form>
+    </div>
+</div>

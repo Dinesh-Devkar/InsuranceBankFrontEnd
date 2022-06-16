@@ -1,0 +1,44 @@
+<div class="container ">
+    <div style="text-align: center; margin-bottom:20px;">
+        <h1> State</h1>
+        <h4>Kindly enter the Credentials</h4>
+    </div>
+</div>
+<div></div>
+<div class="row justify-content-center me-2">
+
+    <div class="col-auto border">
+        <form [formGroup]="state">
+
+
+            <table class="table table-striped p-4">
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">State</th>
+                        <td><input type="text" formControlName="stateName">
+                            <span style="color: red;" *ngIf="StateName && StateName.invalid && StateName.touched ">
+                                State Required</span>
+                        </td>
+
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Status</th>
+                        <td class="">
+                            <select name="Status" formControlName="status">
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                            <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched ">
+                                Status Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+
+
+            </table>
+            <button class="btn btn-danger" [disabled]="state.invalid" (click)="AddState()">Add</button>
+        </form>
+    </div>
+</div>

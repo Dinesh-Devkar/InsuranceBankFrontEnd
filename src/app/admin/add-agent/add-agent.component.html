@@ -1,0 +1,103 @@
+<div class="container ">
+    <div style="text-align: center; margin-bottom:20px;">
+        <h1> Agent Registration</h1>
+        <p>Kindly enter the credentials</p>
+    </div>
+</div>
+<div></div>
+<div class="row justify-content-center me-2">
+
+    <div class="col-auto border">
+        <form [formGroup]="agent">
+            <table class="table table-striped p-4">  
+                
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Agent Name</th>
+                        <td class="">
+                            <input type="text" formControlName="agentname">
+                            <!-- <span style="color: red;" *ngIf="EmployeeName && EmployeeName.invalid && EmployeeName.touched ">
+                                EmployeeName Required</span> -->
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Agent Code</th>
+                        <td class="">
+                            <input type="text" formControlName="agentcode">
+                            <!-- <span style="color: red;" *ngIf="LoginId && LoginId.invalid && LoginId.touched ">
+                                LoginId Required</span> -->
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Password</th>
+                        <td class="">
+                            <input type="text" formControlName="password">
+                            <!-- <span style="color: red;" *ngIf="Password && Password.invalid && Password.touched ">
+                                Password Required</span> -->
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Confirm Password</th>
+                        <td class="">
+                            <input type="text" formControlName="confirmpassword">
+                            <!-- <span style="color: red;" *ngIf="ConfirmPassword && ConfirmPassword.invalid && ConfirmPassword.touched ">
+                                ConfirmPassword Required</span> -->
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Agent Address</th>
+                        <td class="">
+                            <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Write something here..."
+                             formControlName="address"></textarea>
+
+                            <!-- <span style="color: red;" *ngIf="ConfirmPassword && ConfirmPassword.invalid && ConfirmPassword.touched ">
+                                ConfirmPassword Required</span> -->
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Email id</th>
+                        <td class="">
+                            <input type="text" formControlName="confirmpassword">
+                            <!-- <span style="color: red;" *ngIf="ConfirmPassword && ConfirmPassword.invalid && ConfirmPassword.touched ">
+                                ConfirmPassword Required</span> -->
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Qualification</th>
+                        <td class="">
+                            <input type="text" formControlName="confirmpassword">
+                            <!-- <span style="color: red;" *ngIf="ConfirmPassword && ConfirmPassword.invalid && ConfirmPassword.touched ">
+                                ConfirmPassword Required</span> -->
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Status</th>
+                        <td class="">
+                            <select name="Status" formControlName="status">
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                            <!-- <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched "> Status
+                                Required</span> -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-danger" [disabled]="agent.invalid" >Submit</button>
+        </form>
+    </div>
+</div>

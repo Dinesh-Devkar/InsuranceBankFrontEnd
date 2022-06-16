@@ -1,0 +1,149 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+
+            <div *ngIf="user==''">
+                <div class="navbar-nav">
+
+                    <a routerLink="" routerLinkActive="router-link-active" class="nav-item nav-link active">Home</a>
+                    <a href="#" class="nav-item nav-link">About Us</a>
+                    <a href="#" class="nav-item nav-link">Services</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insurance Plans</a>
+                        <div class="dropdown-menu">
+                            <a routerLink="protection" class="dropdown-item">Plan 1</a>
+                            <a href="#" class="dropdown-item">Plan 2</a>
+                            <a href="#" class="dropdown-item">Plan 3</a>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-item nav-link">Contact</a>
+                    <a class="float-right" routerLink="login" class="nav-item nav-link">Login</a>
+                    <a class="float-right" routerLink="register" class="nav-item nav-link">Register</a>
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Admin Navbar -->
+
+            <div *ngIf="user=='Admin'">
+                <div class="navbar-nav">
+
+                    <a routerLink="/dashboard" routerLinkActive="router-link-active"
+                        class="nav-item nav-link active">Dashboard</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Agent</a>
+                        <div class="dropdown-menu">
+                            <a routerLink="/addagent" class="dropdown-item">Add Agent</a>
+                            <a routerLink="/viewagent" class="dropdown-item">View Agent</a>
+                            <a routerLink="/viewcommison" class="dropdown-item">View Commision</a>
+                            <a routerLink="/commisonwithdraw" class="dropdown-item">View Commision Withdrawl </a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insurance</a>
+                        <div class="dropdown-menu">
+                            <a routerLink="/viewcustomers" class="dropdown-item">View Customers</a>
+                            <a routerLink="/insuranceaccount" class="dropdown-item">Insurance Account</a>
+                            <a routerLink="/policypayment" class="dropdown-item">View Policy Payment</a>
+                            <a routerLink="/commisionclaim" class="dropdown-item">View Commision Claim </a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Queries</a>
+                        <div class="dropdown-menu">
+                            <a routerLink="/viewfeedback" class="dropdown-item">Feedback</a>
+
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insurance Type </a>
+                        <div class="dropdown-menu">
+                            <a routerLink="/addinsurance" class="dropdown-item">Add Insurance Type</a>
+                            <a routerLink="/viewinsurance" class="dropdown-item">View Insurance Type</a>
+                            <a routerLink="/addinsurancescheme" class="dropdown-item">Add Insurance Scheme</a>
+                            <a routerLink="/viewinsurancescheme" class="dropdown-item">View Insurance Scheme </a>
+                            <a routerLink="/addinsuranceplan" class="dropdown-item">Add Insurance Plan </a>
+                            <a routerLink="/viewinsuranceplan" class="dropdown-item">View Insurance Plan </a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Settings</a>
+                        <div class="dropdown-menu">
+                            <a routerLink="/tax" class="dropdown-item">Tax Settings</a>
+                            <a routerLink="/insurancesetting" class="dropdown-item">insurance Settings</a>
+                            <a routerLink="/addcity" class="dropdown-item">Add City</a>
+                            <a routerLink="/viewcity" class="dropdown-item">View City</a>
+                            <a routerLink="/addstate" class="dropdown-item">Add State</a>
+                            <a routerLink="/viewstate" class="dropdown-item">View State</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Account</a>
+                        <div class="dropdown-menu">
+                            <a routerLink="/adminprofile" class="dropdown-item">Profile</a>
+                            <a routerLink="/changepassword" class="dropdown-item">Change Password</a>
+                            <a routerLink="/addemployee" class="dropdown-item">Add Employee</a>
+                            <a routerLink="/viewemployee" class="dropdown-item">View Employee</a>
+                        </div>
+                    </div>
+
+                    <!-- <a href="#" class="nav-item nav-link">Contact</a> -->
+                    <a class="float-right" routerLink="" class="nav-item nav-link">Logout</a>
+                    <!-- <a class="float-right" routerLink="register" class="nav-item nav-link">Register</a> -->
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employee Navbar -->
+            <div *ngIf="user=='employee'">
+                <div class="container-fluid ">
+                    <div class="navbar-nav navbar empNav">
+                        <a routerLink="/empdashboard" routerLinkActive="router-link-active"
+                            class="nav-item nav-link active">Dashboard</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Agent</a>
+                            <div class="dropdown-menu">
+                                <a routerLink="/addagent" class="dropdown-item">Add Agent</a>
+                                <a routerLink="/viewagent" class="dropdown-item">View Agent</a>
+                                <a routerLink="/viewcommison" class="dropdown-item">View Commision</a>
+                                <a routerLink="/commisonwithdraw" class="dropdown-item">View Commision Withdrawl </a>
+                            </div>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insurance</a>
+                            <div class="dropdown-menu">
+                                <a routerLink="/viewcustomers" class="dropdown-item">View Customers</a>
+                                <a routerLink="/insuranceaccount" class="dropdown-item">Insurance Account</a>
+                                <a routerLink="/policypayment" class="dropdown-item">View Policy Payment</a>
+                                <a routerLink="/commisionclaim" class="dropdown-item">View Commision Claim </a>
+                            </div>
+                        </div>
+
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Account</a>
+                            <div class="dropdown-menu">
+                                <a routerLink="/adminprofile" class="dropdown-item">Profile</a>
+                                <a routerLink="/changepassword" class="dropdown-item">Change Password</a>
+                                <a routerLink="/addemployee" class="dropdown-item">Add Employee</a>
+                                <a routerLink="/viewemployee" class="dropdown-item">View Employee</a>
+                            </div>
+                        </div>
+
+                        <!-- <a href="#" class="nav-item nav-link">Contact</a> -->
+                        <a class="float-right" routerLink="/login" class="nav-item nav-link">Logout</a>
+                        <!-- <a class="float-right" routerLink="register" class="nav-item nav-link">Register</a> -->
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>
