@@ -18,7 +18,7 @@
           <tr *ngFor="let state of statesList">
             <th scope="row">{{state.stateName}}</th>
             <td>{{state.status}}</td>                       
-            <td ><a href="" style="color:red" (click)="UpdateState(state.id)">Edit</a>| <a href="" style="color:red">delete</a></td>
+            <td ><a [routerLink]="['/editstate']" routerLinkActive="router-link-active"  style="color:red" (click)="UpdateState(state.id)">Edit</a>| <a href="" style="color:red">delete</a></td>
           </tr>       
           
         </tbody>

@@ -20,7 +20,7 @@
             <th scope="row">{{city.cityName}}</th>
             <th scope="row">{{city.state}}</th>
             <td>{{city.status}}</td>                       
-            <td ><a href="" style="color:red">Edit</a>| <a href="" style="color:red">delete</a></td>
+            <td ><a [routerLink]="['/editcity']" routerLinkActive="router-link-active"  style="color:red">Edit</a>| <a href="" style="color:red">delete</a></td>
           </tr>       
           
         </tbody>

@@ -23,7 +23,7 @@
             <td>{{employee.loginId}}</td>    
             <td>{{employee.email}}</td> 
             <td>{{employee.status}}</td>            
-            <td ><a href="" style="color:red">Edit</a>| <a href="" style="color:red">delete</a></td>
+            <td ><a [routerLink]="['/editemployee']" routerLinkActive="router-link-active"  style="color:red">Edit</a>| <a href="" style="color:red">delete</a></td>
           </tr>        
           
         </tbody>

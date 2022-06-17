@@ -23,9 +23,7 @@ import { EmpDashboardComponent } from './employee/emp-dashboard/emp-dashboard.co
 import {HttpClientModule} from '@angular/common/http'
 import { AdminModule } from './admin/admin.module';
 import { AgentDashboardComponent } from './agent/agent-dashboard/agent-dashboard.component';
-
-
-
+import { EditCityComponent } from './admin/edit-city/edit-city.component';
 
 
 
@@ -41,8 +39,7 @@ import { AgentDashboardComponent } from './agent/agent-dashboard/agent-dashboard
     DefaultNavbarComponent,
     DashboardComponent,
     AddInsuranceComponent,
-    AddCityComponent,
-      
+    AddCityComponent,      
     EmpDashboardComponent,
     AgentDashboardComponent,
   ],
@@ -52,7 +49,8 @@ import { AgentDashboardComponent } from './agent/agent-dashboard/agent-dashboard
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

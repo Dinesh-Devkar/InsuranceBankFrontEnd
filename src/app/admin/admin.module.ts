@@ -25,6 +25,11 @@ import { ViewCustomersComponent } from './view-customers/view-customers.componen
 import { ViewPolicyPaymentComponent } from './view-policy-payment/view-policy-payment.component';
 import { CommonModule } from '@angular/common';
 import { AddStateComponent } from './add-state/add-state.component';
+import { EditCityComponent } from './edit-city/edit-city.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { EditStateComponent } from './edit-state/edit-state.component';
+import { EditAgentComponent } from './edit-agent/edit-agent.component';
+import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 
 @NgModule({
   declarations: [
@@ -50,12 +55,17 @@ import { AddStateComponent } from './add-state/add-state.component';
     ViewPolicyPaymentComponent,
     AddStateComponent,
     AddInsuranceSchemeComponent,
-    AddInsurancePlanComponent
+    AddInsurancePlanComponent,
+    EditCityComponent,
+    EditStateComponent,
+    EditAgentComponent,
+    EditEmployeeComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ]
 })
 export class AdminModule { }
