@@ -91,7 +91,7 @@
                     </div>
 
                     <!-- <a href="#" class="nav-item nav-link">Contact</a> -->
-                    <a class="float-right" routerLink="" class="nav-item nav-link">Logout</a>
+                    <a class="float-right"  class="nav-item nav-link cursor-pointer" (click)="Logout()">Logout</a>
                     <!-- <a class="float-right" routerLink="register" class="nav-item nav-link">Register</a> -->
                     <div>
 
@@ -100,7 +100,7 @@
             </div>
 
             <!-- Employee Navbar -->
-            <div *ngIf="user=='employee'">
+            <div *ngIf="user=='Employee'">
                 <div class="container-fluid ">
                     <div class="navbar-nav navbar empNav">
                         <a routerLink="/empdashboard" routerLinkActive="router-link-active"
@@ -135,7 +135,7 @@
                         </div>
 
                         <!-- <a href="#" class="nav-item nav-link">Contact</a> -->
-                        <a class="float-right" routerLink="/login" class="nav-item nav-link">Logout</a>
+                        <a class="float-right" routerLink="/login" class="nav-item nav-link cursor-pointer"  (click)="Logout()">Logout</a>
                         <!-- <a class="float-right" routerLink="register" class="nav-item nav-link">Register</a> -->
                         <div>
 
@@ -145,7 +145,7 @@
             </div>
 
             <!-- Agent Navbar -->
-            <div *ngIf="user=='agent'">
+            <div *ngIf="user=='Agent'">
                 <div class="container-fluid ">
                     <div class="navbar-nav navbar">
                         <a routerLink="/agentdashboard" routerLinkActive="router-link-active"

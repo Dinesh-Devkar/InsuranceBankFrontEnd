@@ -10,4 +10,7 @@ export class AgentServiceService {
   GetAllAgents(){
     return this.http.get(`http://localhost:5137/api/Agent/GetAllAgents`)
   }
+  AddAgent(agent:any){
+    return this.http.post(`http://localhost:5137/api/Agent/Register`,agent)
+  }
 }
