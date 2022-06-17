@@ -1,7 +1,7 @@
 
 <div class="container ">
     <div style="text-align: center; margin-bottom:20px;">
-        <h1> Agent Registration</h1>
+        <h1>Edit Agent </h1>
         <p>Kindly enter the credentials</p>
     </div>
 </div>
@@ -111,7 +111,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="btn btn-danger"   (click)="AddAgent()">Submit</button>
+            <button class="btn btn-danger" [disabled]="agentForm.invalid" >Submit</button>
         </form>
     </div>
 </div>

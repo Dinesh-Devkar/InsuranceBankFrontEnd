@@ -40,6 +40,10 @@ import { AgentDashboardComponent } from './agent/agent-dashboard/agent-dashboard
 import { AgentViewCustomersComponent } from './agent/agent-view-customers/agent-view-customers.component';
 import { AgentInsuranceAccountComponent } from './agent/agent-insurance-account/agent-insurance-account.component';
 import { AgentPolicyPaymentComponent } from './agent/agent-policy-payment/agent-policy-payment.component';
+import { EditCityComponent } from './admin/edit-city/edit-city.component';
+import { EditStateComponent } from './admin/edit-state/edit-state.component';
+import { EditAgentComponent } from './admin/edit-agent/edit-agent.component';
+import { EditEmployeeComponent } from './admin/edit-employee/edit-employee.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -82,6 +86,10 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'agentinsuranceaccount',component:AgentInsuranceAccountComponent},
                       {path:'agentpolicypayment',component:AgentPolicyPaymentComponent},
                       {path:'agentcommisionclaim',component:AgentPolicyPaymentComponent},
+                      {path:'editcity',component:EditCityComponent},
+                      {path:'editstate',component:EditStateComponent},
+                      {path:'editagent',component:EditAgentComponent},
+                      {path:'editemployee',component:EditEmployeeComponent},
 
 
 ];
