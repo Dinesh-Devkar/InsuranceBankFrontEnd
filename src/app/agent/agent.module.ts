@@ -7,6 +7,10 @@ import { AgentViewCustomersComponent } from './agent-view-customers/agent-view-c
 import { AgentInsuranceAccountComponent } from './agent-insurance-account/agent-insurance-account.component';
 import { AgentPolicyPaymentComponent } from './agent-policy-payment/agent-policy-payment.component';
 import { AgentCommisionClaimComponent } from './agent-commision-claim/agent-commision-claim.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from '../app-routing.module';
+import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { AppModule } from '../app.module';
 
 
 
@@ -18,10 +22,13 @@ import { AgentCommisionClaimComponent } from './agent-commision-claim/agent-comm
     AgentViewCustomersComponent,
     AgentInsuranceAccountComponent,
     AgentPolicyPaymentComponent,
-    AgentCommisionClaimComponent
+    AgentCommisionClaimComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
   ]
 })
 export class AgentModule { }

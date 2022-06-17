@@ -24,6 +24,8 @@ import {HttpClientModule} from '@angular/common/http'
 import { AdminModule } from './admin/admin.module';
 import { AgentDashboardComponent } from './agent/agent-dashboard/agent-dashboard.component';
 import { EditCityComponent } from './admin/edit-city/edit-city.component';
+import { AddCustomerComponent } from './agent/add-customer/add-customer.component';
+import { CustomerModule } from './customer/customer.module';
 
 
 
@@ -42,6 +44,8 @@ import { EditCityComponent } from './admin/edit-city/edit-city.component';
     AddCityComponent,      
     EmpDashboardComponent,
     AgentDashboardComponent,
+    AddCustomerComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,9 @@ import { EditCityComponent } from './admin/edit-city/edit-city.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AdminModule
+    AdminModule,
+    CustomerModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
