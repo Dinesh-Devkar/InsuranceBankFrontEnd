@@ -16,7 +16,7 @@ export class ArogyaShieldComponent implements OnInit {
   installmentAmont:number=0;
   intrestAmount:number=0;
   totalAmount=0;
-  isCustomerLogIn:boolean=false;
+  isCustomerLogIn:boolean=true;
   constructor() { }
 
   ngOnInit(): void {
