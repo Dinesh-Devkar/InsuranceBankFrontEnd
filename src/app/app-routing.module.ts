@@ -44,6 +44,9 @@ import { EditCityComponent } from './admin/edit-city/edit-city.component';
 import { EditStateComponent } from './admin/edit-state/edit-state.component';
 import { EditAgentComponent } from './admin/edit-agent/edit-agent.component';
 import { EditEmployeeComponent } from './admin/edit-employee/edit-employee.component';
+import { AddCustomerComponent } from './agent/add-customer/add-customer.component';
+import { CustDashboardComponent } from './customer/cust-dashboard/cust-dashboard.component';
+import { CustProfileComponent } from './customer/cust-profile/cust-profile.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -90,6 +93,9 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'editstate',component:EditStateComponent},
                       {path:'editagent',component:EditAgentComponent},
                       {path:'editemployee',component:EditEmployeeComponent},
+                      {path:'addcustomer',component:AddCustomerComponent},
+                      {path:'customerdashboard',component:CustDashboardComponent},
+                      {path:'customerprofile',component:CustProfileComponent},
 
 
 ];

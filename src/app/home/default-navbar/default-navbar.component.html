@@ -181,6 +181,44 @@
                 </div>
             </div>
 
+            <!-- Customer Navbar -->
+            <div *ngIf="user=='customer'">
+                <div class="container-fluid ">
+                    <div class="navbar-nav navbar">
+                        <a routerLink="/agentdashboard" routerLinkActive="router-link-active"
+                            class="nav-item nav-link active">Account</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle active"a-bs-toggle="dropdown">Customer Profile</a>
+                            <div class="dropdown-menu">
+                                <a routerLink="" class="dropdown-item">Profile </a>
+                                <a routerLink="" class="dropdown-item">Documents </a>
+                                <a routerLink="" class="dropdown-item">Change Password </a>
+                                </div>
+                        </div>
+
+                        
+                        <div class="nav-item dropdown ">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insurance Plans</a>
+                            <div class="dropdown-menu">
+                                <a routerLink="protection" class="dropdown-item">Plan 1</a>
+                                <a href="#" class="dropdown-item">Plan 2</a>
+                                <a href="#" class="dropdown-item">Plan 3</a>
+                            </div>
+                        </div>     
+                        <a href="#" class="nav-item nav-link">Insurance Account</a>                   
+                        <a href="#" class="nav-item nav-link">Queries </a> 
+
+                        <!-- <a href="#" class="nav-item nav-link">Contact</a> -->
+                        <a class="float-right" [routerLink]=""  class="nav-item nav-link">Logout</a>
+                        <!-- <a class="float-right" routerLink="register" class="nav-item nav-link">Register</a> -->
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </nav>

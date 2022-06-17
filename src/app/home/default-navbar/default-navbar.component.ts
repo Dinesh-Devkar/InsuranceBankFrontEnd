@@ -47,6 +47,7 @@ Logout(){
   checkUser(){
     //this.user='admin';
     //this.user='employee'
+    // this.user='customer'
     if(sessionStorage.getItem('loggedInuserRoll')==null){
       this.user=''
       return
