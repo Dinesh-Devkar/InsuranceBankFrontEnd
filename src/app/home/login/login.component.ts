@@ -32,10 +32,15 @@ export class LoginComponent implements OnInit {
       console.log(data)
       alert("Mission Successfull");
       alert("The Login User Is : "+data.userRoll)
+      alert(data.message)
       this.auth.SetLoggedInUser(data.userRoll)
       sessionStorage.setItem('loggedInUser',data.userId)
+      sessionStorage.setItem('loggedInuserRoll',data.userRoll)
       if(data.userRoll=="Admin"){
         this.router.navigate(['/dashboard']);
+      }
+      else if(data.userRoll=="Employee"){
+        this.router.navigate(['/empdashboard'])
       }
       
     },(error:any)=>{
