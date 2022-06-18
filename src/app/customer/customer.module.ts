@@ -6,6 +6,10 @@ import { AppRoutingModule } from '../app-routing.module';
 import { CustProfileComponent } from './cust-profile/cust-profile.component';
 import { CustDocumentsComponent } from './cust-documents/cust-documents.component';
 import { CustChangePasswordComponent } from './cust-change-password/cust-change-password.component';
+import { CustInsuranceAccountComponent } from './cust-insurance-account/cust-insurance-account.component';
+import { BuyInsuranceComponent } from './buy-insurance/buy-insurance.component';
+import { PolicyPaymentComponent } from './policy-payment/policy-payment.component';
+import { PaymentReceiptComponent } from './payment-receipt/payment-receipt.component';
 
 
 
@@ -14,7 +18,11 @@ import { CustChangePasswordComponent } from './cust-change-password/cust-change-
     CustDashboardComponent,
     CustProfileComponent,
     CustDocumentsComponent,
-    CustChangePasswordComponent
+    CustChangePasswordComponent,
+    CustInsuranceAccountComponent,
+    BuyInsuranceComponent,
+    PolicyPaymentComponent,
+    PaymentReceiptComponent
   ],
   imports: [
     CommonModule,
