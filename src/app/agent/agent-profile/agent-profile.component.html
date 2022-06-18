@@ -7,7 +7,7 @@
 <div class="row justify-content-center me-2">
 
     <div class="container">
-        <form >
+        <form [formGroup]="agentForm">
             <table class="table table-striped p-4">
                 <tbody>
                     <tr>
@@ -38,6 +38,33 @@
                 </tbody>
                 <tbody>
                     <tr>
+                        <th class="border" scope="row">Agent Code : </th>
+                        <td><input readonly type="text" class="form-control"  formControlName="agentCode">
+                            
+                        </td>
+
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Qualification : </th>
+                        <td><input readonly type="text" class="form-control"  formControlName="qualification">
+                            
+                        </td>
+
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Address : </th>
+                        <td><input readonly type="text" class="form-control"  formControlName="address">
+                            
+                        </td>
+
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
                         <th class="border" scope="row">User Roll : </th>
                         <td><input readonly type="text" class="form-control"  formControlName="userRoll">
                             
@@ -48,7 +75,7 @@
                 <tbody>
                     <tr>
                         <th class="border" scope="row">Status : </th>
-                        <td><input readonly type="text" class="form-control"  formControlName="userStatus">
+                        <td><input readonly type="text" class="form-control"  formControlName="status">
                             
                         </td>
 
