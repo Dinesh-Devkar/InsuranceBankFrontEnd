@@ -1,0 +1,106 @@
+<div class="container ">
+    <div style="text-align: center; margin-bottom:20px;">
+        <h1>Policy Payment</h1>
+    </div>
+</div>
+<div></div>
+
+<div class="container">
+    <form [formGroup]="payment">
+        <table class="table p-4 table-striped">
+            <tbody>
+                <tr>
+                    <th class="border" scope="row">Date</th>
+                    <td> <input type="text" readonly class="form-control">
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th class="border" scope="row">Installment Amount</th>
+                    <td class="">
+                        <input type="text" readonly class="form-control">
+
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th class="border" scope="row">Tax Amount </th>
+                    <td class="">
+                        <input type="text" class="form-control" readonly>
+
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th class="border" class="" scope="row">Total Amount</th>
+                    <td> <input type="text" class="form-control" readonly>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th class="border" scope="row">Payment Type </th>
+                    <td>
+                        <select name="State" class="form-control" formControlName="paymenttype">
+                            <option value="">Select Payment Type</option>
+                            <option value="Active">Credit card</option>
+                            <option value="Active">Debit Card</option>
+                            <option value="Inactive">Visa</option>
+                            <option value="Active">Master card</option>
+                        </select>
+                        <span style="color: red;" *ngIf="PaymentType && PaymentType.invalid && PaymentType.touched">
+                            Payment Type Required</span>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th class="border" class="" scope="row">Card Holder</th>
+                    <td class="">
+                        <input type="text" formControlName="cardholder" class="form-control">
+                        <span style="color: red;" *ngIf="CardHolder && CardHolder.invalid && CardHolder.touched">
+                            Card Holder Required</span>
+                    </td>
+                </tr>
+            </tbody>
+
+            <tbody>
+                <tr>
+                    <th class="border" class="" scope="row">Card Number</th>
+                    <td class="">
+                        <input type="text" formControlName="cardnumber" class="form-control">
+                        <span style="color: red;" *ngIf="CardNumber && CardNumber.invalid && CardNumber.touched">
+                            Card Number Required</span>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th class="border" scope="row">CVV Number</th>
+                    <td class="">
+                        <input type="text" formControlName="cvvnumber" class="form-control">
+                        <span style="color: red;" *ngIf="CvvNumber && CvvNumber.invalid && CvvNumber.touched">
+                            Cvv Required</span>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th class="border" scope="row">Expiry date</th>
+                    <td class="">
+                        <input type="date" formControlName="expirydate" class="form-control">
+                        <span style="color: red;" *ngIf="ExpiryDate && ExpiryDate.invalid && ExpiryDate.touched">
+                            Expiry Required</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="text-align: center; margin:20px;">
+            <a routerLink="">
+                <button class="btn btn-danger" [disabled]="payment.invalid" >Submit</button>
+            </a>
+        </div>
+    </form>
+</div>

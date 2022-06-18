@@ -47,6 +47,12 @@ import { EditEmployeeComponent } from './admin/edit-employee/edit-employee.compo
 import { AddCustomerComponent } from './agent/add-customer/add-customer.component';
 import { CustDashboardComponent } from './customer/cust-dashboard/cust-dashboard.component';
 import { CustProfileComponent } from './customer/cust-profile/cust-profile.component';
+import { CustDocumentsComponent } from './customer/cust-documents/cust-documents.component';
+import { CustChangePasswordComponent } from './customer/cust-change-password/cust-change-password.component';
+import { CustInsuranceAccountComponent } from './customer/cust-insurance-account/cust-insurance-account.component';
+import { BuyInsuranceComponent } from './customer/buy-insurance/buy-insurance.component';
+import { PolicyPaymentComponent } from './customer/policy-payment/policy-payment.component';
+import { PaymentReceiptComponent } from './customer/payment-receipt/payment-receipt.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -96,6 +102,12 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'addcustomer',component:AddCustomerComponent},
                       {path:'customerdashboard',component:CustDashboardComponent},
                       {path:'customerprofile',component:CustProfileComponent},
+                      {path:'customerdocuments',component:CustDocumentsComponent},
+                      {path:'customerchangepassword',component:CustChangePasswordComponent},
+                      {path:'customeraccount',component:CustInsuranceAccountComponent},
+                      {path:'buyinsurance',component:BuyInsuranceComponent},
+                      {path:'buypolicypayment',component:PolicyPaymentComponent},
+                      {path:'paymentreceipt',component:PaymentReceiptComponent},
 
 
 ];
