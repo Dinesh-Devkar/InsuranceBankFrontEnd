@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
   selector: 'app-default-navbar',
@@ -10,26 +11,33 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
 export class DefaultNavbarComponent implements OnInit {
 
   user:string|null='';
+  insuranceTypes:any
 
-  constructor(private auth:AuthServiceService,private router:Router) {
+  constructor(private auth:AuthServiceService,private router:Router,private dataService:DataServiceService) {
     //this.checkUser();
     //this.user=''
     
    }
-
+   GoToProtectionPlan(insuranceType:string){
+     
+        this.dataService.SetSelectedInsuranceType(insuranceType)
+        this.router.navigate(['/protection'])
+  }
   ngOnInit(): void {
-    //this.user=sessionStorage.getItem('loggedInuserRoll');
+   this.dataService.GetAllInsuranceTypes().subscribe((data:any)=>{
+     console.log(data)
+     this.insuranceTypes=data.$values
+     console.log(this.insuranceTypes)
+   },(error:any)=>{
+     alert(error.error.message)
+   })
+    
+
+   
+   
     this.auth.RefreshRequired.subscribe((data:any)=>{
-      //this.user=data.error
       alert("Inside Navbar")
-      // setTimeout(()=>{
-      //   if(sessionStorage.getItem('loggedInuserRoll')==null){
-      //     this.user=''
-      //     return
-      //   }
-      //   this.user=sessionStorage.getItem('loggedInuserRoll');
-      //   alert("LoggedIn user : "+this.auth.GetLoggedInUser())
-      // },1000)
+      
       setTimeout(()=>{
         this.checkUser();
       },1000)

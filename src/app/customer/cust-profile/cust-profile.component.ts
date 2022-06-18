@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CustomerServiceService } from 'src/app/services/customer/customer-service.service';
 
 @Component({
   selector: 'app-cust-profile',
@@ -9,24 +10,41 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class CustProfileComponent implements OnInit {
 
   customer=new FormGroup({
-    custId:new FormControl('',Validators.required),
-    name:new FormControl('',Validators.required),
-    date:new FormControl('',Validators.required),
-    loginid:new FormControl('',Validators.required),
-    address:new FormControl('',Validators.required),
-    email:new FormControl('',Validators.required),
-    state:new FormControl('',Validators.required),
-    city:new FormControl('',Validators.required),
-    pincode:new FormControl('',Validators.required),
-    mobile:new FormControl('',Validators.required),
-    nominee:new FormControl('',Validators.required),
-    nomineerelation:new FormControl('',Validators.required),
-    password:new FormControl('',Validators.required)
+    
+    name:new FormControl(''),
+    loginId:new FormControl(''),
+    email:new FormControl(''),
+    address:new FormControl(''),
+    dateOfBirth:new FormControl(''),
+    city:new FormControl(''),
+    state:new FormControl(''),
+    mobileNumber:new FormControl(''),
+    nomineeName:new FormControl(''),
+    nomineeRelation:new FormControl(''),
+    pinCode:new FormControl(''),
+    status:new FormControl('')
 
   })
-  constructor() { }
+  constructor(private customerService:CustomerServiceService) { }
 
   ngOnInit(): void {
+    this.customerService.GetCustomerDetails().subscribe((data:any)=>{
+      console.log(data)
+      this.customer.setValue({
+        name:data.name,
+        loginId:data.loginId,
+        email:data.email,
+        address:data.address,
+        dateOfBirth:data.dateOfBirth,
+        city:data.city,
+        state:data.state,
+        mobileNumber:data.mobileNumber,
+        nomineeName:data.nomineeName,
+        nomineeRelation:data.nomineeRelation,
+        pinCode:data.pinCode,
+        status:data.status
+      })
+    })
   }
 
   get CustId(){
