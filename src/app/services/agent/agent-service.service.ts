@@ -13,4 +13,10 @@ export class AgentServiceService {
   AddAgent(agent:any){
     return this.http.post(`http://localhost:5137/api/Agent/Register`,agent)
   }
+  GetCustomers(){
+    return this.http.get(`http://localhost:5137/api/Agent/${sessionStorage.getItem('loggedInUser')}/GetAllCustomersByAgentId`)
+  }
+  GetInsuranceAccounts(){
+    return this.http.get(`http://localhost:5137/api/Agent/${sessionStorage.getItem('loggedInUser')}/GetInsuranceAccountsByAgentId`)
+  }
 }

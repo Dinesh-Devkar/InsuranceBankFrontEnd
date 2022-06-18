@@ -9,8 +9,6 @@ import { AgentPolicyPaymentComponent } from './agent-policy-payment/agent-policy
 import { AgentCommisionClaimComponent } from './agent-commision-claim/agent-commision-claim.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
-import { AddCustomerComponent } from './add-customer/add-customer.component';
-import { AppModule } from '../app.module';
 
 
 
@@ -23,6 +21,7 @@ import { AppModule } from '../app.module';
     AgentInsuranceAccountComponent,
     AgentPolicyPaymentComponent,
     AgentCommisionClaimComponent,
+    AgentDashboardComponent
   ],
   imports: [
     CommonModule,

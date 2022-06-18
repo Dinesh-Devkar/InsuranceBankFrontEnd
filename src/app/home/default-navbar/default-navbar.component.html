@@ -172,7 +172,7 @@
                         </div>                        
 
                         <!-- <a href="#" class="nav-item nav-link">Contact</a> -->
-                        <a class="float-right" [routerLink]=""  class="nav-item nav-link">Logout</a>
+                        <a class="float-right" [routerLink]="" class="nav-item nav-link cursor-pointer"  (click)="Logout()">Logout</a>
                         <!-- <a class="float-right" routerLink="register" class="nav-item nav-link">Register</a> -->
                         <div>
 
@@ -182,7 +182,7 @@
             </div>
 
             <!-- Customer Navbar -->
-            <div *ngIf="user=='customer'">
+            <div *ngIf="user=='Customer'">
                 <div class="container-fluid ">
                     <div class="navbar-nav navbar">
                         <a routerLink="/agentdashboard" routerLinkActive="router-link-active"
@@ -209,7 +209,7 @@
                         <a href="#" class="nav-item nav-link">Queries </a> 
 
                         <!-- <a href="#" class="nav-item nav-link">Contact</a> -->
-                        <a class="float-right" [routerLink]=""  class="nav-item nav-link">Logout</a>
+                        <a class="float-right" [routerLink]="" class="nav-item nav-link cursor-pointer"  (click)="Logout()">Logout</a>
                         <!-- <a class="float-right" routerLink="register" class="nav-item nav-link">Register</a> -->
                         <div>
 

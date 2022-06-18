@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <th scope="col">Customer Name</th>
-                <th scope="col">Cust Code</th>
+                <th scope="col">Cust DOB</th>
                 <th scope="col">Login Id</th>
                 <th scope="col">Address</th>
                 <th scope="col">Mobile</th>
@@ -19,15 +19,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">Aniket</th>
-                <td>AD101</td>
-                <td>Aniket14</td>
-                <td>Sakoli  Bhandara</td>                
-                <td>123456789</td>
-                <td>abc</td>
-                <td>Mother</td>
-                <td>Active</td>         
+            <tr *ngFor="let customer of customersList">
+                <th scope="row">{{customer.name}}</th>
+                <td>{{customer.dateOfBirth}}</td>
+                <td>{{customer.loginId}}</td>
+                <td>{{customer.address}}</td>                
+                <td>{{customer.mobileNumber}}</td>
+                <td>{{customer.nomineeName}}</td>
+                <td>{{customer.nomineeRelation}}</td>
+                <td>{{customer.status}}</td>         
             </tr>
 
         </tbody>
