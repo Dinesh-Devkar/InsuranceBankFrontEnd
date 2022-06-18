@@ -1,31 +1,23 @@
 
+
 <div class="container justify-content-center">
     <div>
-        <h2>Arogya Shield- A health plus life combi plan</h2>
+        <b><h2 *ngIf="selectedScheme">{{selectedScheme.insuranceSchemeName}}</h2></b>
     </div>
 </div>
 
 <div class="container col-md-9 p-1" style="background-color:#CEDBE4;">
     <div class="row">
-        <div class="col-md-6 background-color" style="">
-            <h3> Zindagi Ab Let’s Go <br>
-                Health Aur Life Dono
-            </h3>
-            <ul>
-                <li>Health and Pure Term Life Cover under a single plan</li>
-                <li>Additional discount of 5% on Health and Life insurance premiums</li>
-                <li>Additional discount of 5% on Health and Life insurance premiums</li>
-                <li>Security for your family with a standard term plan at an affordable cost</li>
-            </ul>
-        </div>
-        <div class="col-md-3">
-            <img src="assets/ins3.jpg" alt="" height="100%" width="160%">
+        
+        <div class="col-md-12 text-center">
+            <img src="assets/ins3.jpg" alt="" height="100%" width="50%">
         </div>
     </div>
 </div>
 <div class="container mt-4">
-    Secure both Health & Life with Arogya Shield –a health plus life combi product that offers you a comprehensive
-    health cover for medical emergencies and an assured life cover to secure your loved ones.
+    <div class="p-5" *ngIf="selectedScheme">
+        {{selectedScheme.note}}
+</div>
 
 
     <h4>This Plan Provides : </h4>
@@ -48,6 +40,7 @@
         <div class=" text-center">
             <h2>Plan Details</h2>
         </div>
+        <form [formGroup]="planDetails">
         <table class="table table-striped table-hover">
             <thead>
                 <tr>                                      
@@ -56,34 +49,35 @@
             <tbody>
                 <tr>
                     <td>Policy Term-minimum</td>
-                    <td>2years</td>                   
+                    <td><input type="text" readonly formControlName="minimumYears"></td>                   
                 </tr>
                 <tr>
                     <td>Policy Term-Maximum</td>
-                    <td>8years</td>                 
+                    <td><input type="text" readonly formControlName="maximumYears"></td>                
                 </tr>
                 <tr>
                     <td>Minimum Age</td>
-                    <td>18</td>                    
+                    <td><input type="text" readonly formControlName="minimumAge"></td>                  
+                </tr>
+                <tr>
+                    <td>Maximum Years</td>
+                    <td><input type="text" readonly formControlName="maximumAge"></td>                   
                 </tr>
                 <tr>
                     <td>Minimum Investment</td>
-                    <td>100000</td>                    
+                    <td><input type="text" readonly formControlName="minimumInvestAmt"></td>                  
                 </tr>
                 <tr>
                     <td>Maximum Investment</td>
-                    <td>150000</td>                    
+                    <td><input type="text" readonly formControlName="maximumInvestAmt"></td>                   
                 </tr>
                 <tr>
                     <td>Profit Ratio</td>
-                    <td>7.00%</td>                    
-                </tr>
-                <tr>
-                    <td>Maximum Age</td>
-                    <td>45</td>                    
+                    <td><input type="text" readonly formControlName="profitRatio"></td>                    
                 </tr>
             </tbody>
         </table>
+        </form>
         <div class=" text-center">
             <h2>Interest Calculator</h2>            
         </div>
@@ -105,11 +99,9 @@
                     <td>Months</td>
                     <td>
                         <select name="months" id="" [(ngModel)]="months">
-                          <option value="1">1 month</option>
-                          <option value="6">6 monts</option>
-                          <option value="12">12 months</option>
-                          <option value="18">18 months</option>
-                          <option value="24">24 months</option>                          
+                          <option value="3">3 months</option>
+                          <option value="6">6 months</option>
+                          <option value="12">1 Year</option>                        
                         </select> </td>                
                 </tr>
                 
@@ -141,7 +133,7 @@
         </table>
 
         <div class=" text-center">
-            <h2 *ngIf="isCustomerLogIn"><button class="btn btn-danger" >Submit</button></h2>
+            <h2><button class="btn btn-danger" (click)="GoToConfirmDetailsPage()" >Submit</button></h2>
         </div>
     </div>
 </div>

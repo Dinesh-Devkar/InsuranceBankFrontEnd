@@ -4,12 +4,19 @@
     </h1>
 
 </div>
-<div class="container border shadow p-3 mb-5 bg-white rounded" *ngFor="let insuranceScheme of insuranceSchemes">
+
+<div class="container-fluid m-0">
+   
+</div>
+<div class="container border shadow  mb-5 bg-white rounded" *ngFor="let insuranceScheme of insurancePlans">
+    
+        <h4 class="p-2">{{insuranceScheme.insuranceScheme}}</h4>
+    
     <img class="float-left kite" src="assets/kite.png">
     <div class="row g-3 p-3" >
         <div class="col-sm-7  info policy-info first-column">
-            <a routerLink="/arogyashield" >
-                <h2 style="color: blue;">{{insuranceScheme.insuranceSchemeName}}</h2>
+            <a (click)="GoToInsurancePlanDetails(insuranceScheme.insurancePlanName,insuranceScheme.insuranceScheme)" style="cursor: pointer;">
+                <h2 style="color: blue;">{{insuranceScheme.insurancePlanName}}</h2>
             </a>
             <br>
            <b><p>{{insuranceScheme.note}}</p></b>
@@ -18,16 +25,16 @@
             <span style="font-weight:bold ; color:blue"> Key Features </span> <br>
 
             <span style="font-weight:bold; color: blue;"> Annual Premium Range</span> <br>
-            Rs 1,415 to Rs 1,01,025 <br>
+           <b> {{insuranceScheme.minimumInvestAmt}} &#8377; to {{insuranceScheme.maximumInvestAmt}} &#8377; </b> <br>
             Entry Age <br>
-            18 years
+           <b>{{insuranceScheme.minimumYears}} </b> Years To
+           <b>{{insuranceScheme.maximumYears}}</b>   Years
         </div>
         <div class="col-sm policy-info ">
             <span style="font-weight:bold ; color:blue"> Key Benefits </span><br>
 
             <ul>
-                <li>Standard Term plan with Simple terms & conditions</li>
-                <li>Multiple premium payment options</li>
+               <b>Profit Ratio : {{insuranceScheme.profitRatio}}</b>
             </ul>
 
         </div>
