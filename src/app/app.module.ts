@@ -26,6 +26,7 @@ import { AgentDashboardComponent } from './agent/agent-dashboard/agent-dashboard
 import { EditCityComponent } from './admin/edit-city/edit-city.component';
 import { AddCustomerComponent } from './agent/add-customer/add-customer.component';
 import { CustomerModule } from './customer/customer.module';
+import { AgentModule } from './agent/agent.module';
 
 
 
@@ -43,7 +44,7 @@ import { CustomerModule } from './customer/customer.module';
     AddInsuranceComponent,
     AddCityComponent,      
     EmpDashboardComponent,
-    AgentDashboardComponent,
+    
     AddCustomerComponent,
     
   ],
@@ -56,6 +57,7 @@ import { CustomerModule } from './customer/customer.module';
     HttpClientModule,
     AdminModule,
     CustomerModule,
+    AgentModule
 
   ],
   providers: [],
