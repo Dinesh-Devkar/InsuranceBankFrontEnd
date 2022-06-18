@@ -150,8 +150,7 @@
                     <div class="navbar-nav navbar">
                         <a routerLink="/agentdashboard" routerLinkActive="router-link-active"
                             class="nav-item nav-link active">Agent Account</a>
-                        <div class="nav-item dropdown">
-                            
+                        <div class="nav-item dropdown">                            
                             <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Account</a> 
                             <div class="dropdown-menu">
                                 <a routerLink="/agentprofile" class="dropdown-item">Profile </a>
@@ -172,7 +171,14 @@
                                 <a routerLink="/agentcommisionclaim" class="dropdown-item">View Commision Claim </a>
                             </div>
                         </div>
-
+                        <div class="nav-item dropdown">                            
+                            <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Account</a> 
+                            <div class="dropdown-menu">
+                                <a routerLink="/agentcommision" class="dropdown-item">View Commsion </a>
+                                <a routerLink="/commisionwithdrawl" class="dropdown-item">View Commision Withdrawl </a>
+                                <a routerLink="/agentwithdraw" class="dropdown-item">Withdraw  Amount</a>
+                            </div>
+                        </div>
                         <!-- <a href="#" class="nav-item nav-link">Contact</a> -->
                         <a class="float-right" [routerLink]="" class="nav-item nav-link cursor-pointer"
                             (click)="Logout()">Logout</a>

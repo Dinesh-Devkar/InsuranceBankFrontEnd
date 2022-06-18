@@ -1,0 +1,28 @@
+<div class="container ">
+    <div style="text-align: center; margin-bottom:20px;">
+        <h1> Withdraw Commision</h1>
+        
+    </div>
+</div>
+<div></div>
+<div class="row justify-content-center me-2">
+
+    <div class="col-auto border">
+        <form [formGroup]="withdraw" >
+            <table class="table table-striped p-4">
+               
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Withdraw Amount </th>
+                        <td><input type="number" formControlName="amount">                            
+                            <span style="color: red;" *ngIf="Withdraw && Withdraw.invalid && Withdraw.touched">Amount Required</span>
+                       
+                        </td>
+                    </tr>
+                </tbody>   
+            </table>
+        </form>
+        <button class="btn btn-danger" [disabled]="withdraw.invalid" >Withdraw</button>
+
+    </div>
+</div>

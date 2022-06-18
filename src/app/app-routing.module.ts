@@ -53,6 +53,9 @@ import { CustInsuranceAccountComponent } from './customer/cust-insurance-account
 import { BuyInsuranceComponent } from './customer/buy-insurance/buy-insurance.component';
 import { PolicyPaymentComponent } from './customer/policy-payment/policy-payment.component';
 import { PaymentReceiptComponent } from './customer/payment-receipt/payment-receipt.component';
+import { AgentViewCommisionComponent } from './agent/agent-view-commision/agent-view-commision.component';
+import { AgentCommisionWithdrawlComponent } from './agent/agent-commision-withdrawl/agent-commision-withdrawl.component';
+import { AgentWithdrawAmountComponent } from './agent/agent-withdraw-amount/agent-withdraw-amount.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -108,7 +111,10 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'buyinsurance',component:BuyInsuranceComponent},
                       {path:'buypolicypayment',component:PolicyPaymentComponent},
                       {path:'paymentreceipt',component:PaymentReceiptComponent},
-
+                      {path:'agentcommision',component:AgentViewCommisionComponent},
+                      {path:'commisionwithdrawl',component:AgentCommisionWithdrawlComponent},
+                      
+                      {path:'agentwithdraw',component:AgentWithdrawAmountComponent},
 
 ];
 
