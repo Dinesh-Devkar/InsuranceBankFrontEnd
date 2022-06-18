@@ -1,12 +1,26 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataServiceService {
+  //selectedInsuranceType:string=''
+  private selectedInsuranceType = new BehaviorSubject('');
+ public currentInsuranceType = this.selectedInsuranceType.asObservable();
 
   constructor(private http:HttpClient) { }
+  // SetSelectedInsuranceType(insuranceType:string):void{
+  //   //this.selectedInsuranceType=insuranceType;
+  // }
+  SetSelectedInsuranceType(insuranceType:string) {
+    this.selectedInsuranceType.next(insuranceType)
+    }
+  GetSelectedInsuranceType(){
+    return this.selectedInsuranceType;
+  }
+
 
   GetAllStates(){
     return this.http.get(`http://localhost:5137/api/State/GetAllStates`)

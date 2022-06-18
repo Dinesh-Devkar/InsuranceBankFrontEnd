@@ -45,6 +45,9 @@ export class LoginComponent implements OnInit {
       else if(data.userRoll=="Agent"){
         this.router.navigate(['/agentdashboard'])
       }
+      else if(data.userRoll=="Customer"){
+        this.router.navigate(['/customerdashboard'])
+      }
       
     },(error:any)=>{
       

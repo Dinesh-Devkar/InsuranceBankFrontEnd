@@ -23,4 +23,8 @@ export class AgentServiceService {
     return this.http.get(`http://localhost:5137/api/Agent/${sessionStorage.getItem('loggedInUser')}/GetInsuranceAccountsByAgentId`)
   }
 
+  GetCommissionRecords(){
+    return this.http.get(`http://localhost:5137/api/Agent/${sessionStorage.getItem('loggedInUser')}/GetCommissionRecordsByAgentId`)
+  }
+
 }

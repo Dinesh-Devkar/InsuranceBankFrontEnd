@@ -18,13 +18,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="">
-                <td>1</td>
-                <td>Ujjay</td>
-                <td>15/06/202</td>
-                <td>Dinesh</td>                
-                <td>Health plus Life Insurance</td> 
-                <td>5600</td> 
+            <tr class="" *ngFor="let commissionRecord of commissionRecordsList">
+                <td>{{commissionRecord.insuranceAccountId}}</td>
+                <td>{{commissionRecord.agentName}}</td>
+                <td>{{commissionRecord.purchasedDate}}</td>
+                <td>{{commissionRecord.customerName}}</td>                
+                <td>{{commissionRecord.insuranceScheme}}</td> 
+                <td>{{commissionRecord.commissionAmount}}</td> 
             </tr>
             <tr class="">
 
@@ -33,7 +33,7 @@
                 <td></td>
                 <td></td> 
                 <th class="font-weight-bold">Total </th>
-                <th class="font-weight-bold">Rs. 5600</th>                               
+                <th class="font-weight-bold">{{totalAmount}}</th>                               
             </tr>
 
         </tbody>
