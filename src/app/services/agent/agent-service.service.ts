@@ -7,6 +7,9 @@ import { Injectable } from '@angular/core';
 export class AgentServiceService {
 
   constructor(private http:HttpClient) { }
+  GetAgentDetails(){
+    return this.http.get(`http://localhost:5137/api/Agent/${sessionStorage.getItem('loggedInUser')}/GetAgentById`)
+  }
   GetAllAgents(){
     return this.http.get(`http://localhost:5137/api/Agent/GetAllAgents`)
   }
@@ -19,4 +22,5 @@ export class AgentServiceService {
   GetInsuranceAccounts(){
     return this.http.get(`http://localhost:5137/api/Agent/${sessionStorage.getItem('loggedInUser')}/GetInsuranceAccountsByAgentId`)
   }
+
 }
