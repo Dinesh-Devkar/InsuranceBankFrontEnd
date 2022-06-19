@@ -5,12 +5,12 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { ServicesComponent } from './services/services.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
 @NgModule({
-  declarations: [
-    LandingComponent,
+  declarations: [    
     FooterComponent,
     ServicesComponent,
     AboutusComponent,
@@ -19,6 +19,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule,
   ]
 })
 export class HomeModule { }
