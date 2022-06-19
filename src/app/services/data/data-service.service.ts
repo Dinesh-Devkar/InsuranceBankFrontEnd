@@ -9,16 +9,39 @@ export class DataServiceService {
   //selectedInsuranceType:string=''
   private selectedInsuranceType = new BehaviorSubject('');
  public currentInsuranceType = this.selectedInsuranceType.asObservable();
+ private selectedInsurancePlan = new BehaviorSubject('');
+ public currentInsurancePlan= this.selectedInsuranceType.asObservable();
+ private selectedInsuranceScheme = new BehaviorSubject('');
+ public currentInsuranceScheme= this.selectedInsuranceType.asObservable();
+ public insuranceAccountDetails:any
 
   constructor(private http:HttpClient) { }
   // SetSelectedInsuranceType(insuranceType:string):void{
   //   //this.selectedInsuranceType=insuranceType;
   // }
+  SetInsuranceAccountDetails(account:any){
+    this.insuranceAccountDetails=account
+  }
+  GetInsuranceAccountDetails(){
+    return this.insuranceAccountDetails;
+  }
   SetSelectedInsuranceType(insuranceType:string) {
     this.selectedInsuranceType.next(insuranceType)
     }
   GetSelectedInsuranceType(){
     return this.selectedInsuranceType;
+  }
+  SetSelectedInsurancePlan(insurancePlan:string){
+    this.selectedInsurancePlan.next(insurancePlan)
+  }
+  GetSelectedInsurancePlan(){
+    return this.selectedInsurancePlan;
+  }
+  SetSelectedInsuranceScheme(insurancePlan:string){
+    this.selectedInsuranceScheme.next(insurancePlan)
+  }
+  GetSelectedInsuranceScheme(){
+    return this.selectedInsuranceScheme;
   }
 
 
@@ -61,6 +84,13 @@ export class DataServiceService {
   GetAllInsurancePlans(){
     return this.http.get(`http://localhost:5137/api/InsurancePlan/GetAllInsurancePlans`)
   }
-
-  
+  GetInsurancePlansByInsuranceType(insuranceType:string){
+    return this.http.get(`http://localhost:5137/api/InsurancePlan/${insuranceType}/GetInsurancePlansByInsuranceType`)
+  }
+  GetInsurancePlan(insurancePlan:string){
+    return this.http.get(`http://localhost:5137/api/InsurancePlan/${insurancePlan}/GetInsurancePlan`)
+  }
+  GetInsuranceSchemeDetails(insuranceSchemeName:string){
+    return this.http.get(`http://localhost:5137/api/InsuranceScheme/${insuranceSchemeName}/GetInsuranceSchemeDetails`)
+  }
 }

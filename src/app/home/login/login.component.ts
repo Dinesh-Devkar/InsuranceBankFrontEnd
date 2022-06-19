@@ -46,6 +46,9 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/agentdashboard'])
       }
       else if(data.userRoll=="Customer"){
+        sessionStorage.setItem("name",data.name),
+     
+      sessionStorage.setItem("agentCode",data.agentCode)
         this.router.navigate(['/customerdashboard'])
       }
       

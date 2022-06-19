@@ -4,7 +4,7 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container text-center">
     <table class="table">
         <thead>
             <tr>
@@ -19,10 +19,11 @@
         <tbody *ngFor="let insuranceScheme of insuranceSchemesList">
             <tr>
                 <th scope="row"><img [src]="insuranceScheme.image" alt="" width="70" /></th>
-                <td>{{insuranceScheme.insuranceSchemeName}}</td>
+                <td><b>{{insuranceScheme.insuranceTypeName}}</b> </td>
                 <td class="text-center p-3 font-weight-bold"><b> Commision for new Payment {{insuranceScheme.newRegComission}}% <br><hr>
                     Commision for installment payment {{insuranceScheme.installmentComission}}% </b></td>
-                <td>{{insuranceScheme.note}}</td>
+                <td class="text-center"><b>{{insuranceScheme.insuranceSchemeName}}</b><br>
+                    {{insuranceScheme.note}}</td>
                 <td>{{insuranceScheme.status}}</td>
                 <td><a href="" style="color:red">Edit</a>| <a href="" style="color:red">delete</a></td>
             </tr>
