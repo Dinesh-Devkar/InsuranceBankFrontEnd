@@ -9,6 +9,9 @@ import { AgentPolicyPaymentComponent } from './agent-policy-payment/agent-policy
 import { AgentCommisionClaimComponent } from './agent-commision-claim/agent-commision-claim.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
+import { AgentCommisionWithdrawlComponent } from './agent-commision-withdrawl/agent-commision-withdrawl.component';
+import { AgentViewCommisionComponent } from './agent-view-commision/agent-view-commision.component';
+import { AgentWithdrawAmountComponent } from './agent-withdraw-amount/agent-withdraw-amount.component';
 
 
 
@@ -21,7 +24,10 @@ import { AppRoutingModule } from '../app-routing.module';
     AgentInsuranceAccountComponent,
     AgentPolicyPaymentComponent,
     AgentCommisionClaimComponent,
-    AgentDashboardComponent
+    AgentDashboardComponent,
+    AgentCommisionWithdrawlComponent,
+    AgentViewCommisionComponent,
+    AgentWithdrawAmountComponent
   ],
   imports: [
     CommonModule,
