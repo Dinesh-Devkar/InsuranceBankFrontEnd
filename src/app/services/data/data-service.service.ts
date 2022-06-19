@@ -93,4 +93,10 @@ export class DataServiceService {
   GetInsuranceSchemeDetails(insuranceSchemeName:string){
     return this.http.get(`http://localhost:5137/api/InsuranceScheme/${insuranceSchemeName}/GetInsuranceSchemeDetails`)
   }
+  GetAllCustomers(){
+    return this.http.get(`http://localhost:5137/api/Customer/GetAllCustomers`)
+  }
+  GetInsuranceAccountsByCustomerId(){
+    return this.http.get(`http://localhost:5137/api/Customer/${sessionStorage.getItem('loggedInUser')}/GetInsuranceAccountsByCustomerId`)
+  }
 }

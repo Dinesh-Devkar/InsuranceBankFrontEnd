@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
   selector: 'app-view-customers',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewCustomersComponent implements OnInit {
 
-  constructor() { }
+  customers:any
+  constructor(private dataService:DataServiceService) { }
 
   ngOnInit(): void {
+    this.dataService.GetAllCustomers().subscribe((data:any)=>{
+      
+      this.customers=data.$values
+      
+    })
   }
+
 
 }
