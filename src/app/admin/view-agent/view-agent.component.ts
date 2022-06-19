@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AgentServiceService } from 'src/app/services/agent/agent-service.service';
 import { CommonModule } from '@angular/common';
+import { DataServiceService } from 'src/app/services/data/data-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-agent',
@@ -10,8 +12,13 @@ import { CommonModule } from '@angular/common';
 export class ViewAgentComponent implements OnInit {
 
   agentsList:any
-  constructor(private agentService:AgentServiceService) { }
+  constructor(private agentService:AgentServiceService,private dataService:DataServiceService,private router:Router) { }
 
+  SetSelectedAgentCode(agentCode:any){
+    //this.dataService.SetSelectedAgentCode(agentCode)
+    sessionStorage.setItem('agentCode',agentCode)
+    this.router.navigate(['/editagent'])
+  }
   ngOnInit(): void {
     this.agentService.GetAllAgents().subscribe((data:any)=>{
       console.log(data)

@@ -26,7 +26,7 @@
             <td>{{agent.qualification}}</td>
             <td>{{agent.status}}</td>
                                  
-            <td ><a [routerLink]="['/editagent']" routerLinkActive="router-link-active"  style="color:red">Edit</a>| <a href="" style="color:red">delete</a></td>
+            <td ><a class="text-danger" style="cursor: pointer;" (click)="SetSelectedAgentCode(agent.agentCode)" >Edit</a>| <a href="" class="text-danger" style="cursor: pointer;">delete</a></td>
           </tr>        
           
         </tbody>

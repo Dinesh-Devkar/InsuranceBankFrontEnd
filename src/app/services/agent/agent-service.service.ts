@@ -26,5 +26,9 @@ export class AgentServiceService {
   GetCommissionRecords(){
     return this.http.get(`http://localhost:5137/api/Agent/${sessionStorage.getItem('loggedInUser')}/GetCommissionRecordsByAgentId`)
   }
+  UpdateAgent(agentCode:any,agent:any){
+    return this.http.post(`http://localhost:5137/api/Agent/${agentCode}/UpdateAgent`,agent)
+  }
 
+  
 }

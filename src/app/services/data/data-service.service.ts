@@ -7,7 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DataServiceService {
   //selectedInsuranceType:string=''
-  private selectedInsuranceType = new BehaviorSubject('');
+  selectedAgentCode:any
+private selectedInsuranceType = new BehaviorSubject('');
  public currentInsuranceType = this.selectedInsuranceType.asObservable();
  private selectedInsurancePlan = new BehaviorSubject('');
  public currentInsurancePlan= this.selectedInsuranceType.asObservable();
@@ -19,6 +20,12 @@ export class DataServiceService {
   // SetSelectedInsuranceType(insuranceType:string):void{
   //   //this.selectedInsuranceType=insuranceType;
   // }
+  SetSelectedAgentCode(agentCode:any){
+    this.selectedAgentCode=agentCode
+  }
+  GetSelectedAgentCode(){
+    return this.selectedAgentCode;
+  }
   SetInsuranceAccountDetails(account:any){
     this.insuranceAccountDetails=account
   }
@@ -57,6 +64,9 @@ export class DataServiceService {
   }
   GetAllCities(){
     return this.http.get(`http://localhost:5137/api/City/GetAllCities`)
+  }
+  GetCitiesByState(state:string){
+    return this.http.get(`http://localhost:5137/api/City/${state}/GetCitiesByState`)
   }
 
   AddInsuranceType(insuranceType:any){
@@ -99,4 +109,12 @@ export class DataServiceService {
   GetInsuranceAccountsByCustomerId(){
     return this.http.get(`http://localhost:5137/api/Customer/${sessionStorage.getItem('loggedInUser')}/GetInsuranceAccountsByCustomerId`)
   }
+  GetAllInsuranceAccounts(){
+    return this.http.get(`http://localhost:5137/api/Customer/GetAllInsuranceAccounts`)
+  }
+
+  GetAgentDetailsByAgentCode(){
+    return this.http.get(`http://localhost:5137/api/Agent/${sessionStorage.getItem('agentCode')}/GetAgentByCode`)
+  }
+  
 }
