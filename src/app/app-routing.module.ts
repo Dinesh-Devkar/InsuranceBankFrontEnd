@@ -58,6 +58,7 @@ import { AgentCommisionWithdrawlComponent } from './agent/agent-commision-withdr
 import { AgentWithdrawAmountComponent } from './agent/agent-withdraw-amount/agent-withdraw-amount.component';
 import { ServicesComponent } from './home/services/services.component';
 import { EditProfileComponent } from './customer/edit-profile/edit-profile.component';
+import { InsuranceAccountDetailsComponent } from './customer/insurance-account-details/insurance-account-details.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -119,6 +120,7 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'agentwithdraw',component:AgentWithdrawAmountComponent},
                       {path:'services',component:ServicesComponent},
                       {path:'editprofile',component:EditProfileComponent},
+                      {path:'inuranceaccountdetails',component:InsuranceAccountDetailsComponent},
 
 ];
 

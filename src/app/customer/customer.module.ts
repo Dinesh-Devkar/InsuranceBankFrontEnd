@@ -11,6 +11,7 @@ import { BuyInsuranceComponent } from './buy-insurance/buy-insurance.component';
 import { PolicyPaymentComponent } from './policy-payment/policy-payment.component';
 import { PaymentReceiptComponent } from './payment-receipt/payment-receipt.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { InsuranceAccountDetailsComponent } from './insurance-account-details/insurance-account-details.component';
 
 
 
@@ -24,7 +25,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     BuyInsuranceComponent,
     PolicyPaymentComponent,
     PaymentReceiptComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    InsuranceAccountDetailsComponent
   ],
   imports: [
     CommonModule,
