@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 import { FormGroup,FormControl } from '@angular/forms';
 import { CustomerServiceService } from 'src/app/services/customer/customer-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buy-insurance',
@@ -26,14 +27,15 @@ export class BuyInsuranceComponent implements OnInit {
       customerId: new FormControl(''),
       agentCode: new FormControl('')
   })
-  constructor(private dataService:DataServiceService,private customerService:CustomerServiceService) { }
+  constructor(private dataService:DataServiceService,private customerService:CustomerServiceService,private router:Router) { }
   PurchaseInsurancePlan(){
     this.customerService.PurchaseInsurancePlan(this.planDetailsForm.value).subscribe((data:any)=>{
-      console.log(data)
+      
       alert(data.message)
+      this.router.navigate(['/customerdashboard'])
     },(error:any)=>{
       alert(error.error.message)
-      console.log(error)
+      
     })
   }
 
