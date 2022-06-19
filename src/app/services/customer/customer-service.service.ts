@@ -15,4 +15,8 @@ export class CustomerServiceService {
   PurchaseInsurancePlan(insurancePlan:any){
     return this.http.post(`http://localhost:5137/api/Customer/AddInsuranceAccount`,insurancePlan)
   }
+
+  GetCustomerNameAgentCode(){
+    return this.http.get(`http://localhost:5137/api/Customer/${sessionStorage.getItem('loggedInUser')}/GetCustomerNameAndAgentCode`)
+  }
 }

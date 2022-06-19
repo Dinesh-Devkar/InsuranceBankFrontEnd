@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 import { FormGroup,FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CustomerServiceService } from 'src/app/services/customer/customer-service.service';
 
 @Component({
   selector: 'app-arogya-shield',
@@ -31,7 +32,9 @@ export class ArogyaShieldComponent implements OnInit {
   intrestAmount:number=0;
   totalAmount=0;
   isCustomerLogIn:boolean=true;
-  constructor(private dataService:DataServiceService,private router:Router) { }
+  agentCode:number=0
+  customerName:string=''
+  constructor(private dataService:DataServiceService,private router:Router,private customerService:CustomerServiceService) { }
 
   ngOnInit(): void {
 
@@ -49,7 +52,7 @@ export class ArogyaShieldComponent implements OnInit {
            maximumAge:res.maximumAge,
            minimumInvestAmt:res.minimumInvestAmt,
            maximumInvestAmt:res.maximumInvestAmt,
-           profitRatio:res.profitRatio+'.00%'
+           profitRatio:res.profitRatio
          })
         },(error:any)=>{
           alert(error.error.message)
@@ -76,7 +79,12 @@ export class ArogyaShieldComponent implements OnInit {
       alert(error.error.message)
     })
     
-    
+    this.customerService.GetCustomerNameAgentCode().subscribe((data:any)=>{
+      console.log("UUUUUUUUUUUUUUUUUUUU")
+      console.log(data)
+      this.customerName=data.customerName
+      this.agentCode=data.agentCode
+    })
   }
   GoToConfirmDetailsPage(){
     var d = new Date();
@@ -92,14 +100,14 @@ export class ArogyaShieldComponent implements OnInit {
       profitRatio: this.planDetails.get('profitRatio')?.value,
       investmentAmount: this.investmentAmount,
       premiumType: this.months,
-      installmentAmount: this.installmentAmont,
+      installmentAmount: Math.round(this.installmentAmont),
       interestAmount: this.intrestAmount,
       totalAmount: this.totalAmount,
       dateCreated: new Date(),
       maturityDate: c,
-      customerName: sessionStorage.getItem("name"),
+      customerName: this.customerName,
       customerId: sessionStorage.getItem("loggedInUser"),
-      agentCode: sessionStorage.getItem("agentCode")
+      agentCode: this.agentCode
     }
 
     this.dataService.SetInsuranceAccountDetails(insuranceAccount);
