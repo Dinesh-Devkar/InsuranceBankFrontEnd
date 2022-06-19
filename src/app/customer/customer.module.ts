@@ -26,7 +26,8 @@ import { InsuranceAccountDetailsComponent } from './insurance-account-details/in
     PolicyPaymentComponent,
     PaymentReceiptComponent,
     EditProfileComponent,
-    InsuranceAccountDetailsComponent
+    InsuranceAccountDetailsComponent,
+  
   ],
   imports: [
     CommonModule,
