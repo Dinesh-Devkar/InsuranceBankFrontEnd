@@ -23,7 +23,7 @@
                 <tr>
                     <th class="border" scope="row">Date Of Birth</th>
                     <td class="">
-                        <input type="input"  class="form-control" formControlName="dateOfBirth">
+                        <input type="date" class="form-control" formControlName="dateOfBirth">
                         <span style="color: red;" *ngIf="Date && Date.invalid && Date.touched ">
                             Date of Birth Required</span>
                     </td>
@@ -64,7 +64,7 @@
                     </td>
                 </tr>
             </tbody>
-            <tbody>
+            <!-- <tbody>
                 <tr>
                     <th class="border" scope="row">State</th>
                     <td class="">
@@ -73,12 +73,51 @@
                             State Required</span>
                     </td>
                 </tr>
-            </tbody>
+            </tbody> -->
             <tbody>
+                <tr>
+                    <th class="border" scope="row">State</th>
+                    <td class="">
+                        <select name="Status" formControlName="state" (change)="GenerateCityList($event.target)">
+                            <option value="">Select State</option>
+                            <option value="{{state.stateName}}" *ngFor="let state of states">{{state.stateName}}</option>
+                            <!-- <option value="Inactive">Inactive</option> -->
+                        </select>
+                        <span style="color: red;" *ngIf="State && State.invalid && State.touched ">
+                            State Required</span>
+                    </td>
+                </tr>
+            </tbody>
+            <!-- <tbody>
                 <tr>
                     <th class="border" scope="row">City</th>
                     <td class="">
                         <input type="text"  class="form-control" formControlName="city">
+                        <span style="color: red;" *ngIf="City && City.invalid && City.touched ">
+                            City Required</span>
+                    </td>
+                </tr>
+            </tbody> -->
+            <!-- <tbody>
+                <tr>
+                    <th class="border" scope="row">City</th>
+                    <td class="">
+                        <input type="text" name="city" formControlName="city"/>
+                           
+                        <span style="color: red;" *ngIf="City && City.invalid && City.touched ">
+                            City Required</span>
+                    </td>
+                </tr>
+            </tbody> -->
+            <tbody>
+                <tr>
+                    <th class="border" scope="row">City</th>
+                    <td class="">
+                        <select name="city" formControlName="city">
+                            <option [ngValue]="currentCity" selected disabled>{{currentCity}}</option>
+                            <option value="{{city}}" *ngFor="let city of cities">{{city}}</option>
+                           
+                        </select>
                         <span style="color: red;" *ngIf="City && City.invalid && City.touched ">
                             City Required</span>
                     </td>
@@ -127,11 +166,15 @@
 
             <!-- <tbody>
                 <tr>
-                    <th class="border" scope="row">Password</th>
+                    <th class="border" scope="row">Status</th>
                     <td class="">
-                        <input type="password" class="form-control" formControlName="password">
-                        <span style="color: red;" *ngIf="Password && Password.invalid && Password.touched ">
-                            Password Required</span>
+                        <select name="Status" formControlName="status">
+                            <option value="">Select Status</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                        <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched "> Status
+                            Required</span>
                     </td>
                 </tr>
             </tbody> -->
@@ -141,5 +184,6 @@
     </form>
     <div style="text-align: center; margin:20px;" class="container">
         <button class="btn btn-danger text-center">Back</button>
+        <button class="btn btn-danger text-center m-2" (click)="UpdateData()" [disabled]="customer.invalid">Update</button>
     </div>
 </div>

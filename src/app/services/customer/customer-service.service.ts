@@ -19,4 +19,9 @@ export class CustomerServiceService {
   GetCustomerNameAgentCode(){
     return this.http.get(`http://localhost:5137/api/Customer/${sessionStorage.getItem('loggedInUser')}/GetCustomerNameAndAgentCode`)
   }
+
+
+  UpdateCustomer(customer:any){
+      return this.http.post(`http://localhost:5137/api/Customer/${sessionStorage.getItem('loggedInUser')}/UpdateCustomer`,customer);
+  }
 }
