@@ -23,30 +23,19 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="">                
-                <td>7</td>
-                <td>Protection Plan</td>
-                <td>Health plus Life Insurance</td> 
-                <td>15/06/2022</td> 
-                <td>15/06/2024</td> 
-                <td>2</td> 
-                <td>100000</td> 
-                <td>6</td> 
-                <td>106000</td> 
-                <td><a href="">View more</a></td> 
+            <tr class="" *ngFor="let insuranceAccount of insuranceAccounts">                
+                <td>{{insuranceAccount.accountNumber}}</td>
+                <td>{{insuranceAccount.insuranceType}}</td>
+                <td>{{insuranceAccount.insuranceScheme}}</td> 
+                <td>{{insuranceAccount.dateCreated}}</td> 
+                <td>{{insuranceAccount.maturityDate}}</td> 
+                <td>{{insuranceAccount.premiumType}}</td> 
+                <td>{{insuranceAccount.investmentAmount}}</td> 
+                <td>{{insuranceAccount.profitRatio}}</td> 
+                <td>{{insuranceAccount.totalAmount}}</td> 
               
             </tr>
-            <tr class="">              
-                <td></td>
-                <td></td>
-                <td></td> 
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th class="font-weight-bold">Total </th>
-                <th class="font-weight-bold">Rs. 106000</th>                               
-            </tr>
+            
 
         </tbody>
     </table>

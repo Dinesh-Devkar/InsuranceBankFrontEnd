@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
   selector: 'app-cust-insurance-account',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustInsuranceAccountComponent implements OnInit {
 
-  constructor() { }
+  insuranceAccounts:any
+  constructor(private dataService:DataServiceService) { }
 
   ngOnInit(): void {
+    this.dataService.GetInsuranceAccountsByCustomerId().subscribe((data:any)=>{
+      console.log(data)
+      this.insuranceAccounts=data.$values
+    })
   }
 
 }
