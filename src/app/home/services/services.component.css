@@ -1,0 +1,46 @@
+
+body{
+    /* background: #000 !important; */
+    /* color: #fff !important; */
+    margin: 0;
+}
+.service{
+    padding-top: 20px;
+    margin-top:20px ;
+    margin-bottom:30px ;
+}
+.service-box{
+    box-shadow: 0 0  4px #ffa709;
+    padding: 15px;
+    position: relative;
+}
+.fa{
+    background: linear-gradient(to right,#ff105f,#ffad06);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 40px  !important;
+    margin-bottom: 20px;
+}
+p{
+    text-align: justify;
+}
+a{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    bottom:-20px;
+    right: -20px;
+    background: linear-gradient(to right,#ff105f,#ffad06);
+}
+span{
+    background: linear-gradient(to right,#ff105f,#ffad06);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+a .fa{
+    color: #fff;
+    font-size: 25px !important;
+    padding-top: 6px;
+}

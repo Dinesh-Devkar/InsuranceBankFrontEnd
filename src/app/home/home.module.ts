@@ -3,18 +3,23 @@ import { CommonModule } from '@angular/common';
 import { LandingComponent } from './landing/landing.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { ServicesComponent } from './services/services.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
 @NgModule({
-  declarations: [
-    LandingComponent,
+  declarations: [    
     FooterComponent,
+    ServicesComponent,
+    AboutusComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule,
   ]
 })
 export class HomeModule { }

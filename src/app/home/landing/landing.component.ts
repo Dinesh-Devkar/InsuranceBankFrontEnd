@@ -12,5 +12,5 @@ export class LandingComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  images = ['assets/ins1.jpg','assets/ins2.jpg','assets/ins3.jpg'];
 }
