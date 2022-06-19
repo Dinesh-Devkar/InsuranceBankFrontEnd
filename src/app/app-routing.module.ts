@@ -56,6 +56,8 @@ import { PaymentReceiptComponent } from './customer/payment-receipt/payment-rece
 import { AgentViewCommisionComponent } from './agent/agent-view-commision/agent-view-commision.component';
 import { AgentCommisionWithdrawlComponent } from './agent/agent-commision-withdrawl/agent-commision-withdrawl.component';
 import { AgentWithdrawAmountComponent } from './agent/agent-withdraw-amount/agent-withdraw-amount.component';
+import { ServicesComponent } from './home/services/services.component';
+import { EditProfileComponent } from './customer/edit-profile/edit-profile.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -115,6 +117,8 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'commisionwithdrawl',component:AgentCommisionWithdrawlComponent},
                       
                       {path:'agentwithdraw',component:AgentWithdrawAmountComponent},
+                      {path:'services',component:ServicesComponent},
+                      {path:'editprofile',component:EditProfileComponent},
 
 ];
 

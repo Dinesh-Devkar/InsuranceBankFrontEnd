@@ -1,6 +1,6 @@
 <div class="container ">
     <div style="text-align: center; margin-bottom:20px;">
-        <h1>Customer Profile</h1>
+        <h1>Edit Customer Profile</h1>
     </div>
 </div>
 <div></div>
@@ -13,8 +13,9 @@
                 <tr>
                     <th class="border" scope="row">Customer Name</th>
                     <td class="">
-                        <input type="text" readonly class="form-control" formControlName="name">
-                       
+                        <input type="text"  class="form-control" formControlName="name">
+                        <span style="color: red;" *ngIf="Name && Name.invalid && Name.touched ">
+                            Name Required</span>
                     </td>
                 </tr>
             </tbody>
@@ -22,16 +23,18 @@
                 <tr>
                     <th class="border" scope="row">Date Of Birth</th>
                     <td class="">
-                        <input type="input" readonly class="form-control" formControlName="dateOfBirth">
-                        
+                        <input type="input"  class="form-control" formControlName="dateOfBirth">
+                        <span style="color: red;" *ngIf="Date && Date.invalid && Date.touched ">
+                            Date of Birth Required</span>
                     </td>
                 </tr>
             </tbody>
             <tbody>
                 <tr>
                     <th class="border" scope="row">Customer Login Id</th>
-                    <td> <input type="text" readonly class="form-control" formControlName="loginId">
-                    
+                    <td> <input type="text"  class="form-control" formControlName="loginId">
+                        <span style="color: red;" *ngIf="LoginId && LoginId.invalid && LoginId.touched ">
+                            Log in Id Required</span>
                     
                     </td>
                 </tr>
@@ -40,10 +43,11 @@
                 <tr>
                     <th class="border" scope="row">Address</th>
                     <td> <textarea class="form-control z-depth-1"
-                         id="exampleFormControlTextarea6" rows="3" readonly
+                         id="exampleFormControlTextarea6" rows="3" 
                            formControlName='address'></textarea>
 
-                    
+                           <span style="color: red;" *ngIf="Address && Address.invalid && Address.touched ">
+                            Address Required</span>
                     
                     </td>
                 </tr>
@@ -54,8 +58,9 @@
                 <tr>
                     <th class="border" scope="row">Email-Id</th>
                     <td class="">
-                        <input type="text" readonly class="form-control" formControlName="email">
-                       
+                        <input type="text"  class="form-control" formControlName="email">
+                        <span style="color: red;" *ngIf="Email && Email.invalid && Email.touched ">
+                            Email Required</span>
                     </td>
                 </tr>
             </tbody>
@@ -63,8 +68,9 @@
                 <tr>
                     <th class="border" scope="row">State</th>
                     <td class="">
-                        <input type="text" readonly class="form-control" formControlName="state">
-                        
+                        <input type="text"  class="form-control" formControlName="state">
+                        <span style="color: red;" *ngIf="State && State.invalid && State.touched ">
+                            State Required</span>
                     </td>
                 </tr>
             </tbody>
@@ -72,8 +78,9 @@
                 <tr>
                     <th class="border" scope="row">City</th>
                     <td class="">
-                        <input type="text" readonly class="form-control" formControlName="city">
-                        
+                        <input type="text"  class="form-control" formControlName="city">
+                        <span style="color: red;" *ngIf="City && City.invalid && City.touched ">
+                            City Required</span>
                     </td>
                 </tr>
             </tbody>
@@ -81,8 +88,9 @@
                 <tr>
                     <th class="border" scope="row">Pin Code</th>
                     <td class="">
-                        <input type="text" readonly class="form-control" formControlName="pinCode">
-                       
+                        <input type="text"  class="form-control" formControlName="pinCode">
+                        <span style="color: red;" *ngIf="PinCode && PinCode.invalid && PinCode.touched ">
+                            PinCode Required</span>
                     </td>
                 </tr>
             </tbody>
@@ -90,8 +98,9 @@
                 <tr>
                     <th class="border" scope="row">Mobile No</th>
                     <td class="">
-                        <input type="text" readonly class="form-control" formControlName="mobileNumber">
-                       
+                        <input type="text"  class="form-control" formControlName="mobileNumber">
+                        <span style="color: red;" *ngIf="Mobile && Mobile.invalid && Mobile.touched ">
+                            Mobile Number Required</span>
                     </td>
                 </tr>
             </tbody>
@@ -99,8 +108,9 @@
                 <tr>
                     <th class="border" scope="row">Nominee</th>
                     <td class="">
-                        <input type="text" readonly class="form-control" formControlName="nomineeName">
-                       
+                        <input type="text"  class="form-control" formControlName="nomineeName">
+                        <span style="color: red;" *ngIf="Nominee && Nominee.invalid && Nominee.touched ">
+                            Nominee Required</span>
                     </td>
                 </tr>
             </tbody>
@@ -108,8 +118,9 @@
                 <tr>
                     <th class="border" scope="row">Nomminee Relationship</th>
                     <td class="">
-                        <input type="text" readonly class="form-control" formControlName="nomineeRelation">
-                         
+                        <input type="text"  class="form-control" formControlName="nomineeRelation">
+                        <span style="color: red;" *ngIf="NomineeRelation && NomineeRelation.invalid && NomineeRelation.touched ">
+                            NomineeRelation Required</span>
                     </td>
                 </tr>
             </tbody>

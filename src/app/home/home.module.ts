@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { LandingComponent } from './landing/landing.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { ServicesComponent } from './services/services.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 
 
@@ -10,6 +12,8 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [
     LandingComponent,
     FooterComponent,
+    ServicesComponent,
+    AboutusComponent,
   ],
   imports: [
     CommonModule,
