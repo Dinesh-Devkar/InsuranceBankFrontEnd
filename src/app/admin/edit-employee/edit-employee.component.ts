@@ -28,6 +28,13 @@ export class EditEmployeeComponent implements OnInit {
    UpdateEmployee(){
       this.employeeService.UpdateEmployee(this.employee.value).subscribe((data:any)=>{
         alert(data.message)
+        if(sessionStorage.getItem('loggedInuserRoll')=="Employee"){
+          this.router.navigate(['/empdashboard'])
+        }
+        else if(sessionStorage.getItem('loggedInuserRoll')=="Admin"){
+          this.router.navigate(['/dashboard'])
+        }
+        
       },(error:any)=>{
         console.log(error)
       })

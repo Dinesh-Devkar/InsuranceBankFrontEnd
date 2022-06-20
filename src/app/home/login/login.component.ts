@@ -30,9 +30,6 @@ export class LoginComponent implements OnInit {
     console.log(this.noLogin)
     this.auth.Login(this.loginForm.value).subscribe((data:any)=>{
       console.log(data)
-      alert("Mission Successfull");
-      alert("The Login User Is : "+data.userRoll)
-      alert(data.message)
       this.auth.SetLoggedInUser(data.userRoll)
       sessionStorage.setItem('loggedInUser',data.userId)
       sessionStorage.setItem('loggedInuserRoll',data.userRoll)
@@ -46,6 +43,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/agentdashboard'])
       }
       else if(data.userRoll=="Customer"){
+        sessionStorage.setItem('dateOfBirth',data.dateOfBirth)
         this.router.navigate(['/customerdashboard'])
       }
       
