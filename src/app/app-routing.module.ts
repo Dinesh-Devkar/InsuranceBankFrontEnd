@@ -67,6 +67,7 @@ import { EditInsuranceSchemeComponent } from './admin/edit-insurance-scheme/edit
 import { EditEmployeeProfileComponent } from './employee/edit-employee-profile/edit-employee-profile.component';
 import { ViewFeedbackComponent } from './customer/view-feedback/view-feedback.component';
 import { AskQueryComponent } from './customer/ask-query/ask-query.component';
+import { AdminRollGuardGuard } from './shared/admin-roll-guard.guard';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -74,7 +75,7 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: 'register', component: RegisterComponent },
                       { path: 'protection', component: ProtectionComponent },
                       { path: 'arogyashield', component: ArogyaShieldComponent },
-                      { path: 'dashboard', component: DashboardComponent },
+                      { path: 'dashboard', component: DashboardComponent,canActivate:[AdminRollGuardGuard] },
                       { path: 'viewfeedback', component: FeedbackComponent },
                       { path: 'addinsurance', component: AddInsuranceComponent },
                       { path: 'viewinsurance', component: ViewInsrunaceComponent },

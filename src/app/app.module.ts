@@ -20,7 +20,7 @@ import { AddInsurancePlanComponent } from './admin/add-insurance-plan/add-insura
 import { AddEmployeeComponent } from './admin/add-employee/add-employee.component';
 import { AddAgentComponent } from './admin/add-agent/add-agent.component';
 // import { EmpDashboardComponent } from './employee/emp-dashboard/emp-dashboard.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http'
 import { AdminModule } from './admin/admin.module';
 import { AgentDashboardComponent } from './agent/agent-dashboard/agent-dashboard.component';
 import { EditCityComponent } from './admin/edit-city/edit-city.component';
@@ -29,6 +29,7 @@ import { CustomerModule } from './customer/customer.module';
 import { AgentModule } from './agent/agent.module';
 import { LandingComponent } from './home/landing/landing.component';
 import { EmployeeModule } from './employee/employee.module';
+import { TokenIntercepterService } from './services/token-intercepter.service';
 
 
 
@@ -64,7 +65,7 @@ import { EmployeeModule } from './employee/employee.module';
     EmployeeModule,
 
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:TokenIntercepterService,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
