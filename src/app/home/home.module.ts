@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ServicesComponent } from './services/services.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ContactPageComponent } from './contact-page/contact-page.component';
 
 
 
@@ -14,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FooterComponent,
     ServicesComponent,
     AboutusComponent,
+    ContactPageComponent,
   ],
   imports: [
     CommonModule,

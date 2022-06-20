@@ -25,7 +25,7 @@
                     <tr>
                         <th class="border" scope="row">Employee Name</th>
                         <td class="">
-                            <input type="text" formControlName="name">
+                            <input type="text" class="form-control" formControlName="name">
                             <span style="color: red;" *ngIf="EmployeeName && EmployeeName.invalid && EmployeeName.touched ">
                                 EmployeeName Required</span>
                         </td>
@@ -35,7 +35,7 @@
                     <tr>
                         <th class="border" scope="row">Login Id</th>
                         <td class="">
-                            <input type="text" formControlName="loginid">
+                            <input type="text"class="form-control" formControlName="loginid">
                             <span style="color: red;" *ngIf="LoginId && LoginId.invalid && LoginId.touched ">
                                 LoginId Required</span>
                         </td>
@@ -45,7 +45,7 @@
                     <tr>
                         <th class="border" scope="row">Email</th>
                         <td class="">
-                            <input type="text" formControlName="email">
+                            <input type="text"class="form-control" formControlName="email">
                             <span style="color: red;" *ngIf="Email && Email.invalid && Email.touched ">
                                 Email Required</span>
                         </td>
@@ -55,7 +55,7 @@
                     <tr>
                         <th class="border" scope="row">Password</th>
                         <td class="">
-                            <input type="password" formControlName="password">
+                            <input type="password"class="form-control" formControlName="password">
                             <span style="color: red;" *ngIf="Password && Password.invalid && Password.touched ">
                                 Password Required</span>
                         </td>
@@ -65,7 +65,7 @@
                     <tr>
                         <th class="border" scope="row">Confirm Password</th>
                         <td class="">
-                            <input type="password" formControlName="confirmPassword">
+                            <input type="password"class="form-control" formControlName="confirmPassword">
                             <span style="color: red;" *ngIf="ConfirmPassword && ConfirmPassword.invalid && ConfirmPassword.touched ">
                                 ConfirmPassword Required</span>
                         </td>
@@ -85,7 +85,11 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="btn btn-danger" [disabled]="employee.invalid" (click)="AddUser()">Submit</button>
+            <div class="container ">
+                <div style="text-align: center; margin-bottom:20px;">
+                    <button class="btn btn-danger" [disabled]="employee.invalid" (click)="AddUser()">Submit</button>
+                </div>
+            </div>
         </form>
     </div>
 </div>

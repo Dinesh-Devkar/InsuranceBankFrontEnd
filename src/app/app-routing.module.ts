@@ -59,6 +59,12 @@ import { AgentWithdrawAmountComponent } from './agent/agent-withdraw-amount/agen
 import { ServicesComponent } from './home/services/services.component';
 import { EditProfileComponent } from './customer/edit-profile/edit-profile.component';
 import { InsuranceAccountDetailsComponent } from './customer/insurance-account-details/insurance-account-details.component';
+import { ContactPageComponent } from './home/contact-page/contact-page.component';
+import { AboutusComponent } from './home/aboutus/aboutus.component';
+import { EditInsuranceTypeComponent } from './admin/edit-insurance-type/edit-insurance-type.component';
+import { EditInsurancePlanComponent } from './admin/edit-insurance-plan/edit-insurance-plan.component';
+import { EditInsuranceSchemeComponent } from './admin/edit-insurance-scheme/edit-insurance-scheme.component';
+import { EditEmployeeProfileComponent } from './employee/edit-employee-profile/edit-employee-profile.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -119,8 +125,14 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       
                       {path:'agentwithdraw',component:AgentWithdrawAmountComponent},
                       {path:'services',component:ServicesComponent},
+                      {path:'contactus',component:ContactPageComponent},
+                      {path:'aboutus',component:AboutusComponent},
                       {path:'editprofile',component:EditProfileComponent},
                       {path:'inuranceaccountdetails',component:InsuranceAccountDetailsComponent},
+                      {path:'editinsuranetype',component:EditInsuranceTypeComponent},
+                      {path:'editinsuraneplan',component:EditInsurancePlanComponent},
+                      {path:'editinsuranescheme',component:EditInsuranceSchemeComponent},
+                      {path:'editemployeeprofile',component:EditEmployeeProfileComponent},
 
 ];
 
