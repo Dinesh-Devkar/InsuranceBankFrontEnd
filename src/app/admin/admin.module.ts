@@ -30,6 +30,9 @@ import { AppRoutingModule } from '../app-routing.module';
 import { EditStateComponent } from './edit-state/edit-state.component';
 import { EditAgentComponent } from './edit-agent/edit-agent.component';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
+import { EditInsuranceTypeComponent } from './edit-insurance-type/edit-insurance-type.component';
+import { EditInsuranceSchemeComponent } from './edit-insurance-scheme/edit-insurance-scheme.component';
+import { EditInsurancePlanComponent } from './edit-insurance-plan/edit-insurance-plan.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +62,10 @@ import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
     EditCityComponent,
     EditStateComponent,
     EditAgentComponent,
-    EditEmployeeComponent
+    EditEmployeeComponent,
+    EditInsuranceTypeComponent,
+    EditInsuranceSchemeComponent,
+    EditInsurancePlanComponent
   ],
   imports: [
     CommonModule,
