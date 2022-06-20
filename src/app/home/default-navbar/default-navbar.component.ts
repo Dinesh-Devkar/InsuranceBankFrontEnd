@@ -36,7 +36,6 @@ export class DefaultNavbarComponent implements OnInit {
    
    
     this.auth.RefreshRequired.subscribe((data:any)=>{
-      alert("Inside Navbar")
       
       setTimeout(()=>{
         this.checkUser();

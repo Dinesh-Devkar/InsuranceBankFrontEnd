@@ -22,6 +22,7 @@ export class ArogyaShieldComponent implements OnInit {
     maximumInvestAmt:new FormControl(''),
     profitRatio:new FormControl('')
   })
+  isUserLoggedIn=sessionStorage.getItem('loggedInuserRoll')
   selectedPlan:any
   selectedScheme:any
   intrestRate:number=7.0;
@@ -34,10 +35,25 @@ export class ArogyaShieldComponent implements OnInit {
   isCustomerLogIn:boolean=true;
   agentCode:number=0
   customerName:string=''
+
+  //Calculate loggedInUser Age
+  
+	today = new Date(); 
+  k:string|null=''
+  
+  
   constructor(private dataService:DataServiceService,private router:Router,private customerService:CustomerServiceService) { }
 
   ngOnInit(): void {
-
+    //this.k=JSON.parse(localStorage.getItem('dateOfBirth'))
+    
+  let dob = new Date(sessionStorage.getItem('dateOfBirth') || this.today); 
+  let Time = this.today.getTime() - dob.getTime(); 
+  let Days = Time / (1000 * 3600 * 24); //Diference in Days
+  let age=Days/365
+  alert("DOb Is : "+dob)
+  alert("Today Is : "+this.today)
+    alert("The Age Is : " +Math.round(age))
     this.dataService.GetSelectedInsurancePlan().subscribe((data:any)=>{
       if(data !=''){
         this.dataService.GetInsurancePlan(data).subscribe((res:any)=>{
@@ -54,6 +70,9 @@ export class ArogyaShieldComponent implements OnInit {
            maximumInvestAmt:res.maximumInvestAmt,
            profitRatio:res.profitRatio
          })
+         if(age<res.minimumAge || age>res.maximumAge){
+           alert("You Are Not Eligible")
+         }
         },(error:any)=>{
           alert(error.error.message)
         })

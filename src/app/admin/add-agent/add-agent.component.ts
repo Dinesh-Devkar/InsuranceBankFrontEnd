@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AgentServiceService } from 'src/app/services/agent/agent-service.service';
 
 @Component({
@@ -20,13 +21,14 @@ export class AddAgentComponent implements OnInit {
     confirmPassword:new FormControl('',Validators.required),
     status:new FormControl('',Validators.required)
   })
-  constructor(private agentService:AgentServiceService) { }
+  constructor(private agentService:AgentServiceService,private router:Router) { }
 
   AddAgent(){
     console.log(this.agentForm.value)
     this.agentService.AddAgent(this.agentForm.value).subscribe((data:any)=>{
       console.log(data)
       alert(data.message)
+      this.router.navigate(['/dashboard'])
     },(error:any)=>{
       console.log(error)
       alert(error.error.message)

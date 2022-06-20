@@ -6,11 +6,11 @@
     </div>
 </div>
 
-<div class="container col-md-9 p-1" style="background-color:#CEDBE4;">
+<div class="container col-md-9 p-1">
     <div class="row">
         
         <div class="col-md-12 text-center">
-            <img src="assets/ins3.jpg" alt="" height="100%" width="50%">
+            <img src="assets/plan1.jpg" alt="" height="100%" width="70%">
         </div>
     </div>
 </div>
@@ -132,7 +132,7 @@
             </tbody>
         </table>
 
-        <div class=" text-center">
+        <div class=" text-center" *ngIf="isUserLoggedIn">
             <h2><button class="btn btn-danger" (click)="GoToConfirmDetailsPage()" >Submit</button></h2>
         </div>
     </div>
