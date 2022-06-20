@@ -19,12 +19,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr>                
-                <td>asdf</td>
-                <td>as</td>
-                <td>as</td> 
-                <td>jkf</td> 
-                <td>sdf</td>   
+            <tr *ngIf="customerDetails">                
+                <td>{{customerDetails.name}}</td>
+                <td>{{customerDetails.address}}</td>
+                <td>{{customerDetails.email}}</td> 
+                <td>{{customerDetails.mobileNumber}}</td> 
+                <td>{{customerDetails.loginId}}</td>   
             </tr>
         </tbody>
     </table>
@@ -38,18 +38,18 @@
                 <th scope="col">Insurance Scheme</th>
                 <th scope="col">Date Created</th>
                 <th scope="col">Date Maturity</th>
-                <th scope="col">Premium Type</th>              
+                <th scope="col">Premium Type</th>            
                                
             </tr>
         </thead>
         <tbody>
-            <tr>                
-                <td>asdf</td>
-                <td>as</td>
-                <td>as</td> 
-                <td>jkf</td> 
-                <td>sdf</td> 
-                <td>1 Year</td>   
+            <tr *ngIf="insuranceAccountDetails">                
+                <td>{{insuranceAccountDetails.accountNumber}}</td>
+                <td>{{insuranceAccountDetails.insuranceType}}</td>
+                <td>{{insuranceAccountDetails.insuranceScheme}}</td> 
+                <td>{{insuranceAccountDetails.dateCreated}}</td> 
+                <td>{{insuranceAccountDetails.maturityDate}}</td> 
+                <td>{{insuranceAccountDetails.premiumType}} months</td>   
             </tr>
         </tbody>
     </table>
@@ -60,15 +60,15 @@
             <tr>                
                 <th scope="col">Total Premium Amount</th>
                 <th scope="col">Profit Ratio</th>
-                <th scope="col">Sum Assured</th>                          
+                <th scope="col">Sum Assured</th>                 
                                
             </tr>
         </thead>
         <tbody>
-            <tr>                
-                <td>asdf</td>
-                <td>as</td>
-                <td>as</td> 
+            <tr *ngIf="insuranceAccountDetails">                
+                <td>{{insuranceAccountDetails.investmentAmount}}</td>
+                <td>{{insuranceAccountDetails.profitRatio}}</td> 
+                <td>{{insuranceAccountDetails.totalAmount}}</td> 
                   
             </tr>
         </tbody>
@@ -100,7 +100,7 @@
     </table>
     <div class="container ">
         <div style="text-align: center; margin-bottom:20px;">
-            <button class="btn btn-danger">Cancel Payment</button>
+            <button class="btn btn-danger" routerLink="/customerdashboard" (click)="GoDashboard()">Back</button>
         </div>
     </div>
 </div>
