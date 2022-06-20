@@ -65,6 +65,8 @@ import { EditInsuranceTypeComponent } from './admin/edit-insurance-type/edit-ins
 import { EditInsurancePlanComponent } from './admin/edit-insurance-plan/edit-insurance-plan.component';
 import { EditInsuranceSchemeComponent } from './admin/edit-insurance-scheme/edit-insurance-scheme.component';
 import { EditEmployeeProfileComponent } from './employee/edit-employee-profile/edit-employee-profile.component';
+import { ViewFeedbackComponent } from './customer/view-feedback/view-feedback.component';
+import { AskQueryComponent } from './customer/ask-query/ask-query.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -133,6 +135,8 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'editinsuraneplan',component:EditInsurancePlanComponent},
                       {path:'editinsuranescheme',component:EditInsuranceSchemeComponent},
                       {path:'editemployeeprofile',component:EditEmployeeProfileComponent},
+                      {path:'cutsomerviewfeedback',component:ViewFeedbackComponent},
+                      {path:'askquery',component:AskQueryComponent},
 
 ];
 
