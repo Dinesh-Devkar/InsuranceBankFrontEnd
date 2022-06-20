@@ -12,6 +12,8 @@ import { PolicyPaymentComponent } from './policy-payment/policy-payment.componen
 import { PaymentReceiptComponent } from './payment-receipt/payment-receipt.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { InsuranceAccountDetailsComponent } from './insurance-account-details/insurance-account-details.component';
+import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
+import { AskQueryComponent } from './ask-query/ask-query.component';
 
 
 
@@ -27,6 +29,8 @@ import { InsuranceAccountDetailsComponent } from './insurance-account-details/in
     PaymentReceiptComponent,
     EditProfileComponent,
     InsuranceAccountDetailsComponent,
+    ViewFeedbackComponent,
+    AskQueryComponent,
   
   ],
   imports: [

@@ -1,11 +1,14 @@
 .navbar .navbar-nav .nav-link:hover {
-    background-color: #FFACB7;
-    color: #fff;
+    background-color:chocolate;
+    color:black;
   }
   .empNav{
     margin-left: 650px;
   }
-  
+  a{
+    color: black;
+    margin-left: 5px;
+  }
   .cursor-pointer{
     cursor: pointer;
   }
