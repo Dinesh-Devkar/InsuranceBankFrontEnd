@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from 'src/app/services/data/data-service.service';
+import { CustomerServiceService } from 'src/app/services/customer/customer-service.service';
+
 
 @Component({
   selector: 'app-insurance-account-details',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InsuranceAccountDetailsComponent implements OnInit {
 
-  constructor() { }
+  customerDetails:any
+  insuranceAccountDetails:any
+  constructor(private dataService:DataServiceService,private customerService:CustomerServiceService) { }
 
+  GoDashboard(){
+    sessionStorage.removeItem('insuranceAccountId')
+  }
   ngOnInit(): void {
+    this.customerService.GetCustomerDetails().subscribe((data:any)=>{
+      console.log(data)
+      this.customerDetails=data
+    })
+
+    this.dataService.GetInsuranceAccountDetailsByAccountId().subscribe((data:any)=>{
+      this.insuranceAccountDetails=data
+      console.log(data)
+    },(error:any)=>{
+      console.log(error)
+      alert(error.message)
+    })
   }
 
 }

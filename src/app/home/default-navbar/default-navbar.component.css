@@ -8,6 +8,7 @@
   a{
     color: black;
     margin-left: 5px;
+    cursor: pointer;
   }
   .cursor-pointer{
     cursor: pointer;
