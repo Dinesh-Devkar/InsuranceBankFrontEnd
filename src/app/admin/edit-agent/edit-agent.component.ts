@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AgentServiceService } from 'src/app/services/agent/agent-service.service';
+import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
   selector: 'app-edit-agent',
@@ -15,16 +18,43 @@ export class EditAgentComponent implements OnInit {
     address:new FormControl('',Validators.required),
     agentCode:new FormControl('',Validators.required),
     email:new FormControl('',Validators.required),
-    password:new FormControl('',Validators.required),
-    confirmPassword:new FormControl('',Validators.required),
     status:new FormControl('',Validators.required)
   })
   
-  constructor() { }
+  constructor(private dataService:DataServiceService,private agentService:AgentServiceService,private router:Router) { }
 
   ngOnInit(): void {
+    this.dataService.GetAgentDetailsByAgentCode().subscribe((data:any)=>{
+      console.log(data)
+      this.agentForm.setValue({
+        name:data.name,
+        loginId:data.loginId,
+        qualification:data.qualification,
+        address:data.address,
+        agentCode:data.agentCode,
+        email:data.email,
+        status:data.status
+      })
+    })
   }
 
+  UpdateAgent(){
+    
+    console.log("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+    console.log(this.agentForm.value)
+    this.agentService.UpdateAgent(this.AgentCode?.value,this.agentForm.value).subscribe((data:any)=>{
+      alert(data.message)
+      if(sessionStorage.getItem('loggedInuserRoll')=="Admin"){
+        this.router.navigate(['/dashboard'])
+      }
+      else if(sessionStorage.getItem('loggedInuserRoll')=="Employee"){
+        this.router.navigate(['/empdashboard'])
+      }
+      
+    },(error:any)=>{
+      console.log(error)
+    })
+  }
 
   get Name(){
     return this.agentForm.get('name')

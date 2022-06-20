@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CustomerServiceService } from 'src/app/services/customer/customer-service.service';
+import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -21,13 +23,57 @@ export class EditProfileComponent implements OnInit {
     nomineeName:new FormControl('',  Validators.required),
     nomineeRelation:new FormControl('',  Validators.required),
     pinCode:new FormControl('',  Validators.required),
-    status:new FormControl('',  Validators.required)
+    //status:new FormControl('',  Validators.required)
 
   })
+  states:any
+  cities:any
+  currentCity:string=''
+  dob:any
   
-  constructor() { }
+  constructor(private customerService:CustomerServiceService,private dataService:DataServiceService) { }
 
+  GenerateCityList(state:any){
+    
+    this.dataService.GetCitiesByState(state.value).subscribe((data:any)=>{
+      
+      this.cities=data.$values
+    },(error:any)=>{
+      console.log(error)
+    })
+  }
+  UpdateData(){
+    console.log(this.customer.value)
+    this.customerService.UpdateCustomer(this.customer.value).subscribe((data:any)=>{
+      alert(data.message)
+    },(error:any)=>{
+      alert(error.message)
+      console.log(error)
+    })
+  }
   ngOnInit(): void {
+    this.customerService.GetCustomerDetails().subscribe((data:any)=>{
+      this.dob=data.dateOfBirth
+     this.currentCity=data.city
+      this.customer.setValue({
+        name:data.name,
+        loginId:data.loginId,
+        email:data.email,
+        address:data.address,
+        dateOfBirth: null,       
+        state:data.state,
+        city:data.city,
+        mobileNumber:data.mobileNumber,
+        nomineeName:data.nomineeName,
+        nomineeRelation:data.nomineeRelation,
+        pinCode:data.pinCode
+      })
+     
+    })
+    this.dataService.GetAllStates().subscribe((data:any)=>{
+      this.states=data.$values
+      console.log(data)
+    })
   }
   get CustId(){
     return this.customer.get('custId');
@@ -65,4 +111,5 @@ export class EditProfileComponent implements OnInit {
   get NomineeRelation(){
     return this.customer.get('nomineeRelation');
   }
+  
 }

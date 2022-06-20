@@ -35,7 +35,7 @@
                     <tr>
                         <th class="border" scope="row">Login Id</th>
                         <td class="">
-                            <input type="text" formControlName="loginid">
+                            <input type="text" formControlName="loginId">
                             <span style="color: red;" *ngIf="LoginId && LoginId.invalid && LoginId.touched ">
                                 LoginId Required</span>
                         </td>
@@ -51,7 +51,7 @@
                         </td>
                     </tr>
                 </tbody>
-                <tbody>
+                <!-- <tbody>
                     <tr>
                         <th class="border" scope="row">Password</th>
                         <td class="">
@@ -70,14 +70,14 @@
                                 ConfirmPassword Required</span>
                         </td>
                     </tr>
-                </tbody>
+                </tbody> -->
                 <tbody>
                     <tr>
                         <th class="border" scope="row">Status</th>
                         <td class="">
                             <select name="Status" formControlName="userStatus">
                                 <option value="Active">Active</option>
-                                <option value="Inactive">Inactive</option>
+                                <option value="InActive">InActive</option>
                             </select>
                             <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched "> Status
                                 Required</span>
@@ -85,7 +85,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="btn btn-danger" [disabled]="employee.invalid" >Submit</button>
+            <button class="btn btn-danger" [disabled]="employee.invalid" (click)="UpdateEmployee()" >Submit</button>
         </form>
     </div>
 </div>

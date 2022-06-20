@@ -7,18 +7,41 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DataServiceService {
   //selectedInsuranceType:string=''
-  private selectedInsuranceType = new BehaviorSubject('');
+  selectedAgentCode:any
+  selectedCity:any
+  selectedState:any
+  public insuranceAccountDetails:any
+private selectedInsuranceType = new BehaviorSubject('');
  public currentInsuranceType = this.selectedInsuranceType.asObservable();
  private selectedInsurancePlan = new BehaviorSubject('');
  public currentInsurancePlan= this.selectedInsuranceType.asObservable();
  private selectedInsuranceScheme = new BehaviorSubject('');
  public currentInsuranceScheme= this.selectedInsuranceType.asObservable();
- public insuranceAccountDetails:any
+ private selectedEmployee = new BehaviorSubject('');
+ public currentEmployee= this.selectedEmployee.asObservable();
 
   constructor(private http:HttpClient) { }
   // SetSelectedInsuranceType(insuranceType:string):void{
   //   //this.selectedInsuranceType=insuranceType;
   // }
+  // SetSelectedAgentCode(agentCode:any){
+  //   this.selectedAgentCode=agentCode
+  // }
+  // GetSelectedAgentCode(){
+  //   return this.selectedAgentCode;
+  // }
+  SetSelectedState(state:any){
+    this.selectedState=state
+  }
+  GetSelectedState(){
+    return this.selectedState
+  }
+  SetSelectedCity(city:any){
+    this.selectedCity=city
+  }
+  GetSelectedCity(){
+    return this.selectedCity;
+  }
   SetInsuranceAccountDetails(account:any){
     this.insuranceAccountDetails=account
   }
@@ -43,7 +66,12 @@ export class DataServiceService {
   GetSelectedInsuranceScheme(){
     return this.selectedInsuranceScheme;
   }
-
+  SetSelectedEmployee(employee:any){
+    this.selectedEmployee.next(employee)
+  }
+  GetSelectedEmployee(){
+    return this.selectedEmployee;
+  }
 
   GetAllStates(){
     return this.http.get(`http://localhost:5137/api/State/GetAllStates`)
@@ -51,12 +79,21 @@ export class DataServiceService {
   AddState(state:any){
     return this.http.post(`http://localhost:5137/api/State/AddState`,state)
   }
+  UpdateState(state:any){
+    return this.http.put(`http://localhost:5137/api/State/UpdateState`,state)
+  }
 
   AddCity(city:any){
     return this.http.post(`http://localhost:5137/api/City/AddCity`,city)
   }
+  UpdateCity(city:any){
+    return this.http.put(`http://localhost:5137/api/City/UpdateCity`,city)
+  }
   GetAllCities(){
     return this.http.get(`http://localhost:5137/api/City/GetAllCities`)
+  }
+  GetCitiesByState(state:string){
+    return this.http.get(`http://localhost:5137/api/City/${state}/GetCitiesByState`)
   }
 
   AddInsuranceType(insuranceType:any){
@@ -99,4 +136,15 @@ export class DataServiceService {
   GetInsuranceAccountsByCustomerId(){
     return this.http.get(`http://localhost:5137/api/Customer/${sessionStorage.getItem('loggedInUser')}/GetInsuranceAccountsByCustomerId`)
   }
+  GetAllInsuranceAccounts(){
+    return this.http.get(`http://localhost:5137/api/Customer/GetAllInsuranceAccounts`)
+  }
+
+  GetAgentDetailsByAgentCode(){
+    return this.http.get(`http://localhost:5137/api/Agent/${sessionStorage.getItem('agentCode')}/GetAgentByCode`)
+  }
+  GetAllCommissionRecords(){
+    return this.http.get(`http://localhost:5137/api/Agent/GetAllCommissionRecords`)
+  }
+  
 }

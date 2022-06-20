@@ -18,12 +18,12 @@
         </thead>
         <tbody>
           <tr *ngFor="let employee of employeesList">
-            <th scope="row">Admin</th>
+            <th scope="row">{{employee.userRoll}}</th>
             <td>{{employee.name}}</td>      
             <td>{{employee.loginId}}</td>    
             <td>{{employee.email}}</td> 
-            <td>{{employee.status}}</td>            
-            <td ><a [routerLink]="['/editemployee']" routerLinkActive="router-link-active"  style="color:red">Edit</a>| <a href="" style="color:red">delete</a></td>
+            <td>{{employee.userStatus}}</td>            
+            <td ><a   style="color:red;cursor: pointer;" (click)="GoToEditEmployeePage(employee.id)">Edit</a>| <a href="" style="color:red; cursor: pointer;" >delete</a></td>
           </tr>        
           
         </tbody>

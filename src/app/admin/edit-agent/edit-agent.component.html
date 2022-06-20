@@ -74,7 +74,7 @@
                         </td>
                     </tr>
                 </tbody>
-                <tbody>
+                <!-- <tbody>
                     <tr>
                         <th class="border" scope="row">Password</th>
                         <td class="">
@@ -93,7 +93,7 @@
                                 ConfirmPassword Required</span>
                         </td>
                     </tr>
-                </tbody>
+                </tbody> -->
                 
                
                 
@@ -111,7 +111,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="btn btn-danger" [disabled]="agentForm.invalid" >Submit</button>
+            <button class="btn btn-danger" [disabled]="agentForm.invalid" (click)="UpdateAgent()">Update</button>
         </form>
     </div>
 </div>
