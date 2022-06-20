@@ -19,7 +19,7 @@ import { AddInsuranceSchemeComponent } from './admin/add-insurance-scheme/add-in
 import { AddInsurancePlanComponent } from './admin/add-insurance-plan/add-insurance-plan.component';
 import { AddEmployeeComponent } from './admin/add-employee/add-employee.component';
 import { AddAgentComponent } from './admin/add-agent/add-agent.component';
-import { EmpDashboardComponent } from './employee/emp-dashboard/emp-dashboard.component';
+// import { EmpDashboardComponent } from './employee/emp-dashboard/emp-dashboard.component';
 import {HttpClientModule} from '@angular/common/http'
 import { AdminModule } from './admin/admin.module';
 import { AgentDashboardComponent } from './agent/agent-dashboard/agent-dashboard.component';
@@ -28,6 +28,7 @@ import { AddCustomerComponent } from './agent/add-customer/add-customer.componen
 import { CustomerModule } from './customer/customer.module';
 import { AgentModule } from './agent/agent.module';
 import { LandingComponent } from './home/landing/landing.component';
+import { EmployeeModule } from './employee/employee.module';
 
 
 
@@ -45,7 +46,7 @@ import { LandingComponent } from './home/landing/landing.component';
     DashboardComponent,
     AddInsuranceComponent,
     AddCityComponent,      
-    EmpDashboardComponent,
+    // EmpDashboardComponent,
     LandingComponent,
     AddCustomerComponent,
     
@@ -60,7 +61,7 @@ import { LandingComponent } from './home/landing/landing.component';
     AdminModule,
     CustomerModule,
     AgentModule,
-   
+    EmployeeModule,
 
   ],
   providers: [],

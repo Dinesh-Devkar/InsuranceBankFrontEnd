@@ -1,0 +1,55 @@
+<div class="container ">
+    <div style="text-align: center; margin-bottom:20px;">
+        <h1> Editing Insurance Type</h1>
+    </div>
+</div>
+<div></div>
+<div class="row justify-content-center me-2">
+
+    <div class="col-auto border">
+        <form [formGroup]="insuranceType">
+            <table class="table table-striped p-4">
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Insurance Type</th>
+                        <td><input type="text" class="form-control" formControlName="insuranceName">
+                            <span style="color: red;"
+                                *ngIf="InsuranceType && InsuranceType.invalid && InsuranceType.touched">Insurance Type
+                                Required</span>
+                        </td>
+
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Image</th>
+                        <td><input type="file" class="form-control">
+                            <span style="color: red;" *ngIf="Image && Image.invalid && Image.touched">Image
+                                Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Status</th>
+                        <td class="">
+                            <select name="Status" formControlName="status">
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                            <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched "> Status
+                                Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="container ">
+                <div style="text-align: center; margin-bottom:20px;">
+                    <button class="btn btn-danger" [disabled]="insuranceType.invalid">Submit</button>
+                </div>
+            </div>
+        </form>
+        <img [src]="img" width="200px" height="200px" alt="" />
+    </div>
+</div>
+ 

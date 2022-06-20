@@ -23,7 +23,7 @@
                 <tbody>
                     <tr>
                         <th class="border" scope="row">Image</th>
-                        <td><input type="file" (change)="onChange($event)">
+                        <td><input type="file" class="form-control" (change)="onChange($event)">
                             <span style="color: red;" *ngIf="Image && Image.invalid && Image.touched">Image
                                 Required</span>
                         </td>
