@@ -10,4 +10,10 @@ export class EmployeeServiceService {
   GetAllEmployees(){
     return this.http.get(`http://localhost:5137/api/Employee/GetAllEmployees`)
   }
+  GetEmployeeDetails(employeeId:any){
+    return this.http.get(`http://localhost:5137/api/Employee/${employeeId}/GetEmployeeById`)
+  }
+  UpdateEmployee(employee:any){
+    return this.http.put(`http://localhost:5137/api/Employee/${employee.id}/UpdateEmployee`,employee)
+  }
 }

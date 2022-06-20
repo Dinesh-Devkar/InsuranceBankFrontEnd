@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataServiceService } from 'src/app/services/data/data-service.service';
 import { EmployeeServiceService } from 'src/app/services/employee/employee-service.service';
 
 @Component({
@@ -9,11 +11,16 @@ import { EmployeeServiceService } from 'src/app/services/employee/employee-servi
 export class ViewEmployeeComponent implements OnInit {
 
   employeesList:any
-  constructor(private employeeService:EmployeeServiceService) { }
+  constructor(private employeeService:EmployeeServiceService,private dataService:DataServiceService,private router:Router) { }
 
+  GoToEditEmployeePage(id:string){
+    
+      this.dataService.SetSelectedEmployee(id)
+      this.router.navigate(['/editemployee'])
+  }
   ngOnInit(): void {
     this.employeeService.GetAllEmployees().subscribe((data:any)=>{
-      console.log("=================================")
+      
       this.employeesList=data.$values
       console.log(data.$values)
     })
