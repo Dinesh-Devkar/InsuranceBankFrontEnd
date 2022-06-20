@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
@@ -9,10 +10,11 @@ import { DataServiceService } from 'src/app/services/data/data-service.service';
 export class ViewStateComponent implements OnInit {
 
   statesList:any
-  constructor(private dataService:DataServiceService) { }
+  constructor(private dataService:DataServiceService,private router:Router) { }
 
-  UpdateState(id:number){
-    alert(id)
+  UpdateState(state:any){
+    this.dataService.SetSelectedState(state)
+    this.router.navigate(['/editstate'])
   }
   ngOnInit(): void {
     this.dataService.GetAllStates().subscribe((data:any)=>{

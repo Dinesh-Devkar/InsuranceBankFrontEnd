@@ -17,14 +17,21 @@
             </tr>
         </thead>
         <tbody>
+            <tr *ngFor="let commissionRecord of commissionsList">
+                <td>{{commissionRecord.insuranceAccountId}}</td>
+                <td>{{commissionRecord.agentName}}</td>
+                <td>{{commissionRecord.purchasedDate}}</td>
+                <td>{{commissionRecord.customerName}}</td>
+                <td>{{commissionRecord.insuranceScheme}}</td>
+                <td> &#8377; {{commissionRecord.commissionAmount}}</td>
+            </tr>
             <tr>
-
-                <td>P5</td>
-                <td>Dinesh</td>
-                <td>12/06/2022</td>
-                <td>Ujjay Hirbhagat</td>
-                <td>Super Term Plan</td>
-                <td>4500</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b>Total</b></td>
+                <td> <b> &#8377; {{totalAmount}}</b></td>
             </tr>
 
         </tbody>

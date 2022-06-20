@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
   selector: 'app-edit-city',
@@ -8,14 +10,28 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class EditCityComponent implements OnInit {
 
+  statesList:any
   city=new FormGroup({
     state:new FormControl('',Validators.required),
     cityName:new FormControl('',Validators.required),
     status: new FormControl('',Validators.required)
   })
-  constructor() { }
+  constructor(private dataService:DataServiceService,private router:Router) { }
 
+  UpdateCity(){
+      this.dataService.UpdateCity(this.city.value).subscribe((data:any)=>{
+        alert(data.message)
+        this.router.navigate(['/dashboard'])
+      },(error:any)=>{
+        alert(error.error.message)
+      })
+  }
   ngOnInit(): void {
+    console.log(this.dataService.GetSelectedCity())
+    this.CityName?.setValue(this.dataService.GetSelectedCity())
+    this.dataService.GetAllStates().subscribe((data:any)=>{
+      this.statesList=data.$values
+    })
   }
 
   get State(){

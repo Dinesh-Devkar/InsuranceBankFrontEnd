@@ -27,8 +27,9 @@
                         <th class="border" scope="row">Status</th>
                         <td class="">
                             <select name="Status" formControlName="status">
+                                <option value="">Select Status</option>
                                 <option value="Active">Active</option>
-                                <option value="Inactive">Inactive</option>
+                                <option value="InActive">InActive</option>
                             </select>
                             <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched ">
                                 Status Required</span>
@@ -38,7 +39,7 @@
 
 
             </table>
-            <button class="btn btn-danger" [disabled]="state.invalid">Add</button>
+            <button class="btn btn-danger" [disabled]="state.invalid" (click)="UpdateState()">Add</button>
         </form>
     </div>
 </div>

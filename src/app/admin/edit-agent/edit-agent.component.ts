@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AgentServiceService } from 'src/app/services/agent/agent-service.service';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 
@@ -20,7 +21,7 @@ export class EditAgentComponent implements OnInit {
     status:new FormControl('',Validators.required)
   })
   
-  constructor(private dataService:DataServiceService,private agentService:AgentServiceService) { }
+  constructor(private dataService:DataServiceService,private agentService:AgentServiceService,private router:Router) { }
 
   ngOnInit(): void {
     this.dataService.GetAgentDetailsByAgentCode().subscribe((data:any)=>{
@@ -43,6 +44,13 @@ export class EditAgentComponent implements OnInit {
     console.log(this.agentForm.value)
     this.agentService.UpdateAgent(this.AgentCode?.value,this.agentForm.value).subscribe((data:any)=>{
       alert(data.message)
+      if(sessionStorage.getItem('loggedInuserRoll')=="Admin"){
+        this.router.navigate(['/dashboard'])
+      }
+      else if(sessionStorage.getItem('loggedInuserRoll')=="Employee"){
+        this.router.navigate(['/empdashboard'])
+      }
+      
     },(error:any)=>{
       console.log(error)
     })
