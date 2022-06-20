@@ -6,17 +6,17 @@
 </div>
 <div></div>
 <div class="container border bg-light">
-    <form>
+    <form [formGroup]="queryForm">
         <h4>Title: </h4>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" formControlName="title">
         <h4>Message: </h4>
         <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3"
-            placeholder="Write something here..." formControlName="address"></textarea>
+            placeholder="Write something here..." formControlName="message"></textarea>
 
         <hr><br>
         <div class="container ">
             <div style="text-align: center; margin-bottom:20px;">
-                <button class="btn btn-danger">Post Query</button>
+                <button class="btn btn-danger" [disabled]="queryForm.invalid" (click)="PostQuery()">Post Query</button>
             </div>
         </div>
     </form>
