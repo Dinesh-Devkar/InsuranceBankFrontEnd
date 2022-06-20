@@ -137,7 +137,7 @@ private selectedInsuranceType = new BehaviorSubject('');
     return this.http.get(`http://localhost:5137/api/Customer/${sessionStorage.getItem('loggedInUser')}/GetInsuranceAccountsByCustomerId`)
   }
   GetAllInsuranceAccounts(){
-    return this.http.get(`http://localhost:5137/api/Customer/GetAllInsuranceAccounts`)
+    return this.http.get(`http://localhost:5137/api/InsuranceAccount/GetAllInsuranceAccounts`)
   }
 
   GetAgentDetailsByAgentCode(){

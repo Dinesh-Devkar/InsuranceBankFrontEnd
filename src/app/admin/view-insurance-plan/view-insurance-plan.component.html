@@ -10,6 +10,7 @@
             <tr>                
                 <th scope="col">Insurance Type</th>
                 <th scope="col">Insurance Scheme</th>
+                <th scope="col">Insurance Plan</th>
                 <th scope="col">Policy Term Min</th>
                 <th scope="col">Policy Term Max</th>
                 <th scope="col">Min Age</th>
@@ -27,13 +28,14 @@
                 
                 <td>{{insurancePlan.insuranceType}}</td>
                 <td>{{insurancePlan.insuranceScheme}}</td>
+                <td>{{insurancePlan.insurancePlanName}}</td>
                 <td>{{insurancePlan.minimumYears}}</td>
                 <td>{{insurancePlan.maximumYears}}</td>
                 <td>{{insurancePlan.minimumAge}}</td>
                 <td>{{insurancePlan.maximumAge}}</td>
                 <td>{{insurancePlan.minimumInvestAmt}}</td>
                 <td>{{insurancePlan.maximumInvestAmt}}</td>
-                <td>{{insurancePlan.profitRatio}}</td>
+                <td>{{insurancePlan.profitRatio}}%</td>
                 <td>{{insurancePlan.status}}</td> 
                 <td><a href="" style="color:red">Edit</a>| <a href="" style="color:red">delete</a></td>
             </tr>
