@@ -12,6 +12,8 @@ import { AppRoutingModule } from '../app-routing.module';
 import { AgentCommisionWithdrawlComponent } from './agent-commision-withdrawl/agent-commision-withdrawl.component';
 import { AgentViewCommisionComponent } from './agent-view-commision/agent-view-commision.component';
 import { AgentWithdrawAmountComponent } from './agent-withdraw-amount/agent-withdraw-amount.component';
+import { EditAgentProfileComponent } from './edit-agent-profile/edit-agent-profile.component';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 
 
 
@@ -27,7 +29,9 @@ import { AgentWithdrawAmountComponent } from './agent-withdraw-amount/agent-with
     AgentDashboardComponent,
     AgentCommisionWithdrawlComponent,
     AgentViewCommisionComponent,
-    AgentWithdrawAmountComponent
+    AgentWithdrawAmountComponent,
+    EditAgentProfileComponent,
+    EditCustomerComponent
   ],
   imports: [
     CommonModule,
