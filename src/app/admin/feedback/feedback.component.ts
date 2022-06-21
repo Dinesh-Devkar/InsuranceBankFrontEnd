@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
   selector: 'app-feedback',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackComponent implements OnInit {
 
-  constructor() { }
+  queriesList:any
+  adminReply:string=''
+  constructor(private dataService:DataServiceService) { }
 
+  SolveQuery(query:any,reply:string){
+    query.reply=reply
+    this.adminReply=''
+    this.dataService.SolveQuery(query).subscribe((data:any)=>{
+      alert(data.message)
+      this.GetAllQueries()
+    },(error:any)=>{
+      alert(error.message)
+      console.log(error)
+    })
+  }
   ngOnInit(): void {
+    this.GetAllQueries()
+  }
+  GetAllQueries(){
+    this.dataService.GetAllQueries().subscribe((data:any)=>{
+      this.queriesList=data.$values
+      console.log(this.queriesList)
+    })
   }
 
 }

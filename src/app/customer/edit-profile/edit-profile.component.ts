@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CustomerServiceService } from 'src/app/services/customer/customer-service.service';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 
@@ -31,7 +32,7 @@ export class EditProfileComponent implements OnInit {
   currentCity:string=''
   dob:any
   
-  constructor(private customerService:CustomerServiceService,private dataService:DataServiceService) { }
+  constructor(private customerService:CustomerServiceService,private dataService:DataServiceService,private router:Router) { }
 
   GenerateCityList(state:any){
     
@@ -46,6 +47,8 @@ export class EditProfileComponent implements OnInit {
     console.log(this.customer.value)
     this.customerService.UpdateCustomer(this.customer.value).subscribe((data:any)=>{
       alert(data.message)
+      this.router.navigate(['/customerdashboard'])
+
     },(error:any)=>{
       alert(error.message)
       console.log(error)
@@ -60,7 +63,7 @@ export class EditProfileComponent implements OnInit {
         loginId:data.loginId,
         email:data.email,
         address:data.address,
-        dateOfBirth: null,       
+        dateOfBirth: data.dateOfBirth,       
         state:data.state,
         city:data.city,
         mobileNumber:data.mobileNumber,

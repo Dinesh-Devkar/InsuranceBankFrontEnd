@@ -4,7 +4,7 @@
 </div>
 
 <div class="container">
-    <table class="table">
+    <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">Customer</th>
@@ -16,12 +16,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">xyz</th>
-            <td>Query</td>
-            <td>About Insurance</td>
-            <td>2022/06/10</td>
-            <td>Youre query resolved</td>
+          <tr *ngFor="let query of queriesList?.reverse()">
+            <th scope="row">{{query.customerName}}</th>
+            <td>{{query.title}}</td>
+            <td>{{query.message}}</td>
+            <td>{{query.contactDate}}</td>
+            <td>{{query.reply}}</td>
           </tr>        
           
         </tbody>

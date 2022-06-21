@@ -8,11 +8,13 @@ import { CustomerServiceService } from 'src/app/services/customer/customer-servi
 })
 export class ViewFeedbackComponent implements OnInit {
 
+  queriesList:any
   constructor(private customerService:CustomerServiceService) { }
 
   ngOnInit(): void {
     this.customerService.GetQueriesByCustomerId().subscribe((data:any)=>{
       console.log(data)
+      this.queriesList=data.$values
     })
   }
 

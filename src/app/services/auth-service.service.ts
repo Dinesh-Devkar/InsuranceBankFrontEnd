@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject, tap } from 'rxjs';
+import { BehaviorSubject, Subject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,16 @@ import { Subject, tap } from 'rxjs';
 export class AuthServiceService {
 
   loggedInUser:any
+  private loggedInUserName = new BehaviorSubject(sessionStorage.getItem('loggedInUserName'));
+  public currentUserName= this.loggedInUserName.asObservable();
+
   constructor(private http:HttpClient) { }
+  SetSelectedLoggedInUserName(name:any){
+    this.loggedInUserName.next(name)
+  }
+  GetSelectedLoggedInUserName(){
+    return  this.currentUserName;
+  }
   private _refreshrequired=new Subject<void>();
   get RefreshRequired(){
     return this._refreshrequired;
@@ -51,20 +60,9 @@ export class AuthServiceService {
   }
   HaveAccess(){
     let logginToken=sessionStorage.getItem('token') || '';
-    alert("Token : "+sessionStorage.getItem('token'))
     let _extractedToken=logginToken.split('.')[1];
-    alert("Extracted Token  : "+_extractedToken)
     let _atobData=atob(_extractedToken);
-    alert("ATOB Token  : "+_atobData)
     let _finalData=JSON.parse(_atobData);
-    console.log(_finalData)
-    alert("Final Data : "+_finalData)
-    //alert("Final Data : "+_atobData.name)
-    let r='http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
-   
-    console.log(_finalData.r)
-    alert("Final Data : "+_finalData.r)
-    
     return sessionStorage.getItem('loggedInuserRoll');
   }
 }
