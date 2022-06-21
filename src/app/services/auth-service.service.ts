@@ -56,7 +56,7 @@ export class AuthServiceService {
     return this.http.get(`http://localhost:5137/api/v1/Admin/${adminId}/GetAdminDetails`)
   }
   UpdatePassword(passwordCredentials:any){
-    return this.http.put(`http://localhost:5137/api/v1/Admin/${sessionStorage.getItem('loggedInUser')}/ChangePassword`,passwordCredentials)
+    return this.http.put(`http://localhost:5137/api/InsuranceBank/Authentication/${sessionStorage.getItem('loggedInUser')}/ChangePassword`,passwordCredentials)
   }
   HaveAccess(){
     let logginToken=sessionStorage.getItem('token') || '';

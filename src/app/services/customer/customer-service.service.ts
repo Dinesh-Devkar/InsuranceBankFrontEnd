@@ -22,7 +22,7 @@ export class CustomerServiceService {
 
 
   UpdateCustomer(customer:any){
-      return this.http.post(`http://localhost:5137/api/Customer/${sessionStorage.getItem('loggedInUser')}/UpdateCustomer`,customer);
+      return this.http.put(`http://localhost:5137/api/Customer/${sessionStorage.getItem('loggedInUser')}/UpdateCustomer`,customer);
   }
   PostQuery(query:any){
     return this.http.post(`http://localhost:5137/api/Customer/AddQuery`,query)

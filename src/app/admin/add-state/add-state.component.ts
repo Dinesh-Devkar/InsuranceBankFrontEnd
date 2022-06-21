@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
@@ -13,13 +14,14 @@ export class AddStateComponent implements OnInit {
     stateName:new FormControl('',Validators.required),
     status:new FormControl('',Validators.required)
   })
-  constructor(private dataService:DataServiceService) { }
+  constructor(private dataService:DataServiceService,private router:Router) { }
 
   AddState(){
     this.dataService.AddState(this.state.value).subscribe((data:any)=>{
       console.log(data)
       alert(data.message)
       this.state.reset()
+      this.router.navigate(['/dashboard'])
     },(error:any)=>{
       alert(error.error.message)
     }) 

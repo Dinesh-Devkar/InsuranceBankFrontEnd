@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
@@ -15,12 +16,13 @@ export class AddCityComponent implements OnInit {
     status: new FormControl('',Validators.required)
   })
 
-  constructor(private dataService:DataServiceService) { }
+  constructor(private dataService:DataServiceService,private router:Router) { }
 
   AddCity(){
     this.dataService.AddCity(this.city.value).subscribe((data:any)=>{
       alert(data.message)
       this.city.reset()
+      this.router.navigate(['/dashboard'])
     },(error:any)=>{
       alert(error.error.message)
     })
