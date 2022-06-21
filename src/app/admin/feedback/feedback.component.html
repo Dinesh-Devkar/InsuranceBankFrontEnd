@@ -16,15 +16,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">xyz</th>
-            <td>Query</td>
-            <td>About Insurance</td>
-            <td>2022/06/10</td>
-            <td><input type="text" name="" id="" placeholder="Reply"></td>
-            <td ><a href="" style="color:red">Edit</a>| <a href="" style="color:red">delete</a></td>
-          </tr>        
-          
+          <tr *ngFor="let query of queriesList">
+            <th scope="row">{{query.customerName}}</th>
+            <td>{{query.title}}</td>
+            <td>{{query.message}}</td>
+            <td>{{query.contactDate}}</td>
+            <!-- <td><input type="text" [(ngModel)]="adminReply"  placeholder="Reply"></td> -->
+            <td><input type="text" #reply  placeholder="Reply"></td>
+            <td ><button class="btn btn-info text-light"  (click)="SolveQuery(query,reply.value)">Post</button></td>
+          </tr>   
         </tbody>
       </table>
 </div>

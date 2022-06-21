@@ -48,6 +48,7 @@ export class DefaultNavbarComponent implements OnInit {
 Logout(){
   sessionStorage.clear();
   this.checkUser();
+  this.auth.SetSelectedLoggedInUserName('')
   this.router.navigate([''])
 
 }

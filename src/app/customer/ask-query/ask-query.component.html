@@ -4,9 +4,17 @@
         <p>Kindly enter the credentials</p>
     </div>
 </div>
+<div class="container">
+    <div class="row text-center">
+        <div class="col md-3">
+            <img src="assets/needHelp.png" class="w-40" height="160">
+        </div>
+       
+    </div>
+</div>
 <div></div>
-<div class="container border bg-light">
-    <form [formGroup]="queryForm">
+<div class="container border bg-light text-center">
+    <form [formGroup]="queryForm" style="width: 50%;" class="mx-auto">
         <h4>Title: </h4>
         <input type="text" class="form-control" formControlName="title">
         <h4>Message: </h4>

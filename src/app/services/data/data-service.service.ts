@@ -151,5 +151,12 @@ private selectedInsuranceType = new BehaviorSubject('');
   GetAllCommissionRecords(){
     return this.http.get(`http://localhost:5137/api/Agent/GetAllCommissionRecords`)
   }
+  GetAllQueries(){
+    return this.http.get(`http://localhost:5137/api/Customer/GetAllQueries`);
+  }
+
+  SolveQuery(query:any){
+    return this.http.post(`http://localhost:5137/api/Customer/SolveQuery`,query);
+  }
   
 }
