@@ -11,6 +11,7 @@ export class InsuranceAccountComponent implements OnInit {
   insuranceAccounts:any
   constructor(private dataService:DataServiceService) { }
 
+  
   ngOnInit(): void {
     this.dataService.GetAllInsuranceAccounts().subscribe((data:any)=>{
       console.log(data)

@@ -21,6 +21,10 @@ export class AuthServiceService {
     return this.loggedInUser;
   }
 
+  IsLoggedIn(){
+    return localStorage.getItem('token')!=null;
+  }
+
   Login(user:{email:string,password:string}){
     
     //return this.http.get(`http://localhost:5137/api/v1/Admin/GetAllAdmins`);
@@ -44,5 +48,23 @@ export class AuthServiceService {
   }
   UpdatePassword(passwordCredentials:any){
     return this.http.put(`http://localhost:5137/api/v1/Admin/${sessionStorage.getItem('loggedInUser')}/ChangePassword`,passwordCredentials)
+  }
+  HaveAccess(){
+    let logginToken=sessionStorage.getItem('token') || '';
+    alert("Token : "+sessionStorage.getItem('token'))
+    let _extractedToken=logginToken.split('.')[1];
+    alert("Extracted Token  : "+_extractedToken)
+    let _atobData=atob(_extractedToken);
+    alert("ATOB Token  : "+_atobData)
+    let _finalData=JSON.parse(_atobData);
+    console.log(_finalData)
+    alert("Final Data : "+_finalData)
+    //alert("Final Data : "+_atobData.name)
+    let r='http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
+   
+    console.log(_finalData.r)
+    alert("Final Data : "+_finalData.r)
+    
+    return sessionStorage.getItem('loggedInuserRoll');
   }
 }

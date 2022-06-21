@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerServiceService } from 'src/app/services/customer/customer-service.service';
 
 @Component({
   selector: 'app-view-feedback',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewFeedbackComponent implements OnInit {
 
-  constructor() { }
+  constructor(private customerService:CustomerServiceService) { }
 
   ngOnInit(): void {
+    this.customerService.GetQueriesByCustomerId().subscribe((data:any)=>{
+      console.log(data)
+    })
   }
 
 }
