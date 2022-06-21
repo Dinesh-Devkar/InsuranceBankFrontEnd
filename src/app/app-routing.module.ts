@@ -67,12 +67,11 @@ import { EditInsuranceSchemeComponent } from './admin/edit-insurance-scheme/edit
 import { EditEmployeeProfileComponent } from './employee/edit-employee-profile/edit-employee-profile.component';
 import { ViewFeedbackComponent } from './customer/view-feedback/view-feedback.component';
 import { AskQueryComponent } from './customer/ask-query/ask-query.component';
-<<<<<<< HEAD
+
 import { EditAgentProfileComponent } from './agent/edit-agent-profile/edit-agent-profile.component';
 import { EditCustomerComponent } from './agent/edit-customer/edit-customer.component';
-=======
+
 import { AdminRollGuardGuard } from './shared/admin-roll-guard.guard';
->>>>>>> 2d2bcb1097beb5f76b9057f53fa89f9eef68a315
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
