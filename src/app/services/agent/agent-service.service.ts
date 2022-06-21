@@ -16,6 +16,9 @@ export class AgentServiceService {
   AddAgent(agent:any){
     return this.http.post(`http://localhost:5137/api/Agent/Register`,agent)
   }
+  AddCustomer(customer:any){
+    return this.http.post(`http://localhost:5137/api/Agent/${sessionStorage.getItem('loggedInUser')}/AddCustomer`,customer);
+  }
   GetCustomers(){
     return this.http.get(`http://localhost:5137/api/Agent/${sessionStorage.getItem('loggedInUser')}/GetAllCustomersByAgentId`)
   }
@@ -27,7 +30,7 @@ export class AgentServiceService {
     return this.http.get(`http://localhost:5137/api/Agent/${sessionStorage.getItem('loggedInUser')}/GetCommissionRecordsByAgentId`)
   }
   UpdateAgent(agentCode:any,agent:any){
-    return this.http.post(`http://localhost:5137/api/Agent/${agentCode}/UpdateAgent`,agent)
+    return this.http.put(`http://localhost:5137/api/Agent/${agentCode}/UpdateAgent`,agent)
   }
 
   
