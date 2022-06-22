@@ -1,0 +1,99 @@
+
+<div class="container ">
+    <div style="text-align: center; margin-bottom:20px;">
+        <h1>Edit Agent Profile</h1>
+        <p>Kindly enter the credentials</p>
+    </div>
+</div>
+<div></div>
+<div class="row justify-content-center me-2">
+
+    <div class="col-auto border">
+        <form [formGroup]="agentForm">
+            <table class="table table-striped p-4">  
+                
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Agent Name</th>
+                        <td class="">
+                            <input type="text" class="form-control"  formControlName="name">
+                            <span style="color: red;" *ngIf="Name && Name.invalid && Name.touched ">
+                                Agent Name Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Login Id </th>
+                        <td class="">
+                            <input type="text" class="form-control"  formControlName="loginId">
+                            <span style="color: red;" *ngIf="LoginId && LoginId.invalid && LoginId.touched ">
+                                Login Id Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Qualification</th>
+                        <td class="">
+                            <input type="text" class="form-control"  formControlName="qualification">
+                            <span style="color: red;" *ngIf="Qualification && Qualification.invalid && Qualification.touched ">
+                                Qualification Is Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Agent Address</th>
+                        <td class="">
+                            <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Write something here..."
+                             formControlName="address"></textarea>
+
+                            <span style="color: red;" *ngIf="Address && Address.invalid && Address.touched ">
+                                Address Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Agent Code</th>
+                        <td class="">
+                            <input type="text" class="form-control"  formControlName="agentCode">
+                            <span style="color: red;" *ngIf="AgentCode && AgentCode.invalid && AgentCode.touched ">
+                                Agent Code Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Email id</th>
+                        <td class="">
+                            <input type="text" class="form-control"  formControlName="email">
+                            <span style="color: red;" *ngIf="Email && Email.invalid && Email.touched ">
+                                Email Required</span>
+                        </td>
+                    </tr>
+                </tbody>  
+                
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Status</th>
+                        <td class="">
+                            <select name="Status" formControlName="status">
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                            <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched "> Status
+                                Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="container ">
+                <div style="text-align: center; margin-bottom:20px;">
+                    <button class="btn btn-danger" [disabled]="agentForm.invalid"  >Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
