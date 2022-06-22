@@ -25,7 +25,7 @@
                 <td class="text-center"><b>{{insuranceScheme.insuranceSchemeName}}</b><br>
                     {{insuranceScheme.note}}</td>
                 <td>{{insuranceScheme.status}}</td>
-                <td><a routerLink="/editinsuranescheme" style="color:red">Edit</a>| <a href="" style="color:red">delete</a></td>
+                <td><a style="color:red;cursor: pointer;" (click)="GoToEditInsuranceScheme(insuranceScheme.insuranceSchemeName,insuranceScheme.insuranceTypeName)">Edit</a></td>
             </tr>
 
         </tbody>
