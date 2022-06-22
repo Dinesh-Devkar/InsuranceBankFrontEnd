@@ -128,7 +128,7 @@ export class DataServiceService {
   GetInsurancePlan(insurancePlan: string) {
     return this.http.get(`http://localhost:5137/api/InsurancePlan/${insurancePlan}/GetInsurancePlan`)
   }
-  GetInsuranceSchemeDetails(insuranceSchemeName: string) {
+  GetInsuranceSchemeDetails(insuranceSchemeName: any) {
     return this.http.get(`http://localhost:5137/api/InsuranceScheme/${insuranceSchemeName}/GetInsuranceSchemeDetails`)
   }
   GetAllCustomers() {
