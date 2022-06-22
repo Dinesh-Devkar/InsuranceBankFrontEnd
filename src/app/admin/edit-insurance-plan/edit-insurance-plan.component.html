@@ -11,7 +11,7 @@
                 <tbody>
                     <tr>
                         <th class="border" scope="row">Insurance Type</th>
-                        <td><select name="Status" formControlName="insuranceType">
+                        <td><select class="form-control" formControlName="insuranceType" (change)="GenerateInsuranceSchemesList($event.target)">
                                 <option value="">Select Insurance Type</option>
                                 <option value="{{insuranceType.insuranceName}}"
                                     *ngFor="let insuranceType of insuranceTypesList">{{insuranceType.insuranceName}}
@@ -28,9 +28,9 @@
                 <tbody>
                     <tr>
                         <th class="border" scope="row">Insurance Scheme</th>
-                        <td><select name="Status" formControlName="insuranceScheme">
-                                <option value="">Select Insurance Scheme</option>
-                                <option value="{{insuranceScheme.insuranceSchemeName}}"
+                        <td><select  class="form-control" formControlName="insuranceScheme">
+                                
+                                <option  value="{{insuranceScheme.insuranceSchemeName}}"
                                     *ngFor="let insuranceScheme of insuranceSchemesList">
                                     {{insuranceScheme.insuranceSchemeName}}</option>
                             </select>
@@ -159,9 +159,9 @@
                 <tbody>
                     <tr>
                         <th class="border" scope="row">Status : </th>
-                        <td><select name="Status" formControlName="status">
+                        <td><select name="Status" class="form-control" formControlName="status">
                                 <option value="Active">Active</option>
-                                <option value="Inactive">Inactive</option>
+                                <option value="InActive">InActive</option>
                             </select>
                             <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched">Status Is
                                 Required
@@ -174,7 +174,7 @@
             </table>
             <div class="container ">
                 <div style="text-align: center; margin-bottom:20px;">
-                    <button class="btn btn-danger" [disabled]="insurancePlan.invalid">Submit</button>
+                    <button class="btn btn-danger" [disabled]="insurancePlan.invalid" (click)="UpdateInsurancePlan()">Submit</button>
                 </div>
             </div>
 

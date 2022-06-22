@@ -37,7 +37,7 @@
                 <td>{{insurancePlan.maximumInvestAmt}}</td>
                 <td>{{insurancePlan.profitRatio}}%</td>
                 <td>{{insurancePlan.status}}</td> 
-                <td><a routerLink="/editinsuraneplan" style="color:red">Edit</a></td>
+                <td><a style="color:red;cursor: pointer;" (click)="GoToEditInsurancePlan(insurancePlan.insurancePlanName)">Edit</a></td>
             </tr>
 
         </tbody>

@@ -21,6 +21,9 @@ export class CustomerServiceService {
   }
 
 
+  RegisterCustomer(customer:any){
+    return this.http.post(`http://localhost:5137/api/Customer/Register`,customer)
+  }
   UpdateCustomer(customer:any){
       return this.http.put(`http://localhost:5137/api/Customer/${sessionStorage.getItem('loggedInUser')}/UpdateCustomer`,customer);
   }
