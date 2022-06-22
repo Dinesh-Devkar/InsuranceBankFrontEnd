@@ -72,6 +72,7 @@ import { EditAgentProfileComponent } from './agent/edit-agent-profile/edit-agent
 import { EditCustomerComponent } from './agent/edit-customer/edit-customer.component';
 
 import { AdminRollGuardGuard } from './shared/admin-roll-guard.guard';
+import { AdminInsuranceAccountDetailsComponent } from './admin/admin-insurance-account-details/admin-insurance-account-details.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -144,6 +145,7 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'askquery',component:AskQueryComponent},
                       {path:'editagentprofile',component:EditAgentProfileComponent},
                       {path:'editcustomer',component:EditCustomerComponent},
+                      {path:'admininsurancedetails',component:AdminInsuranceAccountDetailsComponent},
 
 ];
 
