@@ -30,7 +30,7 @@ export class ArogyaShieldComponent implements OnInit {
   investmentAmount:number=0;
   months:number=0;
   installmentAmont:number=0;
-  intrestAmount:number=0;
+  intrestAmount:any;
   totalAmount=0;
   isCustomerLogIn:boolean=true;
   agentCode:number=0
@@ -132,10 +132,13 @@ export class ArogyaShieldComponent implements OnInit {
     this.dataService.SetInsuranceAccountDetails(insuranceAccount);
     this.router.navigate(['/buyinsurance'])
   }
+  get ProfitRatio():number{
+    return this.planDetails.get('profitRatio')?.value
+  }
   fillFields(){
-    this.intrestAmount= (this.investmentAmount * this.intrestRate *this.numberOfYears )/100
+    this.intrestAmount= (this.investmentAmount * this.ProfitRatio*this.numberOfYears)/100
     this.totalAmount=this.investmentAmount+this.intrestAmount;
-    this.installmentAmont=this.totalAmount / this.months;    
+    this.installmentAmont=this.investmentAmount / this.numberOfYears;    
   }
 
 }
