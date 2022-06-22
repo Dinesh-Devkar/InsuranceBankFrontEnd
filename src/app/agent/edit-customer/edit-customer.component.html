@@ -1,0 +1,158 @@
+<div class="container ">
+    <div style="text-align: center; margin-bottom:20px;">
+        <h1> Edit Customer </h1>
+    </div>
+</div>
+<div></div>
+<div class="row justify-content-center me-2">
+
+    <div class="col-auto border">
+        <form [formGroup]="customer">
+            <table class="table table-striped p-4">   
+                <tbody>
+                    <tr>
+                        <th class="border"  scope="row">Customer Id</th>
+                        <td> <input type="text" class="form-control" formControlName="custId">
+                        
+                         <span style="color: red;" *ngIf="CustId && CustId.invalid && CustId.touched">
+                            Customer Id Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Customer Name</th>
+                        <td class="">
+                            <input type="text"class="form-control" formControlName="name">
+                            <span style="color: red;" *ngIf="Name && Name.invalid && Name.touched ">
+                                Customer Name Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Date Of Birth</th>
+                        <td class="">
+                            <input type="date" class="form-control" formControlName="date">
+                            <span style="color: red;" *ngIf="Date && Date.invalid && Date.touched ">
+                                Date Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Customer Login Id</th>
+                        <td> <input type="text" class="form-control" formControlName="loginid">
+                        
+                         <span style="color: red;" *ngIf="LoginId && LoginId.invalid && LoginId.touched">
+                            Login  Id Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Address</th>
+                        <td> <textarea class="form-control z-depth-1"
+                             id="exampleFormControlTextarea6" rows="3"
+                              placeholder="Write something here..." formControlName='address'></textarea>
+
+                        
+                         <span style="color: red;" *ngIf="Address && Address.invalid && Address.touched">
+                            Address Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+
+
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Email-Id</th>
+                        <td class="">
+                            <input type="text" class="form-control" formControlName="email">
+                            <span style="color: red;" *ngIf="Email && Email.invalid && Email.touched ">
+                                Email Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">State</th>
+                        <td class="">
+                            <select name="State" class="form-control" formControlName="state">
+                                <option value="">Select State</option>
+                                <option value="Active">Maharastra</option>
+                                <option value="Inactive">Gujrat</option>
+                            </select>
+                            <span style="color: red;" *ngIf="State && State.invalid && State.touched ">
+                                State Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">City</th>
+                        <td class="">
+                            <select name="City" class="form-control" formControlName="city">
+                                <option value="">Select City</option>
+                                <option value="Active">Pune</option>
+                                <option value="Inactive">Mumbai</option>
+                            </select>
+                            <span style="color: red;" *ngIf="City && City.invalid && City.touched ">
+                                City Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Pin Code</th>
+                        <td class="">
+                            <input type="text"class="form-control" formControlName="pincode">
+                            <span style="color: red;" *ngIf="PinCode && PinCode.invalid && PinCode.touched ">
+                                PinCode Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Mobile No</th>
+                        <td class="">
+                            <input type="text" formControlName="mobile">
+                            <span style="color: red;" *ngIf="Mobile && Mobile.invalid && Mobile.touched ">
+                                Mobile No. Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Nominee</th>
+                        <td class="">
+                            <input type="text" class="form-control" formControlName="nominee">
+                            <span style="color: red;" *ngIf="Nominee && Nominee.invalid && Nominee.touched ">
+                                Nominee Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Nomminee Relationship</th>
+                        <td class="">
+                            <select name="Relation" class="form-control" formControlName="nomineerelation">
+                                <option value="">Select Relation</option>
+                                <option value="Active">Brother</option>
+                                <option value="Inactive">Mother</option>
+                            </select>
+                            <span style="color: red;" *ngIf="NomineeRelation && NomineeRelation.invalid && NomineeRelation.touched ">
+                                Relation with Nominee Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+              
+            </table>
+            <div class="container ">
+                <div style="text-align: center; margin-bottom:20px;">
+                    <button class="btn btn-danger" [disabled]="customer.invalid" >Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

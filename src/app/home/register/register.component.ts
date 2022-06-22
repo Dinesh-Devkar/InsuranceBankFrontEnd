@@ -9,7 +9,7 @@ import { ConfirmValidator } from './confirmed.validator';
 })
 export class RegisterComponent implements OnInit {
 
-  minimumAge: number = 2;
+  // minimumAge: number = 2;
   result: string = ''
  
   form:FormGroup=new FormGroup({
@@ -21,7 +21,17 @@ export class RegisterComponent implements OnInit {
 
     this.form=FB.group({
       name: new FormControl('', Validators.required),
-      age: new FormControl('', [Validators.required, Validators.min(this.minimumAge)]),
+      date: new FormControl('', Validators.required),
+      loginid: new FormControl('', Validators.required),
+      address: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      state: new FormControl('', Validators.required),
+      city: new FormControl('', Validators.required),
+      nominee: new FormControl('', Validators.required),
+      nomineerelation: new FormControl('', Validators.required),
+      code: new FormControl('', Validators.required),
+
+      age: new FormControl('', [Validators.required, Validators.required]),
       password:['',[Validators.required]],
       confirmPassword:['',[Validators.required]]
     },

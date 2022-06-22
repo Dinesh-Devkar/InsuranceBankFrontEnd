@@ -67,7 +67,12 @@ import { EditInsuranceSchemeComponent } from './admin/edit-insurance-scheme/edit
 import { EditEmployeeProfileComponent } from './employee/edit-employee-profile/edit-employee-profile.component';
 import { ViewFeedbackComponent } from './customer/view-feedback/view-feedback.component';
 import { AskQueryComponent } from './customer/ask-query/ask-query.component';
+
+import { EditAgentProfileComponent } from './agent/edit-agent-profile/edit-agent-profile.component';
+import { EditCustomerComponent } from './agent/edit-customer/edit-customer.component';
+
 import { AdminRollGuardGuard } from './shared/admin-roll-guard.guard';
+import { AdminInsuranceAccountDetailsComponent } from './admin/admin-insurance-account-details/admin-insurance-account-details.component';
 import { CustomerRollGuardGuard } from './shared/customer-roll-guard.guard';
 import { AgentRollGuardGuard } from './shared/agent-roll-guard.guard';
 import { EmployeeRollGuardGuard } from './shared/employee-roll-guard.guard';
@@ -139,11 +144,15 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'editinsuraneplan',component:EditInsurancePlanComponent},
                       {path:'editinsuranescheme',component:EditInsuranceSchemeComponent},
                       {path:'editemployeeprofile',component:EditEmployeeProfileComponent},
+                      
+                      {path:'cutsomerviewfeedback',component:ViewFeedbackComponent},
+                      {path:'askquery',component:AskQueryComponent},
+                      {path:'editcustomer',component:EditCustomerComponent},
+                      {path:'admininsurancedetails',component:AdminInsuranceAccountDetailsComponent},
                       {path:'cutsomerviewfeedback',component:ViewFeedbackComponent,canActivate:[CustomerRollGuardGuard]},
                       {path:'askquery',component:AskQueryComponent,canActivate:[CustomerRollGuardGuard]},
 
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
