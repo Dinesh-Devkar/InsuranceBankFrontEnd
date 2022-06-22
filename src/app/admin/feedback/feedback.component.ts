@@ -19,7 +19,7 @@ export class FeedbackComponent implements OnInit {
       alert(data.message)
       this.GetAllQueries()
     },(error:any)=>{
-      alert(error.message)
+      alert("Please Add Feedback Message")
       console.log(error)
     })
   }
