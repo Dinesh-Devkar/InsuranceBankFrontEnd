@@ -12,7 +12,7 @@ export class AdminRollGuardGuard implements CanActivate {
   }
   canActivate()
    {
-    if(this.authService.HaveAccess()=="Admin"){
+    if(this.authService.HaveAccess()=="Admin" || this.authService.HaveAccess()=="Employee"){
       return true;
     }
     this.router.navigate([''])
