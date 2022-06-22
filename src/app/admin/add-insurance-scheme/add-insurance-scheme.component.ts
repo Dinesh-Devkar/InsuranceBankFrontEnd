@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable, Subscriber } from 'rxjs';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 
@@ -21,12 +22,13 @@ export class AddInsuranceSchemeComponent implements OnInit {
     note:new FormControl('',Validators.required),
     status:new FormControl('',Validators.required)
   })
-  constructor(private dataService:DataServiceService) { }
+  constructor(private dataService:DataServiceService,private router:Router) { }
 
   AddInsuranceScheme(){
     this.dataService.AddInsuranceScheme(this.scheme.value).subscribe((data:any)=>{
       console.log(data)
-      alert(data)
+      alert(data.message)
+      this.router.navigate(['/dashboard'])
     },(error:any)=>{
       alert(error.error.message)
     })

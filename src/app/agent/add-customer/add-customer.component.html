@@ -11,19 +11,9 @@
             <table class="table table-striped p-4">   
                 <tbody>
                     <tr>
-                        <th class="border" scope="row">Customer Id</th>
-                        <td> <input type="text" formControlName="custId">
-                        
-                         <span style="color: red;" *ngIf="CustId && CustId.invalid && CustId.touched">
-                            Customer Id Required</span>
-                        </td>
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr>
                         <th class="border" scope="row">Customer Name</th>
                         <td class="">
-                            <input type="text" formControlName="name">
+                            <input type="text" class="form-control" formControlName="name">
                             <span style="color: red;" *ngIf="Name && Name.invalid && Name.touched ">
                                 Customer Name Required</span>
                         </td>
@@ -33,7 +23,7 @@
                     <tr>
                         <th class="border" scope="row">Date Of Birth</th>
                         <td class="">
-                            <input type="date" formControlName="date">
+                            <input type="date" class="form-control" formControlName="dateOfBirth">
                             <span style="color: red;" *ngIf="Date && Date.invalid && Date.touched ">
                                 Date Required</span>
                         </td>
@@ -42,7 +32,7 @@
                 <tbody>
                     <tr>
                         <th class="border" scope="row">Customer Login Id</th>
-                        <td> <input type="text" formControlName="loginid">
+                        <td> <input type="text" class="form-control" formControlName="loginId">
                         
                          <span style="color: red;" *ngIf="LoginId && LoginId.invalid && LoginId.touched">
                             Login  Id Required</span>
@@ -54,7 +44,7 @@
                         <th class="border" scope="row">Address</th>
                         <td> <textarea class="form-control z-depth-1"
                              id="exampleFormControlTextarea6" rows="3"
-                              placeholder="Write something here..." formControlName='address'></textarea>
+                              placeholder="Write something here..." class="form-control" formControlName='address'></textarea>
 
                         
                          <span style="color: red;" *ngIf="Address && Address.invalid && Address.touched">
@@ -68,7 +58,7 @@
                     <tr>
                         <th class="border" scope="row">Email-Id</th>
                         <td class="">
-                            <input type="text" formControlName="email">
+                            <input type="text" class="form-control" formControlName="email">
                             <span style="color: red;" *ngIf="Email && Email.invalid && Email.touched ">
                                 Email Required</span>
                         </td>
@@ -78,10 +68,9 @@
                     <tr>
                         <th class="border" scope="row">State</th>
                         <td class="">
-                            <select name="State" class="form-control" formControlName="state">
-                                <option value="">Select State</option>
-                                <option value="Active">Maharastra</option>
-                                <option value="Inactive">Gujrat</option>
+                            <select name="State" class="form-control" formControlName="state" (change)="GenerateCityList($event.target)">
+                                <option value="" disabled>Select State</option>
+                                <option value="{{state.stateName}}" *ngFor="let state of statesList">{{state.stateName}}</option>
                             </select>
                             <span style="color: red;" *ngIf="State && State.invalid && State.touched ">
                                 State Required</span>
@@ -93,9 +82,9 @@
                         <th class="border" scope="row">City</th>
                         <td class="">
                             <select name="City" class="form-control" formControlName="city">
-                                <option value="">Select City</option>
-                                <option value="Active">Pune</option>
-                                <option value="Inactive">Mumbai</option>
+                                <option value="" disabled>Select City</option>
+                                <option value="{{city}}" *ngFor="let city of cityList">{{city}}</option>
+                                
                             </select>
                             <span style="color: red;" *ngIf="City && City.invalid && City.touched ">
                                 City Required</span>
@@ -106,7 +95,7 @@
                     <tr>
                         <th class="border" scope="row">Pin Code</th>
                         <td class="">
-                            <input type="text" formControlName="pincode">
+                            <input type="text" class="form-control" formControlName="pinCode">
                             <span style="color: red;" *ngIf="PinCode && PinCode.invalid && PinCode.touched ">
                                 PinCode Required</span>
                         </td>
@@ -116,7 +105,7 @@
                     <tr>
                         <th class="border" scope="row">Mobile No</th>
                         <td class="">
-                            <input type="text" formControlName="mobile">
+                            <input type="text" class="form-control" formControlName="mobileNumber">
                             <span style="color: red;" *ngIf="Mobile && Mobile.invalid && Mobile.touched ">
                                 Mobile No. Required</span>
                         </td>
@@ -126,7 +115,7 @@
                     <tr>
                         <th class="border" scope="row">Nominee</th>
                         <td class="">
-                            <input type="text" formControlName="nominee">
+                            <input type="text" class="form-control" formControlName="nomineeName">
                             <span style="color: red;" *ngIf="Nominee && Nominee.invalid && Nominee.touched ">
                                 Nominee Required</span>
                         </td>
@@ -136,13 +125,32 @@
                     <tr>
                         <th class="border" scope="row">Nomminee Relationship</th>
                         <td class="">
-                            <select name="Relation" class="form-control" formControlName="nomineerelation">
-                                <option value="">Select Relation</option>
-                                <option value="Active">Brother</option>
-                                <option value="Inactive">Mother</option>
+                            <select name="Relation" class="form-control" formControlName="nomineeRelation">
+                                <option value="" disabled>Select Relation</option>
+                                <option value="Brother">Brother</option>
+                                <option value="Mother">Mother</option>
+                                <option value="Father">Father</option>
+                                <option value="Sister">Sister</option>
+                                <option value="Wife">Wife</option>
+                                <option value="Son">Son</option>
+                                <option value="Daughter">Daughter</option>
+                                <option value="Friend">Friend</option>
+                                <option value="Grand Father">Grand Father</option>
+                                <option value="Grand Mother">Grand Mother</option>
+                                <option value="Cousine">Cousine</option>
                             </select>
                             <span style="color: red;" *ngIf="NomineeRelation && NomineeRelation.invalid && NomineeRelation.touched ">
                                 Relation with Nominee Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Agent Code</th>
+                        <td class="">
+                            <input class="form-control" type="text" formControlName="agentCode">
+                            <span style="color: red;" *ngIf="AgentCode && AgentCode.invalid && AgentCode.touched ">
+                                Agent Code Required</span>
                         </td>
                     </tr>
                 </tbody>
@@ -151,16 +159,30 @@
                     <tr>
                         <th class="border" scope="row">Password</th>
                         <td class="">
-                            <input type="password" formControlName="password">
+                            <input class="form-control" type="password" formControlName="password">
                             <span style="color: red;" *ngIf="Password && Password.invalid && Password.touched ">
                                 Password Required</span>
                         </td>
                     </tr>
                 </tbody>
-                
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Confirm Password</th>
+                        <td class="">
+                            <input class="form-control" type="password" formControlName="confirmPassword">
+                            <span style="color: red;" *ngIf="ConfirmPassword && ConfirmPassword.invalid && ConfirmPassword.touched ">
+                                Password Required</span>
+                        </td>
+                    </tr>
+                </tbody>
               
             </table>
-            <button class="btn btn-danger" [disabled]="customer.invalid" >Submit</button>
+            <div class="container ">
+                <div  class="text-center mb-3">
+                    <button class="btn btn-danger" [disabled]="customer.invalid" (click)="AddCustomer()">Submit</button>
+                </div>
+            </div>
+            
         </form>
     </div>
 </div>

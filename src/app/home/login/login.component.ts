@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('loggedInUser',data.userId)
       sessionStorage.setItem('loggedInuserRoll',data.userRoll)
       sessionStorage.setItem('token',data.token)
+      sessionStorage.setItem('loggedInUserName',data.userName)
       if(data.userRoll=="Admin"){
         this.router.navigate(['/dashboard']);
       }

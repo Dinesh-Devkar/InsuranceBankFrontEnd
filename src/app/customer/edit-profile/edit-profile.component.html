@@ -23,7 +23,7 @@
                 <tr>
                     <th class="border" scope="row">Date Of Birth</th>
                     <td class="">
-                        <input type="date" class="form-control" formControlName="dateOfBirth">
+                        <input type="text" class="form-control" formControlName="dateOfBirth">
                         <span style="color: red;" *ngIf="Date && Date.invalid && Date.touched ">
                             Date of Birth Required</span>
                     </td>
@@ -183,7 +183,7 @@
         </table>
     </form>
     <div style="text-align: center; margin:20px;" class="container">
-        <button class="btn btn-danger text-center">Back</button>
+        <button class="btn btn-danger text-center" routerLink="/customerdashboard">Back</button>
         <button class="btn btn-danger text-center m-2" (click)="UpdateData()" [disabled]="customer.invalid">Update</button>
     </div>
 </div>

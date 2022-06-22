@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable, Subscriber } from 'rxjs';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 
@@ -17,7 +18,7 @@ export class AddInsuranceComponent implements OnInit {
     image:new FormControl(''),
     status:new FormControl('',Validators.required)
   })
-  constructor(private dataService:DataServiceService) { }
+  constructor(private dataService:DataServiceService,private router:Router) { }
 
   // onSelectFile(fileInput: any) {
   //   this.selectedFile = <File>fileInput.target.files[0];
@@ -48,7 +49,8 @@ AddInsuranceType(){
   console.log(this.insuranceType.value)
   this.dataService.AddInsuranceType(this.insuranceType.value).subscribe((data:any)=>{
           console.log(data)
-          alert(data)
+          alert(data.message)
+          this.router.navigate(['/dashboard'])
         },(error:any)=>{
           console.log(error)
           alert(error.error.message)

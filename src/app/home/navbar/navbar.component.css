@@ -1,4 +1,8 @@
 .navbar .navbar-nav .nav-link:hover {
-    background-color: #FFACB7;
+    background-color: #76d1f2;
     color: #fff;
+    border-radius: 10px;
+  }
+  #logo{
+    font-family: cursive;
   }

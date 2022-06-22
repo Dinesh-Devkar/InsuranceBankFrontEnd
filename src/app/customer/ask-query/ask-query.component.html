@@ -4,16 +4,24 @@
         <p>Kindly enter the credentials</p>
     </div>
 </div>
+<div class="container">
+    <div class="row text-center">
+        <div class="col md-3">
+            <img src="assets/needHelp.png" class="w-40" height="160">
+        </div>
+       
+    </div>
+</div>
 <div></div>
-<div class="container border bg-light">
-    <form [formGroup]="queryForm">
+<div class="container border text-center" style="width: 50%; border-radius:20px; background-color: #f1f1f1;">
+    <form [formGroup]="queryForm" style="width: 70%;" class="mx-auto">
         <h4>Title: </h4>
         <input type="text" class="form-control" formControlName="title">
         <h4>Message: </h4>
         <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3"
             placeholder="Write something here..." formControlName="message"></textarea>
 
-        <hr><br>
+        <br>
         <div class="container ">
             <div style="text-align: center; margin-bottom:20px;">
                 <button class="btn btn-danger" [disabled]="queryForm.invalid" (click)="PostQuery()">Post Query</button>
