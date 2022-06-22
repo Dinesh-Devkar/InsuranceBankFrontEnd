@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 import { CustomerServiceService } from 'src/app/services/customer/customer-service.service';
 
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from "pdfmake/build/vfs_fonts";
+const htmlToPdfmake = require("html-to-pdfmake");
+(pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-insurance-account-details',
@@ -15,6 +19,9 @@ export class InsuranceAccountDetailsComponent implements OnInit {
   insuranceAccountDetails:any
   constructor(private dataService:DataServiceService,private customerService:CustomerServiceService) { }
 
+  @ViewChild('pdfTable')
+  pdfTable!:ElementRef;
+  
   GoDashboard(){
     sessionStorage.removeItem('insuranceAccountId')
   }
@@ -38,6 +45,14 @@ export class InsuranceAccountDetailsComponent implements OnInit {
       console.log(error)
       alert(error.message)
     })
+  }
+
+  public downloadAsPDF() {
+    const pdfTable = this.pdfTable.nativeElement;
+    var html = htmlToPdfmake(pdfTable.innerHTML);
+    const documentDefinition = { content: html };
+    pdfMake.createPdf(documentDefinition).download(); 
+     
   }
 
 }

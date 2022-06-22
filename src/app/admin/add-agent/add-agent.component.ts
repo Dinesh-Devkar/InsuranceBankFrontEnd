@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AgentServiceService } from 'src/app/services/agent/agent-service.service';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 
 @Component({
   selector: 'app-add-agent',
@@ -21,21 +22,26 @@ export class AddAgentComponent implements OnInit {
     confirmPassword:new FormControl('',Validators.required),
     status:new FormControl('',Validators.required)
   })
-  constructor(private agentService:AgentServiceService,private router:Router) { }
+  constructor(private agentService:AgentServiceService,private alert:AlertsService,private router:Router) { }
 
   AddAgent(){
     console.log(this.agentForm.value)
     this.agentService.AddAgent(this.agentForm.value).subscribe((data:any)=>{
       console.log(data)
       alert(data.message)
+      this.alert.Add();
       this.router.navigate(['/dashboard'])
     },(error:any)=>{
       console.log(error)
+      this.alert.Failed();
       alert(error.error.message)
     })
   }
   ngOnInit(): void {
   }
+
+  
+
   get Name(){
     return this.agentForm.get('name')
   }
