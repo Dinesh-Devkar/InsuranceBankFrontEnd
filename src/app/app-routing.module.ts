@@ -78,6 +78,7 @@ import { AgentRollGuardGuard } from './shared/agent-roll-guard.guard';
 import { EmployeeRollGuardGuard } from './shared/employee-roll-guard.guard';
 import { AgentViewDocumentsComponent } from './agent/agent-view-documents/agent-view-documents.component';
 import { AdminViewDocumentsComponent } from './admin/admin-view-documents/admin-view-documents.component';
+import { AccountBlockComponent } from './customer/account-block/account-block.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -115,7 +116,7 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'policypayment',component:ViewPolicyPaymentComponent},
                       {path:'agentprofile',component:AgentProfileComponent,canActivate:[AgentRollGuardGuard]},
                       {path:'marketing',component:MarketingComponent,canActivate:[AgentRollGuardGuard]},
-                      {path:'agentdashboard',component:AgentDashboardComponent},
+                      {path:'agentdashboard',component:AgentDashboardComponent,canActivate:[AgentRollGuardGuard]},
                       {path:'agentviewcustomer',component:AgentViewCustomersComponent,canActivate:[AgentRollGuardGuard]},
                       {path:'agentinsuranceaccount',component:AgentInsuranceAccountComponent,canActivate:[AgentRollGuardGuard]},
                       {path:'agentpolicypayment',component:AgentPolicyPaymentComponent,canActivate:[AgentRollGuardGuard]},
@@ -155,6 +156,8 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'askquery',component:AskQueryComponent,canActivate:[CustomerRollGuardGuard]},
                       {path:'agentviewdocuments',component:AgentViewDocumentsComponent},
                       {path:'adminviewdocuments',component:AdminViewDocumentsComponent},
+                      {path:'unauthorized',component: AccountBlockComponent},
+                      {path:'editagentprofile',component:EditAgentProfileComponent}
 
 ];
 @NgModule({

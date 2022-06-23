@@ -22,7 +22,7 @@ adminForm=new FormGroup({
    }
 
   ngOnInit(): void {
-    this.authService.GetAdminDetails(sessionStorage.getItem('loggedInUser')).subscribe((data:any)=>{
+    this.authService.GetEmployeeDetails(sessionStorage.getItem('loggedInUser')).subscribe((data:any)=>{
       console.log(data)
       this.adminForm.setValue({
         name:data.name,

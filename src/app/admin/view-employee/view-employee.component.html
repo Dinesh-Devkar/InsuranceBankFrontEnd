@@ -4,8 +4,8 @@
     </div>
 </div>
 
-<div class="container">
-    <table class="table">
+<div class="container border rounded">
+    <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">Employee Type</th>
@@ -23,7 +23,7 @@
             <td>{{employee.loginId}}</td>    
             <td>{{employee.email}}</td> 
             <td>{{employee.userStatus}}</td>            
-            <td ><a   style="color:red;cursor: pointer;" (click)="GoToEditEmployeePage(employee.id)">Edit</a>| <a href="" style="color:red; cursor: pointer;" >delete</a></td>
+            <td ><button class="btn btn-info text-light"   style="color:red;cursor: pointer;" (click)="GoToEditEmployeePage(employee.id)">Edit</button></td>
           </tr>        
           
         </tbody>

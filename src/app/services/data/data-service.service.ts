@@ -119,13 +119,20 @@ export class DataServiceService {
   GetAllInsuranceSchemesByInsuranceType(insuranceType: any) {
     return this.http.get(`http://localhost:5137/api/InsuranceScheme/${insuranceType}/GetInsuranceSchemesByInsuranceType`)
   }
+  UpdateInsuranceScheme(insuranceSchemeId:any,insuranceScheme:any){
+    return this.http.put(`http://localhost:5137/api/InsuranceScheme/${insuranceSchemeId}/UpdateInsuranceScheme`,insuranceScheme)
+  }
+
+  UpdateInsurancePlan(insurancePlanId:any,insurancePlan:any){
+    return this.http.put(`http://localhost:5137/api/InsurancePlan/${insurancePlanId}/UpdateInsurancePlan`,insurancePlan)
+  }
   GetAllInsurancePlans() {
     return this.http.get(`http://localhost:5137/api/InsurancePlan/GetAllInsurancePlans`)
   }
   GetInsurancePlansByInsuranceType(insuranceType: string) {
     return this.http.get(`http://localhost:5137/api/InsurancePlan/${insuranceType}/GetInsurancePlansByInsuranceType`)
   }
-  GetInsurancePlan(insurancePlan: string) {
+  GetInsurancePlan(insurancePlan: string|null) {
     return this.http.get(`http://localhost:5137/api/InsurancePlan/${insurancePlan}/GetInsurancePlan`)
   }
   GetInsuranceSchemeDetails(insuranceSchemeName: any) {
@@ -142,7 +149,7 @@ export class DataServiceService {
   }
   GetInsuranceAccountDetailsByAccountId() {
 
-    return this.http.get(`http://localhost:5137/api/InsuranceAccount/${sessionStorage.getItem('loggedInUser')}/GetInsuranceAccountByAccountId/${sessionStorage.getItem('insuranceAccountId')}`)
+    return this.http.get(`http://localhost:5137/api/InsuranceAccount/${sessionStorage.getItem('insuranceAccountId')}/GetInsuranceAccountByAccountId`)
 
   }
 
@@ -161,6 +168,10 @@ export class DataServiceService {
   }
   GetPaymentDetails() {
     return this.http.get(`http://localhost:5137/api/Payment/${sessionStorage.getItem('insuranceAccountId')}/GetPAymentDetails`)
+  }
+
+  GetCustomerDetails(customerId:any){
+    return this.http.get(`http://localhost:5137/api/Customer/${customerId}/GetCustomerById`)
   }
 
 }

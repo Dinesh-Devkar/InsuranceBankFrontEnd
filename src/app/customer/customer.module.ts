@@ -14,6 +14,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { InsuranceAccountDetailsComponent } from './insurance-account-details/insurance-account-details.component';
 import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
 import { AskQueryComponent } from './ask-query/ask-query.component';
+import { AccountBlockComponent } from './account-block/account-block.component';
 
 
 
@@ -31,6 +32,7 @@ import { AskQueryComponent } from './ask-query/ask-query.component';
     InsuranceAccountDetailsComponent,
     ViewFeedbackComponent,
     AskQueryComponent,
+    AccountBlockComponent,
   
   ],
   imports: [

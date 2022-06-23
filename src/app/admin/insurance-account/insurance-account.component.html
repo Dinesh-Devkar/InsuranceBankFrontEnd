@@ -4,8 +4,8 @@
     </div>
 </div>
 
-<div class="container">
-    <table class="table">
+<div class="container border rounded">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">Customer</th>
@@ -33,7 +33,7 @@
                 <td>{{insuranceAccount.investmentAmount}}</td> 
                 <td>{{insuranceAccount.profitRatio}}</td> 
                 <td>{{insuranceAccount.totalAmount}}</td> 
-                <td><a routerLink="/inuranceaccountdetails" style="color: red;">View More</a></td>
+                <td><a style="cursor: pointer;" class="btn btn-info text-light p-0" (click)="ShowFullInsuranceAccountDetails(insuranceAccount.accountNumber)">View More</a></td>
             </tr>
             
 

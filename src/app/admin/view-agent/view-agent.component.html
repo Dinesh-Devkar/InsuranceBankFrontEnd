@@ -4,8 +4,8 @@
     </div>
 </div>
 
-<div class="container">
-    <table class="table">
+<div class="container border rounded">
+    <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">Agent Name </th>
@@ -26,7 +26,7 @@
             <td>{{agent.qualification}}</td>
             <td>{{agent.status}}</td>
                                  
-            <td ><a class="text-danger" style="cursor: pointer;" (click)="SetSelectedAgentCode(agent.agentCode)" >Edit</a>| <a href="" class="text-danger" style="cursor: pointer;">delete</a></td>
+            <td ><a class="text-danger btn btn-info text-light" style="cursor: pointer;" (click)="SetSelectedAgentCode(agent.agentCode)" >Edit</a></td>
           </tr>        
           
         </tbody>
