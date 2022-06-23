@@ -74,7 +74,7 @@
         </tbody>
     </table>
     Payment Details
-    <table class="table">        
+    <table class="table" id="pdfTable" #pdfTable>        
         <thead>
             <tr>                
                 <th scope="col">Installment Number</th>
@@ -93,7 +93,7 @@
                 <td>{{payment.installmentAmount}}</td> 
                 <td>{{payment.paidDate}}</td>
                 <td>{{payment.paymentStatus}}</td>
-                <td><a href="" style="color:red ;">Download</a> </td>
+                <td><a routerLink="" onclick="downloadAsPDF()" style="color:red ;">Download</a> </td>
                   
             </tr>
         </tbody>

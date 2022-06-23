@@ -76,6 +76,8 @@ import { AdminInsuranceAccountDetailsComponent } from './admin/admin-insurance-a
 import { CustomerRollGuardGuard } from './shared/customer-roll-guard.guard';
 import { AgentRollGuardGuard } from './shared/agent-roll-guard.guard';
 import { EmployeeRollGuardGuard } from './shared/employee-roll-guard.guard';
+import { AgentViewDocumentsComponent } from './agent/agent-view-documents/agent-view-documents.component';
+import { AdminViewDocumentsComponent } from './admin/admin-view-documents/admin-view-documents.component';
 import { AccountBlockComponent } from './customer/account-block/account-block.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
@@ -152,6 +154,8 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'admininsurancedetails',component:AdminInsuranceAccountDetailsComponent},
                       {path:'cutsomerviewfeedback',component:ViewFeedbackComponent,canActivate:[CustomerRollGuardGuard]},
                       {path:'askquery',component:AskQueryComponent,canActivate:[CustomerRollGuardGuard]},
+                      {path:'agentviewdocuments',component:AgentViewDocumentsComponent},
+                      {path:'adminviewdocuments',component:AdminViewDocumentsComponent},
                       {path:'unauthorized',component: AccountBlockComponent},
                       {path:'editagentprofile',component:EditAgentProfileComponent}
 

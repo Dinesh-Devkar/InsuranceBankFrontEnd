@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class AddEmployeeComponent implements OnInit {
     confirmPassword:new FormControl('',Validators.required),
     userStatus:new FormControl('',Validators.required)
   })
-  constructor(private authService:AuthServiceService) { }
+  constructor(private authService:AuthServiceService,private alert:AlertsService) { }
 
   AddUser(){
     console.log(this.employee.value)
@@ -31,9 +32,10 @@ export class AddEmployeeComponent implements OnInit {
         
           this.authService.EmployeeRegister(this.employee.value).subscribe((res:any)=>{
             console.log(res);
+            this.alert.Add()
             alert(res)
           },(error:any)=>{
-            
+            this.alert.Failed()
             console.log(error);
             
           })
@@ -43,9 +45,10 @@ export class AddEmployeeComponent implements OnInit {
         
         this.authService.AdminRegister(this.employee.value).subscribe((res:any)=>{
           console.log(res);
+          this.alert.Add()
           alert(res)
         },(error:any)=>{
-          
+          this.alert.Failed()
           console.log(error);
           
         })

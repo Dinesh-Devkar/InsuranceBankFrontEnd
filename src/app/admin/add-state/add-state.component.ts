@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
@@ -14,15 +15,17 @@ export class AddStateComponent implements OnInit {
     stateName:new FormControl('',Validators.required),
     status:new FormControl('',Validators.required)
   })
-  constructor(private dataService:DataServiceService,private router:Router) { }
+  constructor(private dataService:DataServiceService,private alert:AlertsService,private router:Router) { }
 
   AddState(){
     this.dataService.AddState(this.state.value).subscribe((data:any)=>{
       console.log(data)
       alert(data.message)
       this.state.reset()
+      this.alert.Add()
       this.router.navigate(['/dashboard'])
     },(error:any)=>{
+      this.alert.Failed()
       alert(error.error.message)
     }) 
 
