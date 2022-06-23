@@ -39,8 +39,6 @@ export class EditAgentComponent implements OnInit {
   }
 
   UpdateAgent(){
-    
-    console.log("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
     console.log(this.agentForm.value)
     this.agentService.UpdateAgent(this.AgentCode?.value,this.agentForm.value).subscribe((data:any)=>{
       alert(data.message)
@@ -53,6 +51,7 @@ export class EditAgentComponent implements OnInit {
       
     },(error:any)=>{
       console.log(error)
+      alert(error.error.message)
     })
   }
 
