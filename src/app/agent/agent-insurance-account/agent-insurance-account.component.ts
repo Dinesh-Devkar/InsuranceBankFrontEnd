@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AgentServiceService } from 'src/app/services/agent/agent-service.service';
 
 @Component({
@@ -10,21 +11,25 @@ export class AgentInsuranceAccountComponent implements OnInit {
 
   totalRs:number=0
   insuranceAccountsList:any
-  constructor(private agentService:AgentServiceService) { }
+  constructor(private agentService:AgentServiceService,private router:Router) { }
 
   ngOnInit(): void {
     this.agentService.GetInsuranceAccounts().subscribe((data:any)=>{
       console.log(data.$values)
       this.insuranceAccountsList=data.$values
-      this.CalCulaterTotalAmount()
+      //this.CalCulaterTotalAmount()
     },(error:any)=>{
       alert(error.error.message)
     })
   }
-  CalCulaterTotalAmount(){
-    this.insuranceAccountsList.forEach((insuranceAccount:any)=>{{
-      this.totalRs+=insuranceAccount.totalAmount
-    }})
+  // CalCulaterTotalAmount(){
+  //   this.insuranceAccountsList.forEach((insuranceAccount:any)=>{{
+  //     this.totalRs+=insuranceAccount.totalAmount
+  //   }})
+  // }
+  ShowFullInsuranceAccountDetails(accountNumber:string){
+    sessionStorage.setItem('insuranceAccountId',accountNumber)
+    this.router.navigate(['/admininsurancedetails'])
   }
 
 }
