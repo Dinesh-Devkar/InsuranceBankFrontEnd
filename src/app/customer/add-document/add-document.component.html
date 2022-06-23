@@ -1,0 +1,47 @@
+<div class="container ">
+    <div style="text-align: center; margin-bottom:20px;">
+        <h1> Customer Documents </h1>
+        <p>Upload the Documents</p>
+    </div>
+</div>
+<div class="container container-fluid col-sm-6 border bg-light">
+    <form [formGroup]="documentForm">
+        <table class="table table-striped p-4">
+            <tbody>
+                <tr>
+                    <th class="border" scope="row">Document Type</th>
+                    <td>
+                        <select name="Status" formControlName="documentName">
+                            <option value="">Select InsuranceType</option>
+                            <option value="Aadhar Card">Aadhar Card</option>
+                            <option value="Driving Licence">Driving Licence</option>
+                            <option value="Pan Card">Pan Card</option>
+                            <option value="Voter Card">Voter Card</option>
+                            <!-- <option value="{{insuranceType.insuranceName}}" *ngFor="let insuranceType of insuranceTypesList">{{insuranceType.insuranceName}}</option> -->
+                            
+                        </select>
+                        <!-- <span style="color: red;"
+                            *ngIf="InsuranceType && InsuranceType.invalid && InsuranceType.touched">
+                            Insurance Type Required
+                        </span> -->
+                    </td>
+                </tr>
+            </tbody>
+           
+            <tbody>
+                <tr>
+                    <th class="border" scope="row">Image</th>
+                    <td><input type="file" accept="image/x-png,image/gif,image/jpeg" formControlName="documentFile">
+                        <!-- <span style="color: red;" *ngIf="Image && Image.invalid && Image.touched">
+                            Image Required
+                        </span> -->
+                    </td>
+                </tr>
+            </tbody>
+           
+
+           
+        </table>
+        <button class="btn btn-danger" [disabled]="documentForm.invalid" (click)="AddDocument()">Submit</button>
+    </form>
+</div>

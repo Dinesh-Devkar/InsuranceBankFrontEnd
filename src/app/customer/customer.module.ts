@@ -15,6 +15,7 @@ import { InsuranceAccountDetailsComponent } from './insurance-account-details/in
 import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
 import { AskQueryComponent } from './ask-query/ask-query.component';
 import { AccountBlockComponent } from './account-block/account-block.component';
+import { AddDocumentComponent } from './add-document/add-document.component';
 
 
 
@@ -33,6 +34,7 @@ import { AccountBlockComponent } from './account-block/account-block.component';
     ViewFeedbackComponent,
     AskQueryComponent,
     AccountBlockComponent,
+    AddDocumentComponent,
   
   ],
   imports: [

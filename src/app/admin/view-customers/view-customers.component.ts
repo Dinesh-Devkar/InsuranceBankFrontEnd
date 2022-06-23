@@ -12,6 +12,10 @@ export class ViewCustomersComponent implements OnInit {
   customers:any
   constructor(private dataService:DataServiceService,private router:Router) { }
 
+  GoToViewCustomerDocuments(customerId:string){
+    sessionStorage.setItem('customerId',customerId)
+    this.router.navigate(['/adminviewdocuments'])
+  }
   GoToEditCustomerPage(customerId:string){
     sessionStorage.setItem('customerId',customerId)
     this.router.navigate(['/editcustomer'])
