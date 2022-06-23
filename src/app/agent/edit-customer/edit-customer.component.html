@@ -156,7 +156,20 @@
                         </td>
                     </tr>
                 </tbody>
-              
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Status</th>
+                        <td><select class="form-control" formControlName="status">
+                            <option value="">Select Status</option>
+                                <option value="Active">Active</option>
+                                <option value="InActive">InActive</option>
+                            </select>
+                            <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched">
+                                Status Required
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
             <div class="container ">
                 <div style="text-align: center; margin-bottom:20px;">
