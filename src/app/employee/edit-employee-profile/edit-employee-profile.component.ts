@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AdminServiceService } from 'src/app/services/admin/admin-service.service';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 
@@ -18,11 +19,17 @@ export class EditEmployeeProfileComponent implements OnInit {
     userStatus:new FormControl('',Validators.required)
   
   })
-  constructor(private authService:AuthServiceService,private adminService:AdminServiceService) { }
+  constructor(private authService:AuthServiceService,private adminService:AdminServiceService,private router:Router) { }
 
   UpdateEmployee(){
     this.adminService.UpdateEmployee(sessionStorage.getItem('loggedInUser'),this.employeeForm.value).subscribe((data:any)=>{
       alert(data.message)
+      if(sessionStorage.getItem('loggedInuserRoll')=="Admin"){
+        this.router.navigate(['/dashboard'])
+      }
+      else if(sessionStorage.getItem('loggedInuserRoll')=="Employee"){
+        this.router.navigate(['/empdashboard'])
+      }
     },(error:any)=>{
       alert(error.error.message)
     })

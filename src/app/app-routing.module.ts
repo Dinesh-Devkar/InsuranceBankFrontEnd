@@ -152,7 +152,8 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'admininsurancedetails',component:AdminInsuranceAccountDetailsComponent},
                       {path:'cutsomerviewfeedback',component:ViewFeedbackComponent,canActivate:[CustomerRollGuardGuard]},
                       {path:'askquery',component:AskQueryComponent,canActivate:[CustomerRollGuardGuard]},
-                      {path:'unauthorized',component: AccountBlockComponent}
+                      {path:'unauthorized',component: AccountBlockComponent},
+                      {path:'editagentprofile',component:EditAgentProfileComponent}
 
 ];
 @NgModule({
