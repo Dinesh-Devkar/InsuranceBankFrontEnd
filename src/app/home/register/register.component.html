@@ -1,6 +1,3 @@
-
-
-
 <div class="container align-items-center p-4 text-center mt-5"
     style="border-top-left-radius: 30px;border-top-right-radius: 20px; background-color: #f5f5f5;">
     <p class="text-center h1 fw-bold ">Customer Registration</p>
@@ -10,7 +7,7 @@
                 <div class="d-flex flex-row align-items-center">
                     <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label" >Customer Name</label>
+                        <label class="form-label">Customer Name</label>
                         <input type="text" class="form-control" formControlName="name">
 
                     </div>
@@ -18,10 +15,10 @@
             </div>
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
-                    
-                    <i class="fa fa-birthday-cake fa-lg me-3 fa-fw mt-4" aria-hidden="true" ></i>
+
+                    <i class="fa fa-birthday-cake fa-lg me-3 fa-fw mt-4" aria-hidden="true"></i>
                     <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label" >Date of Birth</label>
+                        <label class="form-label">Date of Birth</label>
                         <input type="date" class="form-control" formControlName="dateOfBirth">
 
                     </div>
@@ -33,7 +30,7 @@
                 <div class="d-flex flex-row align-items-center">
                     <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label" >Customer Login ID</label>
+                        <label class="form-label">Customer Login ID</label>
                         <input type="text" class="form-control" formControlName="loginId">
 
                     </div>
@@ -43,7 +40,7 @@
                 <div class="d-flex flex-row align-items-center">
                     <i class="fa fa fa-envelope fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label" >Email</label>
+                        <label class="form-label">Email</label>
                         <input type="text" class="form-control" formControlName="email">
 
                     </div>
@@ -53,23 +50,25 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
-                    
+
                     <i class="fa fa-globe fa-lg me-3 fa-fw mt-4" aria-hidden="true"></i>
                     <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label" >State</label>
-                        <select name="State" class="form-control" formControlName="state" (change)="GenerateCityList($event.target)">
+                        <label class="form-label">State</label>
+                        <select name="State" class="form-control" formControlName="state"
+                            (change)="GenerateCityList($event.target)">
                             <option value="" disabled>Select State</option>
-                            <option value="{{state.stateName}}" *ngFor="let state of statesList">{{state.stateName}}</option>
+                            <option value="{{state.stateName}}" *ngFor="let state of statesList">{{state.stateName}}
+                            </option>
                         </select>
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
                     <i class="fa fa-building fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label" >City</label>
+                        <label class="form-label">City</label>
                         <select name="City" class="form-control" formControlName="city">
                             <option value="" disabled>Select City</option>
                             <option value="{{city}}" *ngFor="let city of cityList">{{city}}</option>
@@ -83,7 +82,7 @@
                 <div class="d-flex flex-row align-items-center">
                     <i class="fa fa-phone fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label" >Mobile Number</label>
+                        <label class="form-label">Mobile Number</label>
                         <input type="text" class="form-control" formControlName="mobileNumber">
 
                     </div>
@@ -93,7 +92,7 @@
                 <div class="d-flex flex-row align-items-center">
                     <i class="fa fa-university fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label" >PinCode</label>
+                        <label class="form-label">PinCode</label>
                         <input type="text" class="form-control" formControlName="pinCode">
 
                     </div>
@@ -105,7 +104,7 @@
                 <div class="d-flex flex-row align-items-center">
                     <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label" >Nominee</label>
+                        <label class="form-label">Nominee</label>
                         <input type="text" class="form-control" formControlName="nomineeName">
 
                     </div>
@@ -115,7 +114,7 @@
                 <div class="d-flex flex-row align-items-center">
                     <i class="fa fa-users fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label" >Nominee relation</label>
+                        <label class="form-label">Nominee relation</label>
                         <select name="Relation" class="form-control" formControlName="nomineeRelation">
                             <option value="">Select Relation</option>
                             <option value="Brother">Brother</option>
@@ -140,11 +139,10 @@
                 <div class="d-flex flex-row align-items-center">
                     <i class="fa fa-lock fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label" >Password</label>
-                        <input type="password" class="form-control"
-                            formControlName="password">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" formControlName="password">
 
-                       
+
                     </div>
                 </div>
 
@@ -153,9 +151,8 @@
                 <div class="d-flex flex-row align-items-center">
                     <i class="fa fa-key fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label" >Confirm password</label>
-                        <input type="password"  class="form-control"
-                            formControlName="confirmPassword" />
+                        <label class="form-label">Confirm password</label>
+                        <input type="password" class="form-control" formControlName="confirmPassword" />
                     </div>
                 </div>
             </div>
@@ -165,18 +162,18 @@
                 <img src="assets/reg1.png" alt="" width="200">
             </div>
             <div class="col-md-6 mx-auto">
-                
+
                 <div class="d-flex flex-row align-items-center mt-3">
                     <i class="fa fa-area-chart fa-lg me-3 fa- mb-5"></i>
                     <div class="form-group form-outline flex-fill mb-0">
-                        
-                        <label class="form-label" >Address</label>
-                        <textarea formControlName='address' class="form-control z-depth-1" 
-                            rows="3" placeholder="Write something here..." class="form-control"
-                            ></textarea>
-                            <div class="d-flex justify-content-center mx-4 mb-lg-4 my-5">
-                                <button type="button" class="btn btn-primary btn-lg" [disabled]="registerForm.invalid" (click)="RegisterCustomer()">Register</button>
-                            </div>
+
+                        <label class="form-label">Address</label>
+                        <textarea formControlName='address' class="form-control z-depth-1" rows="3"
+                            placeholder="Write something here..." class="form-control"></textarea>
+                        <div class="d-flex justify-content-center mx-4 mb-lg-4 my-5">
+                            <button type="button" class="btn btn-primary btn-lg" [disabled]="registerForm.invalid"
+                                (click)="RegisterCustomer()">Register</button>
+                        </div>
 
                     </div>
                 </div>
@@ -192,7 +189,7 @@
                 </div>
             </div>
         </div> -->
-       
+
 
     </form>
 </div>
