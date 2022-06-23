@@ -1,169 +1,198 @@
-<section class="vh-80 mt-5  formclass" style="background-color: #eee;">
-    <div class="container h-70">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-lg-12 col-xl-11">
-                <div class="card text-black" style="border-radius: 25px;">
-                    <div class="card-body p-md-3">
-                        <div class="row justify-content-center">
-                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                                <p class="text-center h1 fw-bold ">Customer Registration</p>
-
-                                <!-- Form Begin -->
-
-                                <form [formGroup]='form' class="mx-1">
-
-                                    <div class="d-flex flex-row align-items-center">
-                                        <i class="fa fa-user fa-lg me-3 fa-fw"></i>
-                                        <div class="form-group form-outline flex-fill mb-0">
-                                            <label class="form-label" for="form3Example1c">Customer Name</label>
-                                            <input type="text" class="form-control" formControlName="name">
-
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row align-items-center">
-                                        <i class="fa fa-user fa-lg me-3 fa-fw"></i>
-                                        <div class="form-group form-outline flex-fill mb-0">
-                                            <label class="form-label" for="form3Example1c">Date of Birth</label>
-                                            <input type="date" class="form-control" formControlName="date">
-
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row align-items-center">
-                                        <i class="fa fa-user fa-lg me-3 fa-fw"></i>
-                                        <div class="form-group form-outline flex-fill mb-0">
-                                            <label class="form-label" for="form3Example1c">Customer Login ID</label>
-                                            <input type="text" class="form-control" formControlName="loginid">
-
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row align-items-center">
-                                        <i class="fa fa-user fa-lg me-3 fa-fw"></i>
-                                        <div class="form-group form-outline flex-fill mb-0">
-                                            <label class="form-label" for="form3Example1c">Address</label>
-                                            <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6"
-                                                rows="3" placeholder="Write something here..." class="form-control"
-                                                formControlName='address'></textarea>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row align-items-center">
-                                        <i class="fa fa-user fa-lg me-3 fa-fw"></i>
-                                        <div class="form-group form-outline flex-fill mb-0">
-                                            <label class="form-label" for="form3Example1c">Email</label>
-                                            <input type="text" class="form-control" formControlName="email">
-
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row align-items-center">
-                                        <i class="fa fa-user fa-lg me-3 fa-fw"></i>
-                                        <div class="form-group form-outline flex-fill mb-0">
-                                            <label class="form-label" for="form3Example1c">State</label>
-                                            <select name="State" class="form-control" formControlName="state">
-                                                <option value="" disabled>Select State</option>
-                                                <option value="Maharastra" >Maharastra</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row align-items-center">
-                                        <i class="fa fa-user fa-lg me-3 fa-fw"></i>
-                                        <div class="form-group form-outline flex-fill mb-0">
-                                            <label class="form-label" for="form3Example1c">City</label>
-                                            <select name="City" class="form-control" formControlName="state">
-                                                <option value="" disabled>Select City</option>
-                                                <option value="Pune" >Pune</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row align-items-center">
-                                        <i class="fa fa-user fa-lg me-3 fa-fw"></i>
-                                        <div class="form-group form-outline flex-fill mb-0">
-                                            <label class="form-label" for="form3Example1c">Nominee</label>
-                                            <input type="text" class="form-control" formControlName="nominee">
-
-                                        </div>
-                                    </div>
 
 
 
-                                    <div class="d-flex flex-row align-items-center">
-                                        <i class="fa fa-user fa-lg me-3 fa-fw"></i>
-                                        <div class="form-group form-outline flex-fill mb-0">
-                                            <label class="form-label" for="form3Example1c">Nominee relation</label>
-                                            <input type="text" class="form-control" formControlName="nomineerelation">
+<div class="container align-items-center p-4 text-center mt-5"
+    style="border-top-left-radius: 30px;border-top-right-radius: 20px; background-color: #f5f5f5;">
+    <p class="text-center h1 fw-bold ">Customer Registration</p>
+    <form [formGroup]="registerForm" class="mx-1" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label" >Customer Name</label>
+                        <input type="text" class="form-control" formControlName="name">
 
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row align-items-center">
-                                        <i class="fa fa-user fa-lg me-3 fa-fw"></i>
-                                        <div class="form-group form-outline flex-fill mb-0">
-                                            <label class="form-label" for="form3Example1c">Agent Code</label>
-                                            <input type="text" class="form-control" formControlName="code">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    
+                    <i class="fa fa-birthday-cake fa-lg me-3 fa-fw mt-4" aria-hidden="true" ></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label" >Date of Birth</label>
+                        <input type="date" class="form-control" formControlName="dateOfBirth">
 
-                                        </div>
-                                    </div>
-
-
-                                    <div class="d-flex flex-row align-items-center">
-                                        <i class="fa fa-lock fa-lg me-3 fa-fw"></i>
-                                        <div class="form-group form-outline flex-fill mb-0">
-                                            <label class="form-label" for="form3Example4c">Password</label>
-                                            <input type="password" id="form3Example4c" class="form-control"
-                                                formControlName="password">
-
-                                            <div *ngIF="f['password'].touched && f['password'].invalid"
-                                                class="alert alert-danger">
-                                                <div *ngIF="f['password'].errors && f['password'].errors['required']"
-                                                    class="alert alert-danger">
-                                                    Password Is Required
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex flex-row align-items-center">
-                                        <i class="fa fa-key fa-lg me-3 fa-fw"></i>
-                                        <div class="form-group form-outline flex-fill mb-0">
-                                            <label class="form-label" for="form3Example4cd">Confirm password</label>
-                                            <input type="password" id="form3Example4cd" class="form-control"
-                                                formControlName="confirmPassword" />
-
-                                            <div *ngIF="f['confirmPassword'].touched && f['confirmPassword'].invalid"
-                                                class="alert alert-danger">
-                                                <div *ngIF="f['confirmPassword'].errors && f['confirmPassword'].errors['required']"
-                                                    class="alert alert-danger">
-                                                    Password Is Required
-                                                </div>
-                                                <div *ngIF="f['confirmPassword'].errors && f['confirmPassword'].errors['ConfirmValidator']"
-                                                    class="alert alert-danger">
-                                                    Password and Confirm Password Must Matched
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex justify-content-center mx-4 mb-lg-4 my-4">
-                                        <button type="button" class="btn btn-primary btn-lg"
-                                            >Register</button>
-                                    </div>
-
-                                </form>
-
-                                <!-- Form Ends -->
-
-                            </div>
-                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                                <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                                    class="img-fluid" alt="Sample image"> -->
-                                <img src="assets/comfort.webp" class="img-fluid" alt="Sample image"
-                                    style="margin-left:150px ;">
-
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label" >Customer Login ID</label>
+                        <input type="text" class="form-control" formControlName="loginId">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa fa-envelope fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label" >Email</label>
+                        <input type="text" class="form-control" formControlName="email">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    
+                    <i class="fa fa-globe fa-lg me-3 fa-fw mt-4" aria-hidden="true"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label" >State</label>
+                        <select name="State" class="form-control" formControlName="state" (change)="GenerateCityList($event.target)">
+                            <option value="" disabled>Select State</option>
+                            <option value="{{state.stateName}}" *ngFor="let state of statesList">{{state.stateName}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-building fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label" >City</label>
+                        <select name="City" class="form-control" formControlName="city">
+                            <option value="" disabled>Select City</option>
+                            <option value="{{city}}" *ngFor="let city of cityList">{{city}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-phone fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label" >Mobile Number</label>
+                        <input type="text" class="form-control" formControlName="mobileNumber">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-university fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label" >PinCode</label>
+                        <input type="text" class="form-control" formControlName="pinCode">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label" >Nominee</label>
+                        <input type="text" class="form-control" formControlName="nomineeName">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-users fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label" >Nominee relation</label>
+                        <select name="Relation" class="form-control" formControlName="nomineeRelation">
+                            <option value="">Select Relation</option>
+                            <option value="Brother">Brother</option>
+                            <option value="Mother">Mother</option>
+                            <option value="Father">Father</option>
+                            <option value="Sister">Sister</option>
+                            <option value="Wife">Wife</option>
+                            <option value="Son">Son</option>
+                            <option value="Daughter">Daughter</option>
+                            <option value="Friend">Friend</option>
+                            <option value="Grand Father">Grand Father</option>
+                            <option value="Grand Mother">Grand Mother</option>
+                            <option value="Cousine">Cousine</option>
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-lock fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label" >Password</label>
+                        <input type="password" class="form-control"
+                            formControlName="password">
+
+                       
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-key fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label" >Confirm password</label>
+                        <input type="password"  class="form-control"
+                            formControlName="confirmPassword" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-4">
+            <div class="col-md-3">
+                <img src="assets/reg1.png" alt="" width="200">
+            </div>
+            <div class="col-md-6 mx-auto">
+                
+                <div class="d-flex flex-row align-items-center mt-3">
+                    <i class="fa fa-area-chart fa-lg me-3 fa- mb-5"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        
+                        <label class="form-label" >Address</label>
+                        <textarea formControlName='address' class="form-control z-depth-1" 
+                            rows="3" placeholder="Write something here..." class="form-control"
+                            ></textarea>
+                            <div class="d-flex justify-content-center mx-4 mb-lg-4 my-5">
+                                <button type="button" class="btn btn-primary btn-lg" [disabled]="registerForm.invalid" (click)="RegisterCustomer()">Register</button>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img src="assets/reg1.png" alt="" width="200">
+            </div>
+        </div>
+        <!-- <div class="row ">
+            <div class="col-md-6 mx-auto">
+                <div class="d-flex justify-content-center mx-4 mb-lg-4 my-4">
+                    <button type="button" class="btn btn-primary btn-lg" [disabled]="registerForm.invalid" (click)="RegisterCustomer()">Register</button>
+                </div>
+            </div>
+        </div> -->
+       
+
+    </form>
+</div>

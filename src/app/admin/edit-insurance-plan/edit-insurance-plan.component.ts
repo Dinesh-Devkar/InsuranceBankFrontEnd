@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
   selector: 'app-edit-insurance-plan',
@@ -12,6 +14,7 @@ export class EditInsurancePlanComponent implements OnInit {
   insuranceSchemesList:any
 
   insurancePlan=new FormGroup({
+    id:new FormControl('',Validators.required),
     insuranceType:new FormControl('',Validators.required),
     insuranceScheme:new FormControl('',Validators.required),
     insurancePlanName:new FormControl('',Validators.required),
@@ -25,9 +28,57 @@ export class EditInsurancePlanComponent implements OnInit {
     status:new FormControl('',Validators.required)
 
   })
-  constructor() { }
+  constructor(private dataService:DataServiceService,private router:Router) { }
 
+  GenerateInsuranceSchemesList(insuranceType:any){
+    this.dataService.GetAllInsuranceSchemesByInsuranceType(insuranceType.value).subscribe((data:any)=>{
+      this.insuranceSchemesList=data.$values
+    })
+  }
+  UpdateInsurancePlan(){
+    console.log(this.insurancePlan.value)
+    this.dataService.UpdateInsurancePlan(this.Id?.value,this.insurancePlan.value).subscribe((data:any)=>{
+      alert(data.message)
+      if(sessionStorage.getItem('loggedInuserRoll')=="Admin"){
+        this.router.navigate(['/dashboard'])
+      }
+      else if(sessionStorage.getItem('loggedInuserRoll')=="Employee"){
+        this.router.navigate(['/empdashboard'])
+      }
+    },(error:any)=>{
+      alert(error.message)
+      console.log(error)
+    })
+  }
   ngOnInit(): void {
+    this.dataService.GetAllInsuranceTypes().subscribe((data:any)=>{
+      this.insuranceTypesList=data.$values
+    })
+    
+    this.dataService.GetInsurancePlan(sessionStorage.getItem('insurancePlanName')).subscribe((data:any)=>{
+      console.log(data)
+      this.insurancePlan.setValue({
+        id:data.id,
+        insuranceType:data.insuranceType,
+        insuranceScheme:data.insuranceScheme,
+        insurancePlanName:data.insurancePlanName,
+        minimumYears:data.minimumYears,
+        maximumYears:data.maximumYears,
+        minimumAge:data.minimumAge,
+        maximumAge:data.maximumAge,
+        minimumInvestAmt:data.minimumInvestAmt,
+        maximumInvestAmt:data.maximumInvestAmt,
+        profitRatio:data.profitRatio,
+        status:data.status
+      })
+      this.dataService.GetAllInsuranceSchemesByInsuranceType(data.insuranceType).subscribe((data:any)=>{
+        this.insuranceSchemesList=data.$values
+      })
+    })
+   
+  }
+  get Id(){
+    return this.insurancePlan.get("id");
   }
   get InsuranceType(){
     return this.insurancePlan.get("insuranceType");

@@ -13,8 +13,8 @@ export class EditInsuranceSchemeComponent implements OnInit {
   img:any
   insuranceTypesList:any
   scheme=new FormGroup({
-    id:new FormControl('',Validators.required),
-    insuranceTypeName:new FormControl('kkkkk',Validators.required),
+    id:new FormControl(0,Validators.required),
+    insuranceTypeName:new FormControl('',Validators.required),
     insuranceSchemeName:new FormControl('',Validators.required),
     image:new FormControl('',Validators.required),
     newRegComission:new FormControl('',Validators.required),
@@ -30,8 +30,9 @@ export class EditInsuranceSchemeComponent implements OnInit {
       this.insuranceTypesList=data.$values
     })
     this.dataService.GetInsuranceSchemeDetails(sessionStorage.getItem('insuranceScheme')).subscribe((data:any)=>{
-        alert(data.id)
+        
         this.scheme.setValue({
+          id:data.id,
           insuranceTypeName:data.insuranceTypeName,
           insuranceSchemeName:data. insuranceSchemeName,
           newRegComission:data.newRegComission,
@@ -39,11 +40,33 @@ export class EditInsuranceSchemeComponent implements OnInit {
           note:data.note,
           status:data.status,
           image:data.image,
-          id:data.id
+          
         })
+        
+        
     },(error:any)=>{
       alert(error.message)
     })
+  }
+
+  UpdateInsuranceScheme(){
+    console.log(this.scheme.value)
+    this.dataService.UpdateInsuranceScheme(this.Id?.value,this.scheme.value).subscribe((data:any)=>{
+      alert(data.message)
+      if(sessionStorage.getItem('loggedInuserRoll')=="Admin"){
+        this.router.navigate(['/dashboard'])
+      }
+      else if(sessionStorage.getItem('loggedInuserRoll')=="Employee"){
+        this.router.navigate(['/empdashboard'])
+      }
+     
+    },(error:any)=>{
+      console.log(error)
+      alert(error.message)
+    })
+  }
+  get Id(){
+    return this.scheme.get('id');
   }
   get InsuranceType(){
     return this.scheme.get('insuranceTypeName');

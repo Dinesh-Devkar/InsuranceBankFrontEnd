@@ -9,10 +9,21 @@
         <form [formGroup]="scheme">
             <table class="table table-striped p-4">
                 <tbody>
+                   <tr>
+                        <th class="border" scope="row">ID</th>
+                        <td><input type="number" readonly name="id" class="form-control" formControlName="id">
+                            <span style="color: red;"
+                                *ngIf="Id && Id.invalid && Id.touched">
+                                Commision New Required
+                            </span>
+                        </td>
+                    </tr>
+                </tbody> 
+                <tbody>
                     <tr>
                         <th class="border" scope="row">Insurance Type</th>
                         <td>
-                            <select name="Status" class="form-control" value="KKKKKKK" formControlName="insuranceTypeName">
+                            <select name="Status" class="form-control" formControlName="insuranceTypeName">
                                 <option value="">Select InsuranceType</option>
                                 <option value="{{insuranceType.insuranceName}}" *ngFor="let insuranceType of insuranceTypesList">{{insuranceType.insuranceName}}</option>
                                 
@@ -85,8 +96,9 @@
                     <tr>
                         <th class="border" scope="row">Status</th>
                         <td><select name="Status" formControlName="status">
+                            <option value="">Select Status</option>
                                 <option value="Active">Active</option>
-                                <option value="Inactive">Inactive</option>
+                                <option value="InActive">InActive</option>
                             </select>
                             <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched">
                                 Status Required
@@ -97,7 +109,7 @@
             </table>
             <div class="container ">
                 <div style="text-align: center; margin-bottom:20px;">
-                    <button class="btn btn-danger" [disabled]="scheme.invalid" >Submit</button>
+                    <button class="btn btn-danger" [disabled]="scheme.invalid"  (click)="UpdateInsuranceScheme()">Update</button>
                 </div>
             </div>
         </form>

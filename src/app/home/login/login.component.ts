@@ -30,6 +30,10 @@ export class LoginComponent implements OnInit {
     console.log(this.noLogin)
     this.auth.Login(this.loginForm.value).subscribe((data:any)=>{
       console.log(data)
+      if(data.status=="InActive"){
+        this.router.navigate(['/unauthorized'])
+        return
+      }
       this.auth.SetLoggedInUser(data.userRoll)
       sessionStorage.setItem('loggedInUser',data.userId)
       sessionStorage.setItem('loggedInuserRoll',data.userRoll)

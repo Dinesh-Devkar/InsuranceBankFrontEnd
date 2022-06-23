@@ -45,7 +45,7 @@ export class EditProfileComponent implements OnInit {
   }
   UpdateData(){
     console.log(this.customer.value)
-    this.customerService.UpdateCustomer(this.customer.value).subscribe((data:any)=>{
+    this.customerService.UpdateCustomer(sessionStorage.getItem('loggedInUser'),this.customer.value).subscribe((data:any)=>{
       alert(data.message)
       this.router.navigate(['/customerdashboard'])
 
