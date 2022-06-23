@@ -170,4 +170,8 @@ export class DataServiceService {
     return this.http.get(`http://localhost:5137/api/Payment/${sessionStorage.getItem('insuranceAccountId')}/GetPAymentDetails`)
   }
 
+  GetCustomerDetails(customerId:any){
+    return this.http.get(`http://localhost:5137/api/Customer/${customerId}/GetCustomerById`)
+  }
+
 }

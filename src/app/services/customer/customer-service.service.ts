@@ -24,8 +24,8 @@ export class CustomerServiceService {
   RegisterCustomer(customer:any){
     return this.http.post(`http://localhost:5137/api/Customer/Register`,customer)
   }
-  UpdateCustomer(customer:any){
-      return this.http.put(`http://localhost:5137/api/Customer/${sessionStorage.getItem('loggedInUser')}/UpdateCustomer`,customer);
+  UpdateCustomer(customerId:any,customer:any){
+      return this.http.put(`http://localhost:5137/api/Customer/${customerId}/UpdateCustomer`,customer);
   }
   PostQuery(query:any){
     return this.http.post(`http://localhost:5137/api/Customer/AddQuery`,query)

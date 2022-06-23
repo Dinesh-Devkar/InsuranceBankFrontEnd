@@ -30,6 +30,7 @@
                 <td>{{customer.nomineeRelation}}</td>
                 <td>{{customer.status}}</td>
                 <td><a class="btn btn-info text-light" >View Documents</a></td>
+                <td><a class="btn btn-info text-light" (click)="GoToEditCustomerPage(customer.customerId)" >Edit</a></td>
             </tr>
 
         </tbody>
