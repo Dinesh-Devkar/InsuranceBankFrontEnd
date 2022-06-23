@@ -14,9 +14,9 @@ export class ViewAgentComponent implements OnInit {
   agentsList:any
   constructor(private agentService:AgentServiceService,private dataService:DataServiceService,private router:Router) { }
 
-  SetSelectedAgentCode(agentCode:any){
+  SetSelectedAgentCode(agentId:any){
     //this.dataService.SetSelectedAgentCode(agentCode)
-    sessionStorage.setItem('agentCode',agentCode)
+    sessionStorage.setItem('agentId',agentId)
     this.router.navigate(['/editagent'])
   }
   ngOnInit(): void {
@@ -25,10 +25,7 @@ export class ViewAgentComponent implements OnInit {
       console.log(data.$values)
       let i=data.$values;
       this.agentsList=data.$values;
-      for(var item in i){
-        console.log(item)
-      }
-      console.log(i[0])
+      
     })
   }
 
