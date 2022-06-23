@@ -52,7 +52,7 @@ export class AuthServiceService {
     
     return this.http.post(`http://localhost:5137/api/v1/Admin/Register`,employee)
   }
-  GetAdminDetails(adminId:any){
+  GetEmployeeDetails(adminId:any){
     return this.http.get(`http://localhost:5137/api/v1/Admin/${adminId}/GetAdminDetails`)
   }
   UpdatePassword(passwordCredentials:any){
