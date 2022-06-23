@@ -76,6 +76,7 @@ import { AdminInsuranceAccountDetailsComponent } from './admin/admin-insurance-a
 import { CustomerRollGuardGuard } from './shared/customer-roll-guard.guard';
 import { AgentRollGuardGuard } from './shared/agent-roll-guard.guard';
 import { EmployeeRollGuardGuard } from './shared/employee-roll-guard.guard';
+import { AccountBlockComponent } from './customer/account-block/account-block.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -151,6 +152,7 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'admininsurancedetails',component:AdminInsuranceAccountDetailsComponent},
                       {path:'cutsomerviewfeedback',component:ViewFeedbackComponent,canActivate:[CustomerRollGuardGuard]},
                       {path:'askquery',component:AskQueryComponent,canActivate:[CustomerRollGuardGuard]},
+                      {path:'unauthorized',component: AccountBlockComponent}
 
 ];
 @NgModule({

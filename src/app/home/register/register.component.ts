@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
       this.router.navigate(['/'])
     },(error:any)=>{
       console.log(error)
-      alert(error.message)
+      alert(error.error.message)
     })
   }
   // registerForm = new FormGroup({

@@ -12,7 +12,7 @@ import { CustomerServiceService } from 'src/app/services/customer/customer-servi
 })
 export class ArogyaShieldComponent implements OnInit {	
  
-
+isEligible:boolean=true
   planDetails=new FormGroup({
     minimumYears:new FormControl(''),
     maximumYears:new FormControl(''),
@@ -38,8 +38,8 @@ export class ArogyaShieldComponent implements OnInit {
 
   //Calculate loggedInUser Age
   
-	// today = new Date(); 
-  // k:string|null=''
+	today = new Date(); 
+
   
   
   constructor(private dataService:DataServiceService,private router:Router,private customerService:CustomerServiceService) { }
@@ -47,13 +47,10 @@ export class ArogyaShieldComponent implements OnInit {
   ngOnInit(): void {
     //this.k=JSON.parse(localStorage.getItem('dateOfBirth'))
     
-  // let dob = new Date(sessionStorage.getItem('dateOfBirth') || this.today); 
-  // let Time = this.today.getTime() - dob.getTime(); 
-  // let Days = Time / (1000 * 3600 * 24); //Diference in Days
-  // let age=Days/365
-  // alert("DOb Is : "+dob)
-  // alert("Today Is : "+this.today)
-  //   alert("The Age Is : " +Math.round(age))
+  let dob = new Date(sessionStorage.getItem('dateOfBirth') || this.today); 
+  let Time = this.today.getTime() - dob.getTime(); 
+  let Days = Time / (1000 * 3600 * 24); //Diference in Days
+  let age=Days/365
     this.dataService.GetSelectedInsurancePlan().subscribe((data:any)=>{
       if(data !=''){
         this.dataService.GetInsurancePlan(data).subscribe((res:any)=>{
@@ -70,9 +67,10 @@ export class ArogyaShieldComponent implements OnInit {
            maximumInvestAmt:res.maximumInvestAmt,
            profitRatio:res.profitRatio
          })
-        //  if(age<res.minimumAge || age>res.maximumAge){
-        //    alert("You Are Not Eligible")
-        //  }
+         if(age<res.minimumAge || age>res.maximumAge){
+           //alert("You Are Not Eligible")
+           this.isEligible=false
+         }
         },(error:any)=>{
           alert(error.error.message)
         })

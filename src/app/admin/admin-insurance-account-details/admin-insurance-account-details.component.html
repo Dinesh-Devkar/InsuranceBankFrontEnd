@@ -4,9 +4,9 @@
     </div>
 </div>
 
-<div class="container">
-    Customer Details
-    <table class="table">        
+<div class="container border rounded">
+    <h5 style="text-align: center;">Customer Details</h5> 
+    <table class="table table-striped">        
         <thead>
             <tr>                
                 <th scope="col">Customer Name</th>
@@ -19,18 +19,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr >                
-                <td></td>
-                <td></td>
-                <td></td> 
-                <td></td> 
-                <td></td>   
+            <tr *ngIf="customerDetails">                
+                <td>{{customerDetails.name}}</td>
+                <td>{{customerDetails.address}}</td>
+                <td>{{customerDetails.email}}</td> 
+                <td>{{customerDetails.mobileNumber}}</td> 
+                <td>{{customerDetails.loginId}}</td>   
             </tr>
         </tbody>
     </table>
 <br>
-    Account Details
-    <table class="table">        
+    <h5 style="text-align: center;">Account Details</h5> 
+    <table class="table table-striped">        
         <thead>
             <tr>                
                 <th scope="col">Account Number</th>
@@ -43,19 +43,19 @@
             </tr>
         </thead>
         <tbody>
-            <tr >                
-                <td></td>
-                <td></td>
-                <td></td> 
-                <td></td> 
-                <td></td> 
-                <td> months</td>   
+            <tr *ngIf="insuranceAccountDetails">                
+                <td>{{insuranceAccountDetails.accountNumber}}</td>
+                <td>{{insuranceAccountDetails.insuranceType}}</td>
+                <td>{{insuranceAccountDetails.insuranceScheme}}</td> 
+                <td>{{insuranceAccountDetails.dateCreated}}</td> 
+                <td>{{insuranceAccountDetails.maturityDate}}</td> 
+                <td>{{insuranceAccountDetails.premiumType}} months</td>   
             </tr>
         </tbody>
     </table>
     <br>
-    Premium Details
-    <table class="table">        
+    <h5 style="text-align: center;">Premium Details</h5> 
+    <table class="table table-striped">        
         <thead>
             <tr>                
                 <th scope="col">Total Premium Amount</th>
@@ -65,15 +65,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr >                
-                <td></td>
-                <td></td> 
-                <td></td> 
+            <tr *ngIf="insuranceAccountDetails">                
+                <td>{{insuranceAccountDetails.investmentAmount}}</td>
+                <td>{{insuranceAccountDetails.profitRatio}}</td> 
+                <td>{{insuranceAccountDetails.totalAmount}}</td> 
                   
             </tr>
         </tbody>
     </table>
-    Payment Details
+    <h5 style="text-align: center;">Payment Details</h5> 
     <table class="table">        
         <thead>
             <tr>                
@@ -87,20 +87,20 @@
             </tr>
         </thead>
         <tbody>
-            <tr >                
-                <td></td>
-                <td></td>
-                <td></td> 
-                <td></td>
-                <td></td>
-                <td><a href="" style="color:red ;">Download</a> </td>
+            <tr *ngFor="let payment of paymentsList">                
+                <td>{{payment.installmentNumber}}</td>
+                <td>{{payment.installmentDate}}</td>
+                <td>{{payment.installmentAmount}}</td> 
+                <td>{{payment.paidDate}}</td>
+                <td>{{payment.paymentStatus}}</td>
+                <td><a href="" class="btn btn-info text-light">Download</a> </td>
                   
             </tr>
         </tbody>
     </table>
     <div class="container ">
         <div style="text-align: center; margin-bottom:20px;">
-            <button class="btn btn-danger" routerLink="/customerdashboard">Back</button>
+            <button class="btn btn-info text-light">Back</button>
         </div>
     </div>
 </div>

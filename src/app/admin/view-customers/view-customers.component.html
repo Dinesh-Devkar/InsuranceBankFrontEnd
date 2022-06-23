@@ -4,8 +4,8 @@
     </div>
 </div>
 
-<div class="container">
-    <table class="table">
+<div class="container border rounded">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">Customer Name</th>
@@ -16,6 +16,7 @@
                 <th scope="col">Nominee Relation</th>
                 <th scope="col">Status</th>
                 <th scope="col">Documents</th>
+                <th scope="col">Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -28,7 +29,7 @@
                 <td>{{customer.nomineeName}}</td>
                 <td>{{customer.nomineeRelation}}</td>
                 <td>{{customer.status}}</td>
-                <td><a href="" style="color:red">View Documents</a></td>
+                <td><a class="btn btn-info text-light" >View Documents</a></td>
             </tr>
 
         </tbody>

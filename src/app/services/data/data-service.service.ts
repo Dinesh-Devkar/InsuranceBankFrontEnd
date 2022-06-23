@@ -149,7 +149,7 @@ export class DataServiceService {
   }
   GetInsuranceAccountDetailsByAccountId() {
 
-    return this.http.get(`http://localhost:5137/api/InsuranceAccount/${sessionStorage.getItem('loggedInUser')}/GetInsuranceAccountByAccountId/${sessionStorage.getItem('insuranceAccountId')}`)
+    return this.http.get(`http://localhost:5137/api/InsuranceAccount/${sessionStorage.getItem('insuranceAccountId')}/GetInsuranceAccountByAccountId`)
 
   }
 

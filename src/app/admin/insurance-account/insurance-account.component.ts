@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
@@ -9,9 +10,12 @@ import { DataServiceService } from 'src/app/services/data/data-service.service';
 export class InsuranceAccountComponent implements OnInit {
 
   insuranceAccounts:any
-  constructor(private dataService:DataServiceService) { }
+  constructor(private dataService:DataServiceService,private router:Router) { }
 
-  
+  ShowFullInsuranceAccountDetails(accountNumber:string){
+    sessionStorage.setItem('insuranceAccountId',accountNumber)
+    this.router.navigate(['/admininsurancedetails'])
+  }
   ngOnInit(): void {
     this.dataService.GetAllInsuranceAccounts().subscribe((data:any)=>{
       console.log(data)
