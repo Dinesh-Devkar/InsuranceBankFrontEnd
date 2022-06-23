@@ -42,6 +42,7 @@ export class EditCustomerComponent implements OnInit {
     })
   }
   UpdateCustomer(){
+    console.log(this.customer.value)
     this.customerService.UpdateCustomer(this.CustomerId?.value,this.customer.value).subscribe((data:any)=>{
       alert(data.message)
       if(sessionStorage.getItem('loggedInuserRoll')=="Admin"){

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AgentServiceService } from 'src/app/services/agent/agent-service.service';
+import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
   selector: 'app-edit-agent-profile',
@@ -15,13 +18,36 @@ export class EditAgentProfileComponent implements OnInit {
     address:new FormControl('',Validators.required),
     agentCode:new FormControl('',Validators.required),
     email:new FormControl('',Validators.required),
-    password:new FormControl('',Validators.required),
-    confirmPassword:new FormControl('',Validators.required),
     status:new FormControl('',Validators.required)
   })
-  constructor() { }
+  constructor(private dataService:DataServiceService,private agentService:AgentServiceService,private router:Router) { }
 
   ngOnInit(): void {
+    this.agentService.GetAgentDetailsByAgentId(sessionStorage.getItem('loggedInUser')).subscribe((data:any)=>{
+      console.log(data)
+      this.agentForm.setValue({
+        name:data.name,
+        loginId:data.loginId,
+        qualification:data.qualification,
+        address:data.address,
+        agentCode:data.agentCode,
+        email:data.email,
+        status:data.status
+      })
+    })
+  }
+  UpdateAgent(){
+    console.log(this.agentForm.value)
+    this.agentService.UpdateAgent(sessionStorage.getItem('loggedInUser'),this.agentForm.value).subscribe((data:any)=>{
+      alert(data.message)
+      
+        this.router.navigate(['/agentdashboard'])
+     
+      
+    },(error:any)=>{
+      console.log(error)
+      alert(error.error.message)
+    })
   }
   get Name(){
     return this.agentForm.get('name')

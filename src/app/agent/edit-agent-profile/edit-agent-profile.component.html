@@ -58,7 +58,7 @@
                     <tr>
                         <th class="border" scope="row">Agent Code</th>
                         <td class="">
-                            <input type="text" class="form-control"  formControlName="agentCode">
+                            <input type="text" readonly class="form-control"  formControlName="agentCode">
                             <span style="color: red;" *ngIf="AgentCode && AgentCode.invalid && AgentCode.touched ">
                                 Agent Code Required</span>
                         </td>
@@ -79,9 +79,9 @@
                     <tr>
                         <th class="border" scope="row">Status</th>
                         <td class="">
-                            <select name="Status" formControlName="status">
+                            <select name="Status" class="form-control"  formControlName="status">
                                 <option value="Active">Active</option>
-                                <option value="Inactive">Inactive</option>
+                                <option value="InActive">InActive</option>
                             </select>
                             <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched "> Status
                                 Required</span>
@@ -91,7 +91,7 @@
             </table>
             <div class="container ">
                 <div style="text-align: center; margin-bottom:20px;">
-                    <button class="btn btn-danger" [disabled]="agentForm.invalid"  >Submit</button>
+                    <button class="btn btn-danger" [disabled]="agentForm.invalid"  (click)="UpdateAgent()">Submit</button>
                 </div>
             </div>
         </form>
