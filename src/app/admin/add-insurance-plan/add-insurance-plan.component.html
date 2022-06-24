@@ -47,8 +47,16 @@
                 <div class="d-flex flex-row align-items-center">
                     <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label">Login Id</label>
-                        <select name="Status" class="form-control" formControlName="insuranceScheme">
+                        <label class="form-label">Insurance Plan</label>
+
+                        <input type="text" class="form-control" formControlName="insurancePlanName">
+                        <span style="color: red;"
+                            *ngIf="InsurancePlan && InsurancePlan.invalid && InsurancePlan.touched">Insurance
+                            Plan
+                            Required
+                        </span>
+
+                        <!-- <select name="Status" class="form-control" formControlName="insuranceScheme">
                             <option value="">Select Insurance Scheme</option>
                             <option value="{{insuranceScheme.insuranceSchemeName}}"
                                 *ngFor="let insuranceScheme of insuranceSchemesList">
@@ -59,156 +67,157 @@
                             *ngIf="InsuranceScheme && InsuranceScheme.invalid && InsuranceScheme.touched">Insurance
                             Scheme
                             Required
+                        </span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <h1>
+                <label class="form-label">Policy Term</label>
+
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Minimum Years</label>
+                        <input type="text" class="form-control" formControlName="minimumYears">
+                        <span style="color: red;"
+                            *ngIf="MinimumYears && MinimumYears.invalid && MinimumYears.touched">Minimum Years
+                            Required
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Maximum Years</label>
+                        <input type="text" class="form-control" formControlName="maximumYears">
+                        <span style="color: red;"
+                            *ngIf="MaximumYears && MaximumYears.invalid && MaximumYears.touched">Maximum Years
+                            Required
                         </span>
                     </div>
                 </div>
             </div>
         </div>
-<div class="row mt-2">
-    <h1>
-        <label class="form-label">Policy Term</label>
+        <div class="row mt-2">
+            <h1>
+                <label class="form-label">Age</label>
 
-    </h1>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <div class="d-flex flex-row align-items-center">
-            <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
-            <div class="form-group form-outline flex-fill mb-0">
-                <label class="form-label">Minimum Years</label>
-                <input type="text" class="form-control" formControlName="minimumYears">
-                        <span style="color: red;"
-                            *ngIf="MinimumYears && MinimumYears.invalid && MinimumYears.touched">Minimum Years
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Minimum Age</label>
+                        <input type="text" class="form-control" formControlName="minimumAge">
+                        <span style="color: red;" *ngIf="MinimumAge && MinimumAge.invalid && MinimumAge.touched">Minimum
+                            Age
                             Required
                         </span>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <div class="col-md-6">
-        <div class="d-flex flex-row align-items-center">
-            <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
-            <div class="form-group form-outline flex-fill mb-0">
-                <label class="form-label">Maximum  Years</label>
-                <input type="text" class="form-control" formControlName="maximumYears">
-                        <span style="color: red;"
-                            *ngIf="MaximumYears && MaximumYears.invalid && MaximumYears.touched">Maximum Years
-                            Required
-                        </span>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row mt-2">
-    <h1>
-        <label class="form-label">Age</label>
-
-    </h1>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <div class="d-flex flex-row align-items-center">
-            <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
-            <div class="form-group form-outline flex-fill mb-0">
-                <label class="form-label">Minimum Age</label>
-                <input type="text" class="form-control" formControlName="minimumAge">
-                <span style="color: red;" *ngIf="MinimumAge && MinimumAge.invalid && MinimumAge.touched">Minimum
-                    Age
-                    Required
-                </span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-6">
-        <div class="d-flex flex-row align-items-center">
-            <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
-            <div class="form-group form-outline flex-fill mb-0">
-                <label class="form-label">Maximum  Age</label>
-                <input type="text" class="form-control" formControlName="maximumAge">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Maximum Age</label>
+                        <input type="text" class="form-control" formControlName="maximumAge">
                         <span style="color: red;" *ngIf="MaximumAge && MaximumAge.invalid && MaximumAge.touched">Maximum
                             Age
                             Required
                         </span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="row mt-2">
-    <h1>
-        <label class="form-label">Total Investment Amount</label>
+        <div class="row mt-2">
+            <h1>
+                <label class="form-label">Total Investment Amount</label>
 
-    </h1>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <div class="d-flex flex-row align-items-center">
-            <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
-            <div class="form-group form-outline flex-fill mb-0">
-                <label class="form-label">Minimum investment</label>
-                <input type="text" class="form-control" formControlName="minimumInvestAmt">
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Minimum investment</label>
+                        <input type="text" class="form-control" formControlName="minimumInvestAmt">
                         <span style="color: red;"
                             *ngIf="MinimumInvestAmt && MinimumInvestAmt.invalid && MinimumInvestAmt.touched">Minimum
                             Invest
                             Amount
                             Required
                         </span>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <div class="col-md-6">
-        <div class="d-flex flex-row align-items-center">
-            <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
-            <div class="form-group form-outline flex-fill mb-0">
-                <label class="form-label">Maximum  Investment</label>
-                <input type="text" class="form-control" formControlName="maximumInvestAmt">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Maximum Investment</label>
+                        <input type="text" class="form-control" formControlName="maximumInvestAmt">
                         <span style="color: red;"
                             *ngIf="MaximumInvestAmt && MaximumInvestAmt.invalid && MaximumInvestAmt.touched">Maximum
                             Invest
                             Amount
                             Required
                         </span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-md-6">
-        <div class="d-flex flex-row align-items-center">
-            <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
-            <div class="form-group form-outline flex-fill mb-0">
-                <label class="form-label">Profit ratio</label>
-                <input type="text" class="form-control" formControlName="profitRatio">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Profit ratio</label>
+                        <input type="text" class="form-control" formControlName="profitRatio">
                         <span style="color: red;"
                             *ngIf="ProfitRatio && ProfitRatio.invalid && ProfitRatio.touched">Profit
                             Ratio
                             Required
                         </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Status</label>
+                        <select name="Status" class="form-control" formControlName="status">
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                        <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched">Status Is
+                            Required
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="col-md-6">
-        <div class="d-flex flex-row align-items-center">
-            <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
-            <div class="form-group form-outline flex-fill mb-0">
-                <label class="form-label">Status</label>
-                <select name="Status" class="form-control" formControlName="status">
-                    <option value="Active">Active</option>
-                    <option value="Inactive">Inactive</option>
-                </select>
-                <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched">Status Is
-                    Required
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
 
 
-        <button class="btn btn-danger m-2" [disabled]="insurancePlan.invalid" (click)="AddInsurancePlan()">Submit</button>
+        <button class="btn btn-danger m-2" [disabled]="insurancePlan.invalid"
+            (click)="AddInsurancePlan()">Submit</button>
     </form>
 
 </div>
