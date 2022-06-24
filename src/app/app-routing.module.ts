@@ -80,6 +80,7 @@ import { AgentViewDocumentsComponent } from './agent/agent-view-documents/agent-
 import { AdminViewDocumentsComponent } from './admin/admin-view-documents/admin-view-documents.component';
 import { AccountBlockComponent } from './customer/account-block/account-block.component';
 import { AddDocumentComponent } from './customer/add-document/add-document.component';
+import { AgenttransactionsComponent } from './agent/agenttransactions/agenttransactions.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -159,7 +160,8 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'adminviewdocuments',component:AdminViewDocumentsComponent},
                       {path:'unauthorized',component: AccountBlockComponent},
                       {path:'editagentprofile',component:EditAgentProfileComponent},
-                      {path:'adddocument',component:AddDocumentComponent}
+                      {path:'adddocument',component:AddDocumentComponent},
+                      {path:'agenttransactions',component:AgenttransactionsComponent}
 
 ];
 @NgModule({

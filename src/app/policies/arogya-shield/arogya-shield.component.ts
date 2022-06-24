@@ -51,6 +51,9 @@ isEligible:boolean=true
   let Time = this.today.getTime() - dob.getTime(); 
   let Days = Time / (1000 * 3600 * 24); //Diference in Days
   let age=Days/365
+  // alert("Today : "+this.today)
+  // alert("Dob : "+dob)
+  // alert(age)
     this.dataService.GetSelectedInsurancePlan().subscribe((data:any)=>{
       if(data !=''){
         this.dataService.GetInsurancePlan(data).subscribe((res:any)=>{
@@ -67,8 +70,10 @@ isEligible:boolean=true
            maximumInvestAmt:res.maximumInvestAmt,
            profitRatio:res.profitRatio
          })
+         
          if(age<res.minimumAge || age>res.maximumAge){
            //alert("You Are Not Eligible")
+          // alert("call")
            this.isEligible=false
          }
         },(error:any)=>{
