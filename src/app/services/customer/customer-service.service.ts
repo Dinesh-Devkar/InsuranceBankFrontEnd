@@ -33,4 +33,12 @@ export class CustomerServiceService {
   GetQueriesByCustomerId(){
     return this.http.get(`http://localhost:5137/api/Customer/${sessionStorage.getItem('loggedInUser')}/GetAllQueriesByCustomerId`);
   }
+
+  AddDocument(document:any){
+    return this.http.post(`http://localhost:5137/api/Customer/${sessionStorage.getItem('loggedInUser')}/AddDocument`,document)
+  }
+
+  GetDocuments(customerId:any){
+    return this.http.get(`http://localhost:5137/api/Customer/${customerId}/GetDocuments`)
+  }
 }

@@ -79,6 +79,7 @@ import { EmployeeRollGuardGuard } from './shared/employee-roll-guard.guard';
 import { AgentViewDocumentsComponent } from './agent/agent-view-documents/agent-view-documents.component';
 import { AdminViewDocumentsComponent } from './admin/admin-view-documents/admin-view-documents.component';
 import { AccountBlockComponent } from './customer/account-block/account-block.component';
+import { AddDocumentComponent } from './customer/add-document/add-document.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -157,7 +158,8 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'agentviewdocuments',component:AgentViewDocumentsComponent},
                       {path:'adminviewdocuments',component:AdminViewDocumentsComponent},
                       {path:'unauthorized',component: AccountBlockComponent},
-                      {path:'editagentprofile',component:EditAgentProfileComponent}
+                      {path:'editagentprofile',component:EditAgentProfileComponent},
+                      {path:'adddocument',component:AddDocumentComponent}
 
 ];
 @NgModule({

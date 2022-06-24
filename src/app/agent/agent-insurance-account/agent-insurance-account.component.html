@@ -18,7 +18,7 @@
                 <th scope="col">Total Premium Amount</th>
                 <th scope="col">Profit Ratio</th>
                 <th scope="col">Sum assured</th>
-                               
+                <th scope="col">View More</th>  
             </tr>
         </thead>
         <tbody>
@@ -33,7 +33,7 @@
                 <td>{{insuranceAccount.investmentAmount}}</td> 
                 <td>{{insuranceAccount.profitRatio}}</td> 
                 <td>{{insuranceAccount.totalAmount}}</td> 
-              
+                <td><a style="cursor: pointer;" class="btn btn-info text-light p-0" (click)="ShowFullInsuranceAccountDetails(insuranceAccount.accountNumber)">View More</a></td>
             </tr>
             <tr class="">
 
