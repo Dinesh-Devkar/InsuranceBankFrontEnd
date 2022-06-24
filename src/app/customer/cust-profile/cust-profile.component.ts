@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CustomerServiceService } from 'src/app/services/customer/customer-service.service';
 
 @Component({
@@ -25,8 +26,11 @@ export class CustProfileComponent implements OnInit {
     status:new FormControl('')
 
   })
-  constructor(private customerService:CustomerServiceService) { }
+  constructor(private customerService:CustomerServiceService,private router:Router) { }
 
+  GoToDashboard(){
+    this.router.navigate(['/customerdashboard'])
+  }
   ngOnInit(): void {
     this.customerService.GetCustomerDetails().subscribe((data:any)=>{
       console.log(data)
