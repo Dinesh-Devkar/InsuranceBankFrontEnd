@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomerServiceService } from 'src/app/services/customer/customer-service.service';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
+import { EmployeeServiceService } from 'src/app/services/employee/employee-service.service';
 
 @Component({
   selector: 'app-edit-customer',
@@ -31,7 +32,7 @@ export class EditCustomerComponent implements OnInit {
     status:new FormControl('',Validators.required)
 
   })
-  constructor(private dataService:DataServiceService,private customerService:CustomerServiceService,private router:Router) { }
+  constructor(private dataService:DataServiceService,private customerService:CustomerServiceService,private router:Router,private employeeService:EmployeeServiceService) { }
   GenerateCityList(state:any){
     
     this.dataService.GetCitiesByState(state.value).subscribe((data:any)=>{
@@ -43,7 +44,7 @@ export class EditCustomerComponent implements OnInit {
   }
   UpdateCustomer(){
     console.log(this.customer.value)
-    this.customerService.UpdateCustomer(this.CustomerId?.value,this.customer.value).subscribe((data:any)=>{
+    this.employeeService.UpdateCustomer(this.CustomerId?.value,this.customer.value).subscribe((data:any)=>{
       alert(data.message)
       if(sessionStorage.getItem('loggedInuserRoll')=="Admin"){
         this.router.navigate(['/dashboard'])

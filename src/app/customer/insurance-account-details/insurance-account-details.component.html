@@ -4,9 +4,9 @@
     </div>
 </div>
 
-<div class="container">
-    Customer Details
-    <table class="table">        
+<div class="container border rounded">
+    <h5 class="text-center my-2">Customer Details</h5>
+    <table class="table table-striped">        
         <thead>
             <tr>                
                 <th scope="col">Customer Name</th>
@@ -29,8 +29,8 @@
         </tbody>
     </table>
 <br>
-    Account Details
-    <table class="table">        
+<h5 class="text-center my-2">Account Details</h5>
+    <table class="table table-striped">        
         <thead>
             <tr>                
                 <th scope="col">Account Number</th>
@@ -54,8 +54,8 @@
         </tbody>
     </table>
     <br>
-    Premium Details
-    <table class="table">        
+    <h5 class="text-center my-2">Premium Details</h5>
+    <table class="table table-striped">        
         <thead>
             <tr>                
                 <th scope="col">Total Premium Amount</th>
@@ -73,8 +73,8 @@
             </tr>
         </tbody>
     </table>
-    Payment Details
-    <table class="table" id="pdfTable" #pdfTable>        
+    <h5 class="text-center my-2">Payment Details</h5>
+    <table class="table table-striped" id="pdfTable" #pdfTable>        
         <thead>
             <tr>                
                 <th scope="col">Installment Number</th>
@@ -100,7 +100,7 @@
     </table>
     <div class="container ">
         <div style="text-align: center; margin-bottom:20px;">
-            <button class="btn btn-danger" routerLink="/customerdashboard" (click)="GoDashboard()">Back</button>
+            <button class="btn btn-info text-light" routerLink="/customerdashboard" (click)="GoDashboard()">Back</button>
         </div>
     </div>
 </div>

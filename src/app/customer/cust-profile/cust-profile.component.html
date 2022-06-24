@@ -1,134 +1,198 @@
-<div class="container ">
-    <div style="text-align: center; margin-bottom:20px;">
-        <h1>Customer Profile</h1>
-    </div>
-</div>
-<div></div>
 
-<div class="container">
-    <form [formGroup]="customer">
-        <table class="table p-4 table-striped">
-            
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Customer Name</th>
-                    <td class="">
+<div class="container align-items-center p-4 text-center mt-5"
+    style="border-top-left-radius: 30px;border-top-right-radius: 20px; background-color: #f5f5f5;">
+    <p class="text-center h1 fw-bold ">{{Name?.value}}  Profile</p>
+    <form  class="mx-1" style="margin-top: 50px;" [formGroup]="customer">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Customer Name</label>
                         <input type="text" readonly class="form-control" formControlName="name">
-                       
-                    </td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Date Of Birth</th>
-                    <td class="">
-                        <input type="input" readonly class="form-control" formControlName="dateOfBirth">
-                        
-                    </td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Customer Login Id</th>
-                    <td> <input type="text" readonly class="form-control" formControlName="loginId">
-                    
-                    
-                    </td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Address</th>
-                    <td> <textarea class="form-control z-depth-1"
-                         id="exampleFormControlTextarea6" rows="3" readonly
-                           formControlName='address'></textarea>
 
-                    
-                    
-                    </td>
-                </tr>
-            </tbody>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
 
+                    <i class="fa fa-birthday-cake fa-lg me-3 fa-fw mt-4" aria-hidden="true"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Date of Birth</label>
+                        <input type="text"  readonly class="form-control" formControlName="dateOfBirth">
 
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Email-Id</th>
-                    <td class="">
-                        <input type="text" readonly class="form-control" formControlName="email">
-                       
-                    </td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">State</th>
-                    <td class="">
-                        <input type="text" readonly class="form-control" formControlName="state">
-                        
-                    </td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">City</th>
-                    <td class="">
-                        <input type="text" readonly class="form-control" formControlName="city">
-                        
-                    </td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Pin Code</th>
-                    <td class="">
-                        <input type="text" readonly class="form-control" formControlName="pinCode">
-                       
-                    </td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Mobile No</th>
-                    <td class="">
-                        <input type="text" readonly class="form-control" formControlName="mobileNumber">
-                       
-                    </td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Nominee</th>
-                    <td class="">
-                        <input type="text" readonly class="form-control" formControlName="nomineeName">
-                       
-                    </td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <th class="border" scope="row">Nomminee Relationship</th>
-                    <td class="">
-                        <input type="text" readonly class="form-control" formControlName="nomineeRelation">
-                         
-                    </td>
-                </tr>
-            </tbody>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Customer Login ID</label>
+                        <input type="text"  readonly class="form-control" formControlName="loginId">
 
-            <!-- <tbody>
-                <tr>
-                    <th class="border" scope="row">Password</th>
-                    <td class="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa fa-envelope fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Email</label>
+                        <input type="text"  readonly class="form-control" formControlName="email">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+
+                    <i class="fa fa-globe fa-lg me-3 fa-fw mt-4" aria-hidden="true"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">State</label>
+                        <!-- <select name="State" class="form-control" formControlName="state"
+                            >
+                            <option value="" disabled>Select State</option>
+                            <option  >
+                            </option>
+                        </select> -->
+                        <input type="text"  readonly name="State" class="form-control" formControlName="state">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-building fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">City</label>
+                        <input type="text"  readonly  name="City" class="form-control" formControlName="city">
+                        <!-- <select name="City" class="form-control" formControlName="city">
+                            <option value="" disabled>Select City</option>
+                           
+                        </select> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-phone fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Mobile Number</label>
+                        <input type="text"  readonly class="form-control" formControlName="mobileNumber">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-university fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">PinCode</label>
+                        <input type="text"  readonly class="form-control" formControlName="pinCode">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Nominee</label>
+                        <input type="text"  readonly class="form-control" formControlName="nomineeName">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-users fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Nominee relation</label>
+                        <!-- <select name="Relation"  readonly class="form-control" formControlName="nomineeRelation">
+                            <option value="">Select Relation</option>
+                            <option value="Brother">Brother</option>
+                            <option value="Mother">Mother</option>
+                            <option value="Father">Father</option>
+                            <option value="Sister">Sister</option>
+                            <option value="Wife">Wife</option>
+                            <option value="Son">Son</option>
+                            <option value="Daughter">Daughter</option>
+                            <option value="Friend">Friend</option>
+                            <option value="Grand Father">Grand Father</option>
+                            <option value="Grand Mother">Grand Mother</option>
+                            <option value="Cousine">Cousine</option>
+                        </select> -->
+                        <input type="text" name="Relation"  readonly class="form-control" formControlName="nomineeRelation">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-lock fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Password</label>
                         <input type="password" class="form-control" formControlName="password">
-                        <span style="color: red;" *ngIf="Password && Password.invalid && Password.touched ">
-                            Password Required</span>
-                    </td>
-                </tr>
-            </tbody> -->
-            
-            
-        </table>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa fa-key fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Confirm password</label>
+                        <input type="password" class="form-control" formControlName="confirmPassword" />
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="row my-4">
+            <!-- <div class="col-md-3">
+                <img src="assets/reg1.png" alt="" width="200">
+            </div> -->
+            <div class="col-md-6 mx-auto">
+
+                <div class="d-flex flex-row align-items-center mt-3">
+                    <i class="fa fa-area-chart fa-lg me-3 fa- mb-5"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+
+                        <label class="form-label">Address</label>
+                        <textarea formControlName='address'  readonly class="form-control z-depth-1" rows="3"
+                            placeholder="Write something here..." class="form-control"></textarea>
+                        <div class="d-flex justify-content-center mx-4 mb-lg-4 my-5">
+                            <button type="button" class="btn btn-info btn-lg" 
+                                 (click)="GoToDashboard()">Back</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-3">
+                <img src="assets/reg1.png" alt="" width="200">
+            </div> -->
+        </div>
+        <!-- <div class="row ">
+            <div class="col-md-6 mx-auto">
+                <div class="d-flex justify-content-center mx-4 mb-lg-4 my-4">
+                    <button type="button" class="btn btn-primary btn-lg" [disabled]="registerForm.invalid" (click)="RegisterCustomer()">Register</button>
+                </div>
+            </div>
+        </div> -->
+
+
     </form>
-    <div style="text-align: center; margin:20px;" class="container">
-        <button routerLink="/customerdashboard" class="btn btn-danger text-center">Back</button>
-    </div>
 </div>
