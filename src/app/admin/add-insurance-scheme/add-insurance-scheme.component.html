@@ -3,10 +3,10 @@
     <p class="text-center h1 fw-bold ">Adding Insurance Scheme</p>
      <form [formGroup]="scheme" class="mx-1" style="margin-top: 50px;">
             
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                    <i class="fa fa-medkit fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
                         <label class="form-label">Insurance Type</label>
                         <select name="Status" class="form-control" formControlName="insuranceTypeName">
@@ -24,7 +24,7 @@
 
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
+                    <i class="fa fa-medkit fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
                         <label class="form-label">Insurance Scheme</label>
                         <input type="text" class="form-control" formControlName="insuranceSchemeName">
@@ -36,10 +36,10 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                    <i class="fa fa-picture-o fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
                         <label class="form-label">Image</label>
                         <input type="file" class="form-control" accept="image/x-png,image/gif,image/jpeg" formControlName="image">
@@ -52,9 +52,9 @@
 
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
+                    <i class="fa fa-percent fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label">Commision for new Registration <br> (in Percentage)</label>
+                        <label class="form-label">Commision for new Registration  (in Percentage)</label>
                         <input type="number" class="form-control" formControlName="newRegComission">
                             <span style="color: red;"
                                 *ngIf="CommisionNew && CommisionNew.invalid && CommisionNew.touched">
@@ -64,12 +64,12 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                    <i class="fa fa-percent fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label">Commision for Installement Payment <br> (in Percentage)</label>
+                        <label class="form-label">Commision for Installement Payment  (in Percentage)</label>
                         <input type="number" class="form-control" formControlName="installmentComission">
                         <span style="color: red;"
                             *ngIf="CommisionInstallment && CommisionInstallment.invalid && CommisionInstallment.touched">
@@ -81,7 +81,7 @@
 
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
+                    <i class="fa fa-stop-circle fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
                         <label class="form-label">Status</label>
                         <select name="Status" class="form-control" formControlName="status">
@@ -94,7 +94,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-4">
                 <label for="">Note</label>
                 <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Write Note here..." formControlName='note'></textarea>
 
@@ -106,6 +106,6 @@
         </div>
         
         
-            <button class="btn btn-danger" [disabled]="scheme.invalid" (click)="AddInsuranceScheme()">Submit</button>
+            <button class="btn btn-info text-light mt-4" [disabled]="scheme.invalid" (click)="AddInsuranceScheme()">Submit</button>
         </form>
     </div>
