@@ -4,8 +4,8 @@
     </div>
 </div>
 
-<div class="container">
-    <table class="table">
+<div class="container border rounded">
+    <table class="table table-striped">
         <thead>
             <tr>                
                 <th scope="col">Insurance Type</th>
@@ -37,7 +37,7 @@
                 <td>{{insurancePlan.maximumInvestAmt}}</td>
                 <td>{{insurancePlan.profitRatio}}%</td>
                 <td>{{insurancePlan.status}}</td> 
-                <td><a style="color:red;cursor: pointer;" (click)="GoToEditInsurancePlan(insurancePlan.insurancePlanName)">Edit</a></td>
+                <td><a class="btn btn-info text-light" (click)="GoToEditInsurancePlan(insurancePlan.insurancePlanName)">Edit</a></td>
             </tr>
 
         </tbody>

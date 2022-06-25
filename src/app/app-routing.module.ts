@@ -80,6 +80,7 @@ import { AgentViewDocumentsComponent } from './agent/agent-view-documents/agent-
 import { AdminViewDocumentsComponent } from './admin/admin-view-documents/admin-view-documents.component';
 import { AccountBlockComponent } from './customer/account-block/account-block.component';
 import { AddDocumentComponent } from './customer/add-document/add-document.component';
+import { AgenttransactionsComponent } from './agent/agenttransactions/agenttransactions.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -114,7 +115,7 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'insuranceaccount',component:InsuranceAccountComponent},
                       {path:'viewcustomers',component:ViewCustomersComponent,canActivate:[AdminRollGuardGuard]},
                       {path:'adminprofile',component:ProfileComponent},
-                      {path:'policypayment',component:ViewPolicyPaymentComponent},
+                      {path:'viewpolicypayment',component:ViewPolicyPaymentComponent},
                       {path:'agentprofile',component:AgentProfileComponent,canActivate:[AgentRollGuardGuard]},
                       {path:'marketing',component:MarketingComponent,canActivate:[AgentRollGuardGuard]},
                       {path:'agentdashboard',component:AgentDashboardComponent,canActivate:[AgentRollGuardGuard]},
@@ -133,7 +134,7 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'customerchangepassword',component:CustChangePasswordComponent},
                       {path:'customeraccount',component:CustInsuranceAccountComponent,canActivate:[CustomerRollGuardGuard]},
                       {path:'buyinsurance',component:BuyInsuranceComponent},
-                      {path:'buypolicypayment',component:PolicyPaymentComponent},
+                      {path:'policypayment',component:PolicyPaymentComponent},
                       {path:'paymentreceipt',component:PaymentReceiptComponent},
                       {path:'agentcommision',component:AgentViewCommisionComponent},
                       {path:'commisionwithdrawl',component:AgentCommisionWithdrawlComponent,canActivate:[AgentRollGuardGuard]},
@@ -159,7 +160,8 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'adminviewdocuments',component:AdminViewDocumentsComponent},
                       {path:'unauthorized',component: AccountBlockComponent},
                       {path:'editagentprofile',component:EditAgentProfileComponent},
-                      {path:'adddocument',component:AddDocumentComponent}
+                      {path:'adddocument',component:AddDocumentComponent},
+                      {path:'agenttransactions',component:AgenttransactionsComponent}
 
 ];
 @NgModule({

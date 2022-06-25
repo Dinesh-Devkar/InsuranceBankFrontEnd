@@ -5,8 +5,8 @@
     </div>
 </div>
 
-<div class="container">
-    <table class="table">
+<div class="container border rounded">
+    <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">City </th>
@@ -20,7 +20,7 @@
             <th scope="row">{{city.cityName}}</th>
             <th scope="row">{{city.state}}</th>
             <td>{{city.status}}</td>                       
-            <td ><a  class="text-danger btn btn-info text-light" (click)="GoToCityEditPage(city.cityName)">Edit</a>| <a href="" style="color:red">delete</a></td>
+            <td ><a  class="btn btn-info text-light" (click)="GoToCityEditPage(city.cityName)">Edit</a></td>
           </tr>       
           
         </tbody>

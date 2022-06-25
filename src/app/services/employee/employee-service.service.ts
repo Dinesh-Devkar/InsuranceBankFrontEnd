@@ -16,4 +16,7 @@ export class EmployeeServiceService {
   UpdateEmployee(employee:any){
     return this.http.put(`http://localhost:5137/api/Employee/${employee.id}/UpdateEmployee`,employee)
   }
+  UpdateCustomer(customerId:any,customer:any){
+    return this.http.put(`http://localhost:5137/api/Employee/${customerId}/UpdateCustomer`,customer);
+}
 }

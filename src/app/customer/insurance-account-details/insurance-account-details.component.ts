@@ -4,6 +4,8 @@ import { CustomerServiceService } from 'src/app/services/customer/customer-servi
 
 import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
+import * as moment from 'moment';
+import { Router } from '@angular/router';
 const htmlToPdfmake = require("html-to-pdfmake");
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
@@ -14,10 +16,15 @@ const htmlToPdfmake = require("html-to-pdfmake");
 })
 export class InsuranceAccountDetailsComponent implements OnInit {
 
+  nextPayment:any
+  installmentNumber:number=0
+  installmentAmount:number=0
   paymentsList:any
   customerDetails:any
   insuranceAccountDetails:any
-  constructor(private dataService:DataServiceService,private customerService:CustomerServiceService) { }
+  isCustomerLogin=true
+  nextPaymentDetails:any
+  constructor(private dataService:DataServiceService,private customerService:CustomerServiceService,private router:Router) { }
 
   @ViewChild('pdfTable')
   pdfTable!:ElementRef;
@@ -25,7 +32,15 @@ export class InsuranceAccountDetailsComponent implements OnInit {
   GoDashboard(){
     sessionStorage.removeItem('insuranceAccountId')
   }
+  GoToPaymentPage(){
+    this.nextPaymentDetails={customerId:sessionStorage.getItem('loggedInUser'),accountNumber:this.insuranceAccountDetails.accountNumber,insuranceScheme:this.insuranceAccountDetails.insuranceScheme,installmentNumber:this.installmentNumber,installmentAmount:this.installmentAmount,installmentDate:this.nextPayment,paidDate:new Date()}
+    sessionStorage.setItem('pmt',JSON.stringify(this.nextPaymentDetails))
+    this.router.navigate(['/policypayment'])
+  }
   ngOnInit(): void {
+    if(sessionStorage.getItem('loggedInuserRoll')!="Customer"){
+      this.isCustomerLogin=false
+    }
     this.customerService.GetCustomerDetails().subscribe((data:any)=>{
       console.log(data)
       this.customerDetails=data
@@ -34,6 +49,7 @@ export class InsuranceAccountDetailsComponent implements OnInit {
     this.dataService.GetInsuranceAccountDetailsByAccountId().subscribe((data:any)=>{
       this.insuranceAccountDetails=data
       console.log(data)
+      
     },(error:any)=>{
       console.log(error)
       alert(error.message)
@@ -41,6 +57,20 @@ export class InsuranceAccountDetailsComponent implements OnInit {
     this.dataService.GetPaymentDetails().subscribe((data:any)=>{
       console.log(data.$values)
       this.paymentsList=data.$values
+      this.installmentNumber=this.paymentsList.length+1
+      this.installmentAmount=this.paymentsList[0].installmentAmount
+      let k=data.$values[data.$values.length-1]
+      //alert("Last Pay : "+k.installmentDate)
+      let lastPayment=moment(k.installmentDate)
+      //alert("HH : "+lastPayment)
+      let f=lastPayment.add(12, 'months');
+      this.nextPayment = f.format('YYYY/MM/DD');
+      //alert("Next Payment Data : "+this.nextPayment)
+      for (let index = 0; index < data.$values.length; index++) {
+        
+       console.log(this.nextPayment)
+        
+      }
     },(error:any)=>{
       console.log(error)
       alert(error.message)

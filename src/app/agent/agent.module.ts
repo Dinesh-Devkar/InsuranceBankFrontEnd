@@ -15,6 +15,7 @@ import { AgentWithdrawAmountComponent } from './agent-withdraw-amount/agent-with
 import { EditAgentProfileComponent } from './edit-agent-profile/edit-agent-profile.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { AgentViewDocumentsComponent } from './agent-view-documents/agent-view-documents.component';
+import { AgenttransactionsComponent } from './agenttransactions/agenttransactions.component';
 
 
 
@@ -33,7 +34,8 @@ import { AgentViewDocumentsComponent } from './agent-view-documents/agent-view-d
     AgentWithdrawAmountComponent,
     EditAgentProfileComponent,
     EditCustomerComponent,
-    AgentViewDocumentsComponent
+    AgentViewDocumentsComponent,
+    AgenttransactionsComponent
   ],
   imports: [
     CommonModule,

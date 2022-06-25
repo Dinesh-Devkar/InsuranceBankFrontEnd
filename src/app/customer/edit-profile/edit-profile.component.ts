@@ -24,7 +24,7 @@ export class EditProfileComponent implements OnInit {
     nomineeName:new FormControl('',  Validators.required),
     nomineeRelation:new FormControl('',  Validators.required),
     pinCode:new FormControl('',  Validators.required),
-    //status:new FormControl('',  Validators.required)
+    status:new FormControl('',  Validators.required)
 
   })
   states:any
@@ -69,7 +69,8 @@ export class EditProfileComponent implements OnInit {
         mobileNumber:data.mobileNumber,
         nomineeName:data.nomineeName,
         nomineeRelation:data.nomineeRelation,
-        pinCode:data.pinCode
+        pinCode:data.pinCode,
+        status:data.status
       })
      
     })

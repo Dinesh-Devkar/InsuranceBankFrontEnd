@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import * as moment from 'moment';
+import { CustomerServiceService } from 'src/app/services/customer/customer-service.service';
 
 @Component({
   selector: 'app-policy-payment',
@@ -9,17 +12,39 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class PolicyPaymentComponent implements OnInit {
 
   payment=new FormGroup({
-    paymenttype:new FormControl('',Validators.required),
-    cardholder:new FormControl('',Validators.required),
-    cardnumber:new FormControl('',Validators.required),
-    cvvnumber: new FormControl('',Validators.required),
-    expirydate:new FormControl('',Validators.required)
+    customerId:new FormControl('',Validators.required),
+    insuranceAccountNumber:new FormControl('',Validators.required),
+    insuranceScheme:new FormControl('',Validators.required),
+    installmentNumber: new FormControl('',Validators.required),
+    installmentAmount:new FormControl('',Validators.required),
+    installmentDate:new FormControl('',Validators.required),
+    paidDate:new FormControl('',Validators.required)
   })
-  constructor() { }
+  constructor(private customerService:CustomerServiceService,private router:Router) { }
 
   ngOnInit(): void {
+   console.log()
+   let pmt= JSON.parse(sessionStorage.getItem('pmt') || '{}')
+   this.payment.setValue({
+    customerId:pmt.customerId,
+    insuranceAccountNumber:pmt.accountNumber,
+    insuranceScheme:pmt.insuranceScheme,
+    installmentNumber:pmt.installmentNumber,
+    installmentAmount:pmt.installmentAmount,
+    installmentDate:pmt.installmentDate,
+    paidDate:moment()
+   })
   }
 
+  DoPayment(){
+    this.customerService.DoPayment(sessionStorage.getItem('loggedInUser'),this.payment.value).subscribe((data:any)=>{
+      alert(data.message)
+      this.router.navigate(['/customerdashboard'])
+    },(error:any)=>{
+      alert(error.message)
+      console.log(error)
+    })
+  }
   get PaymentType(){
     return this.payment.get('paymenttype')
   }

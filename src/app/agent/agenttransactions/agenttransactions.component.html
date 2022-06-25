@@ -1,0 +1,27 @@
+
+<div class="container border rounded text-center">
+    <div style="text-align: center; margin-bottom:20px;">
+        <h1> Commission Transactions</h1>
+    </div>
+</div>
+
+<div class="container border rounded text-center">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Amount</th>
+                <th scope="col">Transaction Date</th>
+                <th scope="col">Transaction Type</th>          
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="" *ngFor="let transaction of transactions">
+                <td>{{transaction.amount}}</td>
+                <td>{{transaction.transactionDate}}</td>
+                <td>{{transaction.transactionType}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

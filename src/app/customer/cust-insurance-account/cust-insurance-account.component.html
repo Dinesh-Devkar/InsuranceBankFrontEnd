@@ -4,8 +4,8 @@
     </div>
 </div>
 
-<div class="container">
-    <table class="table">
+<div class="container border rounded">
+    <table class="table table-striped">
         <thead>
             <tr>
                 
@@ -27,13 +27,13 @@
                 <td>{{insuranceAccount.accountNumber}}</td>
                 <td>{{insuranceAccount.insuranceType}}</td>
                 <td>{{insuranceAccount.insuranceScheme}}</td> 
-                <td>{{insuranceAccount.dateCreated}}</td> 
-                <td>{{insuranceAccount.maturityDate}}</td> 
+                <td>{{insuranceAccount.dateCreated | date}}</td> 
+                <td>{{insuranceAccount.maturityDate | date}}</td> 
                 <td>{{insuranceAccount.premiumType}}</td> 
                 <td>{{insuranceAccount.investmentAmount}}</td> 
                 <td>{{insuranceAccount.profitRatio}}</td> 
                 <td>{{insuranceAccount.totalAmount}}</td> 
-                <td><a  style="color: red;" (click)="ViewInsuranceAccountDetails(insuranceAccount.accountNumber)">View More</a></td> 
+                <td><a  class="btn btn-info text-light p-0" (click)="ViewInsuranceAccountDetails(insuranceAccount.accountNumber)">View More</a></td> 
               
             </tr>
             
