@@ -5,6 +5,7 @@ import { CustomerServiceService } from 'src/app/services/customer/customer-servi
 import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
 import * as moment from 'moment';
+import { Router } from '@angular/router';
 const htmlToPdfmake = require("html-to-pdfmake");
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
@@ -22,14 +23,19 @@ export class InsuranceAccountDetailsComponent implements OnInit {
   customerDetails:any
   insuranceAccountDetails:any
   isCustomerLogin=true
-  
-  constructor(private dataService:DataServiceService,private customerService:CustomerServiceService) { }
+  nextPaymentDetails:any
+  constructor(private dataService:DataServiceService,private customerService:CustomerServiceService,private router:Router) { }
 
   @ViewChild('pdfTable')
   pdfTable!:ElementRef;
   
   GoDashboard(){
     sessionStorage.removeItem('insuranceAccountId')
+  }
+  GoToPaymentPage(){
+    this.nextPaymentDetails={customerId:sessionStorage.getItem('loggedInUser'),accountNumber:this.insuranceAccountDetails.accountNumber,insuranceScheme:this.insuranceAccountDetails.insuranceScheme,installmentNumber:this.installmentNumber,installmentAmount:this.installmentAmount,installmentDate:this.nextPayment,paidDate:new Date()}
+    sessionStorage.setItem('pmt',JSON.stringify(this.nextPaymentDetails))
+    this.router.navigate(['/policypayment'])
   }
   ngOnInit(): void {
     if(sessionStorage.getItem('loggedInuserRoll')!="Customer"){

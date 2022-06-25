@@ -5,7 +5,7 @@
 </div>
 <div></div>
 
-<div class="container">
+<!-- <div class="container">
     <form [formGroup]="payment">
         <table class="table p-4 table-striped">
             <tbody>
@@ -101,6 +101,71 @@
             <a routerLink="">
                 <button class="btn btn-danger" [disabled]="payment.invalid" >Submit</button>
             </a>
+        </div>
+    </form>
+</div> -->
+<div class="container">
+    <form [formGroup]="payment">
+        <table class="table p-4 table-striped">
+            <tbody>
+                <tr>
+                    <th class="border" scope="row">Customer Id</th>
+                    <td> <input type="text" readonly class="form-control" formControlName="customerId">
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th class="border" scope="row">Account Number</th>
+                    <td> <input type="text" readonly class="form-control" formControlName="insuranceAccountNumber">
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th class="border" scope="row">Insurance Scheme</th>
+                    <td> <input type="text" readonly class="form-control" formControlName="insuranceScheme">
+                    </td>
+                </tr>
+            </tbody>
+
+            <tbody>
+                <tr>
+                    <th class="border" scope="row">Installment Number</th>
+                    <td> <input type="text" readonly class="form-control" formControlName="installmentNumber">
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th class="border" scope="row">Installment Amount</th>
+                    <td class="">
+                        <input type="text" readonly class="form-control" formControlName="installmentAmount">
+
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th class="border" scope="row">Installment Date</th>
+                    <td class="">
+                        <input type="text" class="form-control" readonly formControlName="installmentDate">
+
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th class="border" class="" scope="row">Paid Date</th>
+                    <td> <input type="text" class="form-control" readonly formControlName="paidDate">
+                </tr>
+            </tbody>
+           
+        </table>
+        <div style="text-align: center; margin:20px;">
+            
+                <button class="btn btn-danger" [disabled]="payment.invalid" (click)="DoPayment()">Submit</button>
+            
         </div>
     </form>
 </div>
