@@ -1,4 +1,118 @@
-<div class="container ">
+
+<div class="container align-items-center p-4 text-center mt-5"
+style="border-top-left-radius: 30px;border-top-right-radius: 20px; background-color: #f5f5f5;">
+<p class="text-center h1 fw-bold ">Agent Profile</p>
+
+<form [formGroup]="agentForm" class="mx-1" style="margin-top: 50px;">
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="d-flex flex-row align-items-center">
+                <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                <div class="form-group form-outline flex-fill mb-0">
+                    <label class="form-label">Agent Name</label>
+                    <input type="text" class="form-control" formControlName="name">
+                 
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="d-flex flex-row align-items-center">
+                <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
+                <div class="form-group form-outline flex-fill mb-0">
+                    <label class="form-label">Login Id</label>
+                    <input type="text" class="form-control" formControlName="loginId">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="d-flex flex-row align-items-center">
+                <i class="fa fa-graduation-cap fa-lg me-3 fa-fw mt-4"></i>
+
+                <div class="form-group form-outline flex-fill mb-0">
+                    <label class="form-label">Qualification</label>
+                    <input type="text" class="form-control" formControlName="qualification">
+                 
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="d-flex flex-row align-items-center">
+                <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                <div class="form-group form-outline flex-fill mb-0">
+                    <label class="form-label">Agent Code</label>
+                    <input type="text" class="form-control" formControlName="agentCode">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="d-flex flex-row align-items-center">
+                <i class="fa fa-at fa-lg me-3 fa-fw mt-4"></i>
+                <div class="form-group form-outline flex-fill mb-0">
+                    <label class="form-label">Email Id</label>
+                    <input type="text" class="form-control" formControlName="email">
+                   
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="d-flex flex-row align-items-center">
+                <i class="fa fa-area-chart fa-lg me-3 fa-fw mt-4"></i>
+                <div class="form-group form-outline flex-fill mb-0">
+                    <label class="form-label">Select Status</label>
+                    <select name="Status" class="form-control" formControlName="status">
+                        <option value="">Select Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+              
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        
+
+        
+    </div>
+
+    <div class="col-md-6 mx-auto">
+
+        <div class="d-flex flex-row align-items-center mt-3">
+            <i class="fa fa-area-chart fa-lg me-3 fa- mb-5"></i>
+            <div class="form-group form-outline flex-fill mb-0">
+
+                <label class="form-label">Address</label>
+                <textarea formControlName='address' class="form-control z-depth-1" rows="3"
+                    placeholder="Write something here..." class="form-control"></textarea>
+               
+
+            </div>
+        </div>
+    </div>
+    
+    <!-- <div class="container ">
+        <div style="text-align: center; margin-bottom:20px;">
+            <button class="btn btn-primary mt-2" [disabled]="agentForm.invalid" (click)="UpdateAgent()">Submit</button>
+        </div>
+    </div> -->
+</form>
+</div>
+
+
+
+
+<!-- <div class="container ">
     <div style="text-align: center; margin-bottom:20px;">
         <h1>Agent Profile</h1>
     </div>
@@ -85,6 +199,6 @@
             </table>
         </form>
     </div>
-</div>
+</div> -->
  
 
