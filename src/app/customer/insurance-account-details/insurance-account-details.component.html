@@ -47,8 +47,8 @@
                 <td>{{insuranceAccountDetails.accountNumber}}</td>
                 <td>{{insuranceAccountDetails.insuranceType}}</td>
                 <td>{{insuranceAccountDetails.insuranceScheme}}</td> 
-                <td>{{insuranceAccountDetails.dateCreated}}</td> 
-                <td>{{insuranceAccountDetails.maturityDate}}</td> 
+                <td>{{insuranceAccountDetails.dateCreated | date}}</td> 
+                <td>{{insuranceAccountDetails.maturityDate | date}}</td> 
                 <td>{{insuranceAccountDetails.premiumType}} months</td>   
             </tr>
         </tbody>
@@ -93,11 +93,39 @@
                 <td>{{payment.installmentAmount}}</td> 
                 <td>{{payment.paidDate}}</td>
                 <td>{{payment.paymentStatus}}</td>
-                <td><a routerLink="" onclick="downloadAsPDF()" style="color:red ;">Download</a> </td>
+                <td><a routerLink="" onclick="downloadAsPDF()" class="btn btn-info text-light">Download</a> </td>
                   
             </tr>
         </tbody>
     </table>
+    <div class="container" *ngIf="isCustomerLogin">
+        <h6 class="my-4">Next Payment</h6>
+        <table class="table table-striped" id="pdfTable" #pdfTable>        
+            <thead>
+                <tr>                
+                    <th scope="col">Installment Number</th>
+                    <th scope="col">installement Date</th>
+                    <th scope="col">Installement Amount</th>    
+                    <th scope="col">Paid Date</th>    
+                    <th scope="col">Payment Status</th>    
+                    <th scope="col">Receipt</th>                          
+                                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr >                
+                    <td>{{installmentNumber}}</td>
+                    <td>{{nextPayment}}</td>
+                    <td>{{installmentAmount}}</td> 
+                    <td></td>
+                    <td>Pending</td>
+                    <td><a  class="btn btn-info text-light" (click)="GoToPaymentPage()">Pay</a> </td>
+                      
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
     <div class="container ">
         <div style="text-align: center; margin-bottom:20px;">
             <button class="btn btn-info text-light" routerLink="/customerdashboard" (click)="GoDashboard()">Back</button>

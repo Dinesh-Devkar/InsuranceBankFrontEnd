@@ -35,6 +35,15 @@ export class AgentServiceService {
   GetAgentDetailsByAgentId(agentId:any) {
     return this.http.get(`http://localhost:5137/api/Agent/${agentId}/GetAgentById`)
   }
+  GetBalance(agentId:any){
+    return this.http.get(`http://localhost:5137/api/Agent/${agentId}/GetBalance`)
+  }
 
+  DoTransaction(agentId:any,transactionCredentials:any){
+    return this.http.post(`http://localhost:5137/api/Agent/${agentId}/Withdraw`,transactionCredentials)
+  }
   
+  GetTransactions(agentId:any){
+    return this.http.get(`http://localhost:5137/api/Agent/${agentId}/GetTransactions`)
+  }
 }

@@ -2,6 +2,7 @@
     <div style="text-align: center; margin-bottom:20px;">
         <h1> Withdraw Commision</h1>
         
+        <h3><b>Total Balance : {{balance}}</b></h3>
     </div>
 </div>
 <div></div>
@@ -15,14 +16,14 @@
                     <tr>
                         <th class="border" scope="row">Withdraw Amount </th>
                         <td><input type="number" formControlName="amount">                            
-                            <span style="color: red;" *ngIf="Withdraw && Withdraw.invalid && Withdraw.touched">Amount Required</span>
+                            <span style="color: red;" *ngIf="Amount && Amount.invalid && Amount.touched">Amount Required</span>
                        
                         </td>
                     </tr>
                 </tbody>   
             </table>
         </form>
-        <button class="btn btn-danger" [disabled]="withdraw.invalid" >Withdraw</button>
+        <button class="btn btn-danger" [disabled]="withdraw.invalid"  (click)="WithdrawAmount()">Withdraw</button>
 
     </div>
 </div>
