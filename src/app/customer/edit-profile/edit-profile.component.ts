@@ -30,7 +30,7 @@ export class EditProfileComponent implements OnInit {
   states:any
   cities:any
   currentCity:string=''
-  dob:any
+  currentState:string=''
   
   constructor(private customerService:CustomerServiceService,private dataService:DataServiceService,private router:Router) { }
 
@@ -56,8 +56,9 @@ export class EditProfileComponent implements OnInit {
   }
   ngOnInit(): void {
     this.customerService.GetCustomerDetails().subscribe((data:any)=>{
-      this.dob=data.dateOfBirth
+      
      this.currentCity=data.city
+     this.currentState=data.state
       this.customer.setValue({
         name:data.name,
         loginId:data.loginId,
