@@ -1,7 +1,7 @@
 <div class="container col-md-6 align-items-center p-4 text-center mt-5"
     style="border-top-left-radius: 30px;border-top-right-radius: 20px; background-color: #f5f5f5;">
-    <h1> City</h1>
-    <h4>Kindly enter the Credentials</h4>
+    <h1 style="font-family: cursor;"> Update City</h1>
+    <h4 style="font-family: cursor;">Kindly enter the Credentials</h4>
 
 
 
@@ -25,7 +25,7 @@
         </div>
         <div class="row">
             <label for="" class="form-label">Status</label>
-            <select name="Status" formControlName="status">
+            <select name="Status" class="form-control" formControlName="status">
                 <option value="">Select Status</option>
                 <option value="Active">Active</option>
                 <option value="InActive">InActive</option>
@@ -35,6 +35,6 @@
         </div>
 
     </form>
-    <button class="btn btn-danger" [disabled]="city.invalid" (click)="UpdateCity()">Update</button>
+    <button class="btn btn-info text-light mt-4" [disabled]="city.invalid" (click)="UpdateCity()">Update</button>
 
 </div>

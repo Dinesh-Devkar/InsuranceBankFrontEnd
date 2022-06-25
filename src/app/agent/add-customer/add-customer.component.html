@@ -1,6 +1,6 @@
 <div class="container align-items-center p-4 text-center mt-5"
     style="border-top-left-radius: 30px;border-top-right-radius: 20px; background-color: #f5f5f5;">
-    <p class="text-center h1 fw-bold ">Adding Registration</p>
+    <p class="text-center h1 fw-bold ">Customer Registration</p>
     <form [formGroup]="customer" class="mx-1" style="margin-top: 50px;">
         <div class="row">
             <div class="col-md-6">
@@ -102,7 +102,7 @@
                     <i class="fa fa-university fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
                         <label class="form-label">PinCode</label>
-                        <input type="text" class="form-control" formControlName="pinCode">
+                        <input type="number" class="form-control" formControlName="pinCode">
                         <span style="color: red;" *ngIf="PinCode && PinCode.invalid && PinCode.touched ">
                             PinCode Required</span>
                     </div>
@@ -167,35 +167,70 @@
                         <label class="form-label">Confirm password</label>
                         <input type="password" class="form-control" formControlName="confirmPassword" />
                         <span style="color: red;" *ngIf="ConfirmPassword && ConfirmPassword.invalid && ConfirmPassword.touched ">
-                            Password Required</span>
+                            Confirm Password Required</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center">
+                    <!-- <i class="fa fa-lock fa-lg me-3 fa-fw mt-4"></i> -->
+                    <i class="fa fa-user-secret me-3 fa-1x mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+                        <label class="form-label">Agent Code</label>
+                        <input type="text" class="form-control" formControlName="agentCode">
+
+                        <span style="color: red;" *ngIf="AgentCode && AgentCode.invalid && AgentCode.touched ">
+                            Agent Code Required</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+
+                <div class="d-flex flex-row align-items-center">
+                    <!-- <i class="fa fa-area-chart fa-lg fa-fw me-3"></i> -->
+                    <i class="fa fa-area-chart fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-group form-outline flex-fill mb-0">
+
+                        <label class="form-label">Address</label>
+                        <textarea formControlName='address' class="form-control z-depth-1" rows="1"
+                            placeholder="Write something here..." class="form-control"></textarea>
+                            <span style="color: red;" *ngIf="Address && Address.invalid && Address.touched">
+                                Address Required</span>
+                        <!-- <div class="d-flex justify-content-center mx-4 mb-lg-4 my-5">
+                            <button type="button" class="btn btn-primary btn-lg" [disabled]="customer.invalid" (click)="AddCustomer()">Register</button>
+                        </div> -->
+
+                        
+
                     </div>
                 </div>
             </div>
         </div>
         <div class="row my-4">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <img src="assets/reg1.png" alt="" width="200">
             </div>
-            <div class="col-md-6 mx-auto">
+            <div class="col-md-4 mx-auto">
 
                 <div class="d-flex flex-row align-items-center mt-3">
-                    <i class="fa fa-area-chart fa-lg me-3 fa- mb-5"></i>
+
                     <div class="form-group form-outline flex-fill mb-0">
 
-                        <label class="form-label">Address</label>
-                        <textarea formControlName='address' class="form-control z-depth-1" rows="3"
-                            placeholder="Write something here..." class="form-control"></textarea>
-                            <span style="color: red;" *ngIf="Address && Address.invalid && Address.touched">
-                                Address Required</span>
+                
                         <div class="d-flex justify-content-center mx-4 mb-lg-4 my-5">
-                            <button type="button" class="btn btn-primary btn-lg" [disabled]="customer.invalid" (click)="AddCustomer()">Register</button>
+                            <button type="button" class="btn btn-info text-light btn-lg" [disabled]="customer.invalid" (click)="AddCustomer()">Register</button>
                         </div>
+
+                        
 
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <img src="assets/reg1.png" alt="" width="200">
+            <div class="col-md-4">
+                <img src="assets/reg1.png" alt="" width="200" >
             </div>
         </div>
         <!-- <div class="row ">

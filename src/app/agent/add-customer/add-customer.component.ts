@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AgentServiceService } from 'src/app/services/agent/agent-service.service';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
@@ -29,7 +30,7 @@ export class AddCustomerComponent implements OnInit {
     password:new FormControl('',Validators.required),
     confirmPassword:new FormControl('',Validators.required),
   })
-  constructor(private dataService:DataServiceService,private agentService:AgentServiceService,private router:Router) { }
+  constructor(private dataService:DataServiceService,private agentService:AgentServiceService,private router:Router,private alertService:AlertsService) { }
 
   GenerateCityList(state:any){
     this.dataService.GetCitiesByState(state.value).subscribe((data:any)=>{
@@ -42,10 +43,11 @@ export class AddCustomerComponent implements OnInit {
   AddCustomer(){
     console.log(this.customer.value)
     this.agentService.AddCustomer(this.customer.value).subscribe((data:any)=>{
-      alert(data.message)
+      //alert(data.message)
+      this.alertService.Success(data.message)
       this.router.navigate(['/agentdashboard'])
     },(error:any)=>{
-      alert(error.message)
+      this.alertService.Failed(error.error.message)
     })
   }
   ngOnInit(): void {

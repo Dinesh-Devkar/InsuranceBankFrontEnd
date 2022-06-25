@@ -46,7 +46,9 @@
         </div>
     </div>
     
-            <button class="btn btn-danger" [disabled]="insuranceType.invalid" (click)="AddInsuranceType()">Submit</button>
+            <div class="container mt-4">
+                <button class="btn btn-info text-light" [disabled]="insuranceType.invalid" (click)="AddInsuranceType()">Submit</button>
+            </div>
         </form>
         <img [src]="img" width="200px" height="200px" alt="" />
     </div>

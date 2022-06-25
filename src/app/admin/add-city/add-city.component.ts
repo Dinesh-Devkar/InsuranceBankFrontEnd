@@ -27,7 +27,7 @@ export class AddCityComponent implements OnInit {
       this.alert.delete("Aniket Donode")
       this.router.navigate(['/dashboard'])
     },(error:any)=>{
-      this.alert.Failed();
+      //this.alert.Failed();
       alert(error.error.message)
     })
   }

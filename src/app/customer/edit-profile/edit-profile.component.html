@@ -63,7 +63,7 @@
                         </select> -->
                        
                             <select name="Status" class="form-control" formControlName="state" (change)="GenerateCityList($event.target)">
-                                <option value="">Select State</option>
+                                <option [ngValue]="currentState" disabled >{{currentState}}</option>
                                 <option value="{{state.stateName}}" *ngFor="let state of states">{{state.stateName}}</option>
                                 <!-- <option value="Inactive">Inactive</option> -->
                             </select>

@@ -1,6 +1,6 @@
-<div class="container col-md-6 align-items-center p-4 text-center mt-5"
-    style="border-top-left-radius: 30px;border-top-right-radius: 20px; background-color: #f5f5f5;">
-    <p class="text-center h1 fw-bold ">Edit Employee Record</p>
+<div class="container col-md-6 align-items-center p-4 text-center my-5"
+    style="border-radius: 30px; background-color: #f5f5f5;">
+    <p class="text-center h1 fw-bold ">{{Name?.value}} Profile</p>
 
     <form [formGroup]="employeeForm">
         <div class="row">
@@ -17,17 +17,17 @@
             <input type="text" class="form-control" formControlName="email">
 
         </div>
-        <div class="row">
-            <label for="" class="form-label">Status</label>
-            <select class="form-control" formControlName="userRoll">
+        <!-- <div class="row">
+            <label for="" class="form-label">User Roll</label>
+            <select class="form-control" read formControlName="userRoll">
                 <option value="" disabled>Select UserRoll</option>
                 <option value="Admin">Admin</option>
                 <option value="Employee">Employee</option>
             </select>
-        </div>
+        </div> -->
         
-        <div class="container ">
-            <div style="text-align: center; margin-bottom:20px;">
+        <div class="container mt-4">
+            <div style="text-align: center;">
                 <button class="btn  btn-info text-light" [disabled]="employeeForm.invalid"
                     (click)="UpdateEmployee()">Update</button>
             </div>

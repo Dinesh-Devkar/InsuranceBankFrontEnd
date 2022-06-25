@@ -4,8 +4,8 @@
     </div>
 </div>
 
-<div class="container">
-    <table class="table">
+<div class="container border rounded">
+    <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">Insurance Type </th>
@@ -17,7 +17,7 @@
           <tr *ngFor="let insuranceType of insuranceTypesList">
             <th scope="row">{{insuranceType.insuranceName}}</th>
             <td>{{insuranceType.status}}</td>                       
-            <td ><a href="" style="color:red">Edit</a>| <a href="" style="color:red">delete</a></td>
+            <td ><a class="btn btn-info text-light">Edit</a>
           </tr>        
           
         </tbody>

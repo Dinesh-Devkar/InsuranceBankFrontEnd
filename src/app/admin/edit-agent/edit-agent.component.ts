@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AgentServiceService } from 'src/app/services/agent/agent-service.service';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class EditAgentComponent implements OnInit {
     status:new FormControl('',Validators.required)
   })
   
-  constructor(private dataService:DataServiceService,private agentService:AgentServiceService,private router:Router) { }
+  constructor(private dataService:DataServiceService,private agentService:AgentServiceService,private router:Router,private alertService:AlertsService) { }
 
   ngOnInit(): void {
     this.agentService.GetAgentDetailsByAgentId(sessionStorage.getItem('agentId')).subscribe((data:any)=>{
@@ -41,7 +42,8 @@ export class EditAgentComponent implements OnInit {
   UpdateAgent(){
     console.log(this.agentForm.value)
     this.agentService.UpdateAgent(sessionStorage.getItem('agentId'),this.agentForm.value).subscribe((data:any)=>{
-      alert(data.message)
+      //alert(data.message)
+      this.alertService.Success(data.message)
       sessionStorage.removeItem('agentId')
       if(sessionStorage.getItem('loggedInuserRoll')=="Admin"){
         this.router.navigate(['/dashboard'])
@@ -52,7 +54,8 @@ export class EditAgentComponent implements OnInit {
       
     },(error:any)=>{
       console.log(error)
-      alert(error.error.message)
+      //alert(error.error.message)
+      this.alertService.Failed(error.error.message)
     })
   }
 

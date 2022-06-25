@@ -22,19 +22,21 @@ export class AddAgentComponent implements OnInit {
     confirmPassword:new FormControl('',Validators.required),
     status:new FormControl('',Validators.required)
   })
-  constructor(private agentService:AgentServiceService,private alert:AlertsService,private router:Router) { }
+  constructor(private agentService:AgentServiceService,private alert:AlertsService,private router:Router,private alertService:AlertsService) { }
 
   AddAgent(){
     console.log(this.agentForm.value)
     this.agentService.AddAgent(this.agentForm.value).subscribe((data:any)=>{
-      console.log(data)
-      alert(data.message)
+      //console.log(data)
+      //alert(data.message)
+      this.alertService.Success(data.message)
       // this.alert.Add();
       this.router.navigate(['/dashboard'])
     },(error:any)=>{
       console.log(error)
-      this.alert.Failed();
-      alert(error.error.message)
+      //this.alert.Failed();
+      this.alertService.Failed(error.error.message)
+      //alert(error.error.message)
     })
   }
   ngOnInit(): void {

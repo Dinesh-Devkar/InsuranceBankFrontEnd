@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 import { CustomerServiceService } from 'src/app/services/customer/customer-service.service';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 
@@ -29,7 +30,7 @@ export class RegisterComponent implements OnInit {
     password:new FormControl('',[Validators.required]),
     confirmPassword:new FormControl('',[Validators.required]),
   });
-  constructor(private customerService:CustomerServiceService,private router:Router,private dataService:DataServiceService){
+  constructor(private customerService:CustomerServiceService,private router:Router,private dataService:DataServiceService,private alertService:AlertsService){
 
   }
 
@@ -45,22 +46,15 @@ export class RegisterComponent implements OnInit {
     console.log(this.registerForm.value)
     this.customerService.RegisterCustomer(this.registerForm.value).subscribe((data:any)=>{
       console.log(data)
-      alert(data.message)
+      //alert(data.message)
+      this.alertService.Success(data.message)
       this.router.navigate(['/'])
     },(error:any)=>{
       console.log(error)
-      alert(error.error.message)
-    })
+      this.alertService.Failed(error.error.message)
+    }) 
+   
   }
-  // registerForm = new FormGroup({
-  //   name: new FormControl('', Validators.required),
-  //   age: new FormControl('', [Validators.required, Validators.min(this.minimumAge)]),
-  //   password:new FormControl('', Validators.compose([Validators.required])),
-  //   confirmPassword: new FormControl('', Validators.compose([Validators.required]))
-    
-  // });
-  
-
   ngOnInit(): void {
     this.dataService.GetAllStates().subscribe((data:any)=>{
       console.log(data)

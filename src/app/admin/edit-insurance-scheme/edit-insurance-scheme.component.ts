@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class EditInsuranceSchemeComponent implements OnInit {
     note:new FormControl('',Validators.required),
     status:new FormControl('',Validators.required)
   })
-  constructor(private dataService:DataServiceService,private router:Router) { }
+  constructor(private dataService:DataServiceService,private router:Router,private alertService:AlertsService) { }
   ngOnInit(): void {
     this.dataService.GetAllInsuranceTypes().subscribe((data:any)=>{
       console.log(data.$values)
@@ -52,7 +53,7 @@ export class EditInsuranceSchemeComponent implements OnInit {
   UpdateInsuranceScheme(){
     console.log(this.scheme.value)
     this.dataService.UpdateInsuranceScheme(this.Id?.value,this.scheme.value).subscribe((data:any)=>{
-      alert(data.message)
+      this.alertService.Success(data.message)
       if(sessionStorage.getItem('loggedInuserRoll')=="Admin"){
         this.router.navigate(['/dashboard'])
       }
@@ -61,8 +62,7 @@ export class EditInsuranceSchemeComponent implements OnInit {
       }
      
     },(error:any)=>{
-      console.log(error)
-      alert(error.message)
+      this.alertService.Failed(error.error.message)
     })
   }
   get Id(){
