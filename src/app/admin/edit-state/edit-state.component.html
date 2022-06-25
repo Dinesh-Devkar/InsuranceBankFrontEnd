@@ -1,45 +1,32 @@
-<div class="container ">
-    <div style="text-align: center; margin-bottom:20px;">
-        <h1>Edit State</h1>
-        <h4>Kindly enter the Credentials</h4>
-    </div>
-</div>
-<div></div>
-<div class="row justify-content-center me-2">
+<div class="container col-md-6 align-items-center p-4 text-center mt-5"
+    style="border-top-left-radius: 30px;border-top-right-radius: 20px; background-color: #f5f5f5;">
+    <p class="text-center h1 fw-bold ">Add State</p>
 
-    <div class="col-auto border">
-        <form [formGroup]="state">
+    <form [formGroup]="state">
 
+        <div class="row">
 
-            <table class="table table-striped p-4">
-                <tbody>
-                    <tr>
-                        <th class="border" scope="row">State</th>
-                        <td><input type="text" formControlName="stateName">
-                            <span style="color: red;" *ngIf="StateName && StateName.invalid && StateName.touched ">
-                                State Required</span>
-                        </td>
+            <label for="" class="form-label">State</label>
+            <input type="text" class="form-control" formControlName="stateName">
+            <span style="color: red;" *ngIf="StateName && StateName.invalid && StateName.touched ">
+                State Required</span>
+        </div>
+        <div class="row">
+            <label class="form-lable">Status</label>
+            <select name="Status" formControlName="status">
+                <option value="">Select Status</option>
 
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr>
-                        <th class="border" scope="row">Status</th>
-                        <td class="">
-                            <select name="Status" formControlName="status">
-                                <option value="">Select Status</option>
-                                <option value="Active">Active</option>
-                                <option value="InActive">InActive</option>
-                            </select>
-                            <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched ">
-                                Status Required</span>
-                        </td>
-                    </tr>
-                </tbody>
+                <option value="Active">Active</option>
+                <option value="InActive">InActive</option>
+            </select>
+            <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched ">
+                Status Required</span>
+        </div>
 
-
-            </table>
+        <div style="text-align: center; margin-bottom:20px;">
             <button class="btn btn-danger" [disabled]="state.invalid" (click)="UpdateState()">Add</button>
-        </form>
-    </div>
+
+        </div>
+
+    </form>
 </div>
