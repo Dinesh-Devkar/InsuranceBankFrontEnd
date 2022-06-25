@@ -1,8 +1,11 @@
 <div class="container align-items-center p-4 text-center mt-5"
     style="border-top-left-radius: 30px;border-top-right-radius: 20px; background-color: #f5f5f5;">
     <p class="text-center h1 fw-bold ">Adding Employee Record</p>
+
+
     <form [formGroup]="employee" class="mx-1" style="margin-top: 50px;">
 
+        
         <div class="row">
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
@@ -93,7 +96,7 @@
                 <div class="form-group form-outline flex-fill mb-0">
                     <label class="form-label">Select Status</label>
                     <select name="Status" class="form-control" formControlName="userStatus">
-                        <option value="">Select  Status</option>
+                        <option value="">Select Status</option>
                         <option value="Active">Active</option>
                         <option value="Inactive">Inactive</option>
                     </select>

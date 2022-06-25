@@ -29,7 +29,7 @@ export class AddAgentComponent implements OnInit {
     this.agentService.AddAgent(this.agentForm.value).subscribe((data:any)=>{
       console.log(data)
       alert(data.message)
-      this.alert.Add();
+      // this.alert.Add();
       this.router.navigate(['/dashboard'])
     },(error:any)=>{
       console.log(error)

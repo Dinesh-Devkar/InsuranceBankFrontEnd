@@ -22,7 +22,7 @@ export class AddStateComponent implements OnInit {
       console.log(data)
       alert(data.message)
       this.state.reset()
-      this.alert.Add()
+      // this.alert.Add()
       this.router.navigate(['/dashboard'])
     },(error:any)=>{
       this.alert.Failed()

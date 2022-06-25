@@ -32,7 +32,7 @@ export class AddEmployeeComponent implements OnInit {
         
           this.authService.EmployeeRegister(this.employee.value).subscribe((res:any)=>{
             console.log(res);
-            this.alert.Add()
+            // this.alert.Add()
             alert(res)
           },(error:any)=>{
             this.alert.Failed()
@@ -45,7 +45,7 @@ export class AddEmployeeComponent implements OnInit {
         
         this.authService.AdminRegister(this.employee.value).subscribe((res:any)=>{
           console.log(res);
-          this.alert.Add()
+          // this.alert.Add()
           alert(res)
         },(error:any)=>{
           this.alert.Failed()

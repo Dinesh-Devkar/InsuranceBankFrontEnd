@@ -23,7 +23,8 @@ export class AddCityComponent implements OnInit {
     this.dataService.AddCity(this.city.value).subscribe((data:any)=>{
       alert(data.message)
       this.city.reset()
-      this.alert.Add();
+      // this.alert.Add("Aniket Donode");
+      this.alert.delete("Aniket Donode")
       this.router.navigate(['/dashboard'])
     },(error:any)=>{
       this.alert.Failed();

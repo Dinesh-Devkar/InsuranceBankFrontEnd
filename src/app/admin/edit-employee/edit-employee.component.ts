@@ -18,7 +18,7 @@ export class EditEmployeeComponent implements OnInit {
     loginId:new FormControl('',Validators.required),
     email:new FormControl('',Validators.required),
     userStatus:new FormControl('',Validators.required),
-    id:new FormControl('',Validators.required)
+    // id:new FormControl('',Validators.required)
   })
   
   constructor(private dataService:DataServiceService,private employeeService:EmployeeServiceService,private router:Router) {
