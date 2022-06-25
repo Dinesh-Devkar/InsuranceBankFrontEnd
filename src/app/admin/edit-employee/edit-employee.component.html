@@ -1,6 +1,6 @@
 <div class="container col-md-6 align-items-center p-4 text-center mt-5"
     style="border-top-left-radius: 30px;border-top-right-radius: 20px; background-color: #f5f5f5;">
-    <p class="text-center h1 fw-bold ">Editing Employee Record</p>
+    <p class="text-center h1 fw-bold ">Update Employee Record</p>
     <form [formGroup]="employee">
 
         <div class="row">
@@ -21,19 +21,19 @@
         </div>
         <div class="row">
             <label for="" class="form-label">Login Id</label>
-            <input type="text" formControlName="loginId">
+            <input type="text" class="form-control" formControlName="loginId">
             <span style="color: red;" *ngIf="LoginId && LoginId.invalid && LoginId.touched ">
                 LoginId Required</span>
         </div>
         <div class="row">
             <label for="" class="form-label">Email</label>
-            <input type="text" formControlName="email">
+            <input type="text" class="form-control" formControlName="email">
                         <span style="color: red;" *ngIf="Email && Email.invalid && Email.touched ">
                             Email Required</span>
         </div>
         <div class="row">
             <label for="" class="form-label">Status</label>
-            <select name="Status" formControlName="userStatus">
+            <select name="Status" class="form-control" formControlName="userStatus">
                 <option value="">Select Status</option>
 
                 <option value="Active">Active</option>
@@ -42,6 +42,6 @@
             <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched "> Status
                 Required</span>
         </div>
-        <button class="btn btn-danger mt-2" [disabled]="employee.invalid" (click)="UpdateEmployee()">Submit</button>
+        <button class="btn btn-info text-light mt-4" [disabled]="employee.invalid" (click)="UpdateEmployee()">Submit</button>
     </form>
 </div>

@@ -40,5 +40,8 @@ export class AgentProfileComponent implements OnInit {
     })
 
   }
+  get Name(){
+    return this.agentForm.get('name')
+  }
 
 }

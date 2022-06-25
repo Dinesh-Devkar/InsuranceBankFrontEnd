@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminServiceService } from 'src/app/services/admin/admin-service.service';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
@@ -19,11 +20,11 @@ export class EditEmployeeProfileComponent implements OnInit {
     userStatus:new FormControl('',Validators.required)
   
   })
-  constructor(private authService:AuthServiceService,private adminService:AdminServiceService,private router:Router) { }
+  constructor(private authService:AuthServiceService,private adminService:AdminServiceService,private router:Router,private alertService:AlertsService) { }
 
   UpdateEmployee(){
     this.adminService.UpdateEmployee(sessionStorage.getItem('loggedInUser'),this.employeeForm.value).subscribe((data:any)=>{
-      alert(data.message)
+      this.alertService.Success(data.message)
       if(sessionStorage.getItem('loggedInuserRoll')=="Admin"){
         this.router.navigate(['/dashboard'])
       }
@@ -31,7 +32,7 @@ export class EditEmployeeProfileComponent implements OnInit {
         this.router.navigate(['/empdashboard'])
       }
     },(error:any)=>{
-      alert(error.error.message)
+      this.alertService.Failed(error.error.message)
     })
   }
   ngOnInit(): void {
@@ -44,6 +45,9 @@ export class EditEmployeeProfileComponent implements OnInit {
         userStatus:data.userStatus
       })
     })
+  }
+  get Name(){
+    return this.employeeForm.get('name')
   }
 
 }

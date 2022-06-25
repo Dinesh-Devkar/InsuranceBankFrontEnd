@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 import { CustomerServiceService } from 'src/app/services/customer/customer-service.service';
 
 @Component({
@@ -15,15 +16,17 @@ export class AskQueryComponent implements OnInit {
     title:new FormControl('',Validators.required),
     message:new FormControl('',Validators.required)
   })
-  constructor(private customerService:CustomerServiceService,private router:Router) { }
+  constructor(private customerService:CustomerServiceService,private router:Router,private alertService:AlertsService) { }
 
   PostQuery(){
     this.customerService.PostQuery(this.queryForm.value).subscribe((data:any)=>{
-      alert(data.message)
+      //alert(data.message)
+      this.alertService.Success(data.message)
       this.router.navigate(['/customerdashboard'])
     },(error:any)=>{
       console.log(error)
-      alert(error.message)
+      //alert(error.message)
+      this.alertService.Failed(error.message)
     })
   }
   ngOnInit(): void {

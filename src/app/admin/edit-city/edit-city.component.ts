@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
@@ -16,14 +17,14 @@ export class EditCityComponent implements OnInit {
     cityName:new FormControl('',Validators.required),
     status: new FormControl('',Validators.required)
   })
-  constructor(private dataService:DataServiceService,private router:Router) { }
+  constructor(private dataService:DataServiceService,private router:Router,private alertService:AlertsService) { }
 
   UpdateCity(){
       this.dataService.UpdateCity(this.city.value).subscribe((data:any)=>{
-        alert(data.message)
+        this.alertService.Success(data.message)
         this.router.navigate(['/dashboard'])
       },(error:any)=>{
-        alert(error.error.message)
+        this.alertService.Failed(error.error.message)
       })
   }
   ngOnInit(): void {

@@ -18,7 +18,7 @@
           <tr *ngFor="let state of statesList">
             <th scope="row">{{state.stateName}}</th>
             <td>{{state.status}}</td>                       
-            <td ><a  style="color:red; cursor: pointer;" (click)="UpdateState(state.stateName)">Edit</a>| <a href="" style="color:red">delete</a></td>
+            <td ><a class="btn btn-info text-light" (click)="UpdateState(state.stateName)">Edit</a></td>
           </tr>       
           
         </tbody>

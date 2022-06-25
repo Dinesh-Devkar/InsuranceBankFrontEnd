@@ -35,7 +35,7 @@ export class AddEmployeeComponent implements OnInit {
             // this.alert.Add()
             alert(res)
           },(error:any)=>{
-            this.alert.Failed()
+            //this.alert.Failed()
             console.log(error);
             
           })
@@ -48,7 +48,7 @@ export class AddEmployeeComponent implements OnInit {
           // this.alert.Add()
           alert(res)
         },(error:any)=>{
-          this.alert.Failed()
+          //this.alert.Failed()
           console.log(error);
           
         })
