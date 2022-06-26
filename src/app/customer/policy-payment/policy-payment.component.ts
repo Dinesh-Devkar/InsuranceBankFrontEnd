@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 import { CustomerServiceService } from 'src/app/services/customer/customer-service.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class PolicyPaymentComponent implements OnInit {
     installmentDate:new FormControl('',Validators.required),
     paidDate:new FormControl('',Validators.required)
   })
-  constructor(private customerService:CustomerServiceService,private router:Router) { }
+  constructor(private customerService:CustomerServiceService,private router:Router,private alertService:AlertsService) { }
 
   ngOnInit(): void {
    console.log()
@@ -31,34 +32,43 @@ export class PolicyPaymentComponent implements OnInit {
     insuranceScheme:pmt.insuranceScheme,
     installmentNumber:pmt.installmentNumber,
     installmentAmount:pmt.installmentAmount,
-    installmentDate:pmt.installmentDate,
+    installmentDate:moment(pmt.installmentDate),
     paidDate:moment()
    })
   }
 
   DoPayment(){
     this.customerService.DoPayment(sessionStorage.getItem('loggedInUser'),this.payment.value).subscribe((data:any)=>{
-      alert(data.message)
+      //alert(data.message)
+      this.alertService.Success(data.message)
+      sessionStorage.removeItem('pmt')
       this.router.navigate(['/customerdashboard'])
     },(error:any)=>{
-      alert(error.message)
-      console.log(error)
+      //alert(error.message)
+      this.alertService.Failed(error.message)
+      //console.log(error)
     })
   }
-  get PaymentType(){
-    return this.payment.get('paymenttype')
+  get CustomerId(){
+    return this.payment.get('customerId')
   }
-  get CardHolder(){
-    return this.payment.get('cardholder')
+  get InsuranceAccountNumber(){
+    return this.payment.get('insuranceAccountNumber')
   }
-  get CardNumber(){
-    return this.payment.get('cardnumber')
+  get InsuranceScheme(){
+    return this.payment.get('insuranceScheme')
   }
-  get CvvNumber(){
-    return this.payment.get('cvvnumber')
+  get InstallmentNumber(){
+    return this.payment.get('installmentNumber')
   }
-  get ExpiryDate(){
-    return this.payment.get('expirydate')
+  get InstallmentAmount(){
+    return this.payment.get('installmentAmount')
+  }
+  get InstallmentDate(){
+    return this.payment.get('installmentDate')
+  }
+  get PaidDate(){
+    return this.payment.get('paidDate')
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
     email:new FormControl('',Validators.required),
     password:new FormControl('',Validators.required)
   })
-  constructor(private auth:AuthServiceService,private router:Router) { }
+  constructor(private auth:AuthServiceService,private router:Router,private alertService:AlertsService) { }
 
   ngOnInit(): void {
   }
@@ -55,9 +56,10 @@ export class LoginComponent implements OnInit {
       
     },(error:any)=>{
       
-      console.log("this is Errorr :    ")
-      console.log(error.error.message)
-      alert(error.error.message)
+      // console.log("this is Errorr :    ")
+      // console.log(error.error.message)
+      // alert(error.error.message)
+      this.alertService.Failed(error.error.message)
 
     }) 
   }

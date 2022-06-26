@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 import { CustomerServiceService } from 'src/app/services/customer/customer-service.service';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 import { EmployeeServiceService } from 'src/app/services/employee/employee-service.service';
@@ -32,11 +33,10 @@ export class EditCustomerComponent implements OnInit {
     status:new FormControl('',Validators.required)
 
   })
-  constructor(private dataService:DataServiceService,private customerService:CustomerServiceService,private router:Router,private employeeService:EmployeeServiceService) { }
+  constructor(private dataService:DataServiceService,private customerService:CustomerServiceService,private router:Router,private employeeService:EmployeeServiceService,private alertService:AlertsService) { }
   GenerateCityList(state:any){
     
-    this.dataService.GetCitiesByState(state.value).subscribe((data:any)=>{
-      
+    this.dataService.GetCitiesByState(state.value).subscribe((data:any)=>{ 
       this.cities=data.$values
     },(error:any)=>{
       console.log(error)
@@ -45,7 +45,7 @@ export class EditCustomerComponent implements OnInit {
   UpdateCustomer(){
     console.log(this.customer.value)
     this.employeeService.UpdateCustomer(this.CustomerId?.value,this.customer.value).subscribe((data:any)=>{
-      alert(data.message)
+      this.alertService.Success(data.message)
       if(sessionStorage.getItem('loggedInuserRoll')=="Admin"){
         this.router.navigate(['/dashboard'])
       }
@@ -57,7 +57,7 @@ export class EditCustomerComponent implements OnInit {
       }
       
     },(error:any)=>{
-      alert(error.message)
+      this.alertService.Failed(error.error.message)
     })
 
   }

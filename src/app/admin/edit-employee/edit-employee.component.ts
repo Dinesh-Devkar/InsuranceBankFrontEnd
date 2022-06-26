@@ -2,6 +2,7 @@ import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 import { EmployeeServiceService } from 'src/app/services/employee/employee-service.service';
 
@@ -18,16 +19,17 @@ export class EditEmployeeComponent implements OnInit {
     loginId:new FormControl('',Validators.required),
     email:new FormControl('',Validators.required),
     userStatus:new FormControl('',Validators.required),
-    // id:new FormControl('',Validators.required)
+    id:new FormControl('',Validators.required)
   })
   
-  constructor(private dataService:DataServiceService,private employeeService:EmployeeServiceService,private router:Router) {
+  constructor(private dataService:DataServiceService,private employeeService:EmployeeServiceService,private router:Router,private alertService:AlertsService) {
     
    }
 
    UpdateEmployee(){
       this.employeeService.UpdateEmployee(this.employee.value).subscribe((data:any)=>{
-        alert(data.message)
+        //alert(data.message)
+        this.alertService.Success(data.message)
         if(sessionStorage.getItem('loggedInuserRoll')=="Employee"){
           this.router.navigate(['/empdashboard'])
         }
@@ -36,7 +38,7 @@ export class EditEmployeeComponent implements OnInit {
         }
         
       },(error:any)=>{
-        console.log(error)
+        this.alertService.Failed(error.error.message)
       })
    }
   ngOnInit(): void {
@@ -69,7 +71,7 @@ export class EditEmployeeComponent implements OnInit {
     return this.employee.get('name');
   }
   get LoginId(){
-    return this.employee.get('loginid');
+    return this.employee.get('loginId');
   }
   get Password(){
     return this.employee.get('password');

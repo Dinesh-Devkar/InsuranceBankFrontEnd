@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
@@ -28,7 +29,7 @@ export class EditInsurancePlanComponent implements OnInit {
     status:new FormControl('',Validators.required)
 
   })
-  constructor(private dataService:DataServiceService,private router:Router) { }
+  constructor(private dataService:DataServiceService,private router:Router,private alertService:AlertsService) { }
 
   GenerateInsuranceSchemesList(insuranceType:any){
     this.dataService.GetAllInsuranceSchemesByInsuranceType(insuranceType.value).subscribe((data:any)=>{
@@ -38,7 +39,7 @@ export class EditInsurancePlanComponent implements OnInit {
   UpdateInsurancePlan(){
     console.log(this.insurancePlan.value)
     this.dataService.UpdateInsurancePlan(this.Id?.value,this.insurancePlan.value).subscribe((data:any)=>{
-      alert(data.message)
+      this.alertService.Success(data.message)
       if(sessionStorage.getItem('loggedInuserRoll')=="Admin"){
         this.router.navigate(['/dashboard'])
       }
@@ -46,8 +47,7 @@ export class EditInsurancePlanComponent implements OnInit {
         this.router.navigate(['/empdashboard'])
       }
     },(error:any)=>{
-      alert(error.message)
-      console.log(error)
+      this.alertService.Failed(error.error.message)
     })
   }
   ngOnInit(): void {

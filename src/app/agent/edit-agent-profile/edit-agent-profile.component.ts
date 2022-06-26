@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AgentServiceService } from 'src/app/services/agent/agent-service.service';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class EditAgentProfileComponent implements OnInit {
     email:new FormControl('',Validators.required),
     status:new FormControl('',Validators.required)
   })
-  constructor(private dataService:DataServiceService,private agentService:AgentServiceService,private router:Router) { }
+  constructor(private dataService:DataServiceService,private agentService:AgentServiceService,private router:Router,private alertService:AlertsService) { }
 
   ngOnInit(): void {
     this.agentService.GetAgentDetailsByAgentId(sessionStorage.getItem('loggedInUser')).subscribe((data:any)=>{
@@ -39,14 +40,15 @@ export class EditAgentProfileComponent implements OnInit {
   UpdateAgent(){
     console.log(this.agentForm.value)
     this.agentService.UpdateAgent(sessionStorage.getItem('loggedInUser'),this.agentForm.value).subscribe((data:any)=>{
-      alert(data.message)
-      
+      //alert(data.message)
+      this.alertService.Success(data.message)
         this.router.navigate(['/agentdashboard'])
      
       
     },(error:any)=>{
-      console.log(error)
-      alert(error.error.message)
+      // console.log(error)
+      // alert(error.error.message)
+      this.alertService.Failed(error.error.message)
     })
   }
   get Name(){

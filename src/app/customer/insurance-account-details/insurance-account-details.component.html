@@ -89,9 +89,9 @@
         <tbody>
             <tr *ngFor="let payment of paymentsList">                
                 <td>{{payment.installmentNumber}}</td>
-                <td>{{payment.installmentDate}}</td>
+                <td>{{payment.installmentDate | date}}</td>
                 <td>{{payment.installmentAmount}}</td> 
-                <td>{{payment.paidDate}}</td>
+                <td>{{payment.paidDate | date}}</td>
                 <td>{{payment.paymentStatus}}</td>
                 <td><a routerLink="" onclick="downloadAsPDF()" class="btn btn-info text-light">Download</a> </td>
                   
@@ -115,7 +115,7 @@
             <tbody>
                 <tr >                
                     <td>{{installmentNumber}}</td>
-                    <td>{{nextPayment}}</td>
+                    <td>{{nextPayment | date}}</td>
                     <td>{{installmentAmount}}</td> 
                     <td></td>
                     <td>Pending</td>

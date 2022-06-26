@@ -29,18 +29,18 @@ export class AlertsService {
     })
   }
 
-  Add(message:string){
+  Success(message:string){
     Swal.fire(
-      'Added!',
+      'Success!',
       message,
       'success'
     )
   }
 
-  Failed(){
+  Failed(message:string){
     Swal.fire(
       'Failed!',
-      'Something went Wrong.',
+      message,
       'error'
     )
   }

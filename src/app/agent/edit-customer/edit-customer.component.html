@@ -1,206 +1,181 @@
-<div class="container align-items-center p-4 text-center mt-5"
-    style="border-top-left-radius: 30px;border-top-right-radius: 20px; background-color: #f5f5f5;">
-    <p class="text-center h1 fw-bold ">Edit Customer Record</p>
-    <form [formGroup]="customer" class="mx-1" style="margin-top: 50px;">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-group form-outline flex-fill mb-0">
-                        <label for="" class="form-label">Cstomer Id</label>
-                        <input type="text" readonly class="form-control" formControlName="customerId">
-
-                        <span style="color: red;" *ngIf="CustomerId && CustomerId.invalid && CustomerId.touched">
-                            Customer Id Required</span>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label">Customer Name</label>
-                        <input type="text" class="form-control" formControlName="name">
-                        <span style="color: red;" *ngIf="Name && Name.invalid && Name.touched ">
-                            Customer Name Required</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="d-flex flex-row align-items-center">
-
-                    <i class="fa fa-birthday-cake fa-lg me-3 fa-fw mt-4" aria-hidden="true"></i>
-                    <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label">Date of Birth</label>
-                        <input type="date" class="form-control" formControlName="dateOfBirth">
-                        <span style="color: red;" *ngIf="Date && Date.invalid && Date.touched ">
-                            Date Required</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label">Customer Login ID</label>
-                        <input type="text" class="form-control" formControlName="loginId">
-                        <span style="color: red;" *ngIf="LoginId && LoginId.invalid && LoginId.touched">
-                            Login Id Required</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa fa-envelope fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label">Email</label>
-                        <input type="text" class="form-control" formControlName="email">
-                        <span style="color: red;" *ngIf="Email && Email.invalid && Email.touched ">
-                            Email Required</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="d-flex flex-row align-items-center">
-
-                    <i class="fa fa-globe fa-lg me-3 fa-fw mt-4" aria-hidden="true"></i>
-                    <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label">State</label>
-                        <select name="State" class="form-control" formControlName="state"
-                            (change)="GenerateCityList($event.target)">
-                            <option value="" disabled>Select State</option>
-                            <option value="{{state.stateName}}" *ngFor="let state of states">{{state.stateName}}
-                            </option>
-
-                        </select>
-                        <span style="color: red;" *ngIf="State && State.invalid && State.touched ">
-                            State Required</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-building fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label">City</label>
-                        <select name="City" class="form-control" formControlName="city">
-                            <!-- <option value="" disabled>Select City</option> -->
-                            <option [ngValue]="currentCity" selected disabled>{{currentCity}}</option>
-                            <option value="{{city}}" *ngFor="let city of cities">{{city}}</option>
-
-                        </select>
-                        <span style="color: red;" *ngIf="City && City.invalid && City.touched ">
-                            City Required</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-phone fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label">Mobile Number</label>
-                        <input type="text" class="form-control" formControlName="mobileNumber">
-                        <span style="color: red;" *ngIf="Mobile && Mobile.invalid && Mobile.touched ">
-                            Mobile No. Required</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-university fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label">PinCode</label>
-                        <input type="text" class="form-control" formControlName="pinCode">
-                        <span style="color: red;" *ngIf="PinCode && PinCode.invalid && PinCode.touched ">
-                            PinCode Required</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label">Nominee</label>
-                        <input type="text" class="form-control" formControlName="nomineeName">
-                        <span style="color: red;" *ngIf="Nominee && Nominee.invalid && Nominee.touched ">
-                            Nominee Required</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-users fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label">Nominee relation</label>
-                        <select name="Relation" class="form-control" formControlName="nomineeRelation">
-                            <option value="">Select Relation</option>
-                            <option value="Brother">Brother</option>
-                            <option value="Mother">Mother</option>
-                            <option value="Father">Father</option>
-                            <option value="Sister">Sister</option>
-                            <option value="Wife">Wife</option>
-                            <option value="Son">Son</option>
-                            <option value="Daughter">Daughter</option>
-                            <option value="Friend">Friend</option>
-                            <option value="Grand Father">Grand Father</option>
-                            <option value="Grand Mother">Grand Mother</option>
-                            <option value="Cousine">Cousine</option>
-                        </select>
-                        <span style="color: red;"
-                            *ngIf="NomineeRelation && NomineeRelation.invalid && NomineeRelation.touched ">
-                            Relation with Nominee Required</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label">Address</label>
-                        <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3"
-                            placeholder="Write something here..." formControlName='address'></textarea>
-
-
-                        <span style="color: red;" *ngIf="Address && Address.invalid && Address.touched">
-                            Address Required</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-users fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-group form-outline flex-fill mb-0">
-                        <label class="form-label">Status</label>
-                        <select class="form-control" formControlName="status">
-                            <option value="">Select Status</option>
-                            <option value="Active">Active</option>
-                            <option value="InActive">InActive</option>
-                        </select>
-                        <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched">
-                            Status Required
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex justify-content-center mx-4 mb-lg-4 my-5">
-            <button class="btn btn-info text-light" [disabled]="customer.invalid"
-                (click)="UpdateCustomer()">Edit</button>
-        </div>
-
-    </form>
+<div class="container ">
+    <div style="text-align: center; margin-bottom:20px;">
+        <h1> Edit Customer </h1>
+    </div>
 </div>
+<div></div>
+<div class="row justify-content-center me-2">
+
+    <div class="col-auto border">
+        <form [formGroup]="customer">
+            <table class="table table-striped p-4">   
+                <tbody>
+                    <tr>
+                        <th class="border"  scope="row">Customer Id</th>
+                        <td> <input type="text" readonly class="form-control" formControlName="customerId">
+                        
+                         <span style="color: red;" *ngIf="CustomerId && CustomerId.invalid && CustomerId.touched">
+                            Customer Id Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Customer Name</th>
+                        <td class="">
+                            <input type="text"class="form-control" formControlName="name">
+                            <span style="color: red;" *ngIf="Name && Name.invalid && Name.touched ">
+                                Customer Name Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Date Of Birth</th>
+                        <td class="">
+                            <input type="date" class="form-control" formControlName="dateOfBirth">
+                            <span style="color: red;" *ngIf="Date && Date.invalid && Date.touched ">
+                                Date Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Customer Login Id</th>
+                        <td> <input type="text" class="form-control" formControlName="loginId">
+                        
+                         <span style="color: red;" *ngIf="LoginId && LoginId.invalid && LoginId.touched">
+                            Login  Id Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Address</th>
+                        <td> <textarea class="form-control z-depth-1"
+                             id="exampleFormControlTextarea6" rows="3"
+                              placeholder="Write something here..." formControlName='address'></textarea>
+
+                        
+                         <span style="color: red;" *ngIf="Address && Address.invalid && Address.touched">
+                            Address Required</span>
+                        </td>
+                    </tr>
+                </tbody>
 
 
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Email-Id</th>
+                        <td class="">
+                            <input type="text" class="form-control" formControlName="email">
+                            <span style="color: red;" *ngIf="Email && Email.invalid && Email.touched ">
+                                Email Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">State</th>
+                        <td class="">
+                            <select name="State" class="form-control" formControlName="state" (change)="GenerateCityList($event.target)">
+                                <option value="" disabled>Select State</option>
+                                <option value="{{state.stateName}}" *ngFor="let state of states">{{state.stateName}}</option>
+                               
+                            </select>
+                            <span style="color: red;" *ngIf="State && State.invalid && State.touched ">
+                                State Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">City</th>
+                        <td class="">
+                            <select name="City" class="form-control" formControlName="city">
+                                <!-- <option value="" disabled>Select City</option> -->
+                                <option [ngValue]="currentCity" selected disabled>{{currentCity}}</option>
+                                <option value="{{city}}" *ngFor="let city of cities">{{city}}</option>
+                                
+                            </select>
+                            <span style="color: red;" *ngIf="City && City.invalid && City.touched ">
+                                City Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Pin Code</th>
+                        <td class="">
+                            <input type="text"class="form-control" formControlName="pinCode">
+                            <span style="color: red;" *ngIf="PinCode && PinCode.invalid && PinCode.touched ">
+                                PinCode Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Mobile No</th>
+                        <td class="">
+                            <input type="text" class="form-control" formControlName="mobileNumber">
+                            <span style="color: red;" *ngIf="Mobile && Mobile.invalid && Mobile.touched ">
+                                Mobile No. Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Nominee</th>
+                        <td class="">
+                            <input type="text" class="form-control" formControlName="nomineeName">
+                            <span style="color: red;" *ngIf="Nominee && Nominee.invalid && Nominee.touched ">
+                                Nominee Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Nomminee Relationship</th>
+                        <td class="">
+                            <select name="Relation" class="form-control" formControlName="nomineeRelation">
+                                <option [ngValue]="currentNomineeRelation" selected disabled>{{currentNomineeRelation}}</option>
+                                <option value="Brothe">Brother</option>
+                                <option value="Mother">Mother</option>
+                                <option value="Father">Father</option>
+                                <option value="Sister">Sister</option>
+                                <option value="Wife">Wife</option>
+                                <option value="Son">Son</option>
+                                <option value="Daughter">Daughter</option>
+                                <option value="Friend">Friend</option>
+                                <option value="Grand Father">Grand Father</option>
+                                <option value="Grand Mother">Grand Mother</option>
+                                <option value="Cousine">Cousine</option>
+                            </select>
+                            <span style="color: red;" *ngIf="NomineeRelation && NomineeRelation.invalid && NomineeRelation.touched ">
+                                Relation with Nominee Required</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th class="border" scope="row">Status</th>
+                        <td><select class="form-control" formControlName="status">
+                            <option value="">Select Status</option>
+                                <option value="Active">Active</option>
+                                <option value="InActive">InActive</option>
+                            </select>
+                            <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched">
+                                Status Required
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="container ">
+                <div style="text-align: center; margin-bottom:20px;">
+                    <button class="btn btn-info text-light" [disabled]="customer.invalid"  (click)="UpdateCustomer()">Edit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

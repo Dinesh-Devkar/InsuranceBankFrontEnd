@@ -1,11 +1,11 @@
-<div class="container align-items-center p-4 text-center mt-5"
-    style="border-top-left-radius: 30px;border-top-right-radius: 20px; background-color: #f5f5f5;">
+<div class="container align-items-center p-4 text-center my-5"
+    style="border-radius: 30px; background-color: #f5f5f5;">
     <p class="text-center h1 fw-bold ">Adding Insurance Plan</p>
     <form [formGroup]="insurancePlan" class="mx-1" style="margin-top: 50px;">
         <div class="row">
             <div class="col-md-4">
                 <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                    <i class="fa fa-medkit fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
                         <label class="form-label">Insurance Type</label>
                         <select name="Status" class="form-control" formControlName="insuranceType"
@@ -25,7 +25,7 @@
 
             <div class="col-md-4">
                 <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
+                    <i class="fa fa-medkit fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
                         <label class="form-label">Insurance Scheme</label>
                         <select name="Status" class="form-control" formControlName="insuranceScheme">
@@ -45,7 +45,7 @@
             </div>
             <div class="col-md-4">
                 <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
+                    <i class="fa fa-medkit fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
                         <label class="form-label">Insurance Plan</label>
 
@@ -72,7 +72,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-2">
+        <div class="row mt-4">
             <h1>
                 <label class="form-label">Policy Term</label>
 
@@ -81,7 +81,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                    <i class="fa fa-sort-numeric-asc fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
                         <label class="form-label">Minimum Years</label>
                         <input type="text" class="form-control" formControlName="minimumYears">
@@ -95,7 +95,7 @@
 
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
+                    <i class="fa fa-sort-numeric-asc fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
                         <label class="form-label">Maximum Years</label>
                         <input type="text" class="form-control" formControlName="maximumYears">
@@ -107,7 +107,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-2">
+        <div class="row mt-4">
             <h1>
                 <label class="form-label">Age Criteria</label>
 
@@ -116,7 +116,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                    <i class="fa fa-sort-numeric-asc fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
                         <label class="form-label">Minimum Age</label>
                         <input type="text" class="form-control" formControlName="minimumAge">
@@ -130,7 +130,7 @@
 
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
+                    <i class="fa fa-sort-numeric-asc fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
                         <label class="form-label">Maximum Age</label>
                         <input type="text" class="form-control" formControlName="maximumAge">
@@ -142,7 +142,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-2">
+        <div class="row mt-4">
             <h1>
                 <label class="form-label">Investment Amount</label>
 
@@ -151,7 +151,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                    <i class="fa fa-sort-numeric-asc fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
                         <label class="form-label">Minimum investment</label>
                         <input type="text" class="form-control" formControlName="minimumInvestAmt">
@@ -167,7 +167,7 @@
 
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
+                    <i class="fa fa-sort-numeric-asc fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
                         <label class="form-label">Maximum Investment</label>
                         <input type="text" class="form-control" formControlName="maximumInvestAmt">
@@ -185,7 +185,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+                    <i class="fa fa-percent fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
                         <label class="form-label">Profit ratio</label>
                         <input type="text" class="form-control" formControlName="profitRatio">
@@ -200,12 +200,12 @@
 
             <div class="col-md-6">
                 <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-id-badge fa-lg me-3 fa-fw mt-4"></i>
+                    <i class="fa fa-stop-circle fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
                         <label class="form-label">Status</label>
                         <select name="Status" class="form-control" formControlName="status">
                             <option value="Active">Active</option>
-                            <option value="Inactive">Inactive</option>
+                            <option value="InActive">InActive</option>
                         </select>
                         <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched">Status Is
                             Required
@@ -216,7 +216,7 @@
         </div>
 
 
-        <button class="btn btn-primary m-2" [disabled]="insurancePlan.invalid"
+        <button class="btn btn-info text-light m-5" [disabled]="insurancePlan.invalid"
             (click)="AddInsurancePlan()">Submit</button>
     </form>
 
