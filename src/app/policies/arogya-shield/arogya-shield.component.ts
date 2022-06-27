@@ -144,4 +144,7 @@ isEligible:boolean=true
     this.installmentAmont=this.investmentAmount / this.numberOfYears;    
   }
 
+  calculateInstallementAmount(){
+    
+  }
 }

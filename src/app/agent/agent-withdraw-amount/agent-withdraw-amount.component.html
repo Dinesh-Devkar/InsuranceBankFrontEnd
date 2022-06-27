@@ -2,26 +2,7 @@
     style="border-top-left-radius: 30px;border-top-right-radius: 20px; background-color: #f5f5f5;">
     <h1> Withdraw Commision</h1>
 
-<<<<<<< HEAD
     <h3><b>Total Balance : {{balance}}</b></h3>
-=======
-    <div class="col-auto border">
-        <form [formGroup]="withdraw" >
-            <table class="table table-striped p-4">
-               
-                <tbody>
-                    <tr>
-                        <th class="border" scope="row">Withdraw Amount </th>
-                        <td><input type="number" formControlName="amount">                            
-                            <span style="color: red;" *ngIf="Amount && Amount.invalid && Amount.touched">Amount Required</span>
-                       
-                        </td>
-                    </tr>
-                </tbody>   
-            </table>
-        </form>
-        <button class="btn btn-info text-light " [disabled]="withdraw.invalid"  (click)="WithdrawAmount()">Withdraw</button>
->>>>>>> dcb301138d3908cf1c06b4ccae458a8b117be7e0
 
 <!-- 
 
