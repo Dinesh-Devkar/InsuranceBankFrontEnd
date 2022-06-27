@@ -174,4 +174,12 @@ export class DataServiceService {
     return this.http.get(`http://localhost:5137/api/Customer/${customerId}/GetCustomerById`)
   }
 
+  postFile(caption: string, fileToUpload: File) {
+    const endpoint = 'http://localhost:5137/api/InsuranceType/UploadImage';
+    const formData: FormData = new FormData();
+    formData.append('Image', fileToUpload, fileToUpload.name);
+    formData.append('ImageCaption', caption);
+    return this.http
+      .post(endpoint, formData);
+  }
 }

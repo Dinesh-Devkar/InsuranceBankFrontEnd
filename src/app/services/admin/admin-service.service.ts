@@ -16,6 +16,10 @@ export class AdminServiceService {
 
   }
 
+  GetAllInsuranceTypesForAdmin(userId:any){
+    return this.http.get(`http://localhost:5137/api/InsuranceType/${userId}/GetAllInsuranceTypesForAdmin`);
+
+  }
   GetCustomerDetails(customerId:any){
     return this.http.get(`http://localhost:5137/api/Customer/${customerId}/GetCustomerById`)
   }
