@@ -19,6 +19,10 @@ export class ViewAgentComponent implements OnInit {
     sessionStorage.setItem('agentId',agentId)
     this.router.navigate(['/editagent'])
   }
+  GoToTransactionPage(agentId:any){
+    sessionStorage.setItem('agentId',agentId)
+    this.router.navigate(['/agenttransactions'])
+  }
   ngOnInit(): void {
     this.agentService.GetAllAgents().subscribe((data:any)=>{
       console.log(data)

@@ -1,5 +1,5 @@
-<div class="container align-items-center p-4 text-center mt-5"
-    style="border-top-left-radius: 30px;border-top-right-radius: 20px; background-color: #f5f5f5;">
+<div class="container align-items-center p-4 text-center my-5"
+    style="border-radius: 30px; background-color: #f5f5f5;">
     <p class="text-center h1 fw-bold ">Adding Insurance Scheme</p>
      <form [formGroup]="scheme" class="mx-1" style="margin-top: 50px;">
             
@@ -86,7 +86,7 @@
                         <label class="form-label">Status</label>
                         <select name="Status" class="form-control" formControlName="status">
                             <option value="Active">Active</option>
-                            <option value="Inactive">Inactive</option>
+                            <option value="InActive">InActive</option>
                         </select>
                         <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched">
                             Status Required

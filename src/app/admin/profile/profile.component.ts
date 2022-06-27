@@ -21,6 +21,9 @@ adminForm=new FormGroup({
     
    }
 
+   get Name(){
+     return this.adminForm.get('name')?.value;
+   }
   ngOnInit(): void {
     this.authService.GetEmployeeDetails(sessionStorage.getItem('loggedInUser')).subscribe((data:any)=>{
       console.log(data)
@@ -35,6 +38,5 @@ adminForm=new FormGroup({
       console.log(error)
     });
   }
-  
 
 }
