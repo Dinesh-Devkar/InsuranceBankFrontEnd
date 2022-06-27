@@ -82,88 +82,124 @@ import { AccountBlockComponent } from './customer/account-block/account-block.co
 import { AddDocumentComponent } from './customer/add-document/add-document.component';
 import { AgenttransactionsComponent } from './agent/agenttransactions/agenttransactions.component';
 
-const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
-                      { path: '', component: LandingComponent },
-                      { path: 'login', component: LoginComponent },
-                      { path: 'register', component: RegisterComponent },
-                      { path: 'protection', component: ProtectionComponent },
-                      { path: 'arogyashield', component: ArogyaShieldComponent },
-                      { path: 'dashboard', component: DashboardComponent,canActivate:[AdminRollGuardGuard] },
-                      { path: 'viewfeedback', component: FeedbackComponent },
-                      { path: 'addinsurance', component: AddInsuranceComponent },
-                      { path: 'viewinsurance', component: ViewInsrunaceComponent },
-                      { path: 'addinsurancescheme', component: AddInsuranceSchemeComponent },
-                      {path:'viewinsurancescheme',component:ViewInsuranceSchemeComponent},
-                      {path:'addinsuranceplan',component:AddInsurancePlanComponent},
-                      {path:'viewinsuranceplan',component:ViewInsurancePlanComponent},
-                      {path:'tax',component:TaxSettingComponent},
-                      {path:'insurancesetting',component:InsuranceSettingComponent},
-                      {path:'addcity',component:AddCityComponent},
-                      {path:'viewcity',component:ViewCityComponent},
-                      {path:'addstate',component:AddStateComponent},
-                      {path:'viewstate',component:ViewStateComponent},
-                      {path:'addemployee',component:AddEmployeeComponent},
-                      {path:'viewemployee',component:ViewEmployeeComponent,canActivate:[AdminRollGuardGuard]},
-                      {path:'viewcommison',component:ViewCommisionComponent},
-                      {path:'commisonwithdraw',component:CommisionWithdrwalComponent},
-                      {path:'viewagent',component:ViewAgentComponent,canActivate:[AdminRollGuardGuard]},
-                      {path:'addagent',component:AddAgentComponent},
-                      {path:'hello',component:HelloComponent},
-                      {path:'empdashboard',component:EmpDashboardComponent,canActivate:[EmployeeRollGuardGuard]},
-                      {path:'changepassword',component:ChangePasswordComponent},
-                      {path:'commisionclaim',component:CommisionClaimComponent},
-                      {path:'insuranceaccount',component:InsuranceAccountComponent},
-                      {path:'viewcustomers',component:ViewCustomersComponent,canActivate:[AdminRollGuardGuard]},
-                      {path:'adminprofile',component:ProfileComponent},
-                      {path:'viewpolicypayment',component:ViewPolicyPaymentComponent},
-                      {path:'agentprofile',component:AgentProfileComponent,canActivate:[AgentRollGuardGuard]},
-                      {path:'marketing',component:MarketingComponent,canActivate:[AgentRollGuardGuard]},
-                      {path:'agentdashboard',component:AgentDashboardComponent,canActivate:[AgentRollGuardGuard]},
-                      {path:'agentviewcustomer',component:AgentViewCustomersComponent,canActivate:[AgentRollGuardGuard]},
-                      {path:'agentinsuranceaccount',component:AgentInsuranceAccountComponent,canActivate:[AgentRollGuardGuard]},
-                      {path:'agentpolicypayment',component:AgentPolicyPaymentComponent,canActivate:[AgentRollGuardGuard]},
-                      {path:'agentcommisionclaim',component:AgentPolicyPaymentComponent},
-                      {path:'editcity',component:EditCityComponent},
-                      {path:'editstate',component:EditStateComponent},
-                      {path:'editagent',component:EditAgentComponent},
-                      {path:'editemployee',component:EditEmployeeComponent},
-                      {path:'addcustomer',component:AddCustomerComponent,canActivate:[AgentRollGuardGuard]},
-                      {path:'customerdashboard',component:CustDashboardComponent,canActivate:[CustomerRollGuardGuard]},
-                      {path:'customerprofile',component:CustProfileComponent,canActivate:[CustomerRollGuardGuard]},
-                      {path:'customerdocuments',component:CustDocumentsComponent},
-                      {path:'customerchangepassword',component:CustChangePasswordComponent},
-                      {path:'customeraccount',component:CustInsuranceAccountComponent,canActivate:[CustomerRollGuardGuard]},
-                      {path:'buyinsurance',component:BuyInsuranceComponent},
-                      {path:'policypayment',component:PolicyPaymentComponent},
-                      {path:'paymentreceipt',component:PaymentReceiptComponent},
-                      {path:'agentcommision',component:AgentViewCommisionComponent},
-                      {path:'commisionwithdrawl',component:AgentCommisionWithdrawlComponent,canActivate:[AgentRollGuardGuard]},
-                      
-                      {path:'agentwithdraw',component:AgentWithdrawAmountComponent,canActivate:[AgentRollGuardGuard]},
-                      {path:'services',component:ServicesComponent},
-                      {path:'contactus',component:ContactPageComponent},
-                      {path:'aboutus',component:AboutusComponent},
-                      {path:'editprofile',component:EditProfileComponent,canActivate:[CustomerRollGuardGuard]},
-                      {path:'inuranceaccountdetails',component:InsuranceAccountDetailsComponent},
-                      {path:'editinsuranetype',component:EditInsuranceTypeComponent},
-                      {path:'editinsuraneplan',component:EditInsurancePlanComponent},
-                      {path:'editinsuranescheme',component:EditInsuranceSchemeComponent},
-                      {path:'editemployeeprofile',component:EditEmployeeProfileComponent},
-                      
-                      {path:'cutsomerviewfeedback',component:ViewFeedbackComponent},
-                      {path:'askquery',component:AskQueryComponent},
-                      {path:'editcustomer',component:EditCustomerComponent},
-                      {path:'admininsurancedetails',component:AdminInsuranceAccountDetailsComponent},
-                      {path:'cutsomerviewfeedback',component:ViewFeedbackComponent,canActivate:[CustomerRollGuardGuard]},
-                      {path:'askquery',component:AskQueryComponent,canActivate:[CustomerRollGuardGuard]},
-                      {path:'agentviewdocuments',component:AgentViewDocumentsComponent},
-                      {path:'adminviewdocuments',component:AdminViewDocumentsComponent},
-                      {path:'unauthorized',component: AccountBlockComponent},
-                      {path:'editagentprofile',component:EditAgentProfileComponent},
-                      {path:'adddocument',component:AddDocumentComponent},
-                      {path:'agenttransactions',component:AgenttransactionsComponent}
+const routes: Routes =
 
-];
+          // Home Module
+  [{ path: 'navbar', component: NavbarComponent },
+  { path: '', component: LandingComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'protection', component: ProtectionComponent },
+  { path: 'arogyashield', component: ArogyaShieldComponent },
+  { path: 'services', component: ServicesComponent },
+  { path: 'contactus', component: ContactPageComponent },
+  { path: 'aboutus', component: AboutusComponent },
+
+        //  Admin Module
+
+
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AdminRollGuardGuard] },
+  { path: 'addinsurance', component: AddInsuranceComponent },
+  { path: 'viewinsurance', component: ViewInsrunaceComponent },
+  { path: 'addinsurancescheme', component: AddInsuranceSchemeComponent },
+  { path: 'viewinsurancescheme', component: ViewInsuranceSchemeComponent },
+  { path: 'addinsuranceplan', component: AddInsurancePlanComponent },
+  { path: 'viewinsuranceplan', component: ViewInsurancePlanComponent },
+  { path: 'tax', component: TaxSettingComponent },
+  { path: 'insurancesetting', component: InsuranceSettingComponent },
+  { path: 'addcity', component: AddCityComponent },
+  { path: 'viewcity', component: ViewCityComponent },
+  { path: 'addstate', component: AddStateComponent },
+  { path: 'viewstate', component: ViewStateComponent },
+  { path: 'addemployee', component: AddEmployeeComponent },
+  { path: 'viewemployee', component: ViewEmployeeComponent, canActivate: [AdminRollGuardGuard] },
+  { path: 'viewcommison', component: ViewCommisionComponent },
+  { path: 'commisonwithdraw', component: CommisionWithdrwalComponent },
+  { path: 'viewfeedback', component: FeedbackComponent },
+  { path: 'viewagent', component: ViewAgentComponent, canActivate: [AdminRollGuardGuard] },
+  { path: 'addagent', component: AddAgentComponent },
+  { path: 'changepassword', component: ChangePasswordComponent },
+
+  { path: 'commisionclaim', component: CommisionClaimComponent },
+  { path: 'insuranceaccount', component: InsuranceAccountComponent },
+  { path: 'viewcustomers', component: ViewCustomersComponent, canActivate: [AdminRollGuardGuard] },
+  { path: 'adminprofile', component: ProfileComponent },
+  { path: 'viewpolicypayment', component: ViewPolicyPaymentComponent },
+  { path: 'editcity', component: EditCityComponent },
+  { path: 'editstate', component: EditStateComponent },
+  { path: 'editagent', component: EditAgentComponent },
+  { path: 'editemployee', component: EditEmployeeComponent },
+  
+  { path: 'editinsuranetype', component: EditInsuranceTypeComponent },
+  { path: 'editinsuraneplan', component: EditInsurancePlanComponent },
+  { path: 'editinsuranescheme', component: EditInsuranceSchemeComponent },
+  { path: 'adminviewdocuments', component: AdminViewDocumentsComponent },
+
+  { path: 'admininsurancedetails', component: AdminInsuranceAccountDetailsComponent },
+
+
+
+            // Employee Module
+  
+ 
+ 
+  { path: 'hello', component: HelloComponent },
+  { path: 'empdashboard', component: EmpDashboardComponent, canActivate: [EmployeeRollGuardGuard] },
+  { path: 'editemployeeprofile', component: EditEmployeeProfileComponent },
+
+
+              //  Agent Module
+
+  
+  
+  { path: 'agentprofile', component: AgentProfileComponent, canActivate: [AgentRollGuardGuard] },
+  { path: 'marketing', component: MarketingComponent, canActivate: [AgentRollGuardGuard] },
+  { path: 'agentdashboard', component: AgentDashboardComponent, canActivate: [AgentRollGuardGuard] },
+  { path: 'agentviewcustomer', component: AgentViewCustomersComponent, canActivate: [AgentRollGuardGuard] },
+  { path: 'agentinsuranceaccount', component: AgentInsuranceAccountComponent, canActivate: [AgentRollGuardGuard] },
+  { path: 'agentpolicypayment', component: AgentPolicyPaymentComponent, canActivate: [AgentRollGuardGuard] },
+  { path: 'agentcommisionclaim', component: AgentPolicyPaymentComponent },
+  { path: 'addcustomer', component: AddCustomerComponent, canActivate: [AgentRollGuardGuard] },
+  { path: 'agentcommision', component: AgentViewCommisionComponent },
+  { path: 'commisionwithdrawl', component: AgentCommisionWithdrawlComponent, canActivate: [AgentRollGuardGuard] },
+  { path: 'agentviewdocuments', component: AgentViewDocumentsComponent },
+  { path: 'agentwithdraw', component: AgentWithdrawAmountComponent, canActivate: [AgentRollGuardGuard] },
+  { path: 'editagentprofile', component: EditAgentProfileComponent },
+  { path: 'agenttransactions', component: AgenttransactionsComponent },
+
+
+
+
+
+
+        // Customer Module 
+
+
+  { path: 'customerdashboard', component: CustDashboardComponent, canActivate: [CustomerRollGuardGuard] },
+  { path: 'customerprofile', component: CustProfileComponent, canActivate: [CustomerRollGuardGuard] },
+  { path: 'customerdocuments', component: CustDocumentsComponent },
+  { path: 'customerchangepassword', component: CustChangePasswordComponent },
+  { path: 'customeraccount', component: CustInsuranceAccountComponent, canActivate: [CustomerRollGuardGuard] },
+  { path: 'buyinsurance', component: BuyInsuranceComponent },
+  { path: 'policypayment', component: PolicyPaymentComponent },
+  { path: 'paymentreceipt', component: PaymentReceiptComponent },
+  { path: 'editprofile', component: EditProfileComponent, canActivate: [CustomerRollGuardGuard] },
+  { path: 'inuranceaccountdetails', component: InsuranceAccountDetailsComponent },
+  { path: 'cutsomerviewfeedback', component: ViewFeedbackComponent },
+  { path: 'askquery', component: AskQueryComponent },
+  { path: 'editcustomer', component: EditCustomerComponent },
+  { path: 'cutsomerviewfeedback', component: ViewFeedbackComponent, canActivate: [CustomerRollGuardGuard] },
+  { path: 'askquery', component: AskQueryComponent, canActivate: [CustomerRollGuardGuard] },
+  { path: 'unauthorized', component: AccountBlockComponent },
+  { path: 'adddocument', component: AddDocumentComponent },
+
+
+
+
+
+ 
+
+  ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
