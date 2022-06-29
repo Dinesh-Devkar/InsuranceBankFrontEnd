@@ -1,11 +1,11 @@
-<div class="container ">
+<div class="container">
     <div style="text-align: center; margin-bottom:20px;">
         <h1> View Commission Records </h1>
     </div>
 </div>
 
-<div class="container">
-    <table class="table">
+<div class="container border rounded">
+    <table class="table table-striped text-center">
         <thead>
             <tr>
                 <th scope="col">Insurance Ac/No</th>
@@ -13,21 +13,24 @@
                 <th scope="col">Date</th>
                 <th scope="col">Customer</th>
                 <th scope="col">Insurance Scheme</th>
+                <th scope="col">Commission-Type</th>
                 <th scope="col">Payment Amount</th>            
                 
             </tr>
         </thead>
         <tbody>
-            <tr class="" *ngFor="let commissionRecord of commissionRecordsList">
+            <tr class="" *ngFor="let commissionRecord of commissionRecordsList?.reverse()">
                 <td>{{commissionRecord.insuranceAccountId}}</td>
                 <td>{{commissionRecord.agentName}}</td>
-                <td>{{commissionRecord.purchasedDate}}</td>
+                <td>{{commissionRecord.purchasedDate | date}}</td>
                 <td>{{commissionRecord.customerName}}</td>                
                 <td>{{commissionRecord.insuranceScheme}}</td> 
+                <td>{{commissionRecord.commissionType}}</td>
                 <td>{{commissionRecord.commissionAmount}}</td> 
             </tr>
-            <tr class="">
+            <tr class="text-center">
 
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>

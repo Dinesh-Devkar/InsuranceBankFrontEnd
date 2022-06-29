@@ -33,7 +33,7 @@ export class InsuranceAccountDetailsComponent implements OnInit {
     sessionStorage.removeItem('insuranceAccountId')
   }
   GoToPaymentPage(){
-    this.nextPaymentDetails={customerId:sessionStorage.getItem('loggedInUser'),accountNumber:this.insuranceAccountDetails.accountNumber,insuranceScheme:this.insuranceAccountDetails.insuranceScheme,installmentNumber:this.installmentNumber,installmentAmount:this.installmentAmount,installmentDate:this.nextPayment,paidDate:new Date()}
+    this.nextPaymentDetails={customerId:sessionStorage.getItem('loggedInUser'),accountNumber:this.insuranceAccountDetails.accountNumber,insuranceScheme:this.insuranceAccountDetails.insuranceScheme,installmentNumber:this.installmentNumber,installmentAmount:this.installmentAmount,installmentDate:this.nextPayment,paidDate:new Date(),customerName:this.insuranceAccountDetails.customerName}
     sessionStorage.setItem('pmt',JSON.stringify(this.nextPaymentDetails))
     this.router.navigate(['/policypayment'])
   }

@@ -101,10 +101,16 @@ export class DataServiceService {
     return this.http.post(`http://localhost:5137/api/InsuranceType/AddInsuranceType`, insuranceType)
   }
 
+  GetInsuranceType(insuranceTypeId:any){
+    return this.http.get(`http://localhost:5137/api/InsuranceType/${insuranceTypeId}/GetInsuranceType`);
+  }
   GetAllInsuranceTypes() {
     return this.http.get(`http://localhost:5137/api/InsuranceType/GetAllInsuranceTypes`);
   }
 
+  UpdateInsuranceType(insuranceTypeId:any,insuranceType:any){
+    return this.http.put(`http://localhost:5137/api/InsuranceType/${insuranceTypeId}/UpdateInsuranceType`,insuranceType);
+  }
   AddInsuranceScheme(insuranceSheme: any) {
     return this.http.post(`http://localhost:5137/api/InsuranceScheme/AddInsuranceScheme`, insuranceSheme)
   }
@@ -174,11 +180,36 @@ export class DataServiceService {
     return this.http.get(`http://localhost:5137/api/Customer/${customerId}/GetCustomerById`)
   }
 
-  postFile(caption: string, fileToUpload: File) {
+  // postFile(caption: string, fileToUpload: File) {
+  //   const endpoint = 'http://localhost:5137/api/InsuranceType/UploadImage';
+  //   alert(caption)
+  //   alert(fileToUpload)
+  //   console.log(fileToUpload)
+  //   const formData: FormData = new FormData();
+  //   formData.append('Image', fileToUpload, fileToUpload.name);
+  //   formData.append('ImageCaption', caption);
+  //   console.log(formData.get('Image'))
+  //   return this.http
+  //     .post(endpoint, formData);
+  // }
+  // postFile(fileToUpload: File) {
+  //   const endpoint = 'http://localhost:5137/api/InsuranceType/UploadImage';
+  //   // const formData: FormData = new FormData();
+  //   // formData.append('Image', fileToUpload, fileToUpload.name);
+  //   // formData.append('ImageCaption', caption);
+  //   return this.http
+  //     .post(endpoint, fileToUpload);
+  // }
+   postFile(fileToUpload: any) {
     const endpoint = 'http://localhost:5137/api/InsuranceType/UploadImage';
-    const formData: FormData = new FormData();
+    //alert(caption)
+    alert(fileToUpload)
+    console.log(fileToUpload)
+    let formData: FormData = new FormData();
+    alert(fileToUpload.name)
     formData.append('Image', fileToUpload, fileToUpload.name);
-    formData.append('ImageCaption', caption);
+    //formData.append('ImageCaption', caption);
+    console.log(formData.get('Image'))
     return this.http
       .post(endpoint, formData);
   }

@@ -21,31 +21,54 @@ export class AddInsuranceComponent implements OnInit {
   insuranceType=new FormGroup({
     insuranceName:new FormControl('',Validators.required),
     image:new FormControl(''),
-    status:new FormControl('',Validators.required)
   })
   myimg:any
-  fileToUpload: any = null;
-  imageUrl:string=''
+  fileToUpload !: File;
+  imageUrl:string|any='/assets/account.png'
   constructor(private dataService:DataServiceService,private router:Router,private alertService:AlertsService,private http: HttpClient) { }
 
   handleFileInput(file: any) {
-    this.fileToUpload = <File>file.target.files[0];
+   
+    console.log("My File")
+    //console.log(file.files[0])
+    //this.fileToUpload = <File>file[0];
+    //this.fileToUpload=(file.target as HTMLInputElement).files[0];
+    this.fileToUpload=file.files[0]
 
+    this.insuranceType.get('image')?.setValue(this.fileToUpload)
     //Show image preview
     var reader = new FileReader();
-    
-    reader.onload = (event:any) => {
-      this.imageUrl = event.target.result;
-    }
     reader.readAsDataURL(this.fileToUpload);
+    reader.onload = (event:any) => {
+      this.imageUrl = reader.result;
+    }
+    
   }
-  OnSubmit(Caption:any,Image:any){
-    this.dataService.postFile(Caption.value,this.fileToUpload).subscribe(
+  AddInsurance(image:any){
+    alert(image)
+    this.dataService.postFile(this.fileToUpload).subscribe(
       data =>{
         console.log('done');
+        alert("Done")
+       
+        //this.imageUrl = "/assets/img/default-image.png";
+      },(error:any)=>{
+        console.log(error)
+      }
+    );
+  }
+  OnSubmit(Caption:any,Image:any){
+    // console.log("My Caption : "+Caption)
+    // console.log("My Image : "+Image)
+    this.dataService.postFile(this.fileToUpload).subscribe(
+      data =>{
+        console.log('done');
+        alert("Done")
         Caption.value = null;
         Image.value = null;
         //this.imageUrl = "/assets/img/default-image.png";
+      },(error:any)=>{
+        console.log(error)
       }
     );
   // onSelectFile(fileInput: any) {
