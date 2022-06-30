@@ -47,8 +47,8 @@
                 <td>{{insuranceAccountDetails.accountNumber}}</td>
                 <td>{{insuranceAccountDetails.insuranceType}}</td>
                 <td>{{insuranceAccountDetails.insuranceScheme}}</td> 
-                <td>{{insuranceAccountDetails.dateCreated}}</td> 
-                <td>{{insuranceAccountDetails.maturityDate}}</td> 
+                <td>{{insuranceAccountDetails.dateCreated | date}}</td> 
+                <td>{{insuranceAccountDetails.maturityDate | date}}</td> 
                 <td>{{insuranceAccountDetails.premiumType}} months</td>   
             </tr>
         </tbody>
@@ -89,9 +89,9 @@
         <tbody>
             <tr *ngFor="let payment of paymentsList">                
                 <td>{{payment.installmentNumber}}</td>
-                <td>{{payment.installmentDate}}</td>
+                <td>{{payment.installmentDate | date}}</td>
                 <td>{{payment.installmentAmount}}</td> 
-                <td>{{payment.paidDate}}</td>
+                <td>{{payment.paidDate | date}}</td>
                 <td>{{payment.paymentStatus}}</td>
                 <td><a href="" class="btn btn-info text-light">Download</a> </td>
                   

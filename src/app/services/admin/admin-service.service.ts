@@ -26,5 +26,15 @@ export class AdminServiceService {
   UpdateEmployee(employeeId:any,employee:any){
     return this.http.put(`http://localhost:5137/api/Employee/${employeeId}/UpdateEmployee`,employee)
   }
+  GetAllRequestedPolicyClaims(){
+    return this.http.get(`http://localhost:5137/api/InsuranceAccount/GetAllRequestedPolicyClaims`)
+  }
 
+  ApprovePolicyClaim(insuranceAccount:any){
+    return this.http.put(`http://localhost:5137/api/InsuranceAccount/ClaimRequestApprove`,insuranceAccount)
+  }
+
+  GetAllClaimedPolicies(){
+    return this.http.get(`http://localhost:5137/api/InsuranceAccount/GetAllClaimedPolicies`)
+  }
 }

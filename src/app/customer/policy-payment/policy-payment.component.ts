@@ -14,6 +14,7 @@ export class PolicyPaymentComponent implements OnInit {
 
   payment=new FormGroup({
     customerId:new FormControl('',Validators.required),
+    customerName:new FormControl('',Validators.required),
     insuranceAccountNumber:new FormControl('',Validators.required),
     insuranceScheme:new FormControl('',Validators.required),
     installmentNumber: new FormControl('',Validators.required),
@@ -28,12 +29,13 @@ export class PolicyPaymentComponent implements OnInit {
    let pmt= JSON.parse(sessionStorage.getItem('pmt') || '{}')
    this.payment.setValue({
     customerId:pmt.customerId,
+    customerName:pmt.customerName,
     insuranceAccountNumber:pmt.accountNumber,
     insuranceScheme:pmt.insuranceScheme,
     installmentNumber:pmt.installmentNumber,
     installmentAmount:pmt.installmentAmount,
     installmentDate:moment(pmt.installmentDate),
-    paidDate:moment()
+    paidDate:moment(),
    })
   }
 

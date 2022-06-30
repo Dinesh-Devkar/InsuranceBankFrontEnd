@@ -19,24 +19,24 @@ export class AddEmployeeComponent implements OnInit {
     confirmPassword:new FormControl('',Validators.required),
     userStatus:new FormControl('',Validators.required)
   })
-  constructor(private authService:AuthServiceService,private alert:AlertsService) { }
+  constructor(private authService:AuthServiceService,private alertService:AlertsService) { }
 
   AddUser(){
     console.log(this.employee.value)
     //alert(this.employee.value.password==this.employee.value.confirmPassword)
     if(this.employee.value.password==this.employee.value.confirmPassword){
-      alert("inside confirm")
-      alert(this.employee.value.userRoll);
       
       if(this.employee.value.userRoll=="Employee"){
         
           this.authService.EmployeeRegister(this.employee.value).subscribe((res:any)=>{
             console.log(res);
             // this.alert.Add()
-            alert(res)
+            this.alertService.Success(res)
+            
           },(error:any)=>{
             //this.alert.Failed()
             console.log(error);
+            this.alertService.Failed(error.error.message)
             
           })
          
@@ -46,17 +46,20 @@ export class AddEmployeeComponent implements OnInit {
         this.authService.AdminRegister(this.employee.value).subscribe((res:any)=>{
           console.log(res);
           // this.alert.Add()
-          alert(res)
+          this.alertService.Success(res)
+         
         },(error:any)=>{
           //this.alert.Failed()
           console.log(error);
+          this.alertService.Failed(error.error.message)
           
         })
        
     }
       return
     }
-    alert("Password and Confirm Password does Not Matched")
+    
+    this.alertService.Failed("Password and Confirm Password does Not Matched")
   }
   ngOnInit(): void {
   }

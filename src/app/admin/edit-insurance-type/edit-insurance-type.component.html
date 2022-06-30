@@ -1,6 +1,6 @@
 <div class="container align-items-center p-4 text-center my-5"
     style="border-radius: 30px; background-color: #f5f5f5;">
-    <p class="text-center h1 fw-bold ">Editing Insurance Type</p>
+    <p class="text-center h1 fw-bold ">Update Insurance Type</p>
     <form [formGroup]="insuranceType" class="mx-1" style="margin-top:50px ;">
         <div class="row">
             <div class="col-md-6">
@@ -34,10 +34,10 @@
                 <!-- <i class="fa fa-area-chart fa-lg me-3 fa- mb-5"></i> -->
                 <div class="form-group form-outline flex-fill mb-0">
                     <label class="form-label">Select Status</label>
-                    <select name="Status" class="form-control" formControlName="status">
+                    <select class="form-control" formControlName="status">
                         <option value="">Select Status</option>
                         <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
+                        <option value="InActive">InActive</option>
                     </select>
                     <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched "> Status
                         Required</span>
@@ -46,6 +46,6 @@
             </div>
         </div>
 
-        <button class="btn btn-info text-light my-4" [disabled]="insuranceType.invalid">Submit</button>
+        <button class="btn btn-info text-light my-4" [disabled]="insuranceType.invalid" (click)="UpdateInsuranceType()">Update</button>
     </form>
 </div>

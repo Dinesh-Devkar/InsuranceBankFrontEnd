@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
+import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
   selector: 'app-edit-insurance-type',
@@ -16,9 +19,29 @@ export class EditInsuranceTypeComponent implements OnInit {
     status:new FormControl('',Validators.required)
   })
   
-  constructor() { }
+  constructor(private dataService:DataServiceService,private alertService:AlertsService,private router:Router) { }
+
+  UpdateInsuranceType(){
+    this.dataService.UpdateInsuranceType(sessionStorage.getItem('insuranceTypeId'),this.insuranceType.value).subscribe((data:any)=>{
+      this.alertService.Success(data.message)
+      sessionStorage.removeItem('insuranceTypeId');
+      this.router.navigate(['/dashboard'])
+    },(error:any)=>{
+      this.alertService.Failed(error.error.message)
+      console.log(error)
+    })
+  }
 
   ngOnInit(): void {
+    this.dataService.GetInsuranceType(sessionStorage.getItem('insuranceTypeId')).subscribe((data:any)=>{
+      this.insuranceType.setValue({
+        insuranceName:data.insuranceName,
+        image:data.image,
+        status:data.status
+      })
+    },(error:any)=>{
+        console.log(error)
+    })
   }
   get InsuranceType(){
     return this.insuranceType.get("insuranceName");
