@@ -18,12 +18,12 @@
                 <th scope="col">Total Premium Amount</th>
                 <th scope="col">Profit Ratio</th>
                 <th scope="col">Sum assured</th>
-                <th scope="col">View</th>
+                <th scope="col">Policy Status</th>
                                
             </tr>
         </thead>
-        <!-- <tbody>
-            <tr class="" *ngFor="let insuranceAccount of insuranceAccounts">                
+        <tbody>
+            <tr class="" *ngFor="let insuranceAccount of policyClaimAccounts">                
                 <td>{{insuranceAccount.accountNumber}}</td>
                 <td>{{insuranceAccount.insuranceType}}</td>
                 <td>{{insuranceAccount.insuranceScheme}}</td> 
@@ -33,12 +33,11 @@
                 <td>{{insuranceAccount.investmentAmount}}</td> 
                 <td>{{insuranceAccount.profitRatio}}</td> 
                 <td>{{insuranceAccount.totalAmount}}</td> 
-                <td><a  class="btn btn-info text-light p-0" (click)="ViewInsuranceAccountDetails(insuranceAccount.accountNumber)">View More</a></td> 
-              
+                <td class="text-success" style="font-size: 19px;">{{insuranceAccount.policyStatus}}</td>              
             </tr>
             
 
-        </tbody> -->
+        </tbody>
     </table>
 </div>
 

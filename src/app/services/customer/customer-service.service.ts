@@ -48,4 +48,7 @@ export class CustomerServiceService {
   SendPolicyClaimeRequest(customerId:string,insuranceAccount:any){
     return this.http.put(`http://localhost:5137/api/Customer/${customerId}/PolicyClaimRequest`,insuranceAccount)
   }
+  GetAllClaimedPoliciesByCustomerId(customerId:string){
+    return this.http.get(`http://localhost:5137/api/InsuranceAccount/${customerId}/GetAllClaimedPoliciesByCustomerId`)
+  }
 }

@@ -11,17 +11,7 @@ export class ClaimPoliciesComponent implements OnInit {
 
   policyClaimAccounts:any
   constructor(private adminService:AdminServiceService,private alertService:AlertsService) { }
-
-  ApprovePolicyClaim(insuranceAccount:any){
-    this.adminService.ApprovePolicyClaim(insuranceAccount).subscribe((data:any)=>{
-    this.alertService.Success(data.message)
-    this.adminService.GetAllRequestedPolicyClaims().subscribe((data:any)=>{
-      this.policyClaimAccounts=data.$values
-    })
-    },(error:any)=>{
-      this.alertService.Failed(error.error.message)
-    })
-  }
+  
   ngOnInit(): void {
     this.adminService.GetAllClaimedPolicies().subscribe((data:any)=>{
       this.policyClaimAccounts=data.$values
