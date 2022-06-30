@@ -82,6 +82,7 @@ import { AccountBlockComponent } from './customer/account-block/account-block.co
 import { AddDocumentComponent } from './customer/add-document/add-document.component';
 import { AgenttransactionsComponent } from './agent/agenttransactions/agenttransactions.component';
 import { CustomerClaimPoliciesComponent } from './customer/customer-claim-policies/customer-claim-policies.component';
+import { ClaimPoliciesComponent } from './admin/claim-policies/claim-policies.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -163,7 +164,8 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'editagentprofile',component:EditAgentProfileComponent},
                       {path:'adddocument',component:AddDocumentComponent},
                       {path:'agenttransactions',component:AgenttransactionsComponent},
-                      {path:'customerclaimpolicy',component:CustomerClaimPoliciesComponent}
+                      {path:'customerclaimpolicy',component:CustomerClaimPoliciesComponent},
+                      {path:'claimpolicies',component:ClaimPoliciesComponent}
 
 ];
 @NgModule({

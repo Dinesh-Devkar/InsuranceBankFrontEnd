@@ -36,6 +36,7 @@ import { EditInsurancePlanComponent } from './edit-insurance-plan/edit-insurance
 import { AdminInsuranceAccountDetailsComponent } from './admin-insurance-account-details/admin-insurance-account-details.component';
 import { AdminViewDocumentsComponent } from './admin-view-documents/admin-view-documents.component';
 import { ClaimPoliciesComponent } from './claim-policies/claim-policies.component';
+import { PolicyClaimRequestsComponent } from './policy-claim-requests/policy-claim-requests.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { ClaimPoliciesComponent } from './claim-policies/claim-policies.componen
     EditInsurancePlanComponent,
     AdminInsuranceAccountDetailsComponent,
     AdminViewDocumentsComponent,
-    ClaimPoliciesComponent
+    ClaimPoliciesComponent,
+    PolicyClaimRequestsComponent
   ],
   imports: [
     CommonModule,

@@ -1,1 +1,46 @@
-<p>claim-policies works!</p>
+<div class="container ">
+    <div style="text-align: center; margin-bottom:20px;">
+        <h1>View Claimed Insurance Policies</h1>
+    </div>
+</div>
+
+<div class="container border rounded">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                
+                <th scope="col">Acc. No.</th>
+                <th scope="col">Insurance Type</th>
+                <th scope="col">Insurance Scheme</th>
+                <th scope="col">Date created</th>
+                <th scope="col">Date maturity</th>
+                <th scope="col">Policy Term</th>
+                <th scope="col">Total Premium Amount</th>
+                <th scope="col">Profit Ratio</th>
+                <th scope="col">Sum assured</th>
+                <th scope="col">Action</th>
+                               
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="" *ngFor="let insuranceAccount of policyClaimAccounts">                
+                <td>{{insuranceAccount.accountNumber}}</td>
+                <td>{{insuranceAccount.insuranceType}}</td>
+                <td>{{insuranceAccount.insuranceScheme}}</td> 
+                <td>{{insuranceAccount.dateCreated | date}}</td> 
+                <td>{{insuranceAccount.maturityDate | date}}</td> 
+                <td>{{insuranceAccount.premiumType}}</td> 
+                <td>{{insuranceAccount.investmentAmount}}</td> 
+                <td>{{insuranceAccount.profitRatio}}</td> 
+                <td>{{insuranceAccount.totalAmount}}</td> 
+                <td><a  class="btn btn-success text-light p-2" (click)="ApprovePolicyClaim(insuranceAccount)">Claim</a></td> 
+              
+            </tr>
+            
+
+        </tbody>
+    </table>
+</div>
+
+
+
