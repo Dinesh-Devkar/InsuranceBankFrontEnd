@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminServiceService } from 'src/app/services/admin/admin-service.service';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 
 @Component({
   selector: 'app-policy-claim-requests',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PolicyClaimRequestsComponent implements OnInit {
 
-  constructor() { }
+  policyClaimAccounts:any
+  constructor(private adminService:AdminServiceService,private alertService:AlertsService) { }
 
-  ngOnInit(): void {
+  ApprovePolicyClaim(insuranceAccount:any){
+    this.adminService.ApprovePolicyClaim(insuranceAccount).subscribe((data:any)=>{
+    this.alertService.Success(data.message)
+    this.adminService.GetAllRequestedPolicyClaims().subscribe((data:any)=>{
+      this.policyClaimAccounts=data.$values
+    })
+    },(error:any)=>{
+      this.alertService.Failed(error.error.message)
+    })
   }
-
+  ngOnInit(): void {
+    this.adminService.GetAllRequestedPolicyClaims().subscribe((data:any)=>{
+      this.policyClaimAccounts=data.$values
+    })
+  }
 }

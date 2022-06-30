@@ -23,7 +23,7 @@ export class ClaimPoliciesComponent implements OnInit {
     })
   }
   ngOnInit(): void {
-    this.adminService.GetAllRequestedPolicyClaims().subscribe((data:any)=>{
+    this.adminService.GetAllClaimedPolicies().subscribe((data:any)=>{
       this.policyClaimAccounts=data.$values
     })
   }

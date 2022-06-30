@@ -83,6 +83,7 @@ import { AddDocumentComponent } from './customer/add-document/add-document.compo
 import { AgenttransactionsComponent } from './agent/agenttransactions/agenttransactions.component';
 import { CustomerClaimPoliciesComponent } from './customer/customer-claim-policies/customer-claim-policies.component';
 import { ClaimPoliciesComponent } from './admin/claim-policies/claim-policies.component';
+import { PolicyClaimRequestsComponent } from './admin/policy-claim-requests/policy-claim-requests.component';
 
 const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       { path: '', component: LandingComponent },
@@ -165,7 +166,8 @@ const routes: Routes = [{ path: 'navbar', component: NavbarComponent },
                       {path:'adddocument',component:AddDocumentComponent},
                       {path:'agenttransactions',component:AgenttransactionsComponent},
                       {path:'customerclaimpolicy',component:CustomerClaimPoliciesComponent},
-                      {path:'claimpolicies',component:ClaimPoliciesComponent}
+                      {path:'claimpolicies',component:ClaimPoliciesComponent},
+                      {path:'policyclaimrequests',component:PolicyClaimRequestsComponent}
 
 ];
 @NgModule({

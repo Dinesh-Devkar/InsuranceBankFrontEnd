@@ -33,4 +33,8 @@ export class AdminServiceService {
   ApprovePolicyClaim(insuranceAccount:any){
     return this.http.put(`http://localhost:5137/api/InsuranceAccount/ClaimRequestApprove`,insuranceAccount)
   }
+
+  GetAllClaimedPolicies(){
+    return this.http.get(`http://localhost:5137/api/InsuranceAccount/GetAllClaimedPolicies`)
+  }
 }
