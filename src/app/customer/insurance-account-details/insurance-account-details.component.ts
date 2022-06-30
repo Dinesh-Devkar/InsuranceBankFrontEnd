@@ -6,6 +6,7 @@ import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
 import * as moment from 'moment';
 import { Router } from '@angular/router';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 const htmlToPdfmake = require("html-to-pdfmake");
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
@@ -16,6 +17,7 @@ const htmlToPdfmake = require("html-to-pdfmake");
 })
 export class InsuranceAccountDetailsComponent implements OnInit {
 
+  isAllInstallmentsDone:boolean=false
   nextPayment:any
   installmentNumber:number=0
   installmentAmount:number=0
@@ -24,7 +26,7 @@ export class InsuranceAccountDetailsComponent implements OnInit {
   insuranceAccountDetails:any
   isCustomerLogin=true
   nextPaymentDetails:any
-  constructor(private dataService:DataServiceService,private customerService:CustomerServiceService,private router:Router) { }
+  constructor(private dataService:DataServiceService,private customerService:CustomerServiceService,private router:Router,private alertService:AlertsService) { }
 
   @ViewChild('pdfTable')
   pdfTable!:ElementRef;
@@ -36,6 +38,16 @@ export class InsuranceAccountDetailsComponent implements OnInit {
     this.nextPaymentDetails={customerId:sessionStorage.getItem('loggedInUser'),accountNumber:this.insuranceAccountDetails.accountNumber,insuranceScheme:this.insuranceAccountDetails.insuranceScheme,installmentNumber:this.installmentNumber,installmentAmount:this.installmentAmount,installmentDate:this.nextPayment,paidDate:new Date(),customerName:this.insuranceAccountDetails.customerName}
     sessionStorage.setItem('pmt',JSON.stringify(this.nextPaymentDetails))
     this.router.navigate(['/policypayment'])
+  }
+  SendPolicyClaimRequest(customerId:string,insuranceAccountNumber:string){
+    console.log("Customer Id : "+customerId)
+    console.log("Insurance Account Number : "+insuranceAccountNumber)
+    this.customerService.SendPolicyClaimeRequest(customerId,{customerId,insuranceAccountNumber}).subscribe((data:any)=>{
+        this.alertService.Success(data.message)
+    },(error:any)=>{
+      this.alertService.Failed(error.error.message)
+      console.log(error)
+    })
   }
   ngOnInit(): void {
     if(sessionStorage.getItem('loggedInuserRoll')!="Customer"){
@@ -49,7 +61,10 @@ export class InsuranceAccountDetailsComponent implements OnInit {
     this.dataService.GetInsuranceAccountDetailsByAccountId().subscribe((data:any)=>{
       this.insuranceAccountDetails=data
       console.log(data)
-      
+      if(this.insuranceAccountDetails.pendingInstallments==0){
+        this.isAllInstallmentsDone=true
+        return
+      }
     },(error:any)=>{
       console.log(error)
       alert(error.message)

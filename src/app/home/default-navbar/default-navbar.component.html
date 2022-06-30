@@ -226,8 +226,14 @@
                         </div>     
 
 
-                        <a routerLink="/customeraccount" class="nav-item nav-link">Insurance Account</a>                   
-                        
+                        <!-- <a routerLink="/customeraccount" class="nav-item nav-link">Insurance Account</a>                    -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Insurance Account</a>
+                            <div class="dropdown-menu" style="cursor: pointer;">
+                                <a routerLink="/customeraccount" class="dropdown-item">View Insurance Accounts </a>
+                                <a routerLink="/customerclaimpolicy" class="dropdown-item">View Policy Claimed </a>
+                            </div>
+                        </div>
                         <div class="nav-item dropdown ">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Queries</a>
                             <div class="dropdown-menu">

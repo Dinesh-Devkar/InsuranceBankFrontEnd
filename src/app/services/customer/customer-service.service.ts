@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AnyRecord } from 'dns';
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +44,8 @@ export class CustomerServiceService {
   }
   DoPayment(customerId:any,paymentCredentials:any){
       return this.http.post(`http://localhost:5137/api/Customer/${customerId}/DoPayment`,paymentCredentials)
+  }
+  SendPolicyClaimeRequest(customerId:string,insuranceAccount:any){
+    return this.http.put(`http://localhost:5137/api/Customer/${customerId}/PolicyClaimRequest`,insuranceAccount)
   }
 }

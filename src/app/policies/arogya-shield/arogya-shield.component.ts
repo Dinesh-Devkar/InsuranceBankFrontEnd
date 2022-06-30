@@ -39,6 +39,7 @@ isEligible:boolean=true
   //Calculate loggedInUser Age
   
 	today = new Date(); 
+  numberOfInstallments: number=0;
 
   
   
@@ -102,7 +103,6 @@ isEligible:boolean=true
     })
     
     this.customerService.GetCustomerNameAgentCode().subscribe((data:any)=>{
-      console.log("UUUUUUUUUUUUUUUUUUUU")
       console.log(data)
       this.customerName=data.customerName
       this.agentCode=data.agentCode
@@ -129,7 +129,8 @@ isEligible:boolean=true
       maturityDate: c,
       customerName: this.customerName,
       customerId: sessionStorage.getItem("loggedInUser"),
-      agentCode: this.agentCode
+      agentCode: this.agentCode,
+      numberOfInstallments:this.numberOfInstallments
     }
 
     this.dataService.SetInsuranceAccountDetails(insuranceAccount);
@@ -141,7 +142,24 @@ isEligible:boolean=true
   fillFields(){
     this.intrestAmount= (this.investmentAmount * this.ProfitRatio*this.numberOfYears)/100
     this.totalAmount=this.investmentAmount+this.intrestAmount;
-    this.installmentAmont=this.investmentAmount / this.numberOfYears;    
+    this.installmentAmont=this.calculateInstallementAmount();
+    alert(this.numberOfInstallments)    
   }
-
+  calculateInstallementAmount():number{ 
+    if(this.months==3){ 
+      this.numberOfInstallments=this.numberOfYears * 4; 
+      return this.investmentAmount / (this.numberOfYears * 4); 
+       
+    } 
+    if(this.months==6){ 
+      this.numberOfInstallments=this.numberOfYears * 2; 
+      return this.investmentAmount / (this.numberOfYears * 2); 
+      
+    } 
+    if(this.months==12){ 
+      this.numberOfInstallments=this.numberOfYears; 
+      return this.investmentAmount / this.numberOfYears;       
+    } 
+    return 0; 
+  }
 }
