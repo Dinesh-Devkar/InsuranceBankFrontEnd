@@ -11,7 +11,7 @@
                     <div class="nav-item dropdown ">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insurance Plans</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item"  *ngFor="let insuranceType of insuranceTypes" (click)="GoToProtectionPlan(insuranceType.insuranceName)">{{insuranceType.insuranceName}}</a>
+                            <a class="dropdown-item"  *ngFor="let insuranceType of insuranceTypes" (click)="GoToProtectionPlan(insuranceType.insuranceName,insuranceType.id)">{{insuranceType.insuranceName}}</a>
                             <!-- <a href="#" class="dropdown-item">Plan 2</a>
                             <a href="#" class="dropdown-item">Plan 3</a> -->
                         </div>
@@ -47,7 +47,8 @@
                         <div class="dropdown-menu">
                             <a routerLink="/viewcustomers" class="dropdown-item">View Customers</a>
                             <a routerLink="/insuranceaccount" class="dropdown-item">Insurance Account</a>
-                            <a routerLink="/policypayment" class="dropdown-item">View Policy Payment</a>
+                            <a routerLink="/policyclaimrequests" class="dropdown-item">View Policy Claim Requests</a>
+                            <a routerLink="/claimpolicies" class="dropdown-item">View Policy Claims</a>
                             <a routerLink="/commisionclaim" class="dropdown-item">View Commision Claim </a>
                         </div>
                     </div>
@@ -219,15 +220,21 @@
                         <div class="nav-item dropdown ">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insurance Plans</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item"  *ngFor="let insuranceType of insuranceTypes" (click)="GoToProtectionPlan(insuranceType.insuranceName)">{{insuranceType.insuranceName}}</a>
+                                <a class="dropdown-item"  *ngFor="let insuranceType of insuranceTypes" (click)="GoToProtectionPlan(insuranceType.insuranceName,insuranceType.id)">{{insuranceType.insuranceName}}</a>
                                 <!-- <a href="#" class="dropdown-item">Plan 2</a>
                                 <a href="#" class="dropdown-item">Plan 3</a> -->
                             </div>
                         </div>     
 
 
-                        <a routerLink="/customeraccount" class="nav-item nav-link">Insurance Account</a>                   
-                        
+                        <!-- <a routerLink="/customeraccount" class="nav-item nav-link">Insurance Account</a>                    -->
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Insurance Account</a>
+                            <div class="dropdown-menu" style="cursor: pointer;">
+                                <a routerLink="/customeraccount" class="dropdown-item">View Insurance Accounts </a>
+                                <a routerLink="/customerclaimpolicy" class="dropdown-item">View Policy Claimed </a>
+                            </div>
+                        </div>
                         <div class="nav-item dropdown ">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Queries</a>
                             <div class="dropdown-menu">

@@ -1,11 +1,16 @@
-<div class="container ">
+<div class="container">
     <div style="text-align: center; margin-bottom:20px;">
         <h1> View Commission Records </h1>
     </div>
 </div>
 
+<<<<<<< HEAD
 <div class="container" #pdfTable>
     <table class="table" >
+=======
+<div class="container border rounded">
+    <table class="table table-striped text-center">
+>>>>>>> 8a9ca7f0ee4ad3efca131da067a661ff32549120
         <thead>
             <tr>
                 <th scope="col">Insurance Ac/No</th>
@@ -13,25 +18,43 @@
                 <th scope="col">Date</th>
                 <th scope="col">Customer</th>
                 <th scope="col">Insurance Scheme</th>
+<<<<<<< HEAD
                 <th scope="col">Payment Amount</th>
 
+=======
+                <th scope="col">Commission-Type</th>
+                <th scope="col">Payment Amount</th>            
+                
+>>>>>>> 8a9ca7f0ee4ad3efca131da067a661ff32549120
             </tr>
         </thead>
         <tbody>
-            <tr class="" *ngFor="let commissionRecord of commissionRecordsList">
+            <tr class="" *ngFor="let commissionRecord of commissionRecordsList?.reverse()">
                 <td>{{commissionRecord.insuranceAccountId}}</td>
                 <td>{{commissionRecord.agentName}}</td>
+<<<<<<< HEAD
                 <td>{{commissionRecord.purchasedDate}}</td>
                 <td>{{commissionRecord.customerName}}</td>
                 <td>{{commissionRecord.insuranceScheme}}</td>
                 <td>{{commissionRecord.commissionAmount}}</td>
+=======
+                <td>{{commissionRecord.purchasedDate | date}}</td>
+                <td>{{commissionRecord.customerName}}</td>                
+                <td>{{commissionRecord.insuranceScheme}}</td> 
+                <td>{{commissionRecord.commissionType}}</td>
+                <td>{{commissionRecord.commissionAmount}}</td> 
+>>>>>>> 8a9ca7f0ee4ad3efca131da067a661ff32549120
             </tr>
-            <tr class="">
+            <tr class="text-center">
 
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
+<<<<<<< HEAD
+=======
+                <td></td> 
+>>>>>>> 8a9ca7f0ee4ad3efca131da067a661ff32549120
                 <th class="font-weight-bold">Total </th>
                 <th class="font-weight-bold">{{totalAmount}}</th>
             </tr>

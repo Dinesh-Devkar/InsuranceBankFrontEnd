@@ -17,7 +17,7 @@
           <tr *ngFor="let insuranceType of insuranceTypesList">
             <th scope="row">{{insuranceType.insuranceName}}</th>
             <td>{{insuranceType.status}}</td>                       
-            <td ><a class="btn btn-info text-light">Edit</a>
+            <td ><a class="btn btn-info text-light" (click)="GoToEditInsuranceTypePage(insuranceType.id)">Edit</a>
           </tr>        
           
         </tbody>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertsService } from 'src/app/services/alert/alerts.service';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 
 @Component({
@@ -10,16 +11,17 @@ export class FeedbackComponent implements OnInit {
 
   queriesList:any
   adminReply:string=''
-  constructor(private dataService:DataServiceService) { }
+  constructor(private dataService:DataServiceService,private alertService:AlertsService) { }
 
   SolveQuery(query:any,reply:string){
     query.reply=reply
     this.adminReply=''
     this.dataService.SolveQuery(query).subscribe((data:any)=>{
-      alert(data.message)
+      this.alertService.Success(data.message)
       this.GetAllQueries()
     },(error:any)=>{
-      alert("Please Add Feedback Message")
+      
+      this.alertService.Failed("Please Add Feedback Message")
       console.log(error)
     })
   }

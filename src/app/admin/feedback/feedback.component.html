@@ -16,11 +16,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let query of queriesList">
+          <tr *ngFor="let query of queriesList?.reverse()">
             <th scope="row">{{query.customerName}}</th>
             <td>{{query.title}}</td>
             <td>{{query.message}}</td>
-            <td>{{query.contactDate}}</td>
+            <td>{{query.contactDate | date}}</td>
             <!-- <td><input type="text" [(ngModel)]="adminReply"  placeholder="Reply"></td> -->
             <td><input type="text" #reply  placeholder="Reply"></td>
             <td ><button class="btn btn-info text-light"  (click)="SolveQuery(query,reply.value)">Post</button></td>

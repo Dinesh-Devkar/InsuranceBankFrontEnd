@@ -136,7 +136,7 @@
         </table>
 
         <div class=" text-center" *ngIf="isUserLoggedIn">
-            <button *ngIf="isEligible" class="btn btn-info text-light m-2" (click)="GoToConfirmDetailsPage()" >Submit</button>
+            <button *ngIf="isEligible" class="btn btn-info text-light m-2" (click)="GoToConfirmDetailsPage()" [disabled]="totalAmount==0" >Submit</button>
             <h1 class="text-secondary" *ngIf="!isEligible" >You Are Not Eligible</h1>
         </div>
     </div>

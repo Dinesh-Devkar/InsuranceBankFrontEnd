@@ -54,12 +54,10 @@ export class EditCustomerComponent implements OnInit {
       }
       else if(sessionStorage.getItem('loggedInuserRoll')=="Agent"){
         this.router.navigate(['/agentdashboard'])
-      }
-      
+      }   
     },(error:any)=>{
       this.alertService.Failed(error.error.message)
     })
-
   }
   ngOnInit(): void {
     this.dataService.GetCustomerDetails(sessionStorage.getItem('customerId')).subscribe((data:any)=>{

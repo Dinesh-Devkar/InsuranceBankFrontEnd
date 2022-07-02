@@ -16,6 +16,7 @@ import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
 import { AskQueryComponent } from './ask-query/ask-query.component';
 import { AccountBlockComponent } from './account-block/account-block.component';
 import { AddDocumentComponent } from './add-document/add-document.component';
+import { CustomerClaimPoliciesComponent } from './customer-claim-policies/customer-claim-policies.component';
 
 
 
@@ -35,6 +36,7 @@ import { AddDocumentComponent } from './add-document/add-document.component';
     AskQueryComponent,
     AccountBlockComponent,
     AddDocumentComponent,
+    CustomerClaimPoliciesComponent,
   
   ],
   imports: [

@@ -30,6 +30,7 @@ import { AgentModule } from './agent/agent.module';
 import { LandingComponent } from './home/landing/landing.component';
 import { EmployeeModule } from './employee/employee.module';
 import { TokenIntercepterService } from './services/token-intercepter.service';
+import {FileUploadModule} from 'primeng/fileupload';
 
 
 
@@ -63,6 +64,7 @@ import { TokenIntercepterService } from './services/token-intercepter.service';
     CustomerModule,
     AgentModule,
     EmployeeModule,
+    FileUploadModule
 
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:TokenIntercepterService,multi:true}],

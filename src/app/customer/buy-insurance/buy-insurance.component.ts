@@ -26,7 +26,8 @@ export class BuyInsuranceComponent implements OnInit {
       maturityDate:new FormControl(''),
       customerName: new FormControl(''),
       customerId: new FormControl(''),
-      agentCode: new FormControl('')
+      agentCode: new FormControl(''),
+      numberOfInstallments:new FormControl('')
   })
   constructor(private dataService:DataServiceService,private customerService:CustomerServiceService,private router:Router,private alertService:AlertsService) { }
   PurchaseInsurancePlan(){
@@ -61,7 +62,8 @@ export class BuyInsuranceComponent implements OnInit {
       maturityDate:data.maturityDate,
       customerName: data.customerName,
       customerId: data.customerId,
-      agentCode: data.agentCode
+      agentCode: data.agentCode,
+      numberOfInstallments:data.numberOfInstallments
     })
     console.log(this.planDetailsForm)
   }

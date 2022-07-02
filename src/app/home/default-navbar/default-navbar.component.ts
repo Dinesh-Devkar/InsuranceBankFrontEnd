@@ -18,8 +18,9 @@ export class DefaultNavbarComponent implements OnInit {
     //this.user=''
     
    }
-   GoToProtectionPlan(insuranceType:string){
+   GoToProtectionPlan(insuranceType:string,id:any){
      
+    sessionStorage.setItem('insuranceTypeId',id)
         this.dataService.SetSelectedInsuranceType(insuranceType)
         this.router.navigate(['/protection'])
   }
