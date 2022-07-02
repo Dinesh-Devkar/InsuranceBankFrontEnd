@@ -57,6 +57,6 @@ export class AgentWithdrawAmountComponent implements OnInit {
     
   }
   get Amount(){
-    return this.withdraw.get('amount')
+    return this.withdraw.get('amount')?.value
   }
 }

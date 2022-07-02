@@ -4,8 +4,8 @@
     </div>
 </div>
 
-<div class="container">
-    <table class="table">
+<div class="container" #pdfTable>
+    <table class="table" >
         <thead>
             <tr>
                 <th scope="col">Insurance Ac/No</th>
@@ -13,8 +13,8 @@
                 <th scope="col">Date</th>
                 <th scope="col">Customer</th>
                 <th scope="col">Insurance Scheme</th>
-                <th scope="col">Payment Amount</th>            
-                
+                <th scope="col">Payment Amount</th>
+
             </tr>
         </thead>
         <tbody>
@@ -22,22 +22,25 @@
                 <td>{{commissionRecord.insuranceAccountId}}</td>
                 <td>{{commissionRecord.agentName}}</td>
                 <td>{{commissionRecord.purchasedDate}}</td>
-                <td>{{commissionRecord.customerName}}</td>                
-                <td>{{commissionRecord.insuranceScheme}}</td> 
-                <td>{{commissionRecord.commissionAmount}}</td> 
+                <td>{{commissionRecord.customerName}}</td>
+                <td>{{commissionRecord.insuranceScheme}}</td>
+                <td>{{commissionRecord.commissionAmount}}</td>
             </tr>
             <tr class="">
 
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td> 
+                <td></td>
                 <th class="font-weight-bold">Total </th>
-                <th class="font-weight-bold">{{totalAmount}}</th>                               
+                <th class="font-weight-bold">{{totalAmount}}</th>
             </tr>
 
         </tbody>
     </table>
+    <div class="container">
+        <p>Download as
+            <button class="btn btn-success m-2" (click)="downloadAsPDF()">Pdf</button>
+        </p>
+    </div>
 </div>
-
-

@@ -30,11 +30,12 @@ isEligible:boolean=true
   investmentAmount:number=0;
   months:number=0;
   installmentAmont:number=0;
-  intrestAmount:any;
+  intrestAmount:number=0;
   totalAmount=0;
   isCustomerLogIn:boolean=true;
   agentCode:number=0
   customerName:string=''
+  numberOfInstallments=0;
 
   //Calculate loggedInUser Age
   
@@ -141,10 +142,29 @@ isEligible:boolean=true
   fillFields(){
     this.intrestAmount= (this.investmentAmount * this.ProfitRatio*this.numberOfYears)/100
     this.totalAmount=this.investmentAmount+this.intrestAmount;
-    this.installmentAmont=this.investmentAmount / this.numberOfYears;    
+    // this.installmentAmont=this.investmentAmount / this.numberOfYears; 
+    this.installmentAmont=this.calculateInstallementAmount();  
+    alert(this.numberOfInstallments) ;
   }
 
-  calculateInstallementAmount(){
-    
+  calculateIntrestAmount():number{
+    return  (this.investmentAmount * this.ProfitRatio*this.numberOfYears)/100
+  }
+  calculateInstallementAmount():number{
+    if(this.months==3){
+      this.numberOfInstallments=this.numberOfYears * 4;
+      return this.investmentAmount / (this.numberOfYears * 4);
+      
+    }
+    if(this.months==6){
+      this.numberOfInstallments=this.numberOfYears * 2;
+      return this.investmentAmount / (this.numberOfYears * 2);
+     
+    }
+    if(this.months==12){
+      this.numberOfInstallments=this.numberOfYears;
+      return this.investmentAmount / this.numberOfYears;      
+    }
+    return 0;
   }
 }

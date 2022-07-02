@@ -4,7 +4,7 @@
     </div>
 </div>
 
-<div class="container border rounded">
+<div class="container border rounded" #pdfTable>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -35,4 +35,9 @@
 
         </tbody>
     </table>
+    <div class="container">
+        <p>Download as
+            <button class="btn btn-success m-2" (click)="downloadAsPDF()">Pdf</button>
+        </p>
+    </div>
 </div>
