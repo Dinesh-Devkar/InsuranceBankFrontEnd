@@ -21,7 +21,7 @@
                     <i class="fa fa-file fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-group form-outline flex-fill mb-0">
                         <label class="form-label">Image</label>
-                        <input type="file" class="form-control">
+                        <input type="file" class="form-control" (change)="OnChange($event.target)">
                         <span style="color: red;" *ngIf="Image && Image.invalid && Image.touched">Image
                             Required</span>
                     </div>
@@ -48,4 +48,7 @@
 
         <button class="btn btn-info text-light my-4" [disabled]="insuranceType.invalid" (click)="UpdateInsuranceType()">Update</button>
     </form>
+    <div class="div">
+        <img [src]="imageUrl" alt="" width="300" height="200">
+    </div>
 </div>

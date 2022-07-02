@@ -1,57 +1,64 @@
-<!-- <div class="container align-items-center p-4 text-center mt-5"
-    style="border-top-left-radius: 30px;border-top-right-radius: 20px; background-color: #f5f5f5;">
-    <p class="text-center h1 fw-bold ">Adding Insurance Type</p>
- <form [formGroup]="insuranceType" class="mx-1" style="margin-top:50px ;" enctype="multipart/form-data">
+<div class="container align-items-center p-4 text-center mt-5"
+  style="border-top-left-radius: 30px;border-top-right-radius: 20px; background-color: #f5f5f5;">
+  <p class="text-center h1 fw-bold ">Adding Insurance Type</p>
+  <form [formGroup]="insuranceType" class="mx-1" style="margin-top:50px ;" enctype="multipart/form-data">
     <div class="row">
-        <div class="col-md-6">
-            <div class="d-flex flex-row align-items-center">
-                <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
-                <div class="form-group form-outline flex-fill mb-0">
-                    <label class="form-label">Insrance Type</label>
-                    <input type="text" class="form-control" formControlName="insuranceName">
-                            <span style="color: red;"
-                                *ngIf="InsuranceType && InsuranceType.invalid && InsuranceType.touched">Insurance Type
-                                Required</span>
-                </div>
-            </div>
+      <div class="col-md-6 mx-auto">
+        <div class="d-flex flex-row align-items-center">
+          <i class="fa fa-user fa-lg me-3 fa-fw mt-4"></i>
+          <div class="form-group form-outline flex-fill mb-0">
+            <label class="form-label">Insrance Type</label>
+            <input type="text" class="form-control" formControlName="insuranceName">
+            <span style="color: red;" *ngIf="InsuranceType && InsuranceType.invalid && InsuranceType.touched">Insurance
+              Type
+              Required</span>
+          </div>
         </div>
+      </div>
 
-        <div class="col-md-6">
-            <div class="d-flex flex-row align-items-center">
-                <i class="fa fa-file fa-lg me-3 fa-fw mt-4"></i>
-                <div class="form-group form-outline flex-fill mb-0">
-                    <label class="form-label">Image</label>
-                    <input type="file" #file class="form-control" (change)="onChange($event)">
-                            <span style="color: red;" *ngIf="Image && Image.invalid && Image.touched">Image
-                                Required</span>
-                </div>
-            </div>
+      
+    </div>
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="d-flex flex-row align-items-center">
+          <i class="fa fa-file fa-lg me-3 fa-fw mt-4"></i>
+          <div class="form-group form-outline flex-fill mb-0">
+            <label class="form-label">Image</label>
+            <input type="file" #file class="form-control" (change)="OnChange($event.target)">
+            <span style="color: red;" *ngIf="Image && Image.invalid && Image.touched">Image
+              Required</span>
+          </div>
         </div>
-    </div>        
+      </div>
+    </div>
     <div class="col-md-6 mx-auto">
 
-        <div class="d-flex flex-row align-items-center mt-3">
-             <i class="fa fa-area-chart fa-lg me-3 fa- mb-5"></i> 
-            <div class="form-group form-outline flex-fill mb-0">
-                <label class="form-label">Select Status</label>
-                <select name="Status" class="form-control" formControlName="status">
-                    <option value="">Select  Status</option>
-                    <option value="Active">Active</option>
-                    <option value="InActive">InActive</option>
-                </select>
-                <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched "> Status
-                    Required</span>
+      <div class="d-flex flex-row align-items-center mt-3">
+        <i class="fa fa-area-chart fa-lg me-3 fa- mt-4"></i>
+        <div class="form-group form-outline flex-fill mb-0">
+          <label class="form-label">Select Status</label>
+          <select name="Status" class="form-control" formControlName="status">
+            <option value="">Select Status</option>
+            <option value="Active">Active</option>
+            <option value="InActive">InActive</option>
+          </select>
+          <span style="color: red;" *ngIf="Status && Status.invalid && Status.touched "> Status
+            Required</span>
 
-            </div>
         </div>
+      </div>
     </div>
-    
-            <div class="container mt-4">
-                <button class="btn btn-info text-light" [disabled]="insuranceType.invalid" (click)="AddInsuranceType()">Submit</button>
-            </div>
-        </form> -->
-        <!-- <img [src]="img" width="200px" height="200px" alt="" /> -->
-    <!-- </div> -->
+
+    <div class="container mt-4">
+      <button class="btn btn-info text-light" [disabled]="insuranceType.invalid"
+        (click)="AddInsuranceType()">Submit</button>
+    </div>
+  </form>
+  <div class="mt-3">
+    <img [src]="img" width="200px" height="200px" alt="" />
+  </div>
+
+</div>
 <!-- 
     <p-fileUpload name="demo[]" url="http://localhost:5137/api/InsuranceType/AddBook" (click)="DK()" (onUpload)="onChange($event)"
     [multiple]="true" accept="image/*" [maxFileSize]="1000000">
@@ -63,27 +70,29 @@
 </p-fileUpload> -->
 
 
-<div class="container">
-    <div class="row">
-      <div class="col s8 offset-2">
-        <div class="card-panel teal lighten-2">
-          <h4 class="center white-text">Image Library</h4>
-        </div>
-        <form #imageForm=ngForm  >
-          <div class="row">
-            <div class="input-field col s12">
-              <input type="text" #Caption ngModel name="Caption" id="Caption" required>
-              <label for="Caption">Caption</label>
-            </div>
-          </div>
-          <img [src]="imageUrl"  style="width:250px;height:200px">
-          <input type="file" name="file" #file ngModel  accept="image/*" (change)="handleFileInput($event.target)">
-          <button type="submit" class="btn-large btn-submit" [disabled]="file.value=='' || !imageForm.valid" (click)="AddInsurance(file)">Submit</button>
-        </form>
+<!-- <div class="container">
+  <div class="row">
+    <div class="col s8 offset-2">
+      <div class="card-panel teal lighten-2">
+        <h4 class="center white-text">Image Library</h4>
       </div>
+      <form #imageForm=ngForm>
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" #Caption ngModel name="Caption" id="Caption" required>
+            <label for="Caption">Caption</label>
+          </div>
+        </div>
+        <img src="http://localhost:5137/images/e2508b4f-7190-4637-8a10-a67e51ff53b9_Konichiva.png"
+          style="width:250px;height:200px">
+        <input type="file" name="file" #file ngModel accept="image/png" (change)="OnChange($event.target)">
+        <button type="submit" class="btn-large btn-submit" [disabled]="file.value=='' || !imageForm.valid"
+          (click)="AddInsurance(Caption.value,file)">Submit</button>
+      </form>
     </div>
-  </div> 
-  <!-- <div class="container">
+  </div>
+</div> -->
+<!-- <div class="container">
     <div class="row">
       <div class="col s8 offset-2">
         <div class="card-panel teal lighten-2">
