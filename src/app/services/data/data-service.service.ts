@@ -93,6 +93,9 @@ export class DataServiceService {
   GetAllCities() {
     return this.http.get(`http://localhost:5137/api/City/GetAllCities`)
   }
+  GetAllActiveStates(){
+    return this.http.get(`http://localhost:5137/api/State/GetAllActiveStates`)
+  }
   GetCitiesByState(state: string) {
     return this.http.get(`http://localhost:5137/api/City/${state}/GetCitiesByState`)
   }
@@ -203,14 +206,14 @@ export class DataServiceService {
    postFile(fileToUpload: any) {
     const endpoint = 'http://localhost:5137/api/InsuranceType/UploadImage';
     //alert(caption)
-    alert(fileToUpload)
-    console.log(fileToUpload)
-    let formData: FormData = new FormData();
-    alert(fileToUpload.name)
-    formData.append('Image', fileToUpload, fileToUpload.name);
+    // alert(fileToUpload)
+    // console.log(fileToUpload)
+    // let formData: FormData = new FormData();
+    // alert(fileToUpload.name)
+    // formData.append('Image', fileToUpload, fileToUpload.name);
     //formData.append('ImageCaption', caption);
-    console.log(formData.get('Image'))
+    console.log(fileToUpload)
     return this.http
-      .post(endpoint, formData);
+      .post(endpoint,fileToUpload);
   }
 }

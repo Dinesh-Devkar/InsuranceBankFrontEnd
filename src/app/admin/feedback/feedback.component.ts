@@ -17,7 +17,7 @@ export class FeedbackComponent implements OnInit {
     query.reply=reply
     this.adminReply=''
     this.dataService.SolveQuery(query).subscribe((data:any)=>{
-      alert(data.message)
+      this.alertService.Success(data.message)
       this.GetAllQueries()
     },(error:any)=>{
       

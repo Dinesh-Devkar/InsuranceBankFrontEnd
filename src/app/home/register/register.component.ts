@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit {
    
   }
   ngOnInit(): void {
-    this.dataService.GetAllStates().subscribe((data:any)=>{
+    this.dataService.GetAllActiveStates().subscribe((data:any)=>{
       console.log(data)
       this.statesList=data.$values
     },(error:any)=>{

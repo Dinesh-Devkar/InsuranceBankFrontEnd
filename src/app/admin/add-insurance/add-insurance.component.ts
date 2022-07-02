@@ -20,11 +20,13 @@ export class AddInsuranceComponent implements OnInit {
   img: any;
   insuranceType=new FormGroup({
     insuranceName:new FormControl('',Validators.required),
-    image:new FormControl(''),
+    image:new FormControl('',Validators.required),
+    status:new FormControl('',Validators.required)
   })
   myimg:any
   fileToUpload !: File;
   imageUrl:string|any='/assets/account.png'
+  binaryImage:any
   constructor(private dataService:DataServiceService,private router:Router,private alertService:AlertsService,private http: HttpClient) { }
 
   handleFileInput(file: any) {
@@ -44,9 +46,32 @@ export class AddInsuranceComponent implements OnInit {
     }
     
   }
-  AddInsurance(image:any){
-    alert(image)
-    this.dataService.postFile(this.fileToUpload).subscribe(
+  // AddInsurance(caption:any,image:any){
+  //   alert("Call Done")
+  //   alert(image)
+  //   alert(this.binaryImage)
+  //   this.insuranceType.setValue({
+  //     insuranceName:caption,
+  //     image:this.binaryImage
+  //   })
+  //   console.log(this.insuranceType.value)
+  //   this.dataService.postFile(this.insuranceType.value).subscribe(
+  //     data =>{
+  //       console.log('done');
+  //       alert("Done")
+       
+  //       //this.imageUrl = "/assets/img/default-image.png";
+  //     },(error:any)=>{
+  //       console.log(error)
+  //     }
+  //   );
+  // }
+  AddInsurance(){
+    alert("Call Done")
+    
+    alert(this.binaryImage)
+    console.log(this.insuranceType.value)
+    this.dataService.postFile(this.insuranceType.value).subscribe(
       data =>{
         console.log('done');
         alert("Done")
@@ -114,17 +139,58 @@ AddInsuranceType(){
           console.log(error)
         })
 }
-DK(){
-  console.log("jjjjjjjjjjjjj")
-}
-onChange(event: any) {
-  
-  for(let file of event.files) {
-    this.uploadedFiles.push(file);
+  myimage!: Observable<any>;
+
+  OnChange($event: any) {
+    alert("My Image Bro 1")
+    //const file = ($event.target as HTMLInputElement).files[0];
+    let file=$event.files[0]
+    this.convertToBase64(file);
+  }
+
+  convertToBase64(file: File) {
     
-    console.log(file)
-    this.insuranceType.get('image')?.setValue(file)
-}
+    let observable = new Observable((subscriber: Subscriber<any>) => {
+      this.readFile(file, subscriber);
+      
+    });
+    
+    observable.subscribe((data:any)=>{
+      alert(data)
+      this.binaryImage=data
+      this.imageUrl=data
+      this.img=data
+      // this.insuranceType.setValue({
+      //   image:this.binaryImage
+      // })
+      this.Image?.setValue(this.binaryImage)
+    })
+  }
+
+  readFile(file: File, subscriber: Subscriber<any>) {
+    const filereader = new FileReader();
+    filereader.readAsDataURL(file);
+
+    filereader.onload = () => {
+      subscriber.next(filereader.result);
+      subscriber.complete();
+    };
+    filereader.onerror = (error) => {
+      subscriber.error(error);
+      subscriber.complete();
+    };
+  }
+// DK(){
+//   console.log("jjjjjjjjjjjjj")
+// }
+// onChange(event: any) {
+  
+//   for(let file of event.files) {
+//     this.uploadedFiles.push(file);
+    
+//     console.log(file)
+//     this.insuranceType.get('image')?.setValue(file)
+// }
 
 //this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
   // const file = event.target.files[0];
@@ -149,7 +215,7 @@ onChange(event: any) {
   // })
 
   
-}
+// }
 
 // convertToBase64(file: File) {
 //    const observable= new Observable((subscriber: Subscriber<any>) => {
