@@ -31,7 +31,8 @@ export class AddEmployeeComponent implements OnInit {
           this.authService.EmployeeRegister(this.employee.value).subscribe((res:any)=>{
             console.log(res);
             // this.alert.Add()
-            this.alertService.Success(res)
+            this.alertService.Success(res.message)
+            //this.employee.value.clear();
             
           },(error:any)=>{
             //this.alert.Failed()
