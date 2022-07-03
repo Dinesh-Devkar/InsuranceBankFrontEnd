@@ -1,5 +1,5 @@
-<div class="container col-md-6 align-items-center p-4 text-center mt-5"
-    style="border-top-left-radius: 30px;border-top-right-radius: 20px; background-color: #f5f5f5;">
+<div class="container col-md-6 align-items-center p-4 text-center my-5"
+    style="border-radius: 30px; background-color: #f5f5f5;">
     <p class="text-center h1 fw-bold ">Add State</p>
 
     <form [formGroup]="state">
@@ -13,7 +13,7 @@
         </div>
         <div class="row">
             <label class="form-lable">Status</label>
-            <select name="Status" formControlName="status">
+            <select name="Status" class="form-control" formControlName="status">
                 <option value="">Select Status</option>
 
                 <option value="Active">Active</option>
@@ -24,7 +24,7 @@
         </div>
         
             <div style="text-align: center; margin-bottom:20px;">
-                <button class="btn btn-danger" [disabled]="state.invalid" (click)="AddState()">Add
+                <button class="btn btn-info text-light mt-4" [disabled]="state.invalid" (click)="AddState()">Add
                 </button>
             </div>
      

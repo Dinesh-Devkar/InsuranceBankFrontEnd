@@ -20,13 +20,14 @@ export class AddStateComponent implements OnInit {
   AddState(){
     this.dataService.AddState(this.state.value).subscribe((data:any)=>{
       console.log(data)
-      alert(data.message)
+      this.alert.Success(data.message)
       this.state.reset()
       // this.alert.Add()
       this.router.navigate(['/dashboard'])
     },(error:any)=>{
      // this.alert.Failed()
-      alert(error.error.message)
+      this.alert.Failed(error.error.message)
+      console.log(error)
     }) 
 
   }
