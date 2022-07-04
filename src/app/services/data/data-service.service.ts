@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -206,11 +206,26 @@ export class DataServiceService {
     alert(fileToUpload)
     console.log(fileToUpload)
     let formData: FormData = new FormData();
-    alert(fileToUpload.name)
-    formData.append('Image', fileToUpload, fileToUpload.name);
-    //formData.append('ImageCaption', caption);
-    console.log(formData.get('Image'))
+    //alert(fileToUpload.name)
+    // let headers = new Headers();
+    // headers.append('Content-Type','application/x-www-form-urlencoded');
+  //   let headers = new HttpHeaders({
+  //     'Content-Type': 'application/x-www-form-urlencoded'
+  //     });
+  // let options = { headers: headers };
+  formData.append('model', fileToUpload);
+    
+    // console.log(formData.get('image'))
+    console.log(formData)
+    let demo:insurance={
+      id:4,
+      image:fileToUpload
+    }
     return this.http
-      .post(endpoint, formData);
+      .post(endpoint,formData);
   }
+}
+export interface insurance{
+  id:number,
+  image:string
 }

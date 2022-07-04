@@ -25,8 +25,53 @@ export class AddInsuranceComponent implements OnInit {
   myimg:any
   fileToUpload !: File;
   imageUrl:string|any='/assets/account.png'
+  binaryImage:any
   constructor(private dataService:DataServiceService,private router:Router,private alertService:AlertsService,private http: HttpClient) { }
+  // UploadImage(){
+  //     this.dataService.postFile(this.binaryImage).subscribe((data:any)=>{
+  //       alert("Image Uploaded")
+  //     },(error:any)=>{
+  //       alert(error)
+  //       console.log(error)
+  //     })
+  // }
+  
+  // ngOnInit(): void {
+  //   // throw new Error('Method not implemented.');
+  // }
 
+  // myimage!: Observable<any>;
+
+  // onChange($event: any) {
+  //   //const file = ($event.target as HTMLInputElement).files[0];
+  //   let file=$event.target.files[0];
+  //   this.convertToBase64(file);
+    
+  // }
+
+  // convertToBase64(file: File) {
+  //   this.myimage = new Observable((subscriber: Subscriber<any>) => {
+  //     this.readFile(file, subscriber);
+  //     alert(file)
+  //   });
+  //   this.myimage.subscribe((data:any)=>{
+  //     alert(data)
+  //     this.binaryImage=data
+  //   })
+  // }
+
+  // readFile(file: File, subscriber: Subscriber<any>) {
+  //   const filereader = new FileReader();
+  //   filereader.readAsDataURL(file);
+
+  //   filereader.onload = () => {
+  //     subscriber.next(filereader.result);
+  //     subscriber.complete();
+  //   };
+  //   filereader.onerror = (error) => {
+  //     subscriber.error(error);
+  //     subscriber.complete();
+  //   };
   handleFileInput(file: any) {
    
     console.log("My File")
@@ -35,7 +80,7 @@ export class AddInsuranceComponent implements OnInit {
     //this.fileToUpload=(file.target as HTMLInputElement).files[0];
     this.fileToUpload=file.files[0]
 
-    this.insuranceType.get('image')?.setValue(this.fileToUpload)
+    //this.insuranceType.get('image')?.setValue(this.fileToUpload)
     //Show image preview
     var reader = new FileReader();
     reader.readAsDataURL(this.fileToUpload);
@@ -212,4 +257,5 @@ onChange(event: any) {
     //   error: (err: HttpErrorResponse) => console.log(err)
     // });
 }
+
 }

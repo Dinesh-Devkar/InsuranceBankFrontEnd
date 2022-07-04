@@ -21,14 +21,13 @@ export class AddCityComponent implements OnInit {
 
   AddCity(){
     this.dataService.AddCity(this.city.value).subscribe((data:any)=>{
-      alert(data.message)
+      this.alert.Success(data.message)
       this.city.reset()
       // this.alert.Add("Aniket Donode");
-      this.alert.delete("Aniket Donode")
       this.router.navigate(['/dashboard'])
     },(error:any)=>{
       //this.alert.Failed();
-      alert(error.error.message)
+      this.alert.Failed(error.error.message)
     })
   }
   ngOnInit(): void {

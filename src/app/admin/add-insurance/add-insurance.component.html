@@ -63,7 +63,7 @@
 </p-fileUpload> -->
 
 
-<div class="container">
+<!-- <div class="container">
     <div class="row">
       <div class="col s8 offset-2">
         <div class="card-panel teal lighten-2">
@@ -77,13 +77,13 @@
             </div>
           </div>
           <img [src]="imageUrl"  style="width:250px;height:200px">
-          <input type="file" name="file" #file ngModel  accept="image/*" (change)="handleFileInput($event.target)">
+          <input type="file" name="file" #file ngModel  accept="*" (change)="handleFileInput($event.target)">
           <button type="submit" class="btn-large btn-submit" [disabled]="file.value=='' || !imageForm.valid" (click)="AddInsurance(file)">Submit</button>
         </form>
       </div>
     </div>
-  </div> 
-  <!-- <div class="container">
+  </div>  -->
+ <div class="container">
     <div class="row">
       <div class="col s8 offset-2">
         <div class="card-panel teal lighten-2">
@@ -98,8 +98,9 @@
           </div>
           <img [src]="imageUrl"  style="width:250px;height:200px">
           <input type="file" name="Image" #Image  accept="image/*" formControlName="image" (change)="handleFileInput($event.target)">
-          <button type="submit" class="btn-large btn-submit" [disabled]="insuranceType.invalid" (click)="onSubmit()">Submit</button>
+          <button type="submit" class="btn-large btn-submit" [disabled]="insuranceType.invalid" (click)="OnSubmit(Caption,Image)">Submit</button>
         </form>
       </div>
     </div>
-  </div> -->
+  </div> 
+

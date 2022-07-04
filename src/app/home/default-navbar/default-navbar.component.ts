@@ -30,6 +30,7 @@ export class DefaultNavbarComponent implements OnInit {
      console.log(this.insuranceTypes)
    },(error:any)=>{
      alert(error.error.message)
+     console.log(error)
    })
     
 
