@@ -13,7 +13,7 @@
         </div>
         <div class="row">
             <label class="form-lable">Status</label>
-            <select name="Status"  class="form-control" formControlName="status">
+            <select name="Status" class="form-control" formControlName="status">
                 <option value="">Select Status</option>
 
                 <option value="Active">Active</option>
@@ -23,7 +23,7 @@
                 Status Required</span>
         </div>
         
-            <div style="text-align: center;">
+            <div style="text-align: center; margin-bottom:20px;">
                 <button class="btn btn-info text-light mt-4" [disabled]="state.invalid" (click)="AddState()">Add
                 </button>
             </div>

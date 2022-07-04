@@ -93,6 +93,9 @@ export class DataServiceService {
   GetAllCities() {
     return this.http.get(`http://localhost:5137/api/City/GetAllCities`)
   }
+  GetAllActiveStates(){
+    return this.http.get(`http://localhost:5137/api/State/GetAllActiveStates`)
+  }
   GetCitiesByState(state: string) {
     return this.http.get(`http://localhost:5137/api/City/${state}/GetCitiesByState`)
   }
@@ -203,26 +206,15 @@ export class DataServiceService {
    postFile(fileToUpload: any) {
     const endpoint = 'http://localhost:5137/api/InsuranceType/UploadImage';
     //alert(caption)
-    alert(fileToUpload)
+    // alert(fileToUpload)
+    // console.log(fileToUpload)
+    // let formData: FormData = new FormData();
+    // alert(fileToUpload.name)
+    // formData.append('Image', fileToUpload, fileToUpload.name);
+    //formData.append('ImageCaption', caption);
     console.log(fileToUpload)
-    let formData: FormData = new FormData();
-    //alert(fileToUpload.name)
-    // let headers = new Headers();
-    // headers.append('Content-Type','application/x-www-form-urlencoded');
-  //   let headers = new HttpHeaders({
-  //     'Content-Type': 'application/x-www-form-urlencoded'
-  //     });
-  // let options = { headers: headers };
-  formData.append('model', fileToUpload);
-    
-    // console.log(formData.get('image'))
-    console.log(formData)
-    let demo:insurance={
-      id:4,
-      image:fileToUpload
-    }
     return this.http
-      .post(endpoint,formData);
+      .post(endpoint,fileToUpload);
   }
 }
 export interface insurance{

@@ -11,7 +11,7 @@
                     <div class="nav-item dropdown ">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insurance Plans</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item"  *ngFor="let insuranceType of insuranceTypes" (click)="GoToProtectionPlan(insuranceType.insuranceName)">{{insuranceType.insuranceName}}</a>
+                            <a class="dropdown-item"  *ngFor="let insuranceType of insuranceTypes" (click)="GoToProtectionPlan(insuranceType.insuranceName,insuranceType.id)">{{insuranceType.insuranceName}}</a>
                             <!-- <a href="#" class="dropdown-item">Plan 2</a>
                             <a href="#" class="dropdown-item">Plan 3</a> -->
                         </div>
@@ -220,7 +220,7 @@
                         <div class="nav-item dropdown ">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Insurance Plans</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item"  *ngFor="let insuranceType of insuranceTypes" (click)="GoToProtectionPlan(insuranceType.insuranceName)">{{insuranceType.insuranceName}}</a>
+                                <a class="dropdown-item"  *ngFor="let insuranceType of insuranceTypes" (click)="GoToProtectionPlan(insuranceType.insuranceName,insuranceType.id)">{{insuranceType.insuranceName}}</a>
                                 <!-- <a href="#" class="dropdown-item">Plan 2</a>
                                 <a href="#" class="dropdown-item">Plan 3</a> -->
                             </div>

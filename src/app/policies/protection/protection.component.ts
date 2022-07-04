@@ -11,6 +11,7 @@ export class ProtectionComponent implements OnInit {
 
   insuranceType:string=''
   insurancePlans:any
+  imageUrl:any
   constructor(private dataService:DataServiceService,private router:Router) { }
 
   GoToInsurancePlanDetails(insurancePlan:string,insuranceScheme:string){
@@ -19,8 +20,14 @@ export class ProtectionComponent implements OnInit {
       this.router.navigate(['/arogyashield'])
   }
   ngOnInit(): void {
+    this.dataService.GetInsuranceType(sessionStorage.getItem('insuranceTypeId')).subscribe((data:any)=>{
+      console.log(data)
+     
+      this.imageUrl=data.image
+    })
     this.dataService.currentInsuranceType.subscribe((data:any)=>{
       this.insuranceType=data
+      console.log(data)
       // this.dataService.GetAllInsuranceSchemesByInsuranceType(data).subscribe((data:any)=>{
       //   this.insuranceSchemes=data.$values
       //   console.log(this.insuranceSchemes)
@@ -30,8 +37,15 @@ export class ProtectionComponent implements OnInit {
       //   alert(error.error.message)
       // })
       this.dataService.GetInsurancePlansByInsuranceType(this.insuranceType).subscribe((data:any)=>{
-        console.log(data)
+        console.log(data.$values)
         this.insurancePlans=data.$values
+        this.dataService.GetInsuranceType(sessionStorage.getItem('insuranceTypeId')).subscribe((data:any)=>{
+          console.log(data)
+         
+          this.imageUrl=data.image
+        })
+        
+        //this.imageUrl='http://localhost:5137/'+data
       })
 
     })
