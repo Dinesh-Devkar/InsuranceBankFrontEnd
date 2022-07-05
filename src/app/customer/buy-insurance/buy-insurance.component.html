@@ -8,7 +8,7 @@
 <div></div>
 
 <div class="container">
-    <form [formGroup]="planDetailsForm">
+    <form [formGroup]="planDetailsForm" #f="ngForm">
         <table class="table p-4 table-striped">
             <tbody>
                 <tr>
@@ -117,7 +117,7 @@
     </form>
     <div class="container text-center">
         <a>
-            <button class="btn btn-danger" (click)="PurchaseInsurancePlan()">Click Here to processed</button>
+            <button class="btn btn-danger" (click)="onSubmit(f)">Click Here to processed</button>
         </a>
     </div>
 </div>

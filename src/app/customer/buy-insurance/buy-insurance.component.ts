@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
-import { FormGroup,FormControl } from '@angular/forms';
+import { FormGroup,FormControl, NgForm } from '@angular/forms';
 import { CustomerServiceService } from 'src/app/services/customer/customer-service.service';
 import { Router } from '@angular/router';
 import { AlertsService } from 'src/app/services/alert/alerts.service';
+import { MembershipServiceService } from 'src/app/services/membership-service.service';
+import { Observable } from 'rxjs';
+import { IMemberShipPlan } from 'src/app/memberships/IMembership';
 
 @Component({
   selector: 'app-buy-insurance',
@@ -11,7 +14,7 @@ import { AlertsService } from 'src/app/services/alert/alerts.service';
   styleUrls: ['./buy-insurance.component.css']
 })
 export class BuyInsuranceComponent implements OnInit {
-
+  $membership: any
   planDetailsForm=new FormGroup({
     insuranceType: new FormControl(''),
       insuranceScheme: new FormControl(''),
@@ -29,7 +32,7 @@ export class BuyInsuranceComponent implements OnInit {
       agentCode: new FormControl(''),
       numberOfInstallments:new FormControl('')
   })
-  constructor(private dataService:DataServiceService,private customerService:CustomerServiceService,private router:Router,private alertService:AlertsService) { }
+  constructor(private dataService:DataServiceService,private customerService:CustomerServiceService,private router:Router,private alertService:AlertsService,private membershipService:MembershipServiceService) { }
   PurchaseInsurancePlan(){
     this.customerService.PurchaseInsurancePlan(this.planDetailsForm.value).subscribe((data:any)=>{
       
@@ -43,8 +46,11 @@ export class BuyInsuranceComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.membershipService.getMembership().subscribe((data:any)=>{
+     this.$membership=data
+    });
     
-    console.log(this.dataService.GetInsuranceAccountDetails())
+    //console.log(this.dataService.GetInsuranceAccountDetails())
     //this.planDetailsForm=this.dataService.GetInsuranceAccountDetails()
     let data=this.dataService.GetInsuranceAccountDetails();
     
@@ -67,5 +73,8 @@ export class BuyInsuranceComponent implements OnInit {
     })
     console.log(this.planDetailsForm)
   }
-
+  onSubmit(f: any) {
+    this.membershipService.requestMemberSession(this.$membership.priceId);
+    this.PurchaseInsurancePlan()
+  }
 }

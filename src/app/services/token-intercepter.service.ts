@@ -16,7 +16,7 @@ export class TokenIntercepterService  implements HttpInterceptor{
     let jwtToken=req.clone({
       setHeaders:{
         'Accept': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         'enctype': 'multipart/form-data',
         'Authorization':"Bearer "+token
       }

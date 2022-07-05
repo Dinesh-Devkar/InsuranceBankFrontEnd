@@ -143,7 +143,7 @@ isEligible:boolean=true
     this.intrestAmount= (this.investmentAmount * this.ProfitRatio*this.numberOfYears)/100
     this.totalAmount=this.investmentAmount+this.intrestAmount;
     this.installmentAmont=this.calculateInstallementAmount();
-    alert(this.numberOfInstallments)    
+     
   }
   calculateInstallementAmount():number{ 
     if(this.months==3){ 
