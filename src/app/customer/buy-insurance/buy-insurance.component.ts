@@ -41,6 +41,7 @@ export class BuyInsuranceComponent implements OnInit {
       this.router.navigate(['/customerdashboard'])
     },(error:any)=>{
       //alert(error.error.message)
+      console.log(error)
       this.alertService.Failed(error.message.message)   
     })
   }
@@ -74,7 +75,9 @@ export class BuyInsuranceComponent implements OnInit {
     console.log(this.planDetailsForm)
   }
   onSubmit(f: any) {
+    //this.membershipService.SetPurchaseInsurancePlan(this.planDetailsForm.value);
+    sessionStorage.setItem('insurancePlan',JSON.stringify(this.planDetailsForm.value))
     this.membershipService.requestMemberSession(this.$membership.priceId);
-    this.PurchaseInsurancePlan()
+    //this.PurchaseInsurancePlan()
   }
 }

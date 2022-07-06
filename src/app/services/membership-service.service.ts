@@ -10,6 +10,7 @@ declare const Stripe: any;
 })
 export class MembershipServiceService {
   
+  purchaseInsurancelan:any
   constructor(private http:HttpClient,private dataService:DataServiceService) { }
   getMembership(): Observable<IMemberShipPlan> {
     return of({
@@ -25,6 +26,12 @@ export class MembershipServiceService {
     });
   }
   
+  SetPurchaseInsurancePlan(insurancePlan:any){
+    this.purchaseInsurancelan=insurancePlan;
+  }
+  GetPurchaseInsurancePlan(){
+    return this.purchaseInsurancelan;
+  }
   
 requestMemberSession(priceId: string): void {
     this.http
