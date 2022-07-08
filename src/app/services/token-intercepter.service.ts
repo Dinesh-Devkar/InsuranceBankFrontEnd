@@ -17,6 +17,7 @@ export class TokenIntercepterService  implements HttpInterceptor{
       setHeaders:{
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'enctype': 'multipart/form-data',
         'Authorization':"Bearer "+token
       }
     })

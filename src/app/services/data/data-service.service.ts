@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -216,4 +216,8 @@ export class DataServiceService {
     return this.http
       .post(endpoint,fileToUpload);
   }
+}
+export interface insurance{
+  id:number,
+  image:string
 }

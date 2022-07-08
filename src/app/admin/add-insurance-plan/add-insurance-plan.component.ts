@@ -37,6 +37,7 @@ export class AddInsurancePlanComponent implements OnInit {
         this.router.navigate(['/dashboard'])
       },(error:any)=>{
         this.alertService.Failed(error.error.message)
+        console.log(error)
       })
   }
   GenerateInsuranceSchemeList(insuranceType:any){

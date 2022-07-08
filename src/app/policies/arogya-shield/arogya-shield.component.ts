@@ -35,7 +35,7 @@ isEligible:boolean=true
   isCustomerLogIn:boolean=true;
   agentCode:number=0
   customerName:string=''
-
+  priceId:string=''
   //Calculate loggedInUser Age
   
 	today = new Date(); 
@@ -61,7 +61,7 @@ isEligible:boolean=true
           
           
          this.selectedPlan=res
-        
+          this.priceId=res.priceId
          this.planDetails.setValue({
            minimumYears:res.minimumYears,
            maximumYears:res.maximumYears,
@@ -130,7 +130,8 @@ isEligible:boolean=true
       customerName: this.customerName,
       customerId: sessionStorage.getItem("loggedInUser"),
       agentCode: this.agentCode,
-      numberOfInstallments:this.numberOfInstallments
+      numberOfInstallments:this.numberOfInstallments,
+      priceId:this.priceId
     }
 
     this.dataService.SetInsuranceAccountDetails(insuranceAccount);
@@ -143,7 +144,7 @@ isEligible:boolean=true
     this.intrestAmount= (this.investmentAmount * this.ProfitRatio*this.numberOfYears)/100
     this.totalAmount=this.investmentAmount+this.intrestAmount;
     this.installmentAmont=this.calculateInstallementAmount();
-    alert(this.numberOfInstallments)    
+     
   }
   calculateInstallementAmount():number{ 
     if(this.months==3){ 

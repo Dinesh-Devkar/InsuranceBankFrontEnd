@@ -19,6 +19,7 @@
                 <th scope="col">Profit Ratio</th>
                 <th scope="col">Sum assured</th>
                 <th scope="col">View</th>
+                <th scope="col">Action</th>
                                
             </tr>
         </thead>
@@ -34,7 +35,7 @@
                 <td>{{insuranceAccount.profitRatio}}</td> 
                 <td>{{insuranceAccount.totalAmount}}</td> 
                 <td><a  class="btn btn-info text-light p-0" (click)="ViewInsuranceAccountDetails(insuranceAccount.accountNumber)">View More</a></td> 
-              
+                <td><a class="btn btn-info text-light p-0" (click)="GoToBillingPortal()">BillingPortal</a></td>
             </tr>
             
 

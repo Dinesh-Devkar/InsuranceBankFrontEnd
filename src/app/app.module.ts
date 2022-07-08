@@ -31,6 +31,8 @@ import { LandingComponent } from './home/landing/landing.component';
 import { EmployeeModule } from './employee/employee.module';
 import { TokenIntercepterService } from './services/token-intercepter.service';
 import {FileUploadModule} from 'primeng/fileupload';
+import { MembershipSuccessComponent } from './memberships/membership-success/membership-success.component';
+import { MembershipFailureComponent } from './memberships/membership-failure/membership-failure.component';
 
 
 
@@ -51,6 +53,8 @@ import {FileUploadModule} from 'primeng/fileupload';
     // EmpDashboardComponent,
     LandingComponent,
     AddCustomerComponent,
+    MembershipSuccessComponent,
+    MembershipFailureComponent,
     
   ],
   imports: [

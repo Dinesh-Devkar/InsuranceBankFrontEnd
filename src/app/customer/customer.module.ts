@@ -17,6 +17,9 @@ import { AskQueryComponent } from './ask-query/ask-query.component';
 import { AccountBlockComponent } from './account-block/account-block.component';
 import { AddDocumentComponent } from './add-document/add-document.component';
 import { CustomerClaimPoliciesComponent } from './customer-claim-policies/customer-claim-policies.component';
+import { MembershipCheckoutComponent } from './membership-checkout/membership-checkout.component';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+import { PaymentFailureComponent } from './payment-failure/payment-failure.component';
 
 
 
@@ -37,6 +40,9 @@ import { CustomerClaimPoliciesComponent } from './customer-claim-policies/custom
     AccountBlockComponent,
     AddDocumentComponent,
     CustomerClaimPoliciesComponent,
+    MembershipCheckoutComponent,
+    PaymentSuccessComponent,
+    PaymentFailureComponent,
   
   ],
   imports: [
