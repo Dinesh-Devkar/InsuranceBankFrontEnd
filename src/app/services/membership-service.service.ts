@@ -17,7 +17,7 @@ export class MembershipServiceService {
       id : "prod_LziOfakZ2E9zAO",
       priceId:'price_1LHixNSBgKTZYyeaIsQhdK4M',
       name:'Child Plan',
-      price:'100',
+      price:'150',
       features:[
         'Hello',
         'Good',
@@ -43,6 +43,8 @@ requestMemberSession(priceId: string): void {
       .subscribe((session) => {
         this.redirectToCheckout(session);
 
+      },(error:any)=>{
+        console.log(error)
       });
   }
 

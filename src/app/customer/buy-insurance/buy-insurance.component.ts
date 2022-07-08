@@ -15,6 +15,7 @@ import { IMemberShipPlan } from 'src/app/memberships/IMembership';
 })
 export class BuyInsuranceComponent implements OnInit {
   $membership: any
+  priceId:string=''
   planDetailsForm=new FormGroup({
     insuranceType: new FormControl(''),
       insuranceScheme: new FormControl(''),
@@ -30,7 +31,8 @@ export class BuyInsuranceComponent implements OnInit {
       customerName: new FormControl(''),
       customerId: new FormControl(''),
       agentCode: new FormControl(''),
-      numberOfInstallments:new FormControl('')
+      numberOfInstallments:new FormControl(''),
+      
   })
   constructor(private dataService:DataServiceService,private customerService:CustomerServiceService,private router:Router,private alertService:AlertsService,private membershipService:MembershipServiceService) { }
   PurchaseInsurancePlan(){
@@ -54,7 +56,8 @@ export class BuyInsuranceComponent implements OnInit {
     //console.log(this.dataService.GetInsuranceAccountDetails())
     //this.planDetailsForm=this.dataService.GetInsuranceAccountDetails()
     let data=this.dataService.GetInsuranceAccountDetails();
-    
+    console.log(data)
+    this.priceId=data.priceId
     this.planDetailsForm.setValue({
       insuranceType: data.insuranceType,
       insuranceScheme: data.insuranceScheme,
@@ -70,14 +73,17 @@ export class BuyInsuranceComponent implements OnInit {
       customerName: data.customerName,
       customerId: data.customerId,
       agentCode: data.agentCode,
-      numberOfInstallments:data.numberOfInstallments
+      numberOfInstallments:data.numberOfInstallments,
+      
     })
     console.log(this.planDetailsForm)
   }
   onSubmit(f: any) {
     //this.membershipService.SetPurchaseInsurancePlan(this.planDetailsForm.value);
     sessionStorage.setItem('insurancePlan',JSON.stringify(this.planDetailsForm.value))
-    this.membershipService.requestMemberSession(this.$membership.priceId);
+    
+    console.log(this.priceId)
+    this.membershipService.requestMemberSession(this.priceId);
     //this.PurchaseInsurancePlan()
   }
 }
